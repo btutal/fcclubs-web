@@ -450,4 +450,16 @@ section {
     .carousel-track {
         padding: 40px 20px;
     }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-col.links {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
 }
