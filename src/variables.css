@@ -1,0 +1,19 @@
+:root {
+  /* Colors from ClubsTheme.swift */
+  --bg-midnight: #021230;     /* midnight */
+  --bg-deep-sea: #082E54;     /* deepSea */
+  --color-electric-blue: #3BADF7; /* electricBlue */
+  --color-neon-green: #42FEC2;    /* neonGreen */
+  --color-magenta: #E36BD9;       /* magenta */
+  --color-amber: #FFC254;         /* amber */
+  --color-slate: #54638A;         /* slate */
+  --color-card-bg: #121729;
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, var(--bg-midnight), var(--bg-deep-sea), #0D1C3D);
+  --gradient-pitch: linear-gradient(to top, rgba(59, 173, 247, 0.6), rgba(227, 107, 217, 0.4), rgba(66, 254, 194, 0.6), rgba(59, 173, 247, 0.6));
+  --gradient-aura: linear-gradient(135deg, rgba(59, 173, 247, 0.9), rgba(66, 254, 194, 0.8));
+}
