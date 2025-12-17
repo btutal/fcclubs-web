@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/app-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FC Clubs App - Release Notes and Updates" />
+    <meta name="theme-color" content="#021230" />
+
+    <title>What's New | FC Clubs App</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>body { background-color: #021230; color: white; }</style>
+    
+    <link rel="stylesheet" href="/src/variables.css">
+    <link rel="stylesheet" href="/src/style.css">
+    
+    <style>
+        .updates-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 140px 20px 100px;
+        }
+        
+        .version-block {
+            margin-bottom: 80px;
+            position: relative;
+            padding-left: 40px;
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .version-number {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .version-date {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            font-weight: 500;
+            margin-bottom: 24px;
+            display: block;
+        }
+        
+        .latest-badge {
+            background: var(--gradient-aura);
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 99px;
+            color: #000;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .version-marker {
+            position: absolute;
+            left: -6px;
+            top: 12px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--color-neon-green);
+            box-shadow: 0 0 10px rgba(66, 254, 194, 0.4);
+        }
+        
+        .version-block.past .version-marker {
+            background: rgba(255,255,255,0.2);
+            box-shadow: none;
+        }
+
+        .release-intro {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            margin-bottom: 24px;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .feature-desc {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+        }
+        
+        .fix-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .fix-note a {
+            color: var(--color-electric-blue);
+            text-decoration: underline;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Nav -->
+      <nav class="navbar">
+        <div class="container nav-content">
+          <a href="/" class="logo">
+            <img src="/assets/app-icon.png" alt="FC Clubs Logo" class="nav-logo-img">
+            <span>FC Clubs</span>
+          </a>
+          <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/src/whats-new.html">What's New</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Content -->
+      <main class="updates-container">
+        <h1 class="section-title" style="text-align: left; margin-bottom: 60px;">What's New</h1>
+
+        <!-- v1.0.2 -->
+        <article class="version-block">
+            <div class="version-marker"></div>
+            <h2 class="version-number">
+                v1.0.2
+                <span class="latest-badge">Current Version</span>
+            </h2>
+            <span class="version-date">December 2025</span>
+            
+            <p class="release-intro">A major upgrade to the core experience. We've redesigned the dashboard and added powerful new scouting tools.</p>
+            
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <span class="feature-title">Redesigned Dashboard</span>
+                    <span class="feature-desc">New unified "Identity Card" featuring your club crest, Prestige Badge, and your player card at a glance.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Scout View</span>
+                    <span class="feature-desc">Analyze opponent clubs with detailed scouting reports—squad depth, key threats, and performance stats.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Previous Meetings</span>
+                    <span class="feature-desc">Track your rivalry history with any club you've faced before.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Search & Rankings</span>
+                    <span class="feature-desc">A dedicated tab for finding clubs and viewing consolidated Squad Rankings—know who the MVP is.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Background Sync</span>
+                    <span class="feature-desc">Your matches now update automatically in the background so you're always up to date.</span>
+                </li>
+                 <li class="feature-item">
+                    <span class="feature-title">Glossary</span>
+                    <span class="feature-desc">Quick access to stat definitions from match details and rankings.</span>
+                </li>
+            </ul>
+            
+            <div class="fix-note">
+                <strong>Fixes:</strong> Theme-consistent icons and improved region display. <br>
+                Thanks to <a href="https://github.com/setokop" target="_blank">@setokop</a> for reporting <a href="https://github.com/btutal/fcclubs-web/issues/1" target="_blank">Issue #1</a>.
+            </div>
+        </article>
+
+        <!-- v1.0.1 -->
+        <article class="version-block past">
+            <div class="version-marker"></div>
+            <h2 class="version-number">v1.0.1</h2>
+            <span class="version-date">Initial Release</span>
+            
+            <p class="release-intro">Welcome to FC Clubs! The ultimate companion for Pro Clubs is finally here.</p>
+            
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <span class="feature-title">Match Tracking</span>
+                    <span class="feature-desc">Detailed stats for every match, including possession, shots, and player ratings.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Squad Cards</span>
+                    <span class="feature-desc">Beautiful, dynamic player cards that evolve as you play.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Tactical Maps</span>
+                    <span class="feature-desc">Visualize formations and player positioning.</span>
+                </li>
+            </ul>
+        </article>
+
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container footer-content">
+          <div class="footer-col">
+            <span class="logo-text">FC Clubs</span>
+            <p class="footer-desc">Unofficial companion app. Not affiliated with EA Sports.</p>
+          </div>
+          <div class="footer-col links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Service</a>
+            <a href="whats-new.html" style="color: #fff">What's New</a>
+             <a href="https://github.com/btutal/fcclubs-web/issues/new?template=bug_report.yml" target="_blank">Report a Bug</a>
+          </div>
+        </div>
+        <div class="footer-bottom text-center">
+          <p>&copy; 2025 FC Clubs App. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

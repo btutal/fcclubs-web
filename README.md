@@ -18,8 +18,14 @@ The official roadmap and feature status are maintained in the iOS project's Prod
 ## Development
 To run the website locally:
 1. Open terminal in this folder.
-2. Run `npm install` (if package.json exists) or serve the static files using a local server.
-3. Open `localhost` in your browser.
+2. Run `npm install` to install dependencies.
+3. Run `npm run dev` to start the local development server.
+4. Open the following links in your browser:
+    - **Home**: `http://localhost:5173/`
+    - **Release Notes**: `http://localhost:5173/src/whats-new.html`
+
+> [!NOTE]
+> The port `5173` is the default for Vite. If it's occupied, check the terminal output for the correct port.
 
 ## Feedback & Support
 This repository is also the central hub for:
