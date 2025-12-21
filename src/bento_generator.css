@@ -1,0 +1,630 @@
+/* =============================================
+   BENTO GENERATOR v11 - CLEAN REBUILD
+   ============================================= */
+
+:root {
+    --color-electric-blue: #3BADF7;
+    --color-neon-green: #42FEC2;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+#app-generator {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* =============================================
+   SIDEBAR CONTROLS
+   ============================================= */
+
+.controls {
+    width: 280px;
+    background: #08090c;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.control-header {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.control-header h2 { font-size: 0.85rem; font-weight: 600; }
+
+.control-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px;
+}
+
+.control-section { margin-bottom: 14px; }
+.section-title {
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 0.12em;
+}
+
+.divider { border: 0; height: 1px; background: rgba(255,255,255,0.03); margin: 2px 0 14px 0; }
+
+.control-group { margin-bottom: 6px; }
+.control-group label {
+    display: block;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 3px;
+    font-weight: 500;
+}
+
+input, textarea, select {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 5px;
+    padding: 6px 8px;
+    color: white;
+    font-family: inherit;
+    font-size: 0.75rem;
+}
+input:focus, textarea:focus, select:focus {
+    border-color: var(--color-electric-blue);
+    outline: none;
+}
+textarea { resize: vertical; }
+
+.half-row { display: flex; gap: 5px; }
+.half-row > * { flex: 1; }
+
+.btn-secondary {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    min-width: 36px;
+}
+
+.export-btn {
+    margin: 10px 14px 14px;
+    background: var(--color-electric-blue);
+    color: #000;
+    font-weight: 700;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.preview-stage {
+    flex: 1;
+    background: #030405;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    padding: 24px;
+}
+
+/* =============================================
+   BENTO CANVAS BASE
+   ============================================= */
+
+.bento-canvas {
+    background: radial-gradient(ellipse at 75% 25%, #0a1e3d 0%, #040910 50%, #020304 100%);
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.95);
+    padding: 20px;
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(12, 1fr);
+    -webkit-font-smoothing: antialiased;
+    transform-origin: center center;
+}
+
+/* =============================================
+   FORMAT LAYOUTS
+   ============================================= */
+
+/* IG Square (1080×1080) - Balanced Layout */
+.bento-canvas.format-ig-square {
+    width: 1080px;
+    height: 1080px;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-areas:
+        "H H H H H H B B B B B B"
+        "H H H H H H B B B B B B"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
+        "H H H H H H F F F F F F"
+        "H H H H H H F F F F F F"
+        "H H H H H H F F F F F F";
+}
+
+/* IG Portrait (1080×1350) */
+.bento-canvas.format-ig-portrait {
+    width: 1080px;
+    height: 1350px;
+    grid-template-rows: repeat(15, 1fr);
+    grid-template-areas:
+        "B B B B B B B B B B B B"
+        "B B B B B B B B B B B B"
+        "H H H H H H H H H H H H"
+        "H H H H H H H H H H H H"
+        "H H H H H H H H H H H H"
+        "H H H H H H H H H H H H"
+        "H H H H H H H H H H H H"
+        "I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2"
+        "I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2"
+        "I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2"
+        "S1 S1 S1 S1 S1 S1 S2 S2 S2 S2 S2 S2"
+        "S1 S1 S1 S1 S1 S1 S2 S2 S2 S2 S2 S2"
+        "S1 S1 S1 S1 S1 S1 S2 S2 S2 S2 S2 S2"
+        "F F F F F F F F F F F F"
+        "F F F F F F F F F F F F";
+}
+
+/* IG Story (1080×1920) */
+.bento-canvas.format-ig-story {
+    width: 1080px;
+    height: 1920px;
+    grid-template-rows: repeat(16, 1fr);
+    grid-template-areas:
+        "B B B B B B B B B B B B"
+        "B B B B B B B B B B B B"
+        "H H H H H H H H H H H H"
+        "H H H H H H H H H H H H"
+        "H H H H H H H H H H H H"
+        "H H H H H H H H H H H H"
+        "H H H H H H H H H H H H"
+        "I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2"
+        "I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2"
+        "I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2 I2"
+        "S1 S1 S1 S1 S1 S1 S2 S2 S2 S2 S2 S2"
+        "S1 S1 S1 S1 S1 S1 S2 S2 S2 S2 S2 S2"
+        "S1 S1 S1 S1 S1 S1 S2 S2 S2 S2 S2 S2"
+        "F F F F F F F F F F F F"
+        "F F F F F F F F F F F F"
+        "F F F F F F F F F F F F";
+}
+
+/* LinkedIn Square (1080×1080) - Dense Multi-Box Layout */
+.bento-canvas.format-li-square {
+    width: 1080px;
+    height: 1080px;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-areas:
+        "H H H H H H B B B B B B"
+        "H H H H H H B B B B B B"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
+        "H H H H H H F F F F F F"
+        "H H H H H H F F F F F F"
+        "H H H H H H F F F F F F"
+        "H H H H H H F F F F F F";
+}
+
+/* LinkedIn Portrait (1920×1080) */
+.bento-canvas.format-li-portrait {
+    width: 1920px;
+    height: 1080px;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas:
+        "H H H H H B B B I2 I2 I2 I2"
+        "H H H H H B B B I2 I2 I2 I2"
+        "H H H H H B B B I2 I2 I2 I2"
+        "H H H H H S1 S1 S1 S2 S2 S2 S2"
+        "H H H H H S1 S1 S1 S2 S2 S2 S2"
+        "H H H H H S1 S1 S1 S2 S2 S2 S2"
+        "H H H H H F F F F F F F"
+        "H H H H H F F F F F F F"
+        "H H H H H F F F F F F F";
+}
+
+/* LinkedIn Landscape (1200×626) */
+.bento-canvas.format-li-landscape {
+    width: 1200px;
+    height: 626px;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas:
+        "H H H H H B B B B B B B"
+        "H H H H H B B B B B B B"
+        "H H H H H I2 I2 I2 I2 I2 I2 I2"
+        "H H H H H I2 I2 I2 I2 I2 I2 I2"
+        "S1 S1 S1 S2 S2 S2 F F F F F F"
+        "S1 S1 S1 S2 S2 S2 F F F F F F";
+}
+
+/* X Landscape (1600×900) */
+.bento-canvas.format-x-landscape {
+    width: 1600px;
+    height: 900px;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas:
+        "H H H H H B B B B I2 I2 I2"
+        "H H H H H B B B B I2 I2 I2"
+        "H H H H H B B B B I2 I2 I2"
+        "H H H H H I2 I2 I2 I2 I2 I2 I2"
+        "H H H H H I2 I2 I2 I2 I2 I2 I2"
+        "H H H H H S1 S1 S1 S2 S2 S2 S2"
+        "H H H H H S1 S1 S1 S2 S2 S2 S2"
+        "H H H H H F F F F F F F"
+        "H H H H H F F F F F F F";
+}
+
+/* X Square (1080×1080) - Dense Multi-Box Layout */
+.bento-canvas.format-x-square {
+    width: 1080px;
+    height: 1080px;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-areas:
+        "H H H H H H B B B B B B"
+        "H H H H H H B B B B B B"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H I2 I2 I2 I2 I2 I2"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
+        "H H H H H H F F F F F F"
+        "H H H H H H F F F F F F"
+        "H H H H H H F F F F F F"
+        "H H H H H H F F F F F F";
+}
+
+/* =============================================
+   BOX STYLES
+   ============================================= */
+
+.bento-box {
+    background: rgba(255,255,255,0.015);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* HERO BOX */
+.box-hero {
+    grid-area: H;
+    background: #000;
+    border-color: rgba(255,255,255,0.08);
+}
+
+.hero-text-overlay {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    z-index: 10;
+}
+
+.hero-text-overlay h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 3px 30px rgba(0,0,0,0.9);
+    letter-spacing: -0.03em;
+}
+
+.hero-img-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    opacity: 0.65;
+}
+
+.hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.4) 100%);
+    z-index: 5;
+}
+
+/* BRAND BOX - Strong Horizontal Layout */
+.box-brand {
+    grid-area: B;
+    background: #020406;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px 24px;
+}
+
+.brand-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    flex-shrink: 0;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.brand-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.brand-tagline {
+    font-size: 0.75rem;
+    color: var(--color-electric-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* SECONDARY SCREENSHOT */
+.box-img2 {
+    grid-area: I2;
+    background: #020406;
+    border-color: rgba(255,255,255,0.05);
+}
+
+.device-img-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.device-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    opacity: 0.9;
+}
+
+.img2-text-overlay {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+}
+
+.img2-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+}
+
+/* Img2 title styles */
+.img2-title-style-white .img2-title { color: #fff; }
+.img2-title-style-gradient-blue .img2-title {
+    background: linear-gradient(135deg, #3BADF7 0%, #42FEC2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.img2-title-style-gradient-green .img2-title {
+    background: linear-gradient(135deg, #42FEC2 0%, #A8FF78 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.img2-title-style-neon-green .img2-title {
+    color: #42FEC2;
+    text-shadow: 0 0 20px rgba(66, 254, 194, 0.5);
+}
+
+.device-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 70%, rgba(2,4,6,0.95) 100%);
+}
+
+/* STAT BOXES */
+.box-stat-1 {
+    grid-area: S1;
+    background: linear-gradient(135deg, rgba(66, 254, 194, 0.1) 0%, rgba(66, 254, 194, 0.02) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-stat-2 {
+    grid-area: S2;
+    background: linear-gradient(135deg, rgba(227, 107, 217, 0.1) 0%, rgba(227, 107, 217, 0.02) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.box-stat-1 .stat-value {
+    color: var(--color-neon-green);
+    font-size: 5rem;
+}
+.box-stat-1.stat-style-blue .stat-value { color: #3BADF7; }
+.box-stat-1.stat-style-pink .stat-value { color: #E36BD9; }
+.box-stat-1.stat-style-gold .stat-value { color: #FFC254; }
+.box-stat-1.stat-style-white .stat-value { color: #fff; }
+
+.box-stat-2 .stat-value {
+    color: #E36BD9;
+    font-size: 4rem;
+}
+.box-stat-2.stat-style-green .stat-value { color: var(--color-neon-green); }
+.box-stat-2.stat-style-blue .stat-value { color: #3BADF7; }
+.box-stat-2.stat-style-gold .stat-value { color: #FFC254; }
+.box-stat-2.stat-style-white .stat-value { color: #fff; }
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 8px;
+}
+
+.stat-desc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 4px;
+    text-align: center;
+}
+
+/* FEATURE BOX */
+.box-feature {
+    grid-area: F;
+    background: #111;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.feature-img-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.feature-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+}
+
+.feature-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 100%);
+    z-index: 2;
+}
+
+.feature-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+    position: relative;
+    gap: 8px;
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 2px;
+}
+
+.feature-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+}
+
+.feature-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-top: 2px;
+}
+
+/* =============================================
+   HEADLINE TEXT STYLES
+   ============================================= */
+
+.text-style-white h1 { color: #fff; }
+
+.text-style-gradient-blue h1 {
+    background: linear-gradient(135deg, #3BADF7 0%, #42FEC2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-style-gradient-green h1 {
+    background: linear-gradient(135deg, #42FEC2 0%, #A8FF78 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-style-gradient-pink h1 {
+    background: linear-gradient(135deg, #E36BD9 0%, #FF6B6B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-style-gradient-gold h1 {
+    background: linear-gradient(135deg, #FFC254 0%, #FF8C00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-style-neon-blue h1 {
+    color: #3BADF7;
+    text-shadow: 0 0 30px rgba(59, 173, 247, 0.5), 0 0 60px rgba(59, 173, 247, 0.3);
+}
+
+.text-style-neon-green h1 {
+    color: #42FEC2;
+    text-shadow: 0 0 30px rgba(66, 254, 194, 0.5), 0 0 60px rgba(66, 254, 194, 0.3);
+}

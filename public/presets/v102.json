@@ -1,0 +1,25 @@
+{
+    "heroTitle": "Scout Your\nRivals.",
+    "heroSub": "Know their weaknesses before kickoff.",
+    "heroImg": "/assets/screenshots/iphone-scout.png",
+    "tagline": "SCOUT",
+    "tagSub": "MODE",
+    "tagIcon": "target",
+    
+    "stat1Value": "New",
+    "stat1Label": "Dashboard 2.0",
+    "stat1Desc": "Unified player identity.",
+    "stat1Icon": "user",
+    
+    "stat2Value": "H2H",
+    "stat2Label": "Rivalry History",
+    "stat2Desc": "Track repeat opponents.",
+    "stat2Icon": "chart",
+    
+    "featTitle": "Deep Analysis",
+    "featDesc": "Full tactical breakdown of any club.",
+    "featIcon": "shield",
+    
+    "imgPosX": "100",
+    "imgPosY": "100"
+}

@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FC Clubs Bento Generator</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/src/variables.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/bento_generator.css">
+    
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <div id="app-generator">
+      <aside class="controls">
+        <div class="control-header">
+           <img src="/assets/app-icon.png" alt="Logo" width="32" style="border-radius: 8px;">
+           <h2>Bento Gen <span style="opacity:0.5; font-weight:400; font-size:0.8em;">v4</span></h2>
+        </div>
+        
+        <div class="control-scroll">
+            
+            <!-- LAYOUT -->
+            <div class="control-section">
+                <div class="section-title">Canvas</div>
+                <div class="control-group">
+                  <label>Format</label>
+                  <select id="formatSelect">
+                    <optgroup label="Instagram">
+                        <option value="ig-square">Square (1080×1080)</option>
+                        <option value="ig-portrait">Portrait (1080×1350)</option>
+                        <option value="ig-story">Story (1080×1920)</option>
+                    </optgroup>
+                    <optgroup label="LinkedIn">
+                        <option value="li-square">Square (1080×1080)</option>
+                        <option value="li-portrait">Portrait (1920×1080)</option>
+                        <option value="li-landscape">Landscape (1200×626)</option>
+                    </optgroup>
+                    <optgroup label="Twitter/X">
+                        <option value="x-landscape">Landscape (1600×900)</option>
+                        <option value="x-square">Square (1080×1080)</option>
+                    </optgroup>
+                  </select>
+                </div>
+                
+                <div class="control-group">
+                  <label>Preset</label>
+                  <div class="half-row">
+                      <select id="themeSelect">
+                        <option value="overview">App Overview</option>
+                        <option value="v102">v1.0.2 Release</option>
+                        <option value="v103">v1.0.3 Release</option>
+                      </select>
+                      <button id="saveBtn" class="btn-secondary">💾</button>
+                  </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- HERO -->
+            <div class="control-section">
+                <div class="section-title">Hero</div>
+                <div class="control-group">
+                    <label>Headline</label>
+                    <textarea id="inputHeroTitle" rows="2"></textarea>
+                </div>
+                <div class="control-group">
+                    <label>Text Style</label>
+                    <select id="selectTextStyle">
+                        <option value="white">White (Classic)</option>
+                        <option value="gradient-blue">Gradient Blue</option>
+                        <option value="gradient-green">Gradient Green</option>
+                        <option value="gradient-pink">Gradient Pink</option>
+                        <option value="gradient-gold">Gradient Gold</option>
+                        <option value="neon-blue">Neon Blue</option>
+                        <option value="neon-green">Neon Green</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Screenshot</label>
+                    <select id="selectHeroImg">
+                        <optgroup label="iPhone">
+                            <option value="/assets/screenshots/iphone-dashboard.png">Dashboard</option>
+                            <option value="/assets/screenshots/iphone-club.png">Club Details</option>
+                            <option value="/assets/screenshots/iphone-matches.png">Matches</option>
+                            <option value="/assets/screenshots/iphone-scout.png">Scout Mode</option>
+                            <option value="/assets/screenshots/iphone-sessions.png">Sessions</option>
+                            <option value="/assets/screenshots/iphone-welcome.png">Welcome</option>
+                        </optgroup>
+                        <optgroup label="Widgets">
+                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png">Widget 1</option>
+                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png">Widget 2</option>
+                        </optgroup>
+                        <optgroup label="iPad">
+                            <option value="/assets/screenshots/ipad-dashboard.png">iPad Dashboard</option>
+                            <option value="/assets/screenshots/ipad-welcome.png">iPad Welcome</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Zoom: <span id="zoomHeroVal">130</span>%</label>
+                    <input type="range" id="inputHeroZoom" min="80" max="200" value="130">
+                </div>
+                <div class="control-group">
+                    <label>Position X / Y</label>
+                    <div class="half-row">
+                        <input type="range" id="inputHeroPosX" min="0" max="100" value="50" title="X">
+                        <input type="range" id="inputHeroPosY" min="0" max="100" value="30" title="Y">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- SECONDARY -->
+            <div class="control-section">
+                <div class="section-title">Secondary Screenshot</div>
+                <div class="control-group">
+                    <label>Screenshot 2</label>
+                    <select id="selectImg2">
+                        <optgroup label="iPhone">
+                            <option value="/assets/screenshots/iphone-sessions.png">Sessions</option>
+                            <option value="/assets/screenshots/iphone-matches.png">Matches</option>
+                            <option value="/assets/screenshots/iphone-club.png">Club Details</option>
+                            <option value="/assets/screenshots/iphone-scout.png">Scout Mode</option>
+                            <option value="/assets/screenshots/iphone-dashboard.png">Dashboard</option>
+                            <option value="/assets/screenshots/iphone-welcome.png">Welcome</option>
+                        </optgroup>
+                        <optgroup label="Widgets">
+                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png">Widget 1</option>
+                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png">Widget 2</option>
+                        </optgroup>
+                        <optgroup label="iPad">
+                            <option value="/assets/screenshots/ipad-dashboard.png">iPad Dashboard</option>
+                            <option value="/assets/screenshots/ipad-welcome.png">iPad Welcome</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Zoom: <span id="zoomImg2Val">115</span>%</label>
+                    <input type="range" id="inputImg2Zoom" min="80" max="200" value="115">
+                </div>
+                <div class="control-group">
+                    <label>Position X / Y</label>
+                    <div class="half-row">
+                        <input type="range" id="inputImg2PosX" min="0" max="100" value="50" title="X">
+                        <input type="range" id="inputImg2PosY" min="0" max="100" value="20" title="Y">
+                    </div>
+                </div>
+                <div class="half-row">
+                    <div class="control-group">
+                        <label>Title</label>
+                        <input type="text" id="inputImg2Title" placeholder="e.g. Sessions">
+                    </div>
+                    <div class="control-group">
+                        <label>Title Style</label>
+                        <select id="selectImg2TitleStyle">
+                            <option value="white">White</option>
+                            <option value="gradient-blue">Gradient Blue</option>
+                            <option value="gradient-green">Gradient Green</option>
+                            <option value="neon-green">Neon Green</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- STATS -->
+            <div class="control-section">
+                <div class="section-title">Stats</div>
+                <div class="half-row">
+                    <div class="control-group">
+                        <label>Stat 1 Value</label>
+                        <input type="text" id="inputStat1Value">
+                    </div>
+                    <div class="control-group">
+                        <label>Color</label>
+                        <select id="selectStat1Color">
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                            <option value="pink">Pink</option>
+                            <option value="gold">Gold</option>
+                            <option value="white">White</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>Label</label>
+                    <input type="text" id="inputStat1Label">
+                </div>
+                <div class="control-group">
+                    <label>Tagline</label>
+                    <input type="text" id="inputStat1Desc" placeholder="Optional description">
+                </div>
+                <div class="half-row" style="margin-top: 10px;">
+                    <div class="control-group">
+                        <label>Stat 2 Value</label>
+                        <input type="text" id="inputStat2Value">
+                    </div>
+                    <div class="control-group">
+                        <label>Color</label>
+                        <select id="selectStat2Color">
+                            <option value="pink">Pink</option>
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                            <option value="gold">Gold</option>
+                            <option value="white">White</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>Label</label>
+                    <input type="text" id="inputStat2Label">
+                </div>
+                <div class="control-group">
+                    <label>Tagline</label>
+                    <input type="text" id="inputStat2Desc" placeholder="Optional description">
+                </div>
+            </div>
+
+            <!-- FEATURE -->
+            <div class="control-section">
+                <div class="section-title">Feature Highlight</div>
+                <div class="control-group">
+                    <label>Title</label>
+                    <input type="text" id="inputFeatTitle">
+                </div>
+                <div class="control-group">
+                    <label>Description</label>
+                    <input type="text" id="inputFeatDesc">
+                </div>
+                <div class="control-group">
+                    <label>Background Image</label>
+                    <select id="selectFeatImg">
+                        <option value="">None (Gradient only)</option>
+                        <optgroup label="iPhone">
+                            <option value="/assets/screenshots/iphone-dashboard.png">Dashboard</option>
+                            <option value="/assets/screenshots/iphone-matches.png">Matches</option>
+                            <option value="/assets/screenshots/iphone-sessions.png">Sessions</option>
+                            <option value="/assets/screenshots/iphone-scout.png">Scout</option>
+                            <option value="/assets/screenshots/iphone-club.png">Club Details</option>
+                        </optgroup>
+                        <optgroup label="Widgets">
+                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png">Widget 1</option>
+                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png">Widget 2</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>Overlay Darkness: <span id="featOpacityVal">60</span>%</label>
+                    <input type="range" id="inputFeatOpacity" min="0" max="100" value="60">
+                </div>
+            </div>
+
+            <div class="control-section">
+                <button id="exportBtn" class="export-btn">📸 Export PNG</button>
+            </div>
+      </aside>
+
+      <!-- CANVAS -->
+      <main class="preview-stage">
+        <div id="bentoCanvas" class="bento-canvas format-square">
+            
+            <!-- HERO - Main Screenshot with Headline -->
+            <div class="bento-box box-hero">
+                <div class="hero-text-overlay">
+                    <h1 id="dispHeroTitle">Every Match.<br>Every Stat.</h1>
+                </div>
+                <!-- Wrapper for Zoom/Pan -->
+                <div class="hero-img-wrapper">
+                    <img id="dispHeroImg" src="/assets/screenshots/iphone-dashboard.png" class="hero-img" alt="">
+                </div>
+                <div class="hero-gradient"></div>
+            </div>
+
+            <!-- APP BRANDING - Horizontal: Icon left, Text right -->
+            <div class="bento-box box-brand">
+                <img src="/assets/app-icon.png" class="brand-icon" alt="FC Clubs Stats">
+                <div class="brand-text">
+                    <span class="brand-name">FC Clubs Stats</span>
+                    <span class="brand-tagline">Free on App Store</span>
+                </div>
+            </div>
+
+            <!-- SCREENSHOT 2 - Now with text overlay -->
+            <div class="bento-box box-img2">
+                <div class="img2-text-overlay">
+                    <span class="img2-title" id="dispImg2Title">Sessions</span>
+                </div>
+                <div class="device-img-wrapper">
+                    <img id="dispImg2" src="/assets/screenshots/iphone-sessions.png" class="device-img" alt="">
+                </div>
+                <div class="device-gradient"></div>
+            </div>
+
+            <!-- STAT 1 - Now with tagline like Feature -->
+            <div class="bento-box box-stat-1">
+                <div class="stat-content">
+                    <span class="stat-value" id="dispStat1Value">∞</span>
+                    <span class="stat-label" id="dispStat1Label">Matches Saved</span>
+                    <span class="stat-desc" id="dispStat1Desc">Never lose your history</span>
+                </div>
+            </div>
+
+            <!-- STAT 2 - Now with tagline like Feature -->
+            <div class="bento-box box-stat-2">
+                <div class="stat-content">
+                    <span class="stat-value" id="dispStat2Value">AI</span>
+                    <span class="stat-label" id="dispStat2Label">Predictions</span>
+                    <span class="stat-desc" id="dispStat2Desc">Know before you play</span>
+                </div>
+            </div>
+
+            <!-- FEATURE - Now with Background Image Support -->
+            <div class="bento-box box-feature">
+                <!-- Feature Bg Img -->
+                <div class="feature-img-wrapper">
+                    <img id="dispFeatImg" src="" class="feature-img" style="display:none;">
+                </div>
+                <div class="feature-gradient"></div>
+                
+                <div class="feature-content">
+                    <div class="feature-icon">⚡</div>
+                    <span class="feature-title" id="dispFeatTitle">Real-Time Sync</span>
+                    <span class="feature-desc" id="dispFeatDesc">Automatic updates as you play</span>
+                </div>
+            </div>
+
+        </div>
+      </main>
+    </div>
+    
+    <script type="module" src="/src/bento_generator.js"></script>
+  </body>
+</html>

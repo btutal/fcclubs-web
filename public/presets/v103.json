@@ -1,0 +1,25 @@
+{
+    "heroTitle": "Widgets &\nLive Activity.",
+    "heroSub": "Track your session from the Lock Screen.",
+    "heroImg": "/assets/screenshots/iphone-sessions.png",
+    "tagline": "LIVE",
+    "tagSub": "v1.0.3",
+    "tagIcon": "widget",
+    
+    "stat1Value": "Auto",
+    "stat1Label": "Background Sync",
+    "stat1Desc": "Updates while you play.",
+    "stat1Icon": "cloud",
+    
+    "stat2Value": "AI",
+    "stat2Label": "Pre-Match Forecast",
+    "stat2Desc": "Win % before the game.",
+    "stat2Icon": "magic",
+    
+    "featTitle": "Lock Screen Stats",
+    "featDesc": "Glance at your session without unlocking.",
+    "featIcon": "lock",
+    
+    "imgPosX": "100",
+    "imgPosY": "100"
+}
