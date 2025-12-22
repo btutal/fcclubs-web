@@ -279,68 +279,77 @@
                 <hr class="control-divider">
                 
                 <div class="box-type-controls" data-type="screenshot">
-                <div class="control-group">
-                    <label>Screenshot 2</label>
-                    <select id="selectImg2">
-                        <optgroup label="iPhone">
-                            <option value="/assets/screenshots/iphone-sessions.png">Sessions</option>
-                            <option value="/assets/screenshots/iphone-matches.png">Matches</option>
-                            <option value="/assets/screenshots/iphone-club.png">Club Details</option>
-                            <option value="/assets/screenshots/iphone-scout.png">Scout Mode</option>
-                            <option value="/assets/screenshots/iphone-dashboard.png">Dashboard</option>
-                            <option value="/assets/screenshots/iphone-welcome.png">Welcome</option>
-                        </optgroup>
-                        <optgroup label="Widgets">
-                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png">Widget 1</option>
-                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png">Widget 2</option>
-                        </optgroup>
-                        <optgroup label="iPad">
-                            <option value="/assets/screenshots/ipad-dashboard.png">iPad Dashboard</option>
-                            <option value="/assets/screenshots/ipad-welcome.png">iPad Welcome</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label>Zoom: <span id="zoomImg2Val">115</span>%</label>
-                    <input type="range" id="inputImg2Zoom" min="80" max="200" value="115">
-                </div>
-                <div class="control-group">
-                    <label>Position X / Y</label>
-                    <div class="half-row">
-                        <input type="range" id="inputImg2PosX" min="0" max="100" value="50" title="X">
-                        <input type="range" id="inputImg2PosY" min="0" max="100" value="20" title="Y">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label>Image Opacity: <span id="img2OpacityVal">90</span>%</label>
-                    <input type="range" id="inputImg2Opacity" min="0" max="100" value="90">
-                </div>
-                <div class="control-group">
-                    <label>Overlay Darkness: <span id="img2OverlayVal">30</span>%</label>
-                    <input type="range" id="inputImg2Overlay" min="0" max="100" value="30">
-                </div>
-                <div class="half-row">
+                
+                <!-- 📝 TEXT CONTROLS -->
+                <div class="control-subgroup text-controls">
+                    <div class="control-subgroup-label">📝 Text</div>
                     <div class="control-group">
                         <label>Title</label>
                         <input type="text" id="inputImg2Title" placeholder="e.g. Sessions">
                     </div>
                     <div class="control-group">
-                        <label>Title Style</label>
+                        <label>Text Style</label>
                         <select id="selectImg2TitleStyle">
-                            <option value="white">White</option>
+                            <option value="white">White (Classic)</option>
                             <option value="gradient-blue">Gradient Blue</option>
                             <option value="gradient-green">Gradient Green</option>
                             <option value="gradient-pink">Gradient Pink</option>
                             <option value="gradient-gold">Gradient Gold</option>
                             <option value="neon-blue">Neon Blue</option>
                             <option value="neon-green">Neon Green</option>
-                            <option value="outline">Outline</option>
+                            <option value="outline">Outline (Stroke)</option>
                             <option value="heavy-shadow">Heavy Shadow</option>
-                            <option value="3d">3D</option>
-                            <option value="retro">Retro</option>
+                            <option value="3d">3D Depth</option>
+                            <option value="retro">Retro Pop</option>
                         </select>
                     </div>
                 </div>
+                
+                <!-- 🖼️ IMAGE CONTROLS -->
+                <div class="control-subgroup image-controls">
+                    <div class="control-subgroup-label">🖼️ Image</div>
+                    <div class="control-group">
+                        <label>Screenshot</label>
+                        <select id="selectImg2">
+                            <optgroup label="iPhone">
+                                <option value="/assets/screenshots/iphone-sessions.png">Sessions</option>
+                                <option value="/assets/screenshots/iphone-matches.png">Matches</option>
+                                <option value="/assets/screenshots/iphone-club.png">Club Details</option>
+                                <option value="/assets/screenshots/iphone-scout.png">Scout Mode</option>
+                                <option value="/assets/screenshots/iphone-dashboard.png">Dashboard</option>
+                                <option value="/assets/screenshots/iphone-welcome.png">Welcome</option>
+                            </optgroup>
+                            <optgroup label="Widgets">
+                                <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png">Widget 1</option>
+                                <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png">Widget 2</option>
+                            </optgroup>
+                            <optgroup label="iPad">
+                                <option value="/assets/screenshots/ipad-dashboard.png">iPad Dashboard</option>
+                                <option value="/assets/screenshots/ipad-welcome.png">iPad Welcome</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Zoom: <span id="zoomImg2Val">115</span>%</label>
+                        <input type="range" id="inputImg2Zoom" min="80" max="200" value="115">
+                    </div>
+                    <div class="control-group">
+                        <label>Position X / Y</label>
+                        <div class="half-row">
+                            <input type="range" id="inputImg2PosX" min="0" max="100" value="50" title="X">
+                            <input type="range" id="inputImg2PosY" min="0" max="100" value="20" title="Y">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Image Opacity: <span id="img2OpacityVal">90</span>%</label>
+                        <input type="range" id="inputImg2Opacity" min="0" max="100" value="90">
+                    </div>
+                    <div class="control-group">
+                        <label>Overlay Darkness: <span id="img2OverlayVal">30</span>%</label>
+                        <input type="range" id="inputImg2Overlay" min="0" max="100" value="30">
+                    </div>
+                </div>
+                
                 </div><!-- end box-type-controls -->
             </div><!-- end control-section Secondary -->
 
@@ -507,71 +516,98 @@
                 <hr class="control-divider">
                 
                 <div class="box-type-controls" data-type="feature">
-                <div class="control-group">
-                    <label>Icon</label>
-                    <div class="half-row">
-                        <select id="selectFeatIcon">
-                            <option value="">None</option>
-                            <option value="⚡">⚡ Lightning</option>
-                            <option value="🎯">🎯 Target</option>
-                            <option value="🔥">🔥 Fire</option>
-                            <option value="⭐">⭐ Star</option>
-                            <option value="🏆">🏆 Trophy</option>
-                            <option value="📊">📊 Chart</option>
-                            <option value="🤖">🤖 AI</option>
-                            <option value="📱">📱 Phone</option>
-                            <option value="🎮">🎮 Gaming</option>
-                            <option value="⚽">⚽ Football</option>
-                            <option value="🛡️">🛡️ Shield</option>
-                            <option value="👁️">👁️ Eye</option>
+                
+                <!-- 📝 TEXT CONTROLS -->
+                <div class="control-subgroup text-controls">
+                    <div class="control-subgroup-label">📝 Text</div>
+                    <div class="control-group">
+                        <label>Icon</label>
+                        <div class="half-row">
+                            <select id="selectFeatIcon">
+                                <option value="">None</option>
+                                <option value="⚡">⚡ Lightning</option>
+                                <option value="🎯">🎯 Target</option>
+                                <option value="🔥">🔥 Fire</option>
+                                <option value="⭐">⭐ Star</option>
+                                <option value="🏆">🏆 Trophy</option>
+                                <option value="📊">📊 Chart</option>
+                                <option value="🤖">🤖 AI</option>
+                                <option value="📱">📱 Phone</option>
+                                <option value="🎮">🎮 Gaming</option>
+                                <option value="⚽">⚽ Football</option>
+                                <option value="🛡️">🛡️ Shield</option>
+                                <option value="👁️">👁️ Eye</option>
+                            </select>
+                            <button id="clearFeatIcon" class="btn-secondary" title="Clear Icon">✕</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Title</label>
+                        <input type="text" id="inputFeatTitle">
+                    </div>
+                    <div class="control-group">
+                        <label>Description</label>
+                        <input type="text" id="inputFeatDesc">
+                    </div>
+                    <div class="control-group">
+                        <label>Text Style</label>
+                        <select id="selectFeatTitleStyle">
+                            <option value="white">White (Classic)</option>
+                            <option value="gradient-blue">Gradient Blue</option>
+                            <option value="gradient-green">Gradient Green</option>
+                            <option value="gradient-pink">Gradient Pink</option>
+                            <option value="gradient-gold">Gradient Gold</option>
+                            <option value="neon-blue">Neon Blue</option>
+                            <option value="neon-green">Neon Green</option>
+                            <option value="outline">Outline (Stroke)</option>
+                            <option value="heavy-shadow">Heavy Shadow</option>
+                            <option value="3d">3D Depth</option>
+                            <option value="retro">Retro Pop</option>
                         </select>
-                        <button id="clearFeatIcon" class="btn-secondary" title="Clear Icon">✕</button>
                     </div>
                 </div>
-                <div class="control-group">
-                    <label>Title</label>
-                    <input type="text" id="inputFeatTitle">
-                </div>
-                <div class="control-group">
-                    <label>Description</label>
-                    <input type="text" id="inputFeatDesc">
-                </div>
-                <div class="control-group">
-                    <label>Background Image</label>
-                    <select id="selectFeatImg">
-                        <option value="">None (Gradient only)</option>
-                        <optgroup label="iPhone">
-                            <option value="/assets/screenshots/iphone-dashboard.png">Dashboard</option>
-                            <option value="/assets/screenshots/iphone-matches.png">Matches</option>
-                            <option value="/assets/screenshots/iphone-sessions.png">Sessions</option>
-                            <option value="/assets/screenshots/iphone-scout.png">Scout</option>
-                            <option value="/assets/screenshots/iphone-club.png">Club Details</option>
-                        </optgroup>
-                        <optgroup label="Widgets">
-                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png">Widget 1</option>
-                            <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png">Widget 2</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label>Zoom: <span id="zoomFeatVal">100</span>%</label>
-                    <input type="range" id="inputFeatZoom" min="80" max="200" value="100">
-                </div>
-                <div class="control-group">
-                    <label>Position X / Y</label>
-                    <div class="half-row">
-                        <input type="range" id="inputFeatPosX" min="0" max="100" value="50" title="X">
-                        <input type="range" id="inputFeatPosY" min="0" max="100" value="50" title="Y">
+                
+                <!-- 🖼️ IMAGE CONTROLS -->
+                <div class="control-subgroup image-controls">
+                    <div class="control-subgroup-label">🖼️ Background</div>
+                    <div class="control-group">
+                        <label>Background Image</label>
+                        <select id="selectFeatImg">
+                            <option value="">None (Gradient only)</option>
+                            <optgroup label="iPhone">
+                                <option value="/assets/screenshots/iphone-dashboard.png">Dashboard</option>
+                                <option value="/assets/screenshots/iphone-matches.png">Matches</option>
+                                <option value="/assets/screenshots/iphone-sessions.png">Sessions</option>
+                                <option value="/assets/screenshots/iphone-scout.png">Scout</option>
+                                <option value="/assets/screenshots/iphone-club.png">Club Details</option>
+                            </optgroup>
+                            <optgroup label="Widgets">
+                                <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png">Widget 1</option>
+                                <option value="/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png">Widget 2</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label>Zoom: <span id="zoomFeatVal">100</span>%</label>
+                        <input type="range" id="inputFeatZoom" min="80" max="200" value="100">
+                    </div>
+                    <div class="control-group">
+                        <label>Position X / Y</label>
+                        <div class="half-row">
+                            <input type="range" id="inputFeatPosX" min="0" max="100" value="50" title="X">
+                            <input type="range" id="inputFeatPosY" min="0" max="100" value="50" title="Y">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label>Image Opacity: <span id="featOpacityVal">40</span>%</label>
+                        <input type="range" id="inputFeatOpacity" min="0" max="100" value="40">
+                    </div>
+                    <div class="control-group">
+                        <label>Overlay Darkness: <span id="featOverlayVal">70</span>%</label>
+                        <input type="range" id="inputFeatOverlay" min="0" max="100" value="70">
                     </div>
                 </div>
-                <div class="control-group">
-                    <label>Image Opacity: <span id="featOpacityVal">40</span>%</label>
-                    <input type="range" id="inputFeatOpacity" min="0" max="100" value="40">
-                </div>
-                <div class="control-group">
-                    <label>Overlay Darkness: <span id="featOverlayVal">70</span>%</label>
-                    <input type="range" id="inputFeatOverlay" min="0" max="100" value="70">
-                </div>
+                
                 </div><!-- end box-type-controls -->
             </div><!-- end control-section Feature -->
         </div>
