@@ -610,19 +610,20 @@ textarea { resize: vertical; }
 
 .style-btn {
     aspect-ratio: 1;
-    background: #1a1a1f;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: radial-gradient(ellipse at 75% 25%, #0a1e3d 0%, #040910 70%, #020304 100%);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 8px;
     color: #fff;
     font-family: 'Inter', sans-serif;
     font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.2s;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .style-btn:hover {
@@ -802,6 +803,42 @@ textarea { resize: vertical; }
     transform-origin: center center;
 }
 
+/* =============================================
+   BENTO BACKGROUND PRESETS
+   ============================================= */
+
+.bento-canvas.bg-deep-ocean {
+    background: radial-gradient(ellipse at 75% 25%, #0a1e3d 0%, #040910 50%, #020304 100%);
+}
+
+.bento-canvas.bg-midnight {
+    background: radial-gradient(circle at 30% 20%, #1a1a2e 0%, #0f0f1a 60%, #000 100%);
+}
+
+.bento-canvas.bg-electric-blue {
+    background: radial-gradient(circle at 80% 30%, #1a3a5c 0%, #0a1628 50%, #050a12 100%);
+}
+
+.bento-canvas.bg-neon-teal {
+    background: radial-gradient(circle at 20% 80%, #0a2924 0%, #061a16 50%, #020808 100%);
+}
+
+.bento-canvas.bg-ember {
+    background: radial-gradient(circle at 70% 70%, #2d1a0a 0%, #1a0f07 50%, #0a0504 100%);
+}
+
+.bento-canvas.bg-solid-dark {
+    background: #0a0a0f;
+}
+
+/* =============================================
+   BENTO BOX GRID BORDERS
+   ============================================= */
+
+.bento-box {
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
 /* Light Theme Mode - Applies to whole page */
 body.theme-light {
     background: #e8e4df; /* Soft warm off-white */
@@ -937,6 +974,50 @@ body.theme-light #helpBtn {
     background: rgba(0,0,0,0.05);
     border-color: rgba(0,0,0,0.15);
     color: #1a1a1f;
+}
+
+/* Light theme - Top menu bar */
+body.theme-light .top-menu-bar {
+    background: rgba(255,255,255,0.7);
+    border-bottom-color: rgba(0,0,0,0.08);
+}
+
+body.theme-light .top-menu-left h1 {
+    color: #1a1a1f;
+}
+
+body.theme-light .top-menu-center select {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+    color: #1a1a1f;
+}
+
+body.theme-light .top-btn {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+    color: #1a1a1f;
+}
+
+body.theme-light .top-divider {
+    background: rgba(0,0,0,0.15);
+}
+
+body.theme-light .theme-toggle {
+    background: rgba(0,0,0,0.05);
+}
+
+body.theme-light .theme-btn {
+    color: rgba(0,0,0,0.4);
+}
+
+body.theme-light .theme-btn.active {
+    background: rgba(0,0,0,0.1);
+    color: #1a1a1f;
+}
+
+body.theme-light .export-btn-top {
+    background: var(--color-electric-blue);
+    color: #000;
 }
 
 /* =============================================

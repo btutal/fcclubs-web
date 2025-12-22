@@ -1,5 +1,5 @@
 /**
- * Bento Generator v14 - Top Menu Bar
+ * Bento Generator v15 - Background Presets & Visual Polish
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -109,6 +109,7 @@ const els = {
     exportBtn: document.getElementById('exportBtn'),
     copyBtn: document.getElementById('copyBtn'),
     saveBtn: document.getElementById('saveBtn'),
+    bgPresetSelect: document.getElementById('bgPresetSelect'),
     toast: document.getElementById('toast'),
     
     // Hero
@@ -1130,6 +1131,18 @@ function bindEvents() {
         els.selectFeatIcon.value = '';
         applyToCanvas();
     });
+    
+    // Background preset change
+    if (els.bgPresetSelect) {
+        els.bgPresetSelect.addEventListener('change', () => {
+            // Remove all bg- classes
+            els.canvas.classList.remove('bg-deep-ocean', 'bg-midnight', 'bg-electric-blue', 'bg-neon-teal', 'bg-ember', 'bg-solid-dark');
+            // Add selected
+            els.canvas.classList.add(`bg-${els.bgPresetSelect.value}`);
+        });
+        // Set initial background
+        els.canvas.classList.add(`bg-${els.bgPresetSelect.value}`);
+    }
     
     // Restart button - show format picker again
     const restartBtn = document.getElementById('restartBtn');
