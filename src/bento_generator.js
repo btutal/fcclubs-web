@@ -1098,9 +1098,9 @@ function updateLayoutGuide(format) {
             areas: `"H H H B B B" "H H H I2 I2 I2" "H H H S1 S1 S1" "H H H S1 S1 S1" "H H H S2 S2 S2" "H H H S2 S2 S2" "H H H F F F"`,
             rows: 7
         },
-        // X Landscape: H left, B/I2 combo top-right, S1/S2 mid, F bottom
+        // X Landscape: H left 5 cols, B top-right corner, I2 expands, S1/S2, F
         'x-landscape': {
-            areas: `"H H B B I2 I2" "H H B B I2 I2" "H H I2 I2 I2 I2" "H H S1 S1 S2 S2" "H H F F F F"`,
+            areas: `"H H H B B B I2 I2" "H H H B B B I2 I2" "H H H I2 I2 I2 I2 I2" "H H H S1 S1 S2 S2 S2" "H H H F F F F F"`,
             rows: 5
         },
         // LI Square: Same as IG square

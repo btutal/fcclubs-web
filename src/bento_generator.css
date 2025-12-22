@@ -466,6 +466,37 @@ body {
     /* Can be used for show/hide based on box type */
 }
 
+/* Control Sub-Groups - Separate Text vs Image controls */
+.control-subgroup {
+    background: rgba(255,255,255,0.02);
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-left: 2px solid rgba(255,255,255,0.1);
+}
+
+.control-subgroup-label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Text controls get blue accent */
+.control-subgroup.text-controls {
+    border-left-color: rgba(59, 173, 247, 0.5);
+}
+
+/* Image controls get green accent */
+.control-subgroup.image-controls {
+    border-left-color: rgba(66, 254, 194, 0.5);
+}
+
 .section-title {
     font-size: 0.7rem;
     text-transform: uppercase;
