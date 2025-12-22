@@ -145,9 +145,24 @@
       <div class="main-content">
       <aside class="controls">
         <div class="control-scroll">
-            <!-- HERO -->
+            <!-- LAYOUT GUIDE -->
+            <div class="layout-guide">
+                <div class="layout-title">Layout Guide</div>
+                <div class="layout-grid">
+                    <div class="lg-hero" data-slot="H">H</div>
+                    <div class="lg-brand" data-slot="B">B</div>
+                    <div class="lg-gallery" data-slot="I2">I2</div>
+                    <div class="lg-stat1" data-slot="S1">S1</div>
+                    <div class="lg-stat2" data-slot="S2">S2</div>
+                    <div class="lg-feature" data-slot="F">F</div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- H - HERO -->
             <div class="control-section" data-box="hero">
-                <div class="section-title">Slot A <span class="slot-label">(Main)</span></div>
+                <div class="section-title">H <span class="slot-label">Hero (Left)</span></div>
                 
                 <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
@@ -232,9 +247,9 @@
 
             <hr class="divider">
 
-            <!-- SLOT B -->
-            <div class="control-section" data-box="slotB">
-                <div class="section-title">Slot B <span class="slot-label">(Top Right)</span></div>
+            <!-- B - BRAND -->
+            <div class="control-section" data-box="brand">
+                <div class="section-title">B <span class="slot-label">Brand (Top Right)</span></div>
                 
                 <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
@@ -320,9 +335,9 @@
 
             <hr class="divider">
 
-            <!-- SLOT C -->
-            <div class="control-section" data-box="slotC">
-                <div class="section-title">Slot C <span class="slot-label">(Middle)</span></div>
+            <!-- I2 - GALLERY -->
+            <div class="control-section" data-box="gallery">
+                <div class="section-title">I2 <span class="slot-label">Gallery (Middle Right)</span></div>
                 
                 <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
@@ -394,9 +409,9 @@
 
             <hr class="divider">
 
-            <!-- SLOT D -->
-            <div class="control-section" data-box="slotD">
-                <div class="section-title">Slot D <span class="slot-label">(Left Small)</span></div>
+            <!-- S1 - STAT 1 -->
+            <div class="control-section" data-box="stat1">
+                <div class="section-title">S1 <span class="slot-label">Highlight (Small Left)</span></div>
                 
                 <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
@@ -424,13 +439,45 @@
                     <input type="text" id="inputBrandTagline" value="Free on App Store">
                 </div>
                 </div><!-- end box-type-controls -->
-            </div><!-- end control-section Brand -->
+            </div><!-- end control-section S1 -->
 
             <hr class="divider">
 
-            <!-- SLOT E -->
-            <div class="control-section" data-box="slotE">
-                <div class="section-title">Slot E <span class="slot-label">(Bottom)</span></div>
+            <!-- S2 - HIGHLIGHT 2 -->
+            <div class="control-section" data-box="stat2">
+                <div class="section-title">S2 <span class="slot-label">Highlight 2 (Small Right)</span></div>
+                
+                <!-- Content Type Selector - Same for all slots -->
+                <div class="control-group box-type-group">
+                    <label>Content</label>
+                    <select id="slotS2Type" class="box-type-select">
+                        <option value="highlight" selected>🔢 Highlight</option>
+                        <option value="hero-shot">📸 Hero Shot</option>
+                        <option value="gallery">🖼️ Gallery</option>
+                        <option value="callout">🎯 Callout</option>
+                        <option value="brand">🏷️ Brand</option>
+                        <option value="feature">✨ Feature</option>
+                        <option value="spacer">⬜ Spacer</option>
+                    </select>
+                </div>
+                
+                <hr class="control-divider">
+                
+                <div class="box-type-controls" data-type="highlight">
+                <div class="control-group">
+                    <label>Value</label>
+                    <input type="text" id="inputStat2Value" placeholder="e.g. 50K+">
+                </div>
+                <div class="control-group">
+                    <label>Label</label>
+                    <input type="text" id="inputStat2Label" placeholder="e.g. Downloads">
+                </div>
+                </div><!-- end box-type-controls -->
+            </div><!-- end control-section S2 -->
+
+            <hr class="divider">            <!-- F - FEATURE -->
+            <div class="control-section" data-box="feature">
+                <div class="section-title">F <span class="slot-label">Feature (Bottom Right)</span></div>
                 
                 <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">

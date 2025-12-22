@@ -355,12 +355,69 @@ body {
     border-left: 3px solid transparent;
 }
 
-/* Color-coded sections */
-.control-section:nth-of-type(1) { border-left-color: #42FEC2; } /* Hero - Green */
-.control-section:nth-of-type(2) { border-left-color: #F73B97; } /* Secondary - Pink */
-.control-section:nth-of-type(3) { border-left-color: #FEC242; } /* Stats - Gold */
-.control-section:nth-of-type(4) { border-left-color: #9B59B6; } /* Brand - Purple */
-.control-section:nth-of-type(5) { border-left-color: #E74C3C; } /* Feature - Red */
+/* Color-coded sections matching grid areas */
+.control-section:nth-of-type(2) { border-left-color: #42FEC2; } /* H - Hero - Green */
+.control-section:nth-of-type(3) { border-left-color: #9B59B6; } /* B - Brand - Purple */
+.control-section:nth-of-type(4) { border-left-color: #3BADF7; } /* I2 - Gallery - Blue */
+.control-section:nth-of-type(5) { border-left-color: #FEC242; } /* S1 - Highlight - Gold */
+.control-section:nth-of-type(6) { border-left-color: #F73B97; } /* S2 - Highlight 2 - Pink */
+.control-section:nth-of-type(7) { border-left-color: #E74C3C; } /* F - Feature - Red */
+
+/* =============================================
+   LAYOUT GUIDE - Visual Grid Schema
+   ============================================= */
+
+.layout-guide {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 8px;
+}
+
+.layout-title {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
+.layout-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3px;
+    height: 80px;
+    grid-template-areas:
+        "H H H B B B"
+        "H H H I2 I2 I2"
+        "H H H S1 S1 S2"
+        "H H H F F F";
+}
+
+.layout-grid > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: rgba(255,255,255,0.9);
+}
+
+.layout-grid > div:hover {
+    transform: scale(1.05);
+}
+
+.lg-hero { grid-area: H; background: #42FEC2; color: #000 !important; }
+.lg-brand { grid-area: B; background: #9B59B6; }
+.lg-gallery { grid-area: I2; background: #3BADF7; }
+.lg-stat1 { grid-area: S1; background: #FEC242; color: #000 !important; }
+.lg-stat2 { grid-area: S2; background: #F73B97; }
+.lg-feature { grid-area: F; background: #E74C3C; }
 
 /* =============================================
    STANDARDIZED BOX TYPE CONTROLS

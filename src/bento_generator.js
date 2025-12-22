@@ -1070,11 +1070,70 @@ function updateScale() {
     canvas.style.transform = `scale(${scale})`;
 }
 
+// Update layout guide to match selected format
+function updateLayoutGuide(format) {
+    const layoutGrid = document.querySelector('.layout-grid');
+    if (!layoutGrid) return;
+    
+    // Simplified layouts matching actual CSS grid-template-areas
+    // Using 6-column mini-grid to represent the actual 12-column layout
+    const layouts = {
+        // IG Square: H left half, B/I2/S1/S2/F stacked on right
+        'ig-square': {
+            areas: `"H H H B B B" "H H H I2 I2 I2" "H H H I2 I2 I2" "H H H S1 S1 S1" "H H H S2 S2 S2" "H H H F F F"`,
+            rows: 6
+        },
+        // IG Portrait: B top full, H wide, I2 wide, S1/S2 side-by-side, F bottom
+        'ig-portrait': {
+            areas: `"B B B B B B" "H H H H H H" "H H H H H H" "I2 I2 I2 I2 I2 I2" "S1 S1 S1 S2 S2 S2" "F F F F F F"`,
+            rows: 6
+        },
+        // IG Story: Same as portrait but taller proportions
+        'ig-story': {
+            areas: `"B B B B B B" "H H H H H H" "H H H H H H" "H H H H H H" "I2 I2 I2 I2 I2 I2" "I2 I2 I2 I2 I2 I2" "S1 S1 S1 S2 S2 S2" "F F F F F F"`,
+            rows: 8
+        },
+        // X Square: Same as IG square but S1/S2 are taller
+        'x-square': {
+            areas: `"H H H B B B" "H H H I2 I2 I2" "H H H S1 S1 S1" "H H H S1 S1 S1" "H H H S2 S2 S2" "H H H S2 S2 S2" "H H H F F F"`,
+            rows: 7
+        },
+        // X Landscape: H left, B/I2 combo top-right, S1/S2 mid, F bottom
+        'x-landscape': {
+            areas: `"H H B B I2 I2" "H H B B I2 I2" "H H I2 I2 I2 I2" "H H S1 S1 S2 S2" "H H F F F F"`,
+            rows: 5
+        },
+        // LI Square: Same as IG square
+        'li-square': {
+            areas: `"H H H B B B" "H H H I2 I2 I2" "H H H S1 S1 S1" "H H H S1 S1 S1" "H H H S2 S2 S2" "H H H S2 S2 S2" "H H H F F F"`,
+            rows: 7
+        },
+        // LI Portrait: H left, B/I2 top-right, S1/S2 mid, F bottom
+        'li-portrait': {
+            areas: `"H H B B I2 I2" "H H B B I2 I2" "H H S1 S1 S2 S2" "H H S1 S1 S2 S2" "H H F F F F"`,
+            rows: 5
+        },
+        // LI Landscape: H left, B/I2 top-right, S1/S2/F bottom row
+        'li-landscape': {
+            areas: `"H H B B B B" "H H I2 I2 I2 I2" "S1 S2 S2 F F F"`,
+            rows: 3
+        }
+    };
+    
+    const layout = layouts[format] || layouts['ig-square'];
+    layoutGrid.style.gridTemplateAreas = layout.areas;
+    layoutGrid.style.gridTemplateRows = `repeat(${layout.rows}, 1fr)`;
+}
+
 function bindEvents() {
     els.formatSelect.addEventListener('change', (e) => {
         els.canvas.className = `bento-canvas format-${e.target.value}`;
+        updateLayoutGuide(e.target.value);
         setTimeout(updateScale, 50);
     });
+    
+    // Initialize layout guide on load
+    updateLayoutGuide(els.formatSelect.value);
     
     els.themeSelect.addEventListener('change', (e) => setTheme(e.target.value));
     
