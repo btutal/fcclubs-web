@@ -5,10 +5,14 @@
   "heroZoom": "100",
   "heroPosX": "50",
   "heroPosY": "30",
+  "heroOpacity": "65",
+  "heroOverlay": "60",
   "img2": "/assets/screenshots/iphone-scout.png",
   "img2Zoom": "110",
   "img2PosX": "50",
   "img2PosY": "20",
+  "img2Opacity": "90",
+  "img2Overlay": "30",
   "img2Title": "",
   "img2TitleStyle": "neon-green",
   "stat1Value": "AI",
@@ -25,5 +29,7 @@
   "featZoom": "110",
   "featPosX": "50",
   "featPosY": "30",
+  "featOpacity": "40",
+  "featOverlay": "70",
   "featIcon": "🎯"
 }

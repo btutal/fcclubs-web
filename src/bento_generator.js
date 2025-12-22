@@ -28,6 +28,10 @@ const els = {
     inputHeroPosX: document.getElementById('inputHeroPosX'),
     inputHeroPosY: document.getElementById('inputHeroPosY'),
     zoomHeroVal: document.getElementById('zoomHeroVal'),
+    inputHeroOpacity: document.getElementById('inputHeroOpacity'),
+    heroOpacityVal: document.getElementById('heroOpacityVal'),
+    inputHeroOverlay: document.getElementById('inputHeroOverlay'),
+    heroOverlayVal: document.getElementById('heroOverlayVal'),
     
     // Secondary
     selectImg2: document.getElementById('selectImg2'),
@@ -37,6 +41,10 @@ const els = {
     inputImg2Title: document.getElementById('inputImg2Title'),
     selectImg2TitleStyle: document.getElementById('selectImg2TitleStyle'),
     zoomImg2Val: document.getElementById('zoomImg2Val'),
+    inputImg2Opacity: document.getElementById('inputImg2Opacity'),
+    img2OpacityVal: document.getElementById('img2OpacityVal'),
+    inputImg2Overlay: document.getElementById('inputImg2Overlay'),
+    img2OverlayVal: document.getElementById('img2OverlayVal'),
     
     // Stats
     inputStat1Value: document.getElementById('inputStat1Value'),
@@ -58,6 +66,8 @@ const els = {
     zoomFeatVal: document.getElementById('zoomFeatVal'),
     inputFeatOpacity: document.getElementById('inputFeatOpacity'),
     featOpacityVal: document.getElementById('featOpacityVal'),
+    inputFeatOverlay: document.getElementById('inputFeatOverlay'),
+    featOverlayVal: document.getElementById('featOverlayVal'),
     selectFeatIcon: document.getElementById('selectFeatIcon'),
     clearFeatIcon: document.getElementById('clearFeatIcon'),
     dispFeatIcon: document.querySelector('.feature-icon'),
@@ -77,6 +87,8 @@ const els = {
     dispFeatDesc: document.getElementById('dispFeatDesc'),
     dispFeatImg: document.getElementById('dispFeatImg'),
     featGradient: document.querySelector('.feature-gradient'),
+    heroGradient: document.querySelector('.hero-gradient'),
+    img2Gradient: document.querySelector('.device-gradient'),
     heroTextOverlay: document.querySelector('.hero-text-overlay'),
     img2TextOverlay: document.querySelector('.img2-text-overlay'),
     boxStat1: document.querySelector('.box-stat-1'),
@@ -92,6 +104,8 @@ const PRESETS = {
         heroZoom: 115,
         heroPosX: 50,
         heroPosY: 25,
+        heroOpacity: 65,
+        heroOverlay: 60,
         
         img2: "/assets/screenshots/iphone-matches.png",
         img2Zoom: 110,
@@ -99,6 +113,8 @@ const PRESETS = {
         img2PosY: 20,
         img2Title: "",
         img2TitleStyle: "white",
+        img2Opacity: 90,
+        img2Overlay: 30,
         
         // STAT 1: Core feature - Match Tracking
         stat1Value: "∞",
@@ -119,6 +135,8 @@ const PRESETS = {
         featZoom: 100,
         featPosX: 50,
         featPosY: 50,
+        featOpacity: 40,
+        featOverlay: 70,
         featIcon: "🎯"
     },
     
@@ -130,6 +148,8 @@ const PRESETS = {
         heroZoom: 115,
         heroPosX: 50,
         heroPosY: 20,
+        heroOpacity: 65,
+        heroOverlay: 60,
         
         img2: "/assets/screenshots/iphone-club.png",
         img2Zoom: 110,
@@ -137,6 +157,8 @@ const PRESETS = {
         img2PosY: 15,
         img2Title: "",
         img2TitleStyle: "gradient-blue",
+        img2Opacity: 90,
+        img2Overlay: 30,
         
         // STAT 1: Search feature
         stat1Value: "Any",
@@ -157,6 +179,8 @@ const PRESETS = {
         featZoom: 100,
         featPosX: 50,
         featPosY: 50,
+        featOpacity: 40,
+        featOverlay: 70,
         featIcon: "📊"
     },
     
@@ -168,6 +192,8 @@ const PRESETS = {
         heroZoom: 100,
         heroPosX: 50,
         heroPosY: 30,
+        heroOpacity: 65,
+        heroOverlay: 60,
         
         img2: "/assets/screenshots/iphone-scout.png",
         img2Zoom: 110,
@@ -175,6 +201,8 @@ const PRESETS = {
         img2PosY: 20,
         img2Title: "",
         img2TitleStyle: "neon-green",
+        img2Opacity: 90,
+        img2Overlay: 30,
         
         // STAT 1: AI Match Forecast
         stat1Value: "AI",
@@ -195,6 +223,8 @@ const PRESETS = {
         featZoom: 110,
         featPosX: 50,
         featPosY: 30,
+        featOpacity: 40,
+        featOverlay: 70,
         featIcon: "🎯"
     }
 };
@@ -244,10 +274,14 @@ function getCurrentState() {
         heroZoom: els.inputHeroZoom.value,
         heroPosX: els.inputHeroPosX.value,
         heroPosY: els.inputHeroPosY.value,
+        heroOpacity: els.inputHeroOpacity.value,
+        heroOverlay: els.inputHeroOverlay.value,
         img2: els.selectImg2.value,
         img2Zoom: els.inputImg2Zoom.value,
         img2PosX: els.inputImg2PosX.value,
         img2PosY: els.inputImg2PosY.value,
+        img2Opacity: els.inputImg2Opacity.value,
+        img2Overlay: els.inputImg2Overlay.value,
         img2Title: els.inputImg2Title.value,
         img2TitleStyle: els.selectImg2TitleStyle.value,
         stat1Value: els.inputStat1Value.value,
@@ -264,6 +298,8 @@ function getCurrentState() {
         featZoom: els.inputFeatZoom.value,
         featPosX: els.inputFeatPosX.value,
         featPosY: els.inputFeatPosY.value,
+        featOpacity: els.inputFeatOpacity.value,
+        featOverlay: els.inputFeatOverlay.value,
         featIcon: els.selectFeatIcon.value,
         format: els.formatSelect.value
     };
@@ -285,12 +321,16 @@ function applyStateData(data) {
     els.inputHeroZoom.value = data.heroZoom || 100;
     els.inputHeroPosX.value = data.heroPosX || 50;
     els.inputHeroPosY.value = data.heroPosY || 50;
+    els.inputHeroOpacity.value = data.heroOpacity || 65;
+    els.inputHeroOverlay.value = data.heroOverlay || 60;
     
     // Secondary
     els.selectImg2.value = data.img2 || '';
     els.inputImg2Zoom.value = data.img2Zoom || 100;
     els.inputImg2PosX.value = data.img2PosX || 50;
     els.inputImg2PosY.value = data.img2PosY || 50;
+    els.inputImg2Opacity.value = data.img2Opacity || 90;
+    els.inputImg2Overlay.value = data.img2Overlay || 30;
     els.inputImg2Title.value = data.img2Title || '';
     els.selectImg2TitleStyle.value = data.img2TitleStyle || 'white';
     
@@ -312,6 +352,8 @@ function applyStateData(data) {
     els.inputFeatZoom.value = data.featZoom || 100;
     els.inputFeatPosX.value = data.featPosX || 50;
     els.inputFeatPosY.value = data.featPosY || 50;
+    els.inputFeatOpacity.value = data.featOpacity || 40;
+    els.inputFeatOverlay.value = data.featOverlay || 70;
     els.selectFeatIcon.value = data.featIcon || '';
     
     applyToCanvas();
@@ -349,12 +391,16 @@ function setTheme(key) {
     els.inputHeroZoom.value = data.heroZoom || 100;
     els.inputHeroPosX.value = data.heroPosX || 50;
     els.inputHeroPosY.value = data.heroPosY || 50;
+    els.inputHeroOpacity.value = data.heroOpacity || 65;
+    els.inputHeroOverlay.value = data.heroOverlay || 60;
     
     // Secondary
     els.selectImg2.value = data.img2;
     els.inputImg2Zoom.value = data.img2Zoom || 100;
     els.inputImg2PosX.value = data.img2PosX || 50;
     els.inputImg2PosY.value = data.img2PosY || 50;
+    els.inputImg2Opacity.value = data.img2Opacity || 90;
+    els.inputImg2Overlay.value = data.img2Overlay || 30;
     els.inputImg2Title.value = data.img2Title || "";
     els.selectImg2TitleStyle.value = data.img2TitleStyle || "white";
     
@@ -376,6 +422,8 @@ function setTheme(key) {
     els.inputFeatZoom.value = data.featZoom || 100;
     els.inputFeatPosX.value = data.featPosX || 50;
     els.inputFeatPosY.value = data.featPosY || 50;
+    els.inputFeatOpacity.value = data.featOpacity || 40;
+    els.inputFeatOverlay.value = data.featOverlay || 70;
     els.selectFeatIcon.value = data.featIcon || "";
     
     applyToCanvas();
@@ -424,16 +472,21 @@ function applyToCanvas() {
         
         els.dispFeatImg.style.backgroundSize = `${featZoom}%`;
         els.dispFeatImg.style.backgroundPosition = `${featPosX}% ${featPosY}%`;
+        
+        // Feature image opacity
+        const featOpacity = parseFloat(els.inputFeatOpacity.value) / 100;
+        els.featOpacityVal.textContent = els.inputFeatOpacity.value;
+        els.dispFeatImg.style.opacity = featOpacity;
     } else {
         els.dispFeatImg.style.display = 'none';
         els.dispFeatImg.style.backgroundImage = '';
     }
     
-    // Feature overlay opacity
-    const featOpacity = parseFloat(els.inputFeatOpacity.value) / 100;
-    els.featOpacityVal.textContent = els.inputFeatOpacity.value;
+    // Feature overlay (gradient)
+    const featOverlay = parseFloat(els.inputFeatOverlay.value) / 100;
+    els.featOverlayVal.textContent = els.inputFeatOverlay.value;
     if (els.featGradient) {
-        els.featGradient.style.background = `linear-gradient(to top, rgba(0,0,0,${featOpacity * 1.2}) 0%, rgba(0,0,0,${featOpacity}) 100%)`;
+        els.featGradient.style.background = `linear-gradient(to top, rgba(0,0,0,${featOverlay}) 0%, rgba(0,0,0,${featOverlay * 0.6}) 100%)`;
     }
     
     // Hero text style
@@ -457,6 +510,16 @@ function applyToCanvas() {
     els.dispHeroImg.style.backgroundSize = `${heroZoom}%`;
     els.dispHeroImg.style.backgroundPosition = `${heroPosX}% ${heroPosY}%`;
     
+    // Hero opacity and overlay
+    const heroOpacity = parseFloat(els.inputHeroOpacity.value) / 100;
+    const heroOverlay = parseFloat(els.inputHeroOverlay.value) / 100;
+    els.heroOpacityVal.textContent = els.inputHeroOpacity.value;
+    els.heroOverlayVal.textContent = els.inputHeroOverlay.value;
+    els.dispHeroImg.style.opacity = heroOpacity;
+    if (els.heroGradient) {
+        els.heroGradient.style.background = `linear-gradient(to top, rgba(0,0,0,${heroOverlay}) 0%, rgba(0,0,0,${heroOverlay * 0.3}) 50%, rgba(0,0,0,${heroOverlay * 0.5}) 100%)`;
+    }
+    
     // Img2 zoom + position - use background-size and background-position
     const img2Zoom = parseFloat(els.inputImg2Zoom.value);
     const img2PosX = parseFloat(els.inputImg2PosX.value);
@@ -465,6 +528,16 @@ function applyToCanvas() {
     
     els.dispImg2.style.backgroundSize = `${img2Zoom}%`;
     els.dispImg2.style.backgroundPosition = `${img2PosX}% ${img2PosY}%`;
+    
+    // Img2 opacity and overlay
+    const img2Opacity = parseFloat(els.inputImg2Opacity.value) / 100;
+    const img2Overlay = parseFloat(els.inputImg2Overlay.value) / 100;
+    els.img2OpacityVal.textContent = els.inputImg2Opacity.value;
+    els.img2OverlayVal.textContent = els.inputImg2Overlay.value;
+    els.dispImg2.style.opacity = img2Opacity;
+    if (els.img2Gradient) {
+        els.img2Gradient.style.background = `linear-gradient(to bottom, transparent 50%, rgba(0,0,0,${img2Overlay}) 100%)`;
+    }
     
     // Autosave on every change
     saveToLocalStorage();
@@ -494,10 +567,12 @@ function bindEvents() {
     
     const liveInputs = [
         'inputHeroTitle', 'inputHeroZoom', 'inputHeroPosX', 'inputHeroPosY',
+        'inputHeroOpacity', 'inputHeroOverlay',
         'inputImg2Zoom', 'inputImg2PosX', 'inputImg2PosY', 'inputImg2Title',
+        'inputImg2Opacity', 'inputImg2Overlay',
         'inputStat1Value', 'inputStat1Label', 'inputStat1Desc',
         'inputStat2Value', 'inputStat2Label', 'inputStat2Desc',
-        'inputFeatTitle', 'inputFeatDesc', 'inputFeatOpacity',
+        'inputFeatTitle', 'inputFeatDesc', 'inputFeatOpacity', 'inputFeatOverlay',
         'inputFeatZoom', 'inputFeatPosX', 'inputFeatPosY'
     ];
     liveInputs.forEach(id => {
@@ -527,10 +602,14 @@ function bindEvents() {
             heroZoom: els.inputHeroZoom.value,
             heroPosX: els.inputHeroPosX.value,
             heroPosY: els.inputHeroPosY.value,
+            heroOpacity: els.inputHeroOpacity.value,
+            heroOverlay: els.inputHeroOverlay.value,
             img2: els.selectImg2.value,
             img2Zoom: els.inputImg2Zoom.value,
             img2PosX: els.inputImg2PosX.value,
             img2PosY: els.inputImg2PosY.value,
+            img2Opacity: els.inputImg2Opacity.value,
+            img2Overlay: els.inputImg2Overlay.value,
             img2Title: els.inputImg2Title.value,
             img2TitleStyle: els.selectImg2TitleStyle.value,
             stat1Value: els.inputStat1Value.value,
@@ -547,6 +626,8 @@ function bindEvents() {
             featZoom: els.inputFeatZoom.value,
             featPosX: els.inputFeatPosX.value,
             featPosY: els.inputFeatPosY.value,
+            featOpacity: els.inputFeatOpacity.value,
+            featOverlay: els.inputFeatOverlay.value,
             featIcon: els.selectFeatIcon.value
         };
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
