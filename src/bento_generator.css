@@ -664,21 +664,22 @@ textarea { resize: vertical; }
 
 .style-btn.text-style-outline { 
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 2px #fff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.4);
 }
 .style-btn.text-style-heavy-shadow { 
     color: #fff;
-    text-shadow: 2px 2px 0px #000;
+    text-shadow: 2px 2px 0px #000, 3px 3px 0px rgba(0,0,0,0.5);
 }
 .style-btn.text-style-3d { 
     color: #fff;
-    text-shadow: 0 1px 0 #ccc, 0 2px 0 #bbb, 0 3px 0 #aaa;
+    text-shadow: 0 1px 0 #999, 0 2px 0 #888, 0 3px 2px rgba(0,0,0,0.5);
 }
 .style-btn.text-style-retro { 
-    color: #ff00ff;
-    text-shadow: 1px 1px 0px #00ffff;
+    color: #ff6ec7;
+    text-shadow: 2px 2px 0px #00d4ff;
     font-family: 'Courier New', monospace;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 /* Color Picker Circles */
@@ -1036,6 +1037,28 @@ body.theme-light .export-btn-top {
     background: var(--color-electric-blue);
     color: #000;
 }
+
+/* =============================================
+   LAYOUT PRESETS
+   ============================================= */
+
+/* Standard Layout - All boxes visible (default) */
+.bento-canvas.layout-standard .bento-box { display: flex; }
+
+/* Stats Focus - Hide secondary & feature, expand stats */
+.bento-canvas.layout-stats-focus .box-secondary,
+.bento-canvas.layout-stats-focus .box-feature { display: none; }
+
+/* Hero Only - Hide everything except hero, hero takes full */
+.bento-canvas.layout-hero-only .box-secondary,
+.bento-canvas.layout-hero-only .box-brand,
+.bento-canvas.layout-hero-only .box-stat-1,
+.bento-canvas.layout-hero-only .box-stat-2,
+.bento-canvas.layout-hero-only .box-feature { display: none; }
+
+/* Triple Feature - Hide stats, show hero + secondary as features */
+.bento-canvas.layout-triple-feature .box-stat-1,
+.bento-canvas.layout-triple-feature .box-stat-2 { display: none; }
 
 /* =============================================
    FORMAT LAYOUTS

@@ -1,5 +1,5 @@
 /**
- * Bento Generator v15 - Background Presets & Visual Polish
+ * Bento Generator v16 - Layout Presets & Text Fixes
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -1153,6 +1153,19 @@ function bindEvents() {
                 overlay.classList.remove('hidden');
             }
         });
+    }
+    
+    // Layout preset change
+    const layoutPresetSelect = document.getElementById('layoutPresetSelect');
+    if (layoutPresetSelect) {
+        layoutPresetSelect.addEventListener('change', () => {
+            // Remove all layout- classes
+            els.canvas.classList.remove('layout-standard', 'layout-stats-focus', 'layout-hero-only', 'layout-triple-feature');
+            // Add selected
+            els.canvas.classList.add(`layout-${layoutPresetSelect.value}`);
+        });
+        // Set initial layout
+        els.canvas.classList.add(`layout-${layoutPresetSelect.value}`);
     }
     
     els.saveBtn.addEventListener('click', () => {
