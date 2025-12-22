@@ -462,11 +462,22 @@ function applyFormatSelection(format, bg) {
     els.formatSelect.value = format;
     els.canvas.className = `bento-canvas format-${format}`;
     
-    // Apply background
-    if (bg === 'light') {
-        els.canvas.classList.add('bg-light');
-    } else {
-        els.canvas.classList.remove('bg-light');
+    // Apply background to preview stage (area around canvas), not the canvas itself
+    const previewStage = document.querySelector('.preview-stage');
+    if (previewStage) {
+        if (bg === 'light') {
+            previewStage.classList.add('bg-light');
+        } else {
+            previewStage.classList.remove('bg-light');
+        }
+    }
+    
+    // Sync sidebar toggle buttons
+    const sidebarBgLight = document.getElementById('sidebarBgLight');
+    const sidebarBgDark = document.getElementById('sidebarBgDark');
+    if (sidebarBgLight && sidebarBgDark) {
+        sidebarBgLight.classList.toggle('active', bg === 'light');
+        sidebarBgDark.classList.toggle('active', bg === 'dark');
     }
     
     setTimeout(updateScale, 50);
@@ -1123,18 +1134,19 @@ function bindEvents() {
     // Sidebar background toggle
     const sidebarBgLight = document.getElementById('sidebarBgLight');
     const sidebarBgDark = document.getElementById('sidebarBgDark');
+    const previewStage = document.querySelector('.preview-stage');
     
-    if (sidebarBgLight && sidebarBgDark) {
+    if (sidebarBgLight && sidebarBgDark && previewStage) {
         sidebarBgLight.addEventListener('click', () => {
             sidebarBgLight.classList.add('active');
             sidebarBgDark.classList.remove('active');
-            els.canvas.classList.add('bg-light');
+            previewStage.classList.add('bg-light');
         });
         
         sidebarBgDark.addEventListener('click', () => {
             sidebarBgDark.classList.add('active');
             sidebarBgLight.classList.remove('active');
-            els.canvas.classList.remove('bg-light');
+            previewStage.classList.remove('bg-light');
         });
     }
     

@@ -650,26 +650,13 @@ textarea { resize: vertical; }
     transform-origin: center center;
 }
 
-/* Light Background Mode */
-.bento-canvas.bg-light {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+/* Light Background Mode - For Preview Stage (area around canvas) */
+.preview-stage.bg-light {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #f0f0f0 100%);
 }
 
-.bento-canvas.bg-light .bento-box {
-    background: rgba(255,255,255,0.9);
-    border-color: rgba(0,0,0,0.08);
-}
-
-.bento-canvas.bg-light .stat-label,
-.bento-canvas.bg-light .stat-desc,
-.bento-canvas.bg-light .feature-desc,
-.bento-canvas.bg-light .brand-tagline {
-    color: rgba(0,0,0,0.5);
-}
-
-.bento-canvas.bg-light .feature-title,
-.bento-canvas.bg-light .brand-name {
-    color: #1a1a1f;
+.preview-stage.bg-light .bento-canvas {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
 }
 
 /* =============================================
