@@ -173,6 +173,28 @@ textarea { resize: vertical; }
     transform: rotate(-90deg);
 }
 
+.section-reset-btn {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    cursor: pointer;
+    font-size: 0.9em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+}
+
+.control-section:hover .section-reset-btn {
+    opacity: 1;
+}
+
+.section-reset-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
 /* Drag & drop styling */
 .control-group.drag-over {
     background: rgba(66, 254, 194, 0.15);
@@ -216,6 +238,86 @@ textarea { resize: vertical; }
     grid-template-columns: auto 1fr;
     gap: 8px 12px;
     align-items: center;
+}
+
+/* Visual Text Style Selector */
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.style-btn {
+    aspect-ratio: 1;
+    background: #1a1a1f;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.style-btn:hover {
+    background: #2a2a30;
+    transform: translateY(-2px);
+}
+
+.style-btn.active {
+    border-color: var(--color-neon-green);
+    background: rgba(66, 254, 194, 0.1);
+    box-shadow: 0 0 10px rgba(66, 254, 194, 0.2);
+}
+
+/* Style Previews */
+.style-btn.text-style-white { color: #fff; }
+.style-btn.text-style-gradient-blue { 
+    background: linear-gradient(135deg, #3BADF7 0%, #42FEC2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.style-btn.text-style-gradient-green { 
+    background: linear-gradient(135deg, #42FEC2 0%, #A8FF78 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.style-btn.text-style-gradient-pink { 
+    background: linear-gradient(135deg, #F73B97 0%, #FEC242 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.style-btn.text-style-gradient-gold { 
+    background: linear-gradient(135deg, #FEC242 0%, #F73B3B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.style-btn.text-style-neon-blue { color: #3BADF7; text-shadow: 0 0 10px rgba(59, 173, 247, 0.5); }
+.style-btn.text-style-neon-green { color: #42FEC2; text-shadow: 0 0 10px rgba(66, 254, 194, 0.5); }
+
+.style-btn.text-style-outline { 
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+.style-btn.text-style-heavy-shadow { 
+    color: #fff;
+    text-shadow: 2px 2px 0px #000;
+}
+.style-btn.text-style-3d { 
+    color: #fff;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #bbb, 0 3px 0 #aaa;
+}
+.style-btn.text-style-retro { 
+    color: #ff00ff;
+    text-shadow: 1px 1px 0px #00ffff;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
 }
 
 .help-grid kbd {
@@ -773,4 +875,38 @@ textarea { resize: vertical; }
 .text-style-neon-green h1 {
     color: #42FEC2;
     text-shadow: 0 0 30px rgba(66, 254, 194, 0.5), 0 0 60px rgba(66, 254, 194, 0.3);
+}
+
+.text-style-outline h1 {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.text-style-heavy-shadow h1 {
+    color: #fff;
+    text-shadow: 4px 4px 0px #000;
+}
+
+.text-style-3d h1 {
+    color: #fff;
+    text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
+}
+
+.text-style-retro h1 {
+    color: #ff00ff;
+    text-shadow: 2px 2px 0px #00ffff;
+    font-family: 'Courier New', monospace; 
+    letter-spacing: -2px;
 }

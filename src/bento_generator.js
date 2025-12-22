@@ -1,11 +1,11 @@
 /**
- * Bento Generator v7 - Complete Feature Release
+ * Bento Generator v8 - Polish & Customization Release
  * 
  * Features:
  * - Export to PNG with proper image rendering
  * - Copy to clipboard for quick sharing
  * - Autosave to localStorage (auto-restores on reload)
- * - Keyboard shortcuts: Cmd+E (export), Cmd+S (save), Cmd+Shift+C (copy), ? (help)
+ * - Keyboard shortcuts: Cmd+E, Cmd+S, Cmd+Shift+C, Cmd+Z, Cmd+Shift+Z, ?
  * - Multiple formats: Instagram, LinkedIn, Twitter/X
  * - Icon/emoji selector for feature box
  * - Image zoom, position, opacity, and overlay controls
@@ -14,7 +14,51 @@
  * - Multi-format export (all at once)
  * - Custom image upload via drag & drop
  * - Centralized screenshot list
+ * - Undo/Redo support
+ * - More text styles (outline, shadow, 3D)
+ * - Preset thumbnails
+ * - Loading states for export
  */
+
+// Undo/Redo history
+const historyStack = [];
+let historyPointer = -1;
+const MAX_HISTORY = 50;
+
+function pushHistory() {
+    // Remove any redo states ahead of current pointer
+    if (historyPointer < historyStack.length - 1) {
+        historyStack.splice(historyPointer + 1);
+    }
+    
+    const state = getCurrentState();
+    historyStack.push(JSON.stringify(state));
+    
+    // Limit history size
+    if (historyStack.length > MAX_HISTORY) {
+        historyStack.shift();
+    } else {
+        historyPointer++;
+    }
+}
+
+function undo() {
+    if (historyPointer > 0) {
+        historyPointer--;
+        const state = JSON.parse(historyStack[historyPointer]);
+        applyStateData(state, true); // true = skip history push
+        showToast('↩️ Undo');
+    }
+}
+
+function redo() {
+    if (historyPointer < historyStack.length - 1) {
+        historyPointer++;
+        const state = JSON.parse(historyStack[historyPointer]);
+        applyStateData(state, true);
+        showToast('↪️ Redo');
+    }
+}
 
 // Centralized screenshot list - single source of truth
 const SCREENSHOTS = [
@@ -276,6 +320,50 @@ const PRESETS = {
     }
 };
 
+const DEFAULTS = {
+    hero: {
+        inputHeroTitle: "Your Headline\nGoes Here",
+        selectTextStyle: "white",
+        selectHeroImg: SCREENSHOTS[0].items[0].value,
+        inputHeroZoom: 100,
+        inputHeroPosX: 50,
+        inputHeroPosY: 50,
+        inputHeroOpacity: 100,
+        inputHeroOverlay: 50
+    },
+    img2: {
+        selectImg2: SCREENSHOTS[0].items[2].value,
+        inputImg2Zoom: 100,
+        inputImg2PosX: 50,
+        inputImg2PosY: 50,
+        inputImg2Title: "",
+        selectImg2TitleStyle: "white",
+        inputImg2Opacity: 100,
+        inputImg2Overlay: 30
+    },
+    stats: {
+        inputStat1Value: "100",
+        inputStat1Label: "Label",
+        inputStat1Desc: "Description",
+        selectStat1Color: "green",
+        inputStat2Value: "200",
+        inputStat2Label: "Label",
+        inputStat2Desc: "Description",
+        selectStat2Color: "blue"
+    },
+    feature: {
+        inputFeatTitle: "Feature Title",
+        inputFeatDesc: "Feature description goes here",
+        selectFeatImg: SCREENSHOTS[0].items[3].value,
+        inputFeatZoom: 100,
+        inputFeatPosX: 50,
+        inputFeatPosY: 50,
+        inputFeatOpacity: 40,
+        inputFeatOverlay: 70,
+        selectFeatIcon: "🚀"
+    }
+};
+
 function init() {
     // Populate screenshot selects from centralized list
     populateScreenshotSelect(els.selectHeroImg);
@@ -288,6 +376,9 @@ function init() {
     // Setup custom image drop zones
     setupImageDropZones();
     
+    // Setup visual text style selector
+    setupVisualTextSelector();
+    
     bindEvents();
     restoreFromLocalStorage() || setTheme('overview');
     updateScale();
@@ -295,15 +386,99 @@ function init() {
     bindKeyboardShortcuts();
 }
 
-// Collapsible sections toggle
+// Visual Text Style Selector
+function setupVisualTextSelector() {
+    const select = els.selectTextStyle;
+    if (!select) return;
+    
+    // Create container
+    const container = document.createElement('div');
+    container.className = 'style-grid';
+    
+    // Hide native select
+    select.style.display = 'none';
+    select.parentNode.appendChild(container); // Append after label
+    
+    // Create buttons from options
+    Array.from(select.options).forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = `style-btn text-style-${opt.value}`;
+        btn.title = opt.text;
+        btn.innerHTML = 'Ag'; // Sample text
+        
+        // Active state check
+        if (select.value === opt.value) btn.classList.add('active');
+        
+        btn.addEventListener('click', () => {
+            select.value = opt.value;
+            // Update active class
+            container.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Trigger change
+            applyToCanvas();
+        });
+        
+        container.appendChild(btn);
+    });
+    
+    // Listen for external changes to select (e.g. from presets)
+    // We need to use a MutationObserver or hook into setValue, but for now
+    // let's just update visual state in applyStateData
+}
+
+
+// Collapsible sections toggle + Reset Buttons
 function setupCollapsibleSections() {
+    const sectionMap = {
+        'Hero': 'hero',
+        'Secondary': 'img2',
+        'Stats': 'stats',
+        'Feature': 'feature'
+    };
+
     document.querySelectorAll('.section-title').forEach(title => {
         title.style.cursor = 'pointer';
+        
+        // Create Reset Button
+        const sectionName = title.textContent.trim();
+        const defaultKey = sectionMap[sectionName];
+        
+        if (defaultKey) {
+            const resetBtn = document.createElement('button');
+            resetBtn.textContent = '↺';
+            resetBtn.title = 'Reset Section to Default';
+            resetBtn.className = 'section-reset-btn';
+            resetBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Don't collapse
+                if (confirm(`Reset ${sectionName} to defaults?`)) {
+                    resetSection(defaultKey);
+                    pushHistory();
+                }
+            });
+            title.appendChild(resetBtn);
+        }
+
         title.addEventListener('click', () => {
             const section = title.closest('.control-section');
             section.classList.toggle('collapsed');
         });
     });
+}
+
+function resetSection(key) {
+    const defaults = DEFAULTS[key];
+    if (!defaults) return;
+    
+    Object.keys(defaults).forEach(elId => {
+        if (els[elId]) {
+            els[elId].value = defaults[elId];
+            // Trigger change/input event if needed for some listeners, 
+            // but mostly applyToCanvas reads directly.
+        }
+    });
+    applyToCanvas();
+    showToast(`↺ Reset ${key}`);
 }
 
 // Custom image drag & drop zones
@@ -413,7 +588,7 @@ function getCurrentState() {
     };
 }
 
-function applyStateData(data) {
+function applyStateData(data, skipHistory = false) {
     if (!data) return;
     
     // Format
@@ -425,6 +600,12 @@ function applyStateData(data) {
     // Hero
     els.inputHeroTitle.value = data.heroTitle || '';
     els.selectTextStyle.value = data.textStyle || 'white';
+    
+    // Sync visual selector
+    document.querySelectorAll('.style-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.className.includes(`text-style-${els.selectTextStyle.value}`));
+    });
+
     els.selectHeroImg.value = data.heroImg || '';
     els.inputHeroZoom.value = data.heroZoom || 100;
     els.inputHeroPosX.value = data.heroPosX || 50;
@@ -464,7 +645,7 @@ function applyStateData(data) {
     els.inputFeatOverlay.value = data.featOverlay || 70;
     els.selectFeatIcon.value = data.featIcon || '';
     
-    applyToCanvas();
+    applyToCanvas(skipHistory);
 }
 
 // Keyboard shortcuts
@@ -484,6 +665,16 @@ function bindKeyboardShortcuts() {
         if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'C') {
             e.preventDefault();
             els.copyBtn.click();
+        }
+        // Cmd/Ctrl + Z = Undo
+        if ((e.metaKey || e.ctrlKey) && !e.shiftKey && e.key === 'z') {
+            e.preventDefault();
+            undo();
+        }
+        // Cmd/Ctrl + Shift + Z = Redo
+        if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'Z') {
+            e.preventDefault();
+            redo();
         }
         // ? = Toggle help overlay
         if (e.key === '?' || (e.shiftKey && e.key === '/')) {
@@ -578,7 +769,7 @@ function setTheme(key) {
     applyToCanvas();
 }
 
-function applyToCanvas() {
+function applyToCanvas(skipHistory = false) {
     // Text content
     els.dispHeroTitle.innerHTML = els.inputHeroTitle.value.replace(/\n/g, '<br>');
     
@@ -690,6 +881,11 @@ function applyToCanvas() {
     
     // Autosave on every change
     saveToLocalStorage();
+    
+    // Push to history (unless restoring from undo/redo)
+    if (!skipHistory) {
+        pushHistory();
+    }
 }
 
 function updateScale() {
