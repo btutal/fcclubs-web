@@ -60,8 +60,7 @@ body {
 .top-menu-center {
     display: flex;
     align-items: center;
-    gap: 8px;
-    flex: 1;
+    gap: 6px;
     justify-content: center;
 }
 
@@ -69,9 +68,10 @@ body {
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.12);
     color: #fff;
-    padding: 6px 10px;
+    padding: 6px 8px;
     border-radius: 6px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+    max-width: 140px;
 }
 
 .top-menu-right {

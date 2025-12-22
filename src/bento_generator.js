@@ -579,8 +579,15 @@ function setupCollapsibleSections() {
         'Feature': 'feature'
     };
 
-    document.querySelectorAll('.section-title').forEach(title => {
+    const titles = document.querySelectorAll('.section-title');
+    titles.forEach((title, index) => {
         title.style.cursor = 'pointer';
+        
+        // Collapse all sections except the first one on load
+        const section = title.closest('.control-section');
+        if (index > 0) {
+            section.classList.add('collapsed');
+        }
         
         // Create Reset Button
         const sectionName = title.textContent.trim();
