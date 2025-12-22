@@ -1062,11 +1062,23 @@ function updateScale() {
     if (!canvas || !container) return;
 
     canvas.style.transform = 'none';
+    
+    console.log('DEBUG updateScale:', {
+        format: canvas.className,
+        canvasWidth: canvas.offsetWidth,
+        canvasHeight: canvas.offsetHeight,
+        containerWidth: container.clientWidth,
+        containerHeight: container.clientHeight
+    });
+    
     const scale = Math.min(
         (container.clientWidth - 60) / canvas.offsetWidth,
         (container.clientHeight - 60) / canvas.offsetHeight,
         1
     );
+    
+    console.log('DEBUG scale:', scale);
+    
     canvas.style.transform = `scale(${scale})`;
 }
 
