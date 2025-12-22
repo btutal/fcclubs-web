@@ -83,75 +83,59 @@
                     <div class="format-platforms">LinkedIn Article</div>
                 </div>
             </div>
-            
-            <div class="format-options">
-                <div class="background-toggle">
-                    <label>Background:</label>
-                    <button id="bgLightBtn" class="bg-btn active" data-bg="light">☀️ Light</button>
-                    <button id="bgDarkBtn" class="bg-btn" data-bg="dark">🌙 Dark</button>
-                </div>
-            </div>
         </div>
     </div>
 
+
     <div id="app-generator">
+      <!-- TOP MENU BAR -->
+      <header class="top-menu-bar">
+          <div class="top-menu-left">
+              <img src="/assets/app-icon.png" alt="Logo" width="28" style="border-radius: 6px;">
+              <h1>Bento Gen <span>v14</span></h1>
+          </div>
+          <div class="top-menu-center">
+              <select id="formatSelect">
+                  <optgroup label="Instagram">
+                      <option value="ig-square">Square (1080×1080)</option>
+                      <option value="ig-portrait">Portrait (1080×1350)</option>
+                      <option value="ig-story">Story (1080×1920)</option>
+                  </optgroup>
+                  <optgroup label="LinkedIn">
+                      <option value="li-square">Square (1080×1080)</option>
+                      <option value="li-landscape">Landscape (1200×626)</option>
+                  </optgroup>
+                  <optgroup label="Twitter/X">
+                      <option value="x-landscape">Landscape (1600×900)</option>
+                      <option value="x-square">Square (1080×1080)</option>
+                  </optgroup>
+              </select>
+              <button id="restartBtn" class="top-btn" title="Change Format">🔄</button>
+              <div class="top-divider"></div>
+              <select id="themeSelect">
+                  <option value="overview">App Overview</option>
+                  <option value="v102">v1.0.2 Release</option>
+                  <option value="v103">v1.0.3 Release</option>
+              </select>
+              <button id="saveBtn" class="top-btn" title="Save Preset">💾</button>
+              <button id="loadPresetBtn" class="top-btn" title="Load Preset">📂</button>
+              <input type="file" id="loadPresetInput" accept=".json" style="display:none;">
+          </div>
+          <div class="top-menu-right">
+              <div class="theme-toggle">
+                  <button id="sidebarBgLight" class="theme-btn" data-bg="light" title="Light Mode">☀️</button>
+                  <button id="sidebarBgDark" class="theme-btn active" data-bg="dark" title="Dark Mode">🌙</button>
+              </div>
+              <div class="top-divider"></div>
+              <button id="copyBtn" class="top-btn" title="Copy to Clipboard">📋</button>
+              <button id="exportBtn" class="export-btn-top">📸 Export</button>
+              <button id="helpBtn" class="top-btn" title="Help">?</button>
+          </div>
+      </header>
+
+      <div class="main-content">
       <aside class="controls">
-        <div class="control-header">
-           <img src="/assets/app-icon.png" alt="Logo" width="32" style="border-radius: 8px;">
-           <h2>Bento Gen <span style="opacity:0.5; font-weight:400; font-size:0.8em;">v13</span></h2>
-           <button id="helpBtn" style="margin-left:auto; background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff; border-radius:6px; padding:4px 10px; cursor:pointer; font-size:0.8rem;">?</button>
-        </div>
-        
         <div class="control-scroll">
-            
-            <!-- LAYOUT -->
-            <div class="control-section">
-                <div class="section-title">Canvas</div>
-                <div class="control-group">
-                  <label>Format</label>
-                  <select id="formatSelect">
-                    <optgroup label="Instagram">
-                        <option value="ig-square">Square (1080×1080)</option>
-                        <option value="ig-portrait">Portrait (1080×1350)</option>
-                        <option value="ig-story">Story (1080×1920)</option>
-                    </optgroup>
-                    <optgroup label="LinkedIn">
-                        <option value="li-square">Square (1080×1080)</option>
-                        <option value="li-portrait">Portrait (1920×1080)</option>
-                        <option value="li-landscape">Landscape (1200×626)</option>
-                    </optgroup>
-                    <optgroup label="Twitter/X">
-                        <option value="x-landscape">Landscape (1600×900)</option>
-                        <option value="x-square">Square (1080×1080)</option>
-                    </optgroup>
-                  </select>
-                </div>
-                
-                <div class="control-group">
-                  <label>Preset</label>
-                  <div class="half-row">
-                      <select id="themeSelect">
-                        <option value="overview">App Overview</option>
-                        <option value="v102">v1.0.2 Release</option>
-                        <option value="v103">v1.0.3 Release</option>
-                      </select>
-                      <button id="saveBtn" class="btn-secondary">💾</button>
-                  </div>
-                </div>
-                
-                <div class="control-group">
-                    <label>Background</label>
-                    <div class="half-row">
-                        <button id="sidebarBgLight" class="bg-toggle-btn active" data-bg="light">☀️ Light</button>
-                        <button id="sidebarBgDark" class="bg-toggle-btn" data-bg="dark">🌙 Dark</button>
-                    </div>
-                </div>
-                
-                <button id="restartBtn" class="restart-btn">🔄 Change Format</button>
-            </div>
-
-            <hr class="divider">
-
             <!-- HERO -->
             <div class="control-section">
                 <div class="section-title">Hero</div>
@@ -428,16 +412,8 @@
                 </div>
             </div>
 
-            <div class="control-section">
-                <div class="half-row">
-                    <button id="exportBtn" class="export-btn">📸 Export</button>
-                    <button id="copyBtn" class="export-btn copy-btn">📋 Copy</button>
-                </div>
-                <button id="multiExportBtn" class="export-btn" style="margin-top:8px; background:rgba(255,255,255,0.1); color:#fff;">📦 Export All Formats</button>
-                <div class="half-row" style="margin-top:8px;">
-                    <button id="loadPresetBtn" class="export-btn" style="background:rgba(255,255,255,0.05); color:#fff;">📂 Load Preset</button>
-                    <input type="file" id="loadPresetInput" accept=".json" style="display:none;">
-                </div>
+            <div class="control-section" style="margin-top:auto;">
+                <button id="multiExportBtn" class="export-btn" style="background:rgba(255,255,255,0.1); color:#fff;">📦 Export All Formats</button>
             </div>
       </aside>
 
@@ -512,6 +488,7 @@
 
         </div>
       </main>
+      </div><!-- end main-content -->
     </div>
     
     <div id="toast" class="toast">Copied to clipboard!</div>

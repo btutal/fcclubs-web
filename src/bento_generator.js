@@ -1,5 +1,5 @@
 /**
- * Bento Generator v13 - Design Polish & Light Theme
+ * Bento Generator v14 - Top Menu Bar
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -425,34 +425,21 @@ function setupFormatPicker() {
     const hasVisited = localStorage.getItem('bentoGenerator_hasVisited');
     if (hasVisited) {
         overlay.classList.add('hidden');
-        return;
     }
     
-    let selectedFormat = 'ig-square';
-    let selectedBg = 'light';
-    
-    // Format card selection
+    // Always set up event listeners (for restart button reopening)
     formatCards.forEach(card => {
         card.addEventListener('click', () => {
             formatCards.forEach(c => c.classList.remove('selected'));
             card.classList.add('selected');
-            selectedFormat = card.dataset.format;
+            const selectedFormat = card.dataset.format;
             
-            // Auto-dismiss after selection
+            // Apply format and dismiss
             setTimeout(() => {
-                applyFormatSelection(selectedFormat, selectedBg);
+                applyFormatSelection(selectedFormat);
                 overlay.classList.add('hidden');
                 localStorage.setItem('bentoGenerator_hasVisited', 'true');
             }, 300);
-        });
-    });
-    
-    // Background toggle
-    bgBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            bgBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            selectedBg = btn.dataset.bg;
         });
     });
 }
@@ -461,21 +448,6 @@ function applyFormatSelection(format, bg) {
     // Apply format
     els.formatSelect.value = format;
     els.canvas.className = `bento-canvas format-${format}`;
-    
-    // Apply theme to body (affects whole page)
-    if (bg === 'light') {
-        document.body.classList.add('theme-light');
-    } else {
-        document.body.classList.remove('theme-light');
-    }
-    
-    // Sync sidebar toggle buttons
-    const sidebarBgLight = document.getElementById('sidebarBgLight');
-    const sidebarBgDark = document.getElementById('sidebarBgDark');
-    if (sidebarBgLight && sidebarBgDark) {
-        sidebarBgLight.classList.toggle('active', bg === 'light');
-        sidebarBgDark.classList.toggle('active', bg === 'dark');
-    }
     
     setTimeout(updateScale, 50);
 }
