@@ -1,5 +1,5 @@
 /**
- * Bento Generator v16 - Layout Presets & Text Fixes
+ * Bento Generator v17 - Complete Redesign
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -472,7 +472,7 @@ function setupVisualTextSelector(select, gridId) {
         btn.className = `style-btn text-style-${opt.value}`;
         btn.dataset.value = opt.value;
         btn.title = opt.text;
-        btn.innerHTML = 'Ag';
+        btn.innerHTML = '<span>Ag</span>';
         
         if (select.value === opt.value) btn.classList.add('active');
         

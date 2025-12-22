@@ -643,75 +643,82 @@ textarea { resize: vertical; }
     box-shadow: 0 0 0 2px var(--color-neon-green), 0 4px 16px rgba(66, 254, 194, 0.3);
 }
 
+/* Force dark background using ::before pseudo-element */
+.style-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 75% 25%, #0a1e3d 0%, #040910 70%, #020304 100%);
+    border-radius: inherit;
+    z-index: 0;
+}
+
+.style-btn span {
+    position: relative;
+    z-index: 1;
+}
+
 /* Text Style Previews - Each with visible effect */
-.style-btn.text-style-white { 
+.style-btn.text-style-white span { 
     color: #fff; 
     text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
-.style-btn.text-style-gradient-blue { 
-    background: 
-        linear-gradient(135deg, #3BADF7 0%, #42FEC2 100%),
-        radial-gradient(ellipse at 75% 25%, #0a1e3d 0%, #040910 70%, #020304 100%);
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
+.style-btn.text-style-gradient-blue span { 
+    background: linear-gradient(135deg, #3BADF7 0%, #42FEC2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.style-btn.text-style-gradient-green { 
-    background: 
-        linear-gradient(135deg, #42FEC2 0%, #A8FF78 100%),
-        radial-gradient(ellipse at 75% 25%, #0a1e3d 0%, #040910 70%, #020304 100%);
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
+.style-btn.text-style-gradient-green span { 
+    background: linear-gradient(135deg, #42FEC2 0%, #A8FF78 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.style-btn.text-style-gradient-pink { 
-    background: 
-        linear-gradient(135deg, #F73B97 0%, #FEC242 100%),
-        radial-gradient(ellipse at 75% 25%, #0a1e3d 0%, #040910 70%, #020304 100%);
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
+.style-btn.text-style-gradient-pink span { 
+    background: linear-gradient(135deg, #F73B97 0%, #FEC242 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.style-btn.text-style-gradient-gold { 
-    background: 
-        linear-gradient(135deg, #FEC242 0%, #F73B3B 100%),
-        radial-gradient(ellipse at 75% 25%, #0a1e3d 0%, #040910 70%, #020304 100%);
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
+.style-btn.text-style-gradient-gold span { 
+    background: linear-gradient(135deg, #FEC242 0%, #F73B3B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.style-btn.text-style-neon-blue { 
+.style-btn.text-style-neon-blue span { 
     color: #3BADF7; 
     text-shadow: 0 0 8px rgba(59, 173, 247, 0.8), 0 0 16px rgba(59, 173, 247, 0.4); 
 }
 
-.style-btn.text-style-neon-green { 
+.style-btn.text-style-neon-green span { 
     color: #42FEC2; 
     text-shadow: 0 0 8px rgba(66, 254, 194, 0.8), 0 0 16px rgba(66, 254, 194, 0.4); 
 }
 
-.style-btn.text-style-outline { 
+.style-btn.text-style-outline span { 
     color: transparent;
     -webkit-text-stroke: 2px #fff;
     text-shadow: 0 0 12px rgba(255,255,255,0.6);
 }
 
-.style-btn.text-style-heavy-shadow { 
+.style-btn.text-style-heavy-shadow span { 
     color: #fff;
     text-shadow: 2px 2px 0px #000, 3px 3px 0px rgba(0,0,0,0.7), 4px 4px 8px rgba(0,0,0,0.5);
 }
 
-.style-btn.text-style-3d { 
+.style-btn.text-style-3d span { 
     color: #fff;
     text-shadow: 0 1px 0 #666, 0 2px 0 #555, 0 3px 0 #444, 0 4px 4px rgba(0,0,0,0.6);
 }
 
-.style-btn.text-style-retro { 
+.style-btn.text-style-retro span { 
     color: #ff6ec7;
     text-shadow: 3px 3px 0px #00d4ff, -1px -1px 0px #00d4ff;
     font-family: 'Courier New', monospace;
@@ -870,12 +877,44 @@ textarea { resize: vertical; }
 }
 
 /* =============================================
-   BENTO BOX GRID BORDERS
+   BENTO BOX GRID BORDERS - Background Adaptive
    ============================================= */
 
+/* Default border style */
 .bento-box {
     border: 1px solid rgba(255,255,255,0.15);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+}
+
+/* Background-specific accent borders */
+.bento-canvas.bg-deep-ocean .bento-box {
+    border-color: rgba(59, 173, 247, 0.25);
+    box-shadow: inset 0 0 0 1px rgba(59, 173, 247, 0.05);
+}
+
+.bento-canvas.bg-midnight .bento-box {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.bento-canvas.bg-electric-blue .bento-box {
+    border-color: rgba(59, 173, 247, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(59, 173, 247, 0.08);
+}
+
+.bento-canvas.bg-neon-teal .bento-box {
+    border-color: rgba(66, 254, 194, 0.25);
+    box-shadow: inset 0 0 0 1px rgba(66, 254, 194, 0.05);
+}
+
+.bento-canvas.bg-ember .bento-box {
+    border-color: rgba(247, 139, 59, 0.25);
+    box-shadow: inset 0 0 0 1px rgba(247, 139, 59, 0.05);
+}
+
+.bento-canvas.bg-solid-dark .bento-box {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
 }
 
 /* Light Theme Mode - Applies to whole page */
