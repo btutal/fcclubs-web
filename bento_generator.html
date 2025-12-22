@@ -92,7 +92,7 @@
       <header class="top-menu-bar">
           <div class="top-menu-left">
               <img src="/assets/app-icon.png" alt="Logo" width="28" style="border-radius: 6px;">
-              <h1>Bento Gen <span>v17</span></h1>
+              <h1>Bento Gen <span>v18</span></h1>
           </div>
           <div class="top-menu-center">
               <select id="formatSelect">
@@ -147,16 +147,19 @@
         <div class="control-scroll">
             <!-- HERO -->
             <div class="control-section" data-box="hero">
-                <div class="section-title">Hero</div>
+                <div class="section-title">Slot A <span class="slot-label">(Main)</span></div>
                 
-                <!-- Box Type Selector - Standard for all sections -->
+                <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
-                    <label>Box Type</label>
-                    <select id="heroBoxType" class="box-type-select">
-                        <option value="screenshot-title" selected>📱 Screenshot + Title</option>
-                        <option value="icon-text">🎯 Icon + Text</option>
-                        <option value="stats">📊 Stats Grid</option>
-                        <option value="brand">🔲 Brand Box</option>
+                    <label>Content</label>
+                    <select id="slotAType" class="box-type-select">
+                        <option value="hero-shot" selected>📸 Hero Shot</option>
+                        <option value="gallery">🖼️ Gallery</option>
+                        <option value="callout">🎯 Callout</option>
+                        <option value="highlight">🔢 Highlight</option>
+                        <option value="brand">🏷️ Brand</option>
+                        <option value="feature">✨ Feature</option>
+                        <option value="spacer">⬜ Spacer</option>
                     </select>
                 </div>
                 
@@ -229,18 +232,21 @@
 
             <hr class="divider">
 
-            <!-- SECONDARY -->
-            <div class="control-section" data-box="secondary">
-                <div class="section-title">Secondary</div>
+            <!-- SLOT B -->
+            <div class="control-section" data-box="slotB">
+                <div class="section-title">Slot B <span class="slot-label">(Top Right)</span></div>
                 
-                <!-- Box Type Selector - Standard -->
+                <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
-                    <label>Box Type</label>
-                    <select id="secondaryBoxType" class="box-type-select">
-                        <option value="screenshot" selected>📱 Screenshot</option>
-                        <option value="icon-text">🎯 Icon + Text</option>
-                        <option value="stats">📊 Stats Grid</option>
-                        <option value="empty">⬜ Empty/Spacer</option>
+                    <label>Content</label>
+                    <select id="slotBType" class="box-type-select">
+                        <option value="brand" selected>🏷️ Brand</option>
+                        <option value="hero-shot">📸 Hero Shot</option>
+                        <option value="gallery">🖼️ Gallery</option>
+                        <option value="callout">🎯 Callout</option>
+                        <option value="highlight">🔢 Highlight</option>
+                        <option value="feature">✨ Feature</option>
+                        <option value="spacer">⬜ Spacer</option>
                     </select>
                 </div>
                 
@@ -314,18 +320,21 @@
 
             <hr class="divider">
 
-            <!-- STATS -->
-            <div class="control-section" data-box="stats">
-                <div class="section-title">Stats</div>
+            <!-- SLOT C -->
+            <div class="control-section" data-box="slotC">
+                <div class="section-title">Slot C <span class="slot-label">(Middle)</span></div>
                 
-                <!-- Box Type Selector - Standard -->
+                <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
-                    <label>Box Type</label>
-                    <select id="statsBoxType" class="box-type-select">
-                        <option value="stats" selected>📊 Stats Grid</option>
-                        <option value="icon-text">🎯 Icon + Text</option>
-                        <option value="screenshot">📱 Screenshot</option>
-                        <option value="empty">⬜ Empty/Spacer</option>
+                    <label>Content</label>
+                    <select id="slotCType" class="box-type-select">
+                        <option value="gallery" selected>🖼️ Gallery</option>
+                        <option value="hero-shot">📸 Hero Shot</option>
+                        <option value="callout">🎯 Callout</option>
+                        <option value="highlight">🔢 Highlight</option>
+                        <option value="brand">🏷️ Brand</option>
+                        <option value="feature">✨ Feature</option>
+                        <option value="spacer">⬜ Spacer</option>
                     </select>
                 </div>
                 
@@ -385,18 +394,21 @@
 
             <hr class="divider">
 
-            <!-- BRAND -->
-            <div class="control-section" data-box="brand">
-                <div class="section-title">Brand</div>
+            <!-- SLOT D -->
+            <div class="control-section" data-box="slotD">
+                <div class="section-title">Slot D <span class="slot-label">(Left Small)</span></div>
                 
-                <!-- Box Type Selector - Standard -->
+                <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
-                    <label>Box Type</label>
-                    <select id="brandBoxType" class="box-type-select">
-                        <option value="brand" selected>🔲 Brand Box</option>
-                        <option value="icon-text">🎯 Icon + Text</option>
-                        <option value="screenshot">📱 Screenshot</option>
-                        <option value="empty">⬜ Empty/Spacer</option>
+                    <label>Content</label>
+                    <select id="slotDType" class="box-type-select">
+                        <option value="highlight" selected>🔢 Highlight</option>
+                        <option value="hero-shot">📸 Hero Shot</option>
+                        <option value="gallery">🖼️ Gallery</option>
+                        <option value="callout">🎯 Callout</option>
+                        <option value="brand">🏷️ Brand</option>
+                        <option value="feature">✨ Feature</option>
+                        <option value="spacer">⬜ Spacer</option>
                     </select>
                 </div>
                 
@@ -416,18 +428,21 @@
 
             <hr class="divider">
 
-            <!-- FEATURE -->
-            <div class="control-section" data-box="feature">
-                <div class="section-title">Feature</div>
+            <!-- SLOT E -->
+            <div class="control-section" data-box="slotE">
+                <div class="section-title">Slot E <span class="slot-label">(Bottom)</span></div>
                 
-                <!-- Box Type Selector - Standard -->
+                <!-- Content Type Selector - Same for all slots -->
                 <div class="control-group box-type-group">
-                    <label>Box Type</label>
-                    <select id="featureBoxType" class="box-type-select">
-                        <option value="feature" selected>✨ Feature Card</option>
-                        <option value="icon-text">🎯 Icon + Text</option>
-                        <option value="stats">📊 Stats Grid</option>
-                        <option value="empty">⬜ Empty/Spacer</option>
+                    <label>Content</label>
+                    <select id="slotEType" class="box-type-select">
+                        <option value="feature" selected>✨ Feature</option>
+                        <option value="hero-shot">📸 Hero Shot</option>
+                        <option value="gallery">🖼️ Gallery</option>
+                        <option value="callout">🎯 Callout</option>
+                        <option value="highlight">🔢 Highlight</option>
+                        <option value="brand">🏷️ Brand</option>
+                        <option value="spacer">⬜ Spacer</option>
                     </select>
                 </div>
                 

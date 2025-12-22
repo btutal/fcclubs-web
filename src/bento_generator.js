@@ -1,5 +1,5 @@
 /**
- * Bento Generator v17 - Complete Redesign
+ * Bento Generator v18 - Position-Based Slots & UX Content Types
  * 
  * Features:
  * - Export to PNG with proper image rendering

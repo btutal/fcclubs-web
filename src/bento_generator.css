@@ -420,6 +420,14 @@ body {
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
+/* Slot position label (Main, Top Right, etc.) */
+.slot-label {
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    text-transform: none;
+    letter-spacing: 0;
+}
+
 .divider { 
     border: 0; 
     height: 1px; 
