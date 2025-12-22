@@ -1,5 +1,5 @@
 /**
- * Bento Generator v9 - Consistency & Full Editability Release
+ * Bento Generator v10 - UI Consistency Release
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -392,8 +392,9 @@ function init() {
     // Setup custom image drop zones
     setupImageDropZones();
     
-    // Setup visual text style selector
-    setupVisualTextSelector();
+    // Setup visual text style selectors (for ALL text style dropdowns)
+    setupVisualTextSelector(els.selectTextStyle, 'heroStyleGrid');
+    setupVisualTextSelector(els.selectImg2TitleStyle, 'img2StyleGrid');
     
     bindEvents();
     restoreFromLocalStorage() || setTheme('overview');
@@ -402,47 +403,48 @@ function init() {
     bindKeyboardShortcuts();
 }
 
-// Visual Text Style Selector
-function setupVisualTextSelector() {
-    const select = els.selectTextStyle;
+// Visual Text Style Selector - Reusable for any style select
+function setupVisualTextSelector(select, gridId) {
     if (!select) return;
     
     // Create container
     const container = document.createElement('div');
     container.className = 'style-grid';
+    container.id = gridId;
     
     // Hide native select
     select.style.display = 'none';
-    select.parentNode.appendChild(container); // Append after label
+    select.parentNode.appendChild(container);
     
     // Create buttons from options
     Array.from(select.options).forEach(opt => {
         const btn = document.createElement('button');
         btn.className = `style-btn text-style-${opt.value}`;
+        btn.dataset.value = opt.value;
         btn.title = opt.text;
-        btn.innerHTML = 'Ag'; // Sample text
+        btn.innerHTML = 'Ag';
         
-        // Active state check
         if (select.value === opt.value) btn.classList.add('active');
         
         btn.addEventListener('click', () => {
             select.value = opt.value;
-            // Update active class
             container.querySelectorAll('.style-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
-            // Trigger change
             applyToCanvas();
         });
         
         container.appendChild(btn);
     });
-    
-    // Listen for external changes to select (e.g. from presets)
-    // We need to use a MutationObserver or hook into setValue, but for now
-    // let's just update visual state in applyStateData
 }
 
+// Helper to sync a visual grid's active state
+function syncVisualGrid(gridId, activeValue) {
+    const grid = document.getElementById(gridId);
+    if (!grid) return;
+    grid.querySelectorAll('.style-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.value === activeValue);
+    });
+}
 
 // Collapsible sections toggle + Reset Buttons
 function setupCollapsibleSections() {
@@ -620,10 +622,8 @@ function applyStateData(data, skipHistory = false) {
     els.inputHeroTitle.value = data.heroTitle || '';
     els.selectTextStyle.value = data.textStyle || 'white';
     
-    // Sync visual selector
-    document.querySelectorAll('.style-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.className.includes(`text-style-${els.selectTextStyle.value}`));
-    });
+    // Sync Hero visual selector
+    syncVisualGrid('heroStyleGrid', els.selectTextStyle.value);
 
     els.selectHeroImg.value = data.heroImg || '';
     els.inputHeroZoom.value = data.heroZoom || 100;
@@ -641,6 +641,9 @@ function applyStateData(data, skipHistory = false) {
     els.inputImg2Overlay.value = data.img2Overlay || 30;
     els.inputImg2Title.value = data.img2Title || '';
     els.selectImg2TitleStyle.value = data.img2TitleStyle || 'white';
+    
+    // Sync Secondary visual selector
+    syncVisualGrid('img2StyleGrid', els.selectImg2TitleStyle.value);
     
     // Stats
     els.inputStat1Value.value = data.stat1Value || '';

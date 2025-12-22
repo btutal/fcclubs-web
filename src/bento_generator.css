@@ -50,17 +50,41 @@ body {
     padding: 14px;
 }
 
-.control-section { margin-bottom: 14px; }
-.section-title {
-    font-size: 0.55rem;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    font-weight: 600;
-    margin-bottom: 6px;
-    letter-spacing: 0.12em;
+/* Section cards with colored left border */
+.control-section { 
+    margin-bottom: 16px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    padding: 12px;
+    border-left: 3px solid transparent;
 }
 
-.divider { border: 0; height: 1px; background: rgba(255,255,255,0.03); margin: 2px 0 14px 0; }
+/* Color-coded sections */
+.control-section:nth-of-type(1) { border-left-color: #3BADF7; } /* Canvas - Blue */
+.control-section:nth-of-type(2) { border-left-color: #42FEC2; } /* Hero - Green */
+.control-section:nth-of-type(3) { border-left-color: #F73B97; } /* Secondary - Pink */
+.control-section:nth-of-type(4) { border-left-color: #FEC242; } /* Stats - Gold */
+.control-section:nth-of-type(5) { border-left-color: #9B59B6; } /* Brand - Purple */
+.control-section:nth-of-type(6) { border-left-color: #E74C3C; } /* Feature - Red */
+.control-section:nth-of-type(7) { border-left-color: #fff; }    /* Export - White */
+
+.section-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.divider { 
+    border: 0; 
+    height: 1px; 
+    background: transparent; 
+    margin: 4px 0; 
+}
 
 .control-group { margin-bottom: 6px; }
 .control-group label {
