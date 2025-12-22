@@ -113,16 +113,21 @@ body {
 .format-preview {
     background: linear-gradient(135deg, #3BADF7 0%, #42FEC2 100%);
     border-radius: 8px;
-    margin-bottom: 12px;
     opacity: 0.8;
 }
 
-/* Ratio previews - scaled to ~80px max dimension */
-.format-preview.square { width: 60px; height: 60px; }
-.format-preview.portrait { width: 48px; height: 60px; }
-.format-preview.story { width: 34px; height: 60px; }
-.format-preview.landscape-wide { width: 80px; height: 45px; }
-.format-preview.landscape-linkedin { width: 80px; height: 42px; }
+/* Preview container with fixed height for uniform card sizing */
+.format-card {
+    min-height: 140px;
+    justify-content: center;
+}
+
+/* Ratio previews - all centered in same-height container */
+.format-preview.square { width: 50px; height: 50px; }
+.format-preview.portrait { width: 40px; height: 50px; }
+.format-preview.story { width: 28px; height: 50px; }
+.format-preview.landscape-wide { width: 70px; height: 40px; }
+.format-preview.landscape-linkedin { width: 70px; height: 36px; }
 
 .format-info {
     display: flex;
