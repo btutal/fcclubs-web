@@ -330,6 +330,24 @@ textarea { resize: vertical; }
     opacity: 0.9;
 }
 
+.restart-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.restart-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+}
+
 .export-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -692,6 +710,99 @@ body.theme-light .preview-stage {
 
 body.theme-light .bento-canvas {
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+/* Light theme - Header */
+body.theme-light .control-header h2 {
+    color: #1a1a1f;
+}
+
+body.theme-light .control-header h2 span {
+    color: rgba(0,0,0,0.4);
+}
+
+/* Light theme - Buttons */
+body.theme-light .btn-secondary {
+    background: rgba(0,0,0,0.08);
+    color: #1a1a1f;
+    border-color: rgba(0,0,0,0.15);
+}
+
+body.theme-light .bg-toggle-btn {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.12);
+    color: rgba(0,0,0,0.6);
+}
+
+body.theme-light .bg-toggle-btn.active {
+    background: rgba(66, 254, 194, 0.25);
+    border-color: #2a9d6a;
+    color: #1a5a3a;
+}
+
+body.theme-light .restart-btn {
+    background: rgba(0,0,0,0.05);
+    color: rgba(0,0,0,0.6);
+    border-color: rgba(0,0,0,0.1);
+}
+
+body.theme-light .restart-btn:hover {
+    background: rgba(0,0,0,0.1);
+}
+
+body.theme-light .export-btn {
+    color: #000;
+}
+
+body.theme-light .export-btn.copy-btn {
+    background: rgba(0,0,0,0.1);
+    color: #1a1a1f;
+}
+
+/* Light theme - Visual pickers */
+body.theme-light .style-btn {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.1);
+}
+
+body.theme-light .style-btn.active {
+    border-color: #2a9d6a;
+}
+
+body.theme-light .color-btn {
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1), inset 0 0 0 2px rgba(0,0,0,0.1);
+}
+
+body.theme-light .color-btn.active {
+    box-shadow: 0 0 0 2px #1a1a1f, 0 0 8px rgba(0,0,0,0.2);
+}
+
+body.theme-light .icon-btn {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.1);
+}
+
+body.theme-light .icon-btn.active {
+    background: rgba(66, 254, 194, 0.2);
+    border-color: #2a9d6a;
+}
+
+/* Light theme - Section reset button */
+body.theme-light .section-reset-btn {
+    background: rgba(0,0,0,0.05);
+    color: rgba(0,0,0,0.4);
+}
+
+body.theme-light .section-reset-btn:hover {
+    background: rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.6);
+}
+
+/* Light theme - Help button */
+body.theme-light #helpBtn {
+    background: rgba(0,0,0,0.05);
+    border-color: rgba(0,0,0,0.15);
+    color: #1a1a1f;
 }
 
 /* =============================================

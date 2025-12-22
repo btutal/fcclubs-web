@@ -1,5 +1,5 @@
 /**
- * Bento Generator v12 - Format Picker & Background Mode
+ * Bento Generator v13 - Design Polish & Light Theme
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -1151,6 +1151,17 @@ function bindEvents() {
         els.selectFeatIcon.value = '';
         applyToCanvas();
     });
+    
+    // Restart button - show format picker again
+    const restartBtn = document.getElementById('restartBtn');
+    if (restartBtn) {
+        restartBtn.addEventListener('click', () => {
+            const overlay = document.getElementById('formatPicker');
+            if (overlay) {
+                overlay.classList.remove('hidden');
+            }
+        });
+    }
     
     els.saveBtn.addEventListener('click', () => {
         const data = {
