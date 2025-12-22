@@ -877,44 +877,59 @@ textarea { resize: vertical; }
 }
 
 /* =============================================
-   BENTO BOX GRID BORDERS - Background Adaptive
+   BENTO BOX GRID BORDERS - HIGH VISIBILITY
    ============================================= */
 
-/* Default border style */
+/* Default border style - STRONG visibility */
 .bento-box {
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    border: 2px solid rgba(255,255,255,0.35);
+    border-radius: 16px;
+    box-shadow: 
+        inset 0 0 0 1px rgba(255,255,255,0.1),
+        0 0 20px rgba(0,0,0,0.3);
 }
 
-/* Background-specific accent borders */
+/* Background-specific accent borders - STRONG colors */
 .bento-canvas.bg-deep-ocean .bento-box {
-    border-color: rgba(59, 173, 247, 0.25);
-    box-shadow: inset 0 0 0 1px rgba(59, 173, 247, 0.05);
+    border-color: rgba(59, 173, 247, 0.5);
+    box-shadow: 
+        inset 0 0 0 1px rgba(59, 173, 247, 0.15),
+        0 0 15px rgba(59, 173, 247, 0.1);
 }
 
 .bento-canvas.bg-midnight .bento-box {
-    border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .bento-canvas.bg-electric-blue .bento-box {
-    border-color: rgba(59, 173, 247, 0.35);
-    box-shadow: inset 0 0 0 1px rgba(59, 173, 247, 0.08);
+    border-color: rgba(59, 173, 247, 0.6);
+    box-shadow: 
+        inset 0 0 0 1px rgba(59, 173, 247, 0.2),
+        0 0 20px rgba(59, 173, 247, 0.15);
 }
 
 .bento-canvas.bg-neon-teal .bento-box {
-    border-color: rgba(66, 254, 194, 0.25);
-    box-shadow: inset 0 0 0 1px rgba(66, 254, 194, 0.05);
+    border-color: rgba(66, 254, 194, 0.5);
+    box-shadow: 
+        inset 0 0 0 1px rgba(66, 254, 194, 0.15),
+        0 0 15px rgba(66, 254, 194, 0.1);
 }
 
 .bento-canvas.bg-ember .bento-box {
-    border-color: rgba(247, 139, 59, 0.25);
-    box-shadow: inset 0 0 0 1px rgba(247, 139, 59, 0.05);
+    border-color: rgba(247, 139, 59, 0.5);
+    box-shadow: 
+        inset 0 0 0 1px rgba(247, 139, 59, 0.15),
+        0 0 15px rgba(247, 139, 59, 0.1);
 }
 
 .bento-canvas.bg-solid-dark .bento-box {
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Light Theme Mode - Applies to whole page */
