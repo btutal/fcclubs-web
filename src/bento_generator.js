@@ -1,15 +1,62 @@
 /**
- * Bento Generator v5 - Full Feature Release
+ * Bento Generator v7 - Complete Feature Release
  * 
  * Features:
  * - Export to PNG with proper image rendering
  * - Copy to clipboard for quick sharing
  * - Autosave to localStorage (auto-restores on reload)
- * - Keyboard shortcuts: Cmd+E (export), Cmd+S (save), Cmd+Shift+C (copy)
+ * - Keyboard shortcuts: Cmd+E (export), Cmd+S (save), Cmd+Shift+C (copy), ? (help)
  * - Multiple formats: Instagram, LinkedIn, Twitter/X
  * - Icon/emoji selector for feature box
- * - Image zoom and position controls
+ * - Image zoom, position, opacity, and overlay controls
+ * - Collapsible control sections
+ * - Reset to default per section
+ * - Multi-format export (all at once)
+ * - Custom image upload via drag & drop
+ * - Centralized screenshot list
  */
+
+// Centralized screenshot list - single source of truth
+const SCREENSHOTS = [
+    { group: 'iPhone', items: [
+        { value: '/assets/screenshots/iphone-dashboard.png', label: 'Dashboard' },
+        { value: '/assets/screenshots/iphone-club.png', label: 'Club Details' },
+        { value: '/assets/screenshots/iphone-matches.png', label: 'Matches' },
+        { value: '/assets/screenshots/iphone-scout.png', label: 'Scout Mode' },
+        { value: '/assets/screenshots/iphone-sessions.png', label: 'Sessions' },
+        { value: '/assets/screenshots/iphone-welcome.png', label: 'Welcome' },
+    ]},
+    { group: 'Widgets', items: [
+        { value: '/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png', label: 'Widget 1' },
+        { value: '/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png', label: 'Widget 2' },
+    ]},
+    { group: 'iPad', items: [
+        { value: '/assets/screenshots/ipad-dashboard.png', label: 'iPad Dashboard' },
+        { value: '/assets/screenshots/ipad-welcome.png', label: 'iPad Welcome' },
+    ]},
+];
+
+// Populate a select element with screenshots
+function populateScreenshotSelect(selectEl, includeNone = false) {
+    selectEl.innerHTML = '';
+    if (includeNone) {
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.textContent = 'None (Gradient only)';
+        selectEl.appendChild(opt);
+    }
+    SCREENSHOTS.forEach(group => {
+        const optgroup = document.createElement('optgroup');
+        optgroup.label = group.group;
+        group.items.forEach(item => {
+            const opt = document.createElement('option');
+            opt.value = item.value;
+            opt.textContent = item.label;
+            optgroup.appendChild(opt);
+        });
+        selectEl.appendChild(optgroup);
+    });
+}
 
 const els = {
     canvas: document.getElementById('bentoCanvas'),
@@ -230,11 +277,72 @@ const PRESETS = {
 };
 
 function init() {
+    // Populate screenshot selects from centralized list
+    populateScreenshotSelect(els.selectHeroImg);
+    populateScreenshotSelect(els.selectImg2);
+    populateScreenshotSelect(els.selectFeatImg, true); // Include "None" option
+    
+    // Setup collapsible sections
+    setupCollapsibleSections();
+    
+    // Setup custom image drop zones
+    setupImageDropZones();
+    
     bindEvents();
     restoreFromLocalStorage() || setTheme('overview');
     updateScale();
     window.addEventListener('resize', updateScale);
     bindKeyboardShortcuts();
+}
+
+// Collapsible sections toggle
+function setupCollapsibleSections() {
+    document.querySelectorAll('.section-title').forEach(title => {
+        title.style.cursor = 'pointer';
+        title.addEventListener('click', () => {
+            const section = title.closest('.control-section');
+            section.classList.toggle('collapsed');
+        });
+    });
+}
+
+// Custom image drag & drop zones
+function setupImageDropZones() {
+    [els.selectHeroImg, els.selectImg2, els.selectFeatImg].forEach(select => {
+        if (!select) return;
+        const wrapper = select.closest('.control-group');
+        if (!wrapper) return;
+        
+        wrapper.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            wrapper.classList.add('drag-over');
+        });
+        
+        wrapper.addEventListener('dragleave', () => {
+            wrapper.classList.remove('drag-over');
+        });
+        
+        wrapper.addEventListener('drop', (e) => {
+            e.preventDefault();
+            wrapper.classList.remove('drag-over');
+            
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    // Add custom option
+                    const opt = document.createElement('option');
+                    opt.value = event.target.result;
+                    opt.textContent = `📁 ${file.name}`;
+                    select.appendChild(opt);
+                    select.value = event.target.result;
+                    applyToCanvas();
+                    showToast(`✅ Added: ${file.name}`);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
 }
 
 // Toast notification helper
@@ -377,7 +485,48 @@ function bindKeyboardShortcuts() {
             e.preventDefault();
             els.copyBtn.click();
         }
+        // ? = Toggle help overlay
+        if (e.key === '?' || (e.shiftKey && e.key === '/')) {
+            e.preventDefault();
+            toggleHelpOverlay();
+        }
+        // Escape = Close help overlay
+        if (e.key === 'Escape') {
+            const help = document.getElementById('helpOverlay');
+            if (help) help.classList.remove('show');
+        }
     });
+}
+
+// Help overlay toggle
+function toggleHelpOverlay() {
+    let help = document.getElementById('helpOverlay');
+    if (!help) {
+        help = document.createElement('div');
+        help.id = 'helpOverlay';
+        help.className = 'help-overlay';
+        help.innerHTML = `
+            <div class="help-content">
+                <h3>⌨️ Keyboard Shortcuts</h3>
+                <div class="help-grid">
+                    <kbd>⌘/Ctrl</kbd> + <kbd>E</kbd> <span>Export PNG</span>
+                    <kbd>⌘/Ctrl</kbd> + <kbd>S</kbd> <span>Save Preset</span>
+                    <kbd>⌘/Ctrl</kbd> + <kbd>⇧</kbd> + <kbd>C</kbd> <span>Copy to Clipboard</span>
+                    <kbd>?</kbd> <span>Toggle this help</span>
+                    <kbd>Esc</kbd> <span>Close overlays</span>
+                </div>
+                <h3 style="margin-top:16px;">💡 Tips</h3>
+                <ul>
+                    <li>Drag & drop images onto screenshot selectors</li>
+                    <li>Click section titles to collapse/expand</li>
+                    <li>Changes auto-save to browser storage</li>
+                </ul>
+                <button onclick="this.closest('.help-overlay').classList.remove('show')">Close</button>
+            </div>
+        `;
+        document.body.appendChild(help);
+    }
+    help.classList.toggle('show');
 }
 
 function setTheme(key) {
@@ -565,6 +714,12 @@ function bindEvents() {
     
     els.themeSelect.addEventListener('change', (e) => setTheme(e.target.value));
     
+    // Help button
+    const helpBtn = document.getElementById('helpBtn');
+    if (helpBtn) {
+        helpBtn.addEventListener('click', toggleHelpOverlay);
+    }
+    
     const liveInputs = [
         'inputHeroTitle', 'inputHeroZoom', 'inputHeroPosX', 'inputHeroPosY',
         'inputHeroOpacity', 'inputHeroOverlay',
@@ -747,6 +902,67 @@ function bindEvents() {
             els.copyBtn.disabled = false;
         }
     });
+    
+    // Multi-export: Export all formats
+    const multiExportBtn = document.getElementById('multiExportBtn');
+    if (multiExportBtn) {
+        multiExportBtn.addEventListener('click', async () => {
+            const formats = ['ig-square', 'ig-story', 'li-landscape', 'x-landscape'];
+            const originalFormat = els.formatSelect.value;
+            
+            multiExportBtn.textContent = '⏳ Exporting...';
+            multiExportBtn.disabled = true;
+            
+            for (let i = 0; i < formats.length; i++) {
+                const format = formats[i];
+                multiExportBtn.textContent = `⏳ ${i + 1}/${formats.length}...`;
+                
+                // Change format
+                els.formatSelect.value = format;
+                els.canvas.className = `bento-canvas format-${format}`;
+                await new Promise(r => setTimeout(r, 200)); // Let CSS settle
+                updateScale();
+                await new Promise(r => setTimeout(r, 100));
+                
+                const canvas = els.canvas;
+                const orig = canvas.style.transform;
+                canvas.style.transform = 'none';
+                
+                try {
+                    const rendered = await html2canvas(canvas, {
+                        backgroundColor: null,
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: true,
+                        logging: false,
+                        imageTimeout: 15000,
+                        width: canvas.offsetWidth,
+                        height: canvas.offsetHeight
+                    });
+                    
+                    const link = document.createElement('a');
+                    link.download = `bento-${format}-${Date.now()}.png`;
+                    link.href = rendered.toDataURL('image/png', 1.0);
+                    link.click();
+                } catch (err) {
+                    console.error(`Export error for ${format}:`, err);
+                } finally {
+                    canvas.style.transform = orig;
+                }
+                
+                await new Promise(r => setTimeout(r, 500)); // Delay between downloads
+            }
+            
+            // Restore original format
+            els.formatSelect.value = originalFormat;
+            els.canvas.className = `bento-canvas format-${originalFormat}`;
+            updateScale();
+            
+            multiExportBtn.textContent = '📦 Export All Formats';
+            multiExportBtn.disabled = false;
+            showToast(`✅ Exported ${formats.length} formats!`);
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -149,6 +149,112 @@ textarea { resize: vertical; }
     opacity: 1;
 }
 
+/* Collapsible sections */
+.control-section.collapsed .control-group,
+.control-section.collapsed .half-row {
+    display: none;
+}
+
+.section-title {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.section-title::after {
+    content: '▼';
+    font-size: 0.6em;
+    opacity: 0.5;
+    transition: transform 0.2s;
+}
+
+.control-section.collapsed .section-title::after {
+    transform: rotate(-90deg);
+}
+
+/* Drag & drop styling */
+.control-group.drag-over {
+    background: rgba(66, 254, 194, 0.15);
+    border: 2px dashed var(--color-neon-green);
+    border-radius: 8px;
+}
+
+/* Help overlay */
+.help-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+}
+
+.help-overlay.show {
+    display: flex;
+}
+
+.help-content {
+    background: #1a1a1f;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.help-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 12px;
+    align-items: center;
+}
+
+.help-grid kbd {
+    background: #2a2a30;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: inherit;
+    font-size: 0.75rem;
+    display: inline-block;
+}
+
+.help-grid span {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+}
+
+.help-content ul {
+    padding-left: 20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+}
+
+.help-content ul li {
+    margin-bottom: 6px;
+}
+
+.help-content button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: var(--color-electric-blue);
+    color: #000;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 .preview-stage {
     flex: 1;
     background: #030405;
