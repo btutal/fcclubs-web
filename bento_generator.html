@@ -129,13 +129,6 @@
                   <option value="ember">🔥 Ember</option>
                   <option value="solid-dark">⬛ Solid</option>
               </select>
-              <div class="top-divider"></div>
-              <select id="layoutPresetSelect" title="Box Layout">
-                  <option value="standard">📊 Standard</option>
-                  <option value="stats-focus">📈 Stats Focus</option>
-                  <option value="hero-only">🖼️ Hero Only</option>
-                  <option value="triple-feature">✨ Triple Feature</option>
-              </select>
           </div>
           <div class="top-menu-right">
               <div class="theme-toggle">
@@ -237,8 +230,23 @@
             <hr class="divider">
 
             <!-- SECONDARY -->
-            <div class="control-section">
+            <div class="control-section" data-box="secondary">
                 <div class="section-title">Secondary</div>
+                
+                <!-- Box Type Selector - Standard -->
+                <div class="control-group box-type-group">
+                    <label>Box Type</label>
+                    <select id="secondaryBoxType" class="box-type-select">
+                        <option value="screenshot" selected>📱 Screenshot</option>
+                        <option value="icon-text">🎯 Icon + Text</option>
+                        <option value="stats">📊 Stats Grid</option>
+                        <option value="empty">⬜ Empty/Spacer</option>
+                    </select>
+                </div>
+                
+                <hr class="control-divider">
+                
+                <div class="box-type-controls" data-type="screenshot">
                 <div class="control-group">
                     <label>Screenshot 2</label>
                     <select id="selectImg2">
@@ -301,13 +309,29 @@
                         </select>
                     </div>
                 </div>
-            </div>
+                </div><!-- end box-type-controls -->
+            </div><!-- end control-section Secondary -->
 
             <hr class="divider">
 
             <!-- STATS -->
-            <div class="control-section">
+            <div class="control-section" data-box="stats">
                 <div class="section-title">Stats</div>
+                
+                <!-- Box Type Selector - Standard -->
+                <div class="control-group box-type-group">
+                    <label>Box Type</label>
+                    <select id="statsBoxType" class="box-type-select">
+                        <option value="stats" selected>📊 Stats Grid</option>
+                        <option value="icon-text">🎯 Icon + Text</option>
+                        <option value="screenshot">📱 Screenshot</option>
+                        <option value="empty">⬜ Empty/Spacer</option>
+                    </select>
+                </div>
+                
+                <hr class="control-divider">
+                
+                <div class="box-type-controls" data-type="stats">
                 <div class="half-row">
                     <div class="control-group">
                         <label>Stat 1 Value</label>
@@ -356,13 +380,29 @@
                     <label>Tagline</label>
                     <input type="text" id="inputStat2Desc" placeholder="Optional description">
                 </div>
-            </div>
+                </div><!-- end box-type-controls -->
+            </div><!-- end control-section Stats -->
 
             <hr class="divider">
 
             <!-- BRAND -->
-            <div class="control-section">
+            <div class="control-section" data-box="brand">
                 <div class="section-title">Brand</div>
+                
+                <!-- Box Type Selector - Standard -->
+                <div class="control-group box-type-group">
+                    <label>Box Type</label>
+                    <select id="brandBoxType" class="box-type-select">
+                        <option value="brand" selected>🔲 Brand Box</option>
+                        <option value="icon-text">🎯 Icon + Text</option>
+                        <option value="screenshot">📱 Screenshot</option>
+                        <option value="empty">⬜ Empty/Spacer</option>
+                    </select>
+                </div>
+                
+                <hr class="control-divider">
+                
+                <div class="box-type-controls" data-type="brand">
                 <div class="control-group">
                     <label>App Name</label>
                     <input type="text" id="inputBrandName" value="FC Clubs Stats">
@@ -371,13 +411,29 @@
                     <label>Tagline</label>
                     <input type="text" id="inputBrandTagline" value="Free on App Store">
                 </div>
-            </div>
+                </div><!-- end box-type-controls -->
+            </div><!-- end control-section Brand -->
 
             <hr class="divider">
 
             <!-- FEATURE -->
-            <div class="control-section">
+            <div class="control-section" data-box="feature">
                 <div class="section-title">Feature</div>
+                
+                <!-- Box Type Selector - Standard -->
+                <div class="control-group box-type-group">
+                    <label>Box Type</label>
+                    <select id="featureBoxType" class="box-type-select">
+                        <option value="feature" selected>✨ Feature Card</option>
+                        <option value="icon-text">🎯 Icon + Text</option>
+                        <option value="stats">📊 Stats Grid</option>
+                        <option value="empty">⬜ Empty/Spacer</option>
+                    </select>
+                </div>
+                
+                <hr class="control-divider">
+                
+                <div class="box-type-controls" data-type="feature">
                 <div class="control-group">
                     <label>Icon</label>
                     <div class="half-row">
@@ -443,7 +499,8 @@
                     <label>Overlay Darkness: <span id="featOverlayVal">70</span>%</label>
                     <input type="range" id="inputFeatOverlay" min="0" max="100" value="70">
                 </div>
-            </div>
+                </div><!-- end box-type-controls -->
+            </div><!-- end control-section Feature -->
         </div>
       </aside>
 
