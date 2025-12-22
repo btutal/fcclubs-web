@@ -1,5 +1,5 @@
 /**
- * Bento Generator v10 - UI Consistency Release
+ * Bento Generator v11 - Visual Pickers & Load Preset
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -396,6 +396,13 @@ function init() {
     setupVisualTextSelector(els.selectTextStyle, 'heroStyleGrid');
     setupVisualTextSelector(els.selectImg2TitleStyle, 'img2StyleGrid');
     
+    // Setup visual color pickers for stat colors
+    setupColorPicker(els.selectStat1Color, 'stat1ColorGrid');
+    setupColorPicker(els.selectStat2Color, 'stat2ColorGrid');
+    
+    // Setup visual icon picker
+    setupIconPicker(els.selectFeatIcon, 'featIconGrid');
+    
     bindEvents();
     restoreFromLocalStorage() || setTheme('overview');
     updateScale();
@@ -441,8 +448,82 @@ function setupVisualTextSelector(select, gridId) {
 function syncVisualGrid(gridId, activeValue) {
     const grid = document.getElementById(gridId);
     if (!grid) return;
-    grid.querySelectorAll('.style-btn').forEach(btn => {
+    grid.querySelectorAll('.style-btn, .color-btn, .icon-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.value === activeValue);
+    });
+}
+
+// Color Picker - Visual circles for stat colors
+const COLOR_MAP = {
+    green: '#42FEC2',
+    blue: '#3BADF7',
+    pink: '#F73B97',
+    gold: '#FEC242',
+    white: '#FFFFFF'
+};
+
+function setupColorPicker(select, gridId) {
+    if (!select) return;
+    
+    const container = document.createElement('div');
+    container.className = 'color-grid';
+    container.id = gridId;
+    
+    select.style.display = 'none';
+    select.parentNode.appendChild(container);
+    
+    Array.from(select.options).forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'color-btn';
+        btn.dataset.value = opt.value;
+        btn.title = opt.text;
+        btn.style.background = COLOR_MAP[opt.value] || '#888';
+        
+        if (select.value === opt.value) btn.classList.add('active');
+        
+        btn.addEventListener('click', () => {
+            select.value = opt.value;
+            container.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            applyToCanvas();
+        });
+        
+        container.appendChild(btn);
+    });
+}
+
+// Icon Picker - Emoji grid
+function setupIconPicker(select, gridId) {
+    if (!select) return;
+    
+    const container = document.createElement('div');
+    container.className = 'icon-grid';
+    container.id = gridId;
+    
+    select.style.display = 'none';
+    // Find and hide the clear button if it exists
+    const clearBtn = document.getElementById('clearFeatIcon');
+    if (clearBtn) clearBtn.style.display = 'none';
+    
+    select.parentNode.appendChild(container);
+    
+    Array.from(select.options).forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'icon-btn';
+        btn.dataset.value = opt.value;
+        btn.title = opt.text;
+        btn.textContent = opt.value || '∅'; // Show empty symbol for "None"
+        
+        if (select.value === opt.value) btn.classList.add('active');
+        
+        btn.addEventListener('click', () => {
+            select.value = opt.value;
+            container.querySelectorAll('.icon-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            applyToCanvas();
+        });
+        
+        container.appendChild(btn);
     });
 }
 
@@ -650,11 +731,13 @@ function applyStateData(data, skipHistory = false) {
     els.inputStat1Label.value = data.stat1Label || '';
     els.inputStat1Desc.value = data.stat1Desc || '';
     els.selectStat1Color.value = data.stat1Color || 'green';
+    syncVisualGrid('stat1ColorGrid', els.selectStat1Color.value);
     
     els.inputStat2Value.value = data.stat2Value || '';
     els.inputStat2Label.value = data.stat2Label || '';
     els.inputStat2Desc.value = data.stat2Desc || '';
     els.selectStat2Color.value = data.stat2Color || 'pink';
+    syncVisualGrid('stat2ColorGrid', els.selectStat2Color.value);
     
     // Feature
     els.inputFeatTitle.value = data.featTitle || '';
@@ -666,6 +749,7 @@ function applyStateData(data, skipHistory = false) {
     els.inputFeatOpacity.value = data.featOpacity || 40;
     els.inputFeatOverlay.value = data.featOverlay || 70;
     els.selectFeatIcon.value = data.featIcon || '';
+    syncVisualGrid('featIconGrid', els.selectFeatIcon.value);
     
     // Brand
     els.inputBrandName.value = data.brandName || 'FC Clubs Stats';
@@ -1024,6 +1108,38 @@ function bindEvents() {
         a.download = `${els.themeSelect.value}.json`;
         a.click();
     });
+    
+    // Load Preset from JSON file
+    const loadPresetBtn = document.getElementById('loadPresetBtn');
+    const loadPresetInput = document.getElementById('loadPresetInput');
+    
+    if (loadPresetBtn && loadPresetInput) {
+        loadPresetBtn.addEventListener('click', () => {
+            loadPresetInput.click();
+        });
+        
+        loadPresetInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const data = JSON.parse(event.target.result);
+                    applyStateData(data);
+                    pushHistory();
+                    showToast(`✅ Loaded: ${file.name}`);
+                } catch (err) {
+                    console.error('Parse error:', err);
+                    showToast('❌ Invalid JSON file');
+                }
+            };
+            reader.readAsText(file);
+            
+            // Reset input so same file can be loaded again
+            loadPresetInput.value = '';
+        });
+    }
     
     els.exportBtn.addEventListener('click', async () => {
         els.exportBtn.textContent = '⏳ Preloading...';

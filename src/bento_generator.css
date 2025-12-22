@@ -344,6 +344,65 @@ textarea { resize: vertical; }
     font-size: 1rem;
 }
 
+/* Color Picker Circles */
+.color-grid {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    flex-wrap: wrap;
+}
+
+.color-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+.color-btn:hover {
+    transform: scale(1.15);
+}
+
+.color-btn.active {
+    border-color: #fff;
+    box-shadow: 0 0 8px rgba(255,255,255,0.4), inset 0 0 0 2px rgba(0,0,0,0.2);
+}
+
+/* Icon Picker Emoji Grid */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.icon-btn {
+    aspect-ratio: 1;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.icon-btn:hover {
+    background: rgba(255,255,255,0.1);
+    transform: scale(1.1);
+}
+
+.icon-btn.active {
+    border-color: var(--color-neon-green);
+    background: rgba(66, 254, 194, 0.15);
+}
+
 .help-grid kbd {
     background: #2a2a30;
     border: 1px solid rgba(255,255,255,0.2);
