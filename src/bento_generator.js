@@ -1,5 +1,5 @@
 /**
- * Bento Generator v8 - Polish & Customization Release
+ * Bento Generator v9 - Consistency & Full Editability Release
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -163,6 +163,12 @@ const els = {
     clearFeatIcon: document.getElementById('clearFeatIcon'),
     dispFeatIcon: document.querySelector('.feature-icon'),
     
+    // Brand
+    inputBrandName: document.getElementById('inputBrandName'),
+    inputBrandTagline: document.getElementById('inputBrandTagline'),
+    dispBrandName: document.querySelector('.brand-name'),
+    dispBrandTagline: document.querySelector('.brand-tagline'),
+    
     // Display elements
     dispHeroTitle: document.getElementById('dispHeroTitle'),
     dispHeroImg: document.getElementById('dispHeroImg'),
@@ -228,7 +234,9 @@ const PRESETS = {
         featPosY: 50,
         featOpacity: 40,
         featOverlay: 70,
-        featIcon: "🎯"
+        featIcon: "🎯",
+        brandName: "FC Clubs Stats",
+        brandTagline: "Free on App Store"
     },
     
     // V102: Scout Mode Focus
@@ -272,7 +280,9 @@ const PRESETS = {
         featPosY: 50,
         featOpacity: 40,
         featOverlay: 70,
-        featIcon: "📊"
+        featIcon: "📊",
+        brandName: "FC Clubs Stats",
+        brandTagline: "Free on App Store"
     },
     
     // V103: Widgets & AI Focus - v1.0.3 Release
@@ -316,7 +326,9 @@ const PRESETS = {
         featPosY: 30,
         featOpacity: 40,
         featOverlay: 70,
-        featIcon: "🎯"
+        featIcon: "🎯",
+        brandName: "FC Clubs Stats",
+        brandTagline: "Free on App Store"
     }
 };
 
@@ -361,6 +373,10 @@ const DEFAULTS = {
         inputFeatOpacity: 40,
         inputFeatOverlay: 70,
         selectFeatIcon: "🚀"
+    },
+    brand: {
+        inputBrandName: "FC Clubs Stats",
+        inputBrandTagline: "Free on App Store"
     }
 };
 
@@ -434,6 +450,7 @@ function setupCollapsibleSections() {
         'Hero': 'hero',
         'Secondary': 'img2',
         'Stats': 'stats',
+        'Brand': 'brand',
         'Feature': 'feature'
     };
 
@@ -584,6 +601,8 @@ function getCurrentState() {
         featOpacity: els.inputFeatOpacity.value,
         featOverlay: els.inputFeatOverlay.value,
         featIcon: els.selectFeatIcon.value,
+        brandName: els.inputBrandName.value,
+        brandTagline: els.inputBrandTagline.value,
         format: els.formatSelect.value
     };
 }
@@ -644,6 +663,10 @@ function applyStateData(data, skipHistory = false) {
     els.inputFeatOpacity.value = data.featOpacity || 40;
     els.inputFeatOverlay.value = data.featOverlay || 70;
     els.selectFeatIcon.value = data.featIcon || '';
+    
+    // Brand
+    els.inputBrandName.value = data.brandName || 'FC Clubs Stats';
+    els.inputBrandTagline.value = data.brandTagline || 'Free on App Store';
     
     applyToCanvas(skipHistory);
 }
@@ -766,6 +789,10 @@ function setTheme(key) {
     els.inputFeatOverlay.value = data.featOverlay || 70;
     els.selectFeatIcon.value = data.featIcon || "";
     
+    // Brand
+    els.inputBrandName.value = data.brandName || "FC Clubs Stats";
+    els.inputBrandTagline.value = data.brandTagline || "Free on App Store";
+    
     applyToCanvas();
 }
 
@@ -787,6 +814,10 @@ function applyToCanvas(skipHistory = false) {
     els.dispStat2Value.textContent = els.inputStat2Value.value;
     els.dispStat2Label.textContent = els.inputStat2Label.value;
     els.dispStat2Desc.textContent = els.inputStat2Desc.value;
+    
+    // Brand
+    if (els.dispBrandName) els.dispBrandName.textContent = els.inputBrandName.value;
+    if (els.dispBrandTagline) els.dispBrandTagline.textContent = els.inputBrandTagline.value;
     
     els.dispFeatTitle.textContent = els.inputFeatTitle.value;
     els.dispFeatDesc.textContent = els.inputFeatDesc.value;
@@ -924,7 +955,8 @@ function bindEvents() {
         'inputStat1Value', 'inputStat1Label', 'inputStat1Desc',
         'inputStat2Value', 'inputStat2Label', 'inputStat2Desc',
         'inputFeatTitle', 'inputFeatDesc', 'inputFeatOpacity', 'inputFeatOverlay',
-        'inputFeatZoom', 'inputFeatPosX', 'inputFeatPosY'
+        'inputFeatZoom', 'inputFeatPosX', 'inputFeatPosY',
+        'inputBrandName', 'inputBrandTagline'
     ];
     liveInputs.forEach(id => {
         if (els[id]) els[id].addEventListener('input', applyToCanvas);
@@ -979,7 +1011,9 @@ function bindEvents() {
             featPosY: els.inputFeatPosY.value,
             featOpacity: els.inputFeatOpacity.value,
             featOverlay: els.inputFeatOverlay.value,
-            featIcon: els.selectFeatIcon.value
+            featIcon: els.selectFeatIcon.value,
+            brandName: els.inputBrandName.value,
+            brandTagline: els.inputBrandTagline.value
         };
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         const a = document.createElement('a');
