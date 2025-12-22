@@ -147,6 +147,8 @@ const els = {
     inputStat2Label: document.getElementById('inputStat2Label'),
     inputStat2Desc: document.getElementById('inputStat2Desc'),
     selectStat2Color: document.getElementById('selectStat2Color'),
+    selectStat1Style: document.getElementById('selectStat1Style'),
+    selectStat2Style: document.getElementById('selectStat2Style'),
     
     // Feature
     inputFeatTitle: document.getElementById('inputFeatTitle'),
@@ -396,6 +398,8 @@ function init() {
     // Setup visual text style selectors (for ALL text style dropdowns)
     setupVisualTextSelector(els.selectTextStyle, 'heroStyleGrid');
     setupVisualTextSelector(els.selectImg2TitleStyle, 'img2StyleGrid');
+    setupVisualTextSelector(els.selectStat1Style, 'stat1StyleGrid');
+    setupVisualTextSelector(els.selectStat2Style, 'stat2StyleGrid');
     
     // Setup visual color pickers for stat colors
     setupColorPicker(els.selectStat1Color, 'stat1ColorGrid');
@@ -1004,9 +1008,11 @@ function applyToCanvas(skipHistory = false) {
     // Img2 title style
     els.img2TextOverlay.className = `img2-text-overlay img2-title-style-${els.selectImg2TitleStyle.value}`;
     
-    // Stat colors
-    els.boxStat1.className = `bento-box box-stat-1 stat-style-${els.selectStat1Color.value}`;
-    els.boxStat2.className = `bento-box box-stat-2 stat-style-${els.selectStat2Color.value}`;
+    // Stat colors and text styles
+    const stat1Style = els.selectStat1Style?.value || 'default';
+    const stat2Style = els.selectStat2Style?.value || 'default';
+    els.boxStat1.className = `bento-box box-stat-1 stat-style-${els.selectStat1Color.value} stat-text-style-${stat1Style}`;
+    els.boxStat2.className = `bento-box box-stat-2 stat-style-${els.selectStat2Color.value} stat-text-style-${stat2Style}`;
     
     // Hero zoom + position - use background-size and background-position
     const heroZoom = parseFloat(els.inputHeroZoom.value);

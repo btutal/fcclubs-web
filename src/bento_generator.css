@@ -1871,3 +1871,71 @@ body.theme-light .export-btn-top {
     font-family: 'Courier New', monospace; 
     letter-spacing: -2px;
 }
+
+/* =============================================
+   STAT BOX TEXT STYLES
+   Apply to .stat-value element within stat boxes
+   ============================================= */
+
+.stat-text-style-default .stat-value { 
+    /* Keep default - no changes */ 
+}
+
+.stat-text-style-gradient-blue .stat-value {
+    background: linear-gradient(135deg, #3BADF7 0%, #42FEC2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-text-style-gradient-green .stat-value {
+    background: linear-gradient(135deg, #42FEC2 0%, #A8FF78 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-text-style-gradient-pink .stat-value {
+    background: linear-gradient(135deg, #E36BD9 0%, #FF6B6B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-text-style-gradient-gold .stat-value {
+    background: linear-gradient(135deg, #FFC254 0%, #FF8C00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.stat-text-style-neon-blue .stat-value {
+    color: #3BADF7 !important;
+    text-shadow: 0 0 30px rgba(59, 173, 247, 0.6), 0 0 60px rgba(59, 173, 247, 0.3);
+}
+
+.stat-text-style-neon-green .stat-value {
+    color: #42FEC2 !important;
+    text-shadow: 0 0 30px rgba(66, 254, 194, 0.6), 0 0 60px rgba(66, 254, 194, 0.3);
+}
+
+.stat-text-style-outline .stat-value {
+    color: transparent !important;
+    -webkit-text-stroke: 3px #fff;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.stat-text-style-heavy-shadow .stat-value {
+    text-shadow: 4px 4px 0px #000, 6px 6px 0px rgba(0,0,0,0.4);
+}
+
+.stat-text-style-3d .stat-value {
+    text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3);
+}
