@@ -20,7 +20,7 @@
       <aside class="controls">
         <div class="control-header">
            <img src="/assets/app-icon.png" alt="Logo" width="32" style="border-radius: 8px;">
-           <h2>Bento Gen <span style="opacity:0.5; font-weight:400; font-size:0.8em;">v4</span></h2>
+           <h2>Bento Gen <span style="opacity:0.5; font-weight:400; font-size:0.8em;">v5</span></h2>
         </div>
         
         <div class="control-scroll">
@@ -229,6 +229,27 @@
             <div class="control-section">
                 <div class="section-title">Feature Highlight</div>
                 <div class="control-group">
+                    <label>Icon</label>
+                    <div class="half-row">
+                        <select id="selectFeatIcon">
+                            <option value="">None</option>
+                            <option value="⚡">⚡ Lightning</option>
+                            <option value="🎯">🎯 Target</option>
+                            <option value="🔥">🔥 Fire</option>
+                            <option value="⭐">⭐ Star</option>
+                            <option value="🏆">🏆 Trophy</option>
+                            <option value="📊">📊 Chart</option>
+                            <option value="🤖">🤖 AI</option>
+                            <option value="📱">📱 Phone</option>
+                            <option value="🎮">🎮 Gaming</option>
+                            <option value="⚽">⚽ Football</option>
+                            <option value="🛡️">🛡️ Shield</option>
+                            <option value="👁️">👁️ Eye</option>
+                        </select>
+                        <button id="clearFeatIcon" class="btn-secondary" title="Clear Icon">✕</button>
+                    </div>
+                </div>
+                <div class="control-group">
                     <label>Title</label>
                     <input type="text" id="inputFeatTitle">
                 </div>
@@ -254,19 +275,33 @@
                     </select>
                 </div>
                 <div class="control-group">
+                    <label>Zoom: <span id="zoomFeatVal">100</span>%</label>
+                    <input type="range" id="inputFeatZoom" min="80" max="200" value="100">
+                </div>
+                <div class="control-group">
+                    <label>Position X / Y</label>
+                    <div class="half-row">
+                        <input type="range" id="inputFeatPosX" min="0" max="100" value="50" title="X">
+                        <input type="range" id="inputFeatPosY" min="0" max="100" value="50" title="Y">
+                    </div>
+                </div>
+                <div class="control-group">
                     <label>Overlay Darkness: <span id="featOpacityVal">60</span>%</label>
                     <input type="range" id="inputFeatOpacity" min="0" max="100" value="60">
                 </div>
             </div>
 
             <div class="control-section">
-                <button id="exportBtn" class="export-btn">📸 Export PNG</button>
+                <div class="half-row">
+                    <button id="exportBtn" class="export-btn">📸 Export</button>
+                    <button id="copyBtn" class="export-btn copy-btn">📋 Copy</button>
+                </div>
             </div>
       </aside>
 
       <!-- CANVAS -->
       <main class="preview-stage">
-        <div id="bentoCanvas" class="bento-canvas format-square">
+        <div id="bentoCanvas" class="bento-canvas format-ig-square">
             
             <!-- HERO - Main Screenshot with Headline -->
             <div class="bento-box box-hero">
@@ -275,7 +310,7 @@
                 </div>
                 <!-- Wrapper for Zoom/Pan -->
                 <div class="hero-img-wrapper">
-                    <img id="dispHeroImg" src="/assets/screenshots/iphone-dashboard.png" class="hero-img" alt="">
+                    <div id="dispHeroImg" class="hero-img"></div>
                 </div>
                 <div class="hero-gradient"></div>
             </div>
@@ -295,7 +330,7 @@
                     <span class="img2-title" id="dispImg2Title">Sessions</span>
                 </div>
                 <div class="device-img-wrapper">
-                    <img id="dispImg2" src="/assets/screenshots/iphone-sessions.png" class="device-img" alt="">
+                    <div id="dispImg2" class="device-img"></div>
                 </div>
                 <div class="device-gradient"></div>
             </div>
@@ -322,7 +357,7 @@
             <div class="bento-box box-feature">
                 <!-- Feature Bg Img -->
                 <div class="feature-img-wrapper">
-                    <img id="dispFeatImg" src="" class="feature-img" style="display:none;">
+                    <div id="dispFeatImg" class="feature-img"></div>
                 </div>
                 <div class="feature-gradient"></div>
                 
@@ -336,6 +371,8 @@
         </div>
       </main>
     </div>
+    
+    <div id="toast" class="toast">Copied to clipboard!</div>
     
     <script type="module" src="/src/bento_generator.js"></script>
   </body>

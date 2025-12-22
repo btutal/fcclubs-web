@@ -1,5 +1,14 @@
 /**
- * Bento Generator v10 - Marketing Overhaul (Brand Cards + Visual Features)
+ * Bento Generator v5 - Full Feature Release
+ * 
+ * Features:
+ * - Export to PNG with proper image rendering
+ * - Copy to clipboard for quick sharing
+ * - Autosave to localStorage (auto-restores on reload)
+ * - Keyboard shortcuts: Cmd+E (export), Cmd+S (save), Cmd+Shift+C (copy)
+ * - Multiple formats: Instagram, LinkedIn, Twitter/X
+ * - Icon/emoji selector for feature box
+ * - Image zoom and position controls
  */
 
 const els = {
@@ -7,7 +16,9 @@ const els = {
     formatSelect: document.getElementById('formatSelect'),
     themeSelect: document.getElementById('themeSelect'),
     exportBtn: document.getElementById('exportBtn'),
+    copyBtn: document.getElementById('copyBtn'),
     saveBtn: document.getElementById('saveBtn'),
+    toast: document.getElementById('toast'),
     
     // Hero
     inputHeroTitle: document.getElementById('inputHeroTitle'),
@@ -41,8 +52,15 @@ const els = {
     inputFeatTitle: document.getElementById('inputFeatTitle'),
     inputFeatDesc: document.getElementById('inputFeatDesc'),
     selectFeatImg: document.getElementById('selectFeatImg'),
+    inputFeatZoom: document.getElementById('inputFeatZoom'),
+    inputFeatPosX: document.getElementById('inputFeatPosX'),
+    inputFeatPosY: document.getElementById('inputFeatPosY'),
+    zoomFeatVal: document.getElementById('zoomFeatVal'),
     inputFeatOpacity: document.getElementById('inputFeatOpacity'),
     featOpacityVal: document.getElementById('featOpacityVal'),
+    selectFeatIcon: document.getElementById('selectFeatIcon'),
+    clearFeatIcon: document.getElementById('clearFeatIcon'),
+    dispFeatIcon: document.querySelector('.feature-icon'),
     
     // Display elements
     dispHeroTitle: document.getElementById('dispHeroTitle'),
@@ -97,7 +115,11 @@ const PRESETS = {
         // FEATURE: Scout capability
         featTitle: "Scout Any Club",
         featDesc: "Research opponents before you play",
-        featImg: "/assets/screenshots/iphone-scout.png"
+        featImg: "/assets/screenshots/iphone-scout.png",
+        featZoom: 100,
+        featPosX: 50,
+        featPosY: 50,
+        featIcon: "🎯"
     },
     
     // V102: Scout Mode Focus
@@ -131,49 +153,189 @@ const PRESETS = {
         // FEATURE: Player ratings
         featTitle: "Full Player Stats",
         featDesc: "Goals, assists, rating & more",
-        featImg: "/assets/screenshots/iphone-dashboard.png"
+        featImg: "/assets/screenshots/iphone-dashboard.png",
+        featZoom: 100,
+        featPosX: 50,
+        featPosY: 50,
+        featIcon: "📊"
     },
     
-    // V103: Widgets Focus
+    // V103: Widgets & AI Focus - v1.0.3 Release
     v103: {
-        heroTitle: "Stats at\na Glance.",
+        heroTitle: "Stats at\na Glance.\nw/ Widgets.",
         textStyle: "neon-green",
         heroImg: "/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png",
         heroZoom: 100,
         heroPosX: 50,
         heroPosY: 30,
         
-        img2: "/assets/screenshots/iphone-sessions.png",
-        img2Zoom: 105,
+        img2: "/assets/screenshots/iphone-scout.png",
+        img2Zoom: 110,
         img2PosX: 50,
-        img2PosY: 15,
+        img2PosY: 20,
         img2Title: "",
         img2TitleStyle: "neon-green",
         
-        // STAT 1: Widget feature
-        stat1Value: "1-Tap",
-        stat1Label: "Widgets",
-        stat1Desc: "Stats on your home screen",
+        // STAT 1: AI Match Forecast
+        stat1Value: "AI",
+        stat1Label: "MATCH FORECAST",
+        stat1Desc: "Know Your Odds",
         stat1Color: "green",
         
-        // STAT 2: Live updates
-        stat2Value: "Live",
-        stat2Label: "Activity",
-        stat2Desc: "Real-time lock screen",
+        // STAT 2: Scout Mode
+        stat2Value: "Scout",
+        stat2Label: "OPPONENTS",
+        stat2Desc: "Get Ready for the Match",
         stat2Color: "blue",
         
-        // FEATURE: Session tracking
-        featTitle: "Session History",
-        featDesc: "Track every gaming session",
-        featImg: "/assets/screenshots/iphone-sessions.png"
+        // FEATURE: Scout Report
+        featTitle: "Scout Report",
+        featDesc: "Full tactical breakdown before kickoff",
+        featImg: "/assets/screenshots/iphone-scout.png",
+        featZoom: 110,
+        featPosX: 50,
+        featPosY: 30,
+        featIcon: "🎯"
     }
 };
 
 function init() {
     bindEvents();
-    setTheme('overview');
+    restoreFromLocalStorage() || setTheme('overview');
     updateScale();
     window.addEventListener('resize', updateScale);
+    bindKeyboardShortcuts();
+}
+
+// Toast notification helper
+function showToast(message) {
+    if (els.toast) {
+        els.toast.textContent = message;
+        els.toast.classList.add('show');
+        setTimeout(() => els.toast.classList.remove('show'), 2000);
+    }
+}
+
+// Autosave to localStorage
+function saveToLocalStorage() {
+    const data = getCurrentState();
+    localStorage.setItem('bentoGenerator_autosave', JSON.stringify(data));
+}
+
+function restoreFromLocalStorage() {
+    try {
+        const saved = localStorage.getItem('bentoGenerator_autosave');
+        if (saved) {
+            const data = JSON.parse(saved);
+            applyStateData(data);
+            return true;
+        }
+    } catch (e) {
+        console.warn('Failed to restore autosave:', e);
+    }
+    return false;
+}
+
+function getCurrentState() {
+    return {
+        heroTitle: els.inputHeroTitle.value,
+        textStyle: els.selectTextStyle.value,
+        heroImg: els.selectHeroImg.value,
+        heroZoom: els.inputHeroZoom.value,
+        heroPosX: els.inputHeroPosX.value,
+        heroPosY: els.inputHeroPosY.value,
+        img2: els.selectImg2.value,
+        img2Zoom: els.inputImg2Zoom.value,
+        img2PosX: els.inputImg2PosX.value,
+        img2PosY: els.inputImg2PosY.value,
+        img2Title: els.inputImg2Title.value,
+        img2TitleStyle: els.selectImg2TitleStyle.value,
+        stat1Value: els.inputStat1Value.value,
+        stat1Label: els.inputStat1Label.value,
+        stat1Desc: els.inputStat1Desc.value,
+        stat1Color: els.selectStat1Color.value,
+        stat2Value: els.inputStat2Value.value,
+        stat2Label: els.inputStat2Label.value,
+        stat2Desc: els.inputStat2Desc.value,
+        stat2Color: els.selectStat2Color.value,
+        featTitle: els.inputFeatTitle.value,
+        featDesc: els.inputFeatDesc.value,
+        featImg: els.selectFeatImg.value,
+        featZoom: els.inputFeatZoom.value,
+        featPosX: els.inputFeatPosX.value,
+        featPosY: els.inputFeatPosY.value,
+        featIcon: els.selectFeatIcon.value,
+        format: els.formatSelect.value
+    };
+}
+
+function applyStateData(data) {
+    if (!data) return;
+    
+    // Format
+    if (data.format) {
+        els.formatSelect.value = data.format;
+        els.canvas.className = `bento-canvas format-${data.format}`;
+    }
+    
+    // Hero
+    els.inputHeroTitle.value = data.heroTitle || '';
+    els.selectTextStyle.value = data.textStyle || 'white';
+    els.selectHeroImg.value = data.heroImg || '';
+    els.inputHeroZoom.value = data.heroZoom || 100;
+    els.inputHeroPosX.value = data.heroPosX || 50;
+    els.inputHeroPosY.value = data.heroPosY || 50;
+    
+    // Secondary
+    els.selectImg2.value = data.img2 || '';
+    els.inputImg2Zoom.value = data.img2Zoom || 100;
+    els.inputImg2PosX.value = data.img2PosX || 50;
+    els.inputImg2PosY.value = data.img2PosY || 50;
+    els.inputImg2Title.value = data.img2Title || '';
+    els.selectImg2TitleStyle.value = data.img2TitleStyle || 'white';
+    
+    // Stats
+    els.inputStat1Value.value = data.stat1Value || '';
+    els.inputStat1Label.value = data.stat1Label || '';
+    els.inputStat1Desc.value = data.stat1Desc || '';
+    els.selectStat1Color.value = data.stat1Color || 'green';
+    
+    els.inputStat2Value.value = data.stat2Value || '';
+    els.inputStat2Label.value = data.stat2Label || '';
+    els.inputStat2Desc.value = data.stat2Desc || '';
+    els.selectStat2Color.value = data.stat2Color || 'pink';
+    
+    // Feature
+    els.inputFeatTitle.value = data.featTitle || '';
+    els.inputFeatDesc.value = data.featDesc || '';
+    els.selectFeatImg.value = data.featImg || '';
+    els.inputFeatZoom.value = data.featZoom || 100;
+    els.inputFeatPosX.value = data.featPosX || 50;
+    els.inputFeatPosY.value = data.featPosY || 50;
+    els.selectFeatIcon.value = data.featIcon || '';
+    
+    applyToCanvas();
+}
+
+// Keyboard shortcuts
+function bindKeyboardShortcuts() {
+    document.addEventListener('keydown', (e) => {
+        // Cmd/Ctrl + E = Export
+        if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
+            e.preventDefault();
+            els.exportBtn.click();
+        }
+        // Cmd/Ctrl + S = Save preset
+        if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+            e.preventDefault();
+            els.saveBtn.click();
+        }
+        // Cmd/Ctrl + Shift + C = Copy to clipboard
+        if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'C') {
+            e.preventDefault();
+            els.copyBtn.click();
+        }
+    });
 }
 
 function setTheme(key) {
@@ -211,6 +373,10 @@ function setTheme(key) {
     els.inputFeatTitle.value = data.featTitle;
     els.inputFeatDesc.value = data.featDesc;
     els.selectFeatImg.value = data.featImg || "";
+    els.inputFeatZoom.value = data.featZoom || 100;
+    els.inputFeatPosX.value = data.featPosX || 50;
+    els.inputFeatPosY.value = data.featPosY || 50;
+    els.selectFeatIcon.value = data.featIcon || "";
     
     applyToCanvas();
 }
@@ -218,8 +384,12 @@ function setTheme(key) {
 function applyToCanvas() {
     // Text content
     els.dispHeroTitle.innerHTML = els.inputHeroTitle.value.replace(/\n/g, '<br>');
-    els.dispHeroImg.src = els.selectHeroImg.value;
-    els.dispImg2.src = els.selectImg2.value;
+    
+    // Hero image - use background-image for html2canvas compatibility
+    els.dispHeroImg.style.backgroundImage = `url('${els.selectHeroImg.value}')`;
+    
+    // Secondary image - use background-image for html2canvas compatibility
+    els.dispImg2.style.backgroundImage = `url('${els.selectImg2.value}')`;
     els.dispImg2Title.textContent = els.inputImg2Title.value;
     
     els.dispStat1Value.textContent = els.inputStat1Value.value;
@@ -233,14 +403,30 @@ function applyToCanvas() {
     els.dispFeatTitle.textContent = els.inputFeatTitle.value;
     els.dispFeatDesc.textContent = els.inputFeatDesc.value;
     
-    // Feature Image logic
+    // Feature Icon
+    const featIcon = els.selectFeatIcon.value;
+    if (els.dispFeatIcon) {
+        els.dispFeatIcon.textContent = featIcon;
+        els.dispFeatIcon.style.display = featIcon ? 'block' : 'none';
+    }
+    
+    // Feature Image - use background-image for html2canvas compatibility
     const featImgSrc = els.selectFeatImg.value;
     if (featImgSrc) {
-        els.dispFeatImg.src = featImgSrc;
+        els.dispFeatImg.style.backgroundImage = `url('${featImgSrc}')`;
         els.dispFeatImg.style.display = 'block';
+        
+        // Feature zoom and position
+        const featZoom = parseFloat(els.inputFeatZoom.value) || 100;
+        const featPosX = parseFloat(els.inputFeatPosX.value) || 50;
+        const featPosY = parseFloat(els.inputFeatPosY.value) || 50;
+        els.zoomFeatVal.textContent = featZoom;
+        
+        els.dispFeatImg.style.backgroundSize = `${featZoom}%`;
+        els.dispFeatImg.style.backgroundPosition = `${featPosX}% ${featPosY}%`;
     } else {
         els.dispFeatImg.style.display = 'none';
-        els.dispFeatImg.src = '';
+        els.dispFeatImg.style.backgroundImage = '';
     }
     
     // Feature overlay opacity
@@ -261,24 +447,27 @@ function applyToCanvas() {
     els.boxStat1.className = `bento-box box-stat-1 stat-style-${els.selectStat1Color.value}`;
     els.boxStat2.className = `bento-box box-stat-2 stat-style-${els.selectStat2Color.value}`;
     
-    // Hero zoom + position
+    // Hero zoom + position - use background-size and background-position
     const heroZoom = parseFloat(els.inputHeroZoom.value);
     const heroPosX = parseFloat(els.inputHeroPosX.value);
     const heroPosY = parseFloat(els.inputHeroPosY.value);
     els.zoomHeroVal.textContent = heroZoom;
     
-    // Use transform for zoom, object-position for pan
-    els.dispHeroImg.style.transform = `scale(${heroZoom / 100})`;
-    els.dispHeroImg.style.objectPosition = `${heroPosX}% ${heroPosY}%`;
+    // Use background-size for zoom (percentage > 100 = zoomed in)
+    els.dispHeroImg.style.backgroundSize = `${heroZoom}%`;
+    els.dispHeroImg.style.backgroundPosition = `${heroPosX}% ${heroPosY}%`;
     
-    // Img2 zoom + position
+    // Img2 zoom + position - use background-size and background-position
     const img2Zoom = parseFloat(els.inputImg2Zoom.value);
     const img2PosX = parseFloat(els.inputImg2PosX.value);
     const img2PosY = parseFloat(els.inputImg2PosY.value);
     els.zoomImg2Val.textContent = img2Zoom;
     
-    els.dispImg2.style.transform = `scale(${img2Zoom / 100})`;
-    els.dispImg2.style.objectPosition = `${img2PosX}% ${img2PosY}%`;
+    els.dispImg2.style.backgroundSize = `${img2Zoom}%`;
+    els.dispImg2.style.backgroundPosition = `${img2PosX}% ${img2PosY}%`;
+    
+    // Autosave on every change
+    saveToLocalStorage();
 }
 
 function updateScale() {
@@ -308,7 +497,8 @@ function bindEvents() {
         'inputImg2Zoom', 'inputImg2PosX', 'inputImg2PosY', 'inputImg2Title',
         'inputStat1Value', 'inputStat1Label', 'inputStat1Desc',
         'inputStat2Value', 'inputStat2Label', 'inputStat2Desc',
-        'inputFeatTitle', 'inputFeatDesc', 'inputFeatOpacity'
+        'inputFeatTitle', 'inputFeatDesc', 'inputFeatOpacity',
+        'inputFeatZoom', 'inputFeatPosX', 'inputFeatPosY'
     ];
     liveInputs.forEach(id => {
         if (els[id]) els[id].addEventListener('input', applyToCanvas);
@@ -320,7 +510,14 @@ function bindEvents() {
     els.selectStat1Color.addEventListener('change', applyToCanvas);
     els.selectStat2Color.addEventListener('change', applyToCanvas);
     els.selectImg2TitleStyle.addEventListener('change', applyToCanvas);
-    els.selectFeatImg.addEventListener('change', applyToCanvas); // New binding
+    els.selectFeatImg.addEventListener('change', applyToCanvas);
+    els.selectFeatIcon.addEventListener('change', applyToCanvas);
+    
+    // Clear icon button
+    els.clearFeatIcon.addEventListener('click', () => {
+        els.selectFeatIcon.value = '';
+        applyToCanvas();
+    });
     
     els.saveBtn.addEventListener('click', () => {
         const data = {
@@ -346,7 +543,11 @@ function bindEvents() {
             stat2Color: els.selectStat2Color.value,
             featTitle: els.inputFeatTitle.value,
             featDesc: els.inputFeatDesc.value,
-            featImg: els.selectFeatImg.value
+            featImg: els.selectFeatImg.value,
+            featZoom: els.inputFeatZoom.value,
+            featPosX: els.inputFeatPosX.value,
+            featPosY: els.inputFeatPosY.value,
+            featIcon: els.selectFeatIcon.value
         };
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         const a = document.createElement('a');
@@ -356,17 +557,43 @@ function bindEvents() {
     });
     
     els.exportBtn.addEventListener('click', async () => {
-        els.exportBtn.textContent = '⏳ Exporting...';
+        els.exportBtn.textContent = '⏳ Preloading...';
         els.exportBtn.disabled = true;
+        
+        // Preload all images before export
+        const imageUrls = [
+            els.selectHeroImg.value,
+            els.selectImg2.value,
+            els.selectFeatImg.value,
+            '/assets/app-icon.png'
+        ].filter(Boolean);
+        
+        try {
+            await Promise.all(imageUrls.map(url => {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = resolve;
+                    img.onerror = () => {
+                        console.warn('Failed to preload:', url);
+                        resolve(); // Continue even if one fails
+                    };
+                    img.src = url;
+                });
+            }));
+        } catch (e) {
+            console.warn('Image preload warning:', e);
+        }
+        
+        els.exportBtn.textContent = '⏳ Exporting...';
         
         const canvas = els.canvas;
         const orig = canvas.style.transform;
         canvas.style.transform = 'none';
         
         // Get naming components
-        const preset = els.themeSelect.value; // overview, v102, v103
-        const format = els.formatSelect.value; // ig-square, li-landscape, etc.
-        const date = new Date().toISOString().slice(0,10); // YYYY-MM-DD
+        const preset = els.themeSelect.value;
+        const format = els.formatSelect.value;
+        const date = new Date().toISOString().slice(0,10);
         
         // Get dimensions from canvas
         const width = canvas.offsetWidth;
@@ -375,17 +602,16 @@ function bindEvents() {
         try {
             const rendered = await html2canvas(canvas, {
                 backgroundColor: null,
-                scale: 2, // 2x for retina quality
+                scale: 2,
                 useCORS: true,
                 allowTaint: true,
                 logging: false,
-                imageTimeout: 0,
+                imageTimeout: 15000,
                 width: width,
                 height: height
             });
             
             const link = document.createElement('a');
-            // Better naming: FCClubs-overview-ig-square-1080x1080-2024-12-22.png
             link.download = `FCClubs-${preset}-${format}-${width}x${height}-${date}.png`;
             link.href = rendered.toDataURL('image/png', 1.0);
             link.click();
@@ -394,8 +620,50 @@ function bindEvents() {
             alert('Export failed: ' + err.message);
         } finally {
             canvas.style.transform = orig;
-            els.exportBtn.textContent = '📸 Export PNG';
+            els.exportBtn.textContent = '📸 Export';
             els.exportBtn.disabled = false;
+        }
+    });
+    
+    // Copy to clipboard button
+    els.copyBtn.addEventListener('click', async () => {
+        els.copyBtn.textContent = '⏳ Copying...';
+        els.copyBtn.disabled = true;
+        
+        const canvas = els.canvas;
+        const orig = canvas.style.transform;
+        canvas.style.transform = 'none';
+        
+        try {
+            const rendered = await html2canvas(canvas, {
+                backgroundColor: null,
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                logging: false,
+                imageTimeout: 15000,
+                width: canvas.offsetWidth,
+                height: canvas.offsetHeight
+            });
+            
+            rendered.toBlob(async (blob) => {
+                try {
+                    await navigator.clipboard.write([
+                        new ClipboardItem({ 'image/png': blob })
+                    ]);
+                    showToast('✅ Copied to clipboard!');
+                } catch (clipErr) {
+                    console.error('Clipboard error:', clipErr);
+                    showToast('❌ Clipboard not supported');
+                }
+            }, 'image/png');
+        } catch (err) {
+            console.error('Copy error:', err);
+            showToast('❌ Copy failed');
+        } finally {
+            canvas.style.transform = orig;
+            els.copyBtn.textContent = '📋 Copy';
+            els.copyBtn.disabled = false;
         }
     });
 }
