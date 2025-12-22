@@ -153,8 +153,24 @@
       <aside class="controls">
         <div class="control-scroll">
             <!-- HERO -->
-            <div class="control-section">
+            <div class="control-section" data-box="hero">
                 <div class="section-title">Hero</div>
+                
+                <!-- Box Type Selector - Standard for all sections -->
+                <div class="control-group box-type-group">
+                    <label>Box Type</label>
+                    <select id="heroBoxType" class="box-type-select">
+                        <option value="screenshot-title" selected>📱 Screenshot + Title</option>
+                        <option value="icon-text">🎯 Icon + Text</option>
+                        <option value="stats">📊 Stats Grid</option>
+                        <option value="brand">🔲 Brand Box</option>
+                    </select>
+                </div>
+                
+                <hr class="control-divider">
+                
+                <!-- Screenshot + Title Controls (default) -->
+                <div class="box-type-controls" data-type="screenshot-title">
                 <div class="control-group">
                     <label>Headline</label>
                     <textarea id="inputHeroTitle" rows="2"></textarea>
@@ -215,7 +231,8 @@
                     <label>Overlay Darkness: <span id="heroOverlayVal">60</span>%</label>
                     <input type="range" id="inputHeroOverlay" min="0" max="100" value="60">
                 </div>
-            </div>
+                </div><!-- end box-type-controls -->
+            </div><!-- end control-section Hero -->
 
             <hr class="divider">
 
