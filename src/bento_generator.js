@@ -1,5 +1,5 @@
 /**
- * Bento Generator v11 - Visual Pickers & Load Preset
+ * Bento Generator v12 - Format Picker & Background Mode
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -403,11 +403,73 @@ function init() {
     // Setup visual icon picker
     setupIconPicker(els.selectFeatIcon, 'featIconGrid');
     
+    // Setup format picker overlay (only show if first visit)
+    setupFormatPicker();
+    
     bindEvents();
     restoreFromLocalStorage() || setTheme('overview');
     updateScale();
     window.addEventListener('resize', updateScale);
     bindKeyboardShortcuts();
+}
+
+// Format Picker Overlay
+function setupFormatPicker() {
+    const overlay = document.getElementById('formatPicker');
+    const formatCards = document.querySelectorAll('.format-card');
+    const bgBtns = document.querySelectorAll('.bg-btn');
+    
+    if (!overlay) return;
+    
+    // Check if we should show the picker (first visit or no format selected)
+    const hasVisited = localStorage.getItem('bentoGenerator_hasVisited');
+    if (hasVisited) {
+        overlay.classList.add('hidden');
+        return;
+    }
+    
+    let selectedFormat = 'ig-square';
+    let selectedBg = 'light';
+    
+    // Format card selection
+    formatCards.forEach(card => {
+        card.addEventListener('click', () => {
+            formatCards.forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedFormat = card.dataset.format;
+            
+            // Auto-dismiss after selection
+            setTimeout(() => {
+                applyFormatSelection(selectedFormat, selectedBg);
+                overlay.classList.add('hidden');
+                localStorage.setItem('bentoGenerator_hasVisited', 'true');
+            }, 300);
+        });
+    });
+    
+    // Background toggle
+    bgBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            bgBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedBg = btn.dataset.bg;
+        });
+    });
+}
+
+function applyFormatSelection(format, bg) {
+    // Apply format
+    els.formatSelect.value = format;
+    els.canvas.className = `bento-canvas format-${format}`;
+    
+    // Apply background
+    if (bg === 'light') {
+        els.canvas.classList.add('bg-light');
+    } else {
+        els.canvas.classList.remove('bg-light');
+    }
+    
+    setTimeout(updateScale, 50);
 }
 
 // Visual Text Style Selector - Reusable for any style select
@@ -1057,6 +1119,24 @@ function bindEvents() {
     els.selectImg2TitleStyle.addEventListener('change', applyToCanvas);
     els.selectFeatImg.addEventListener('change', applyToCanvas);
     els.selectFeatIcon.addEventListener('change', applyToCanvas);
+    
+    // Sidebar background toggle
+    const sidebarBgLight = document.getElementById('sidebarBgLight');
+    const sidebarBgDark = document.getElementById('sidebarBgDark');
+    
+    if (sidebarBgLight && sidebarBgDark) {
+        sidebarBgLight.addEventListener('click', () => {
+            sidebarBgLight.classList.add('active');
+            sidebarBgDark.classList.remove('active');
+            els.canvas.classList.add('bg-light');
+        });
+        
+        sidebarBgDark.addEventListener('click', () => {
+            sidebarBgDark.classList.add('active');
+            sidebarBgLight.classList.remove('active');
+            els.canvas.classList.remove('bg-light');
+        });
+    }
     
     // Clear icon button
     els.clearFeatIcon.addEventListener('click', () => {

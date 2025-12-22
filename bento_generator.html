@@ -16,11 +16,89 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
   </head>
   <body>
+    <!-- FORMAT PICKER OVERLAY - Shows on load -->
+    <div id="formatPicker" class="format-picker-overlay">
+        <div class="format-picker-content">
+            <h1>Choose Your Canvas</h1>
+            <p class="format-picker-subtitle">Select a format and background to get started</p>
+            
+            <div class="format-groups">
+                <!-- Square 1:1 -->
+                <div class="format-group">
+                    <div class="format-card" data-format="ig-square" data-ratio="1:1">
+                        <div class="format-preview square"></div>
+                        <div class="format-info">
+                            <strong>Square</strong>
+                            <span>1080 × 1080</span>
+                        </div>
+                    </div>
+                    <div class="format-platforms">Instagram · LinkedIn · X</div>
+                </div>
+                
+                <!-- Portrait 4:5 -->
+                <div class="format-group">
+                    <div class="format-card" data-format="ig-portrait" data-ratio="4:5">
+                        <div class="format-preview portrait"></div>
+                        <div class="format-info">
+                            <strong>Portrait</strong>
+                            <span>1080 × 1350</span>
+                        </div>
+                    </div>
+                    <div class="format-platforms">Instagram Feed</div>
+                </div>
+                
+                <!-- Story 9:16 -->
+                <div class="format-group">
+                    <div class="format-card" data-format="ig-story" data-ratio="9:16">
+                        <div class="format-preview story"></div>
+                        <div class="format-info">
+                            <strong>Story</strong>
+                            <span>1080 × 1920</span>
+                        </div>
+                    </div>
+                    <div class="format-platforms">Instagram · TikTok</div>
+                </div>
+                
+                <!-- Landscape 16:9 -->
+                <div class="format-group">
+                    <div class="format-card" data-format="x-landscape" data-ratio="16:9">
+                        <div class="format-preview landscape-wide"></div>
+                        <div class="format-info">
+                            <strong>Landscape</strong>
+                            <span>1600 × 900</span>
+                        </div>
+                    </div>
+                    <div class="format-platforms">X (Twitter) · YouTube</div>
+                </div>
+                
+                <!-- LinkedIn Landscape -->
+                <div class="format-group">
+                    <div class="format-card" data-format="li-landscape" data-ratio="1.91:1">
+                        <div class="format-preview landscape-linkedin"></div>
+                        <div class="format-info">
+                            <strong>LinkedIn Banner</strong>
+                            <span>1200 × 626</span>
+                        </div>
+                    </div>
+                    <div class="format-platforms">LinkedIn Article</div>
+                </div>
+            </div>
+            
+            <div class="format-options">
+                <div class="background-toggle">
+                    <label>Background:</label>
+                    <button id="bgLightBtn" class="bg-btn active" data-bg="light">☀️ Light</button>
+                    <button id="bgDarkBtn" class="bg-btn" data-bg="dark">🌙 Dark</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="app-generator">
       <aside class="controls">
         <div class="control-header">
            <img src="/assets/app-icon.png" alt="Logo" width="32" style="border-radius: 8px;">
-           <h2>Bento Gen <span style="opacity:0.5; font-weight:400; font-size:0.8em;">v11</span></h2>
+           <h2>Bento Gen <span style="opacity:0.5; font-weight:400; font-size:0.8em;">v12</span></h2>
            <button id="helpBtn" style="margin-left:auto; background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff; border-radius:6px; padding:4px 10px; cursor:pointer; font-size:0.8rem;">?</button>
         </div>
         
@@ -59,6 +137,14 @@
                       </select>
                       <button id="saveBtn" class="btn-secondary">💾</button>
                   </div>
+                </div>
+                
+                <div class="control-group">
+                    <label>Background</label>
+                    <div class="half-row">
+                        <button id="sidebarBgLight" class="bg-toggle-btn active" data-bg="light">☀️ Light</button>
+                        <button id="sidebarBgDark" class="bg-toggle-btn" data-bg="dark">🌙 Dark</button>
+                    </div>
                 </div>
             </div>
 
