@@ -462,14 +462,11 @@ function applyFormatSelection(format, bg) {
     els.formatSelect.value = format;
     els.canvas.className = `bento-canvas format-${format}`;
     
-    // Apply background to preview stage (area around canvas), not the canvas itself
-    const previewStage = document.querySelector('.preview-stage');
-    if (previewStage) {
-        if (bg === 'light') {
-            previewStage.classList.add('bg-light');
-        } else {
-            previewStage.classList.remove('bg-light');
-        }
+    // Apply theme to body (affects whole page)
+    if (bg === 'light') {
+        document.body.classList.add('theme-light');
+    } else {
+        document.body.classList.remove('theme-light');
     }
     
     // Sync sidebar toggle buttons
@@ -1131,22 +1128,21 @@ function bindEvents() {
     els.selectFeatImg.addEventListener('change', applyToCanvas);
     els.selectFeatIcon.addEventListener('change', applyToCanvas);
     
-    // Sidebar background toggle
+    // Sidebar theme toggle
     const sidebarBgLight = document.getElementById('sidebarBgLight');
     const sidebarBgDark = document.getElementById('sidebarBgDark');
-    const previewStage = document.querySelector('.preview-stage');
     
-    if (sidebarBgLight && sidebarBgDark && previewStage) {
+    if (sidebarBgLight && sidebarBgDark) {
         sidebarBgLight.addEventListener('click', () => {
             sidebarBgLight.classList.add('active');
             sidebarBgDark.classList.remove('active');
-            previewStage.classList.add('bg-light');
+            document.body.classList.add('theme-light');
         });
         
         sidebarBgDark.addEventListener('click', () => {
             sidebarBgDark.classList.add('active');
             sidebarBgLight.classList.remove('active');
-            previewStage.classList.remove('bg-light');
+            document.body.classList.remove('theme-light');
         });
     }
     

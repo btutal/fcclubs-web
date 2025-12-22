@@ -650,13 +650,48 @@ textarea { resize: vertical; }
     transform-origin: center center;
 }
 
-/* Light Background Mode - For Preview Stage (area around canvas) */
-.preview-stage.bg-light {
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 50%, #f0f0f0 100%);
+/* Light Theme Mode - Applies to whole page */
+body.theme-light {
+    background: #e8e4df; /* Soft warm off-white */
 }
 
-.preview-stage.bg-light .bento-canvas {
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+body.theme-light #app-generator {
+    background: transparent;
+}
+
+body.theme-light .controls {
+    background: rgba(255,255,255,0.6);
+    border-right-color: rgba(0,0,0,0.08);
+}
+
+body.theme-light .control-section {
+    background: rgba(255,255,255,0.5);
+    border-left-color: rgba(0,0,0,0.15);
+}
+
+body.theme-light .section-title {
+    color: rgba(0,0,0,0.6);
+    border-bottom-color: rgba(0,0,0,0.08);
+}
+
+body.theme-light .control-group label {
+    color: rgba(0,0,0,0.5);
+}
+
+body.theme-light input,
+body.theme-light textarea,
+body.theme-light select {
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.1);
+    color: #1a1a1f;
+}
+
+body.theme-light .preview-stage {
+    background: #d8d4cf;
+}
+
+body.theme-light .bento-canvas {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
 /* =============================================
