@@ -1169,6 +1169,58 @@ body.theme-light .export-btn.copy-btn {
     color: #1a1a1f;
 }
 
+/* Light theme - Control Sub-Groups */
+body.theme-light .control-subgroup {
+    background: rgba(0,0,0,0.02);
+    border-left-color: rgba(0,0,0,0.12);
+}
+
+body.theme-light .control-subgroup.text-controls {
+    border-left-color: rgba(59, 173, 247, 0.5);
+}
+
+body.theme-light .control-subgroup.image-controls {
+    border-left-color: rgba(66, 254, 194, 0.6);
+}
+
+body.theme-light .control-subgroup-label {
+    color: rgba(0,0,0,0.45);
+}
+
+/* Light theme - Layout Guide */
+body.theme-light .layout-guide {
+    background: rgba(0,0,0,0.03);
+}
+
+body.theme-light .layout-title {
+    color: rgba(0,0,0,0.5);
+}
+
+body.theme-light .layout-grid > div {
+    color: #fff;
+}
+
+/* Light theme - Slot Label */
+body.theme-light .slot-label {
+    color: rgba(0,0,0,0.4);
+}
+
+/* Light theme - Control Divider */
+body.theme-light .control-divider {
+    background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+}
+
+/* Light theme - Box Type Selector */
+body.theme-light .box-type-group {
+    background: rgba(0,0,0,0.03);
+}
+
+body.theme-light .box-type-select {
+    background: rgba(255,255,255,0.8);
+    border-color: rgba(0,0,0,0.15);
+    color: #1a1a1f;
+}
+
 /* Light theme - Visual pickers */
 /* IMPORTANT: Style buttons KEEP dark background for text visibility */
 body.theme-light .style-btn {
