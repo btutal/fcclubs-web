@@ -358,11 +358,11 @@ const DEFAULTS = {
         inputStat1Value: "100",
         inputStat1Label: "Label",
         inputStat1Desc: "Description",
-        selectStat1Color: "green",
+        selectStat1Style: "green",
         inputStat2Value: "200",
         inputStat2Label: "Label",
         inputStat2Desc: "Description",
-        selectStat2Color: "blue"
+        selectStat2Style: "blue"
     },
     feature: {
         inputFeatTitle: "Feature Title",
@@ -718,11 +718,11 @@ function getCurrentState() {
         stat1Value: els.inputStat1Value.value,
         stat1Label: els.inputStat1Label.value,
         stat1Desc: els.inputStat1Desc.value,
-        stat1Color: els.selectStat1Color.value,
+        stat1Style: els.selectStat1Style.value,
         stat2Value: els.inputStat2Value.value,
         stat2Label: els.inputStat2Label.value,
         stat2Desc: els.inputStat2Desc.value,
-        stat2Color: els.selectStat2Color.value,
+        stat2Style: els.selectStat2Style.value,
         featTitle: els.inputFeatTitle.value,
         featDesc: els.inputFeatDesc.value,
         featImg: els.selectFeatImg.value,
@@ -778,14 +778,14 @@ function applyStateData(data, skipHistory = false) {
     els.inputStat1Value.value = data.stat1Value || '';
     els.inputStat1Label.value = data.stat1Label || '';
     els.inputStat1Desc.value = data.stat1Desc || '';
-    els.selectStat1Color.value = data.stat1Color || 'green';
-    syncVisualGrid('stat1ColorGrid', els.selectStat1Color.value);
+    els.selectStat1Style.value = data.stat1Style || data.stat1Color || 'green';
+    syncVisualGrid('stat1StyleGrid', els.selectStat1Style.value);
     
     els.inputStat2Value.value = data.stat2Value || '';
     els.inputStat2Label.value = data.stat2Label || '';
     els.inputStat2Desc.value = data.stat2Desc || '';
-    els.selectStat2Color.value = data.stat2Color || 'pink';
-    syncVisualGrid('stat2ColorGrid', els.selectStat2Color.value);
+    els.selectStat2Style.value = data.stat2Style || data.stat2Color || 'pink';
+    syncVisualGrid('stat2StyleGrid', els.selectStat2Style.value);
     
     // Feature
     els.inputFeatTitle.value = data.featTitle || '';
@@ -906,12 +906,12 @@ function setTheme(key) {
     els.inputStat1Value.value = data.stat1Value;
     els.inputStat1Label.value = data.stat1Label;
     els.inputStat1Desc.value = data.stat1Desc || "";
-    els.selectStat1Color.value = data.stat1Color || "green";
+    els.selectStat1Style.value = data.stat1Style || data.stat1Color || "green";
     
     els.inputStat2Value.value = data.stat2Value;
     els.inputStat2Label.value = data.stat2Label;
     els.inputStat2Desc.value = data.stat2Desc || "";
-    els.selectStat2Color.value = data.stat2Color || "pink";
+    els.selectStat2Style.value = data.stat2Style || data.stat2Color || "pink";
     
     // Feature
     els.inputFeatTitle.value = data.featTitle;
@@ -1260,11 +1260,11 @@ function bindEvents() {
             stat1Value: els.inputStat1Value.value,
             stat1Label: els.inputStat1Label.value,
             stat1Desc: els.inputStat1Desc.value,
-            stat1Color: els.selectStat1Color.value,
+            stat1Style: els.selectStat1Style.value,
             stat2Value: els.inputStat2Value.value,
             stat2Label: els.inputStat2Label.value,
             stat2Desc: els.inputStat2Desc.value,
-            stat2Color: els.selectStat2Color.value,
+            stat2Style: els.selectStat2Style.value,
             featTitle: els.inputFeatTitle.value,
             featDesc: els.inputFeatDesc.value,
             featImg: els.selectFeatImg.value,
