@@ -142,12 +142,10 @@ const els = {
     inputStat1Value: document.getElementById('inputStat1Value'),
     inputStat1Label: document.getElementById('inputStat1Label'),
     inputStat1Desc: document.getElementById('inputStat1Desc'),
-    selectStat1Color: document.getElementById('selectStat1Color'),
+    selectStat1Style: document.getElementById('selectStat1Style'),
     inputStat2Value: document.getElementById('inputStat2Value'),
     inputStat2Label: document.getElementById('inputStat2Label'),
     inputStat2Desc: document.getElementById('inputStat2Desc'),
-    selectStat2Color: document.getElementById('selectStat2Color'),
-    selectStat1Style: document.getElementById('selectStat1Style'),
     selectStat2Style: document.getElementById('selectStat2Style'),
     
     // Feature
@@ -400,10 +398,6 @@ function init() {
     setupVisualTextSelector(els.selectImg2TitleStyle, 'img2StyleGrid');
     setupVisualTextSelector(els.selectStat1Style, 'stat1StyleGrid');
     setupVisualTextSelector(els.selectStat2Style, 'stat2StyleGrid');
-    
-    // Setup visual color pickers for stat colors
-    setupColorPicker(els.selectStat1Color, 'stat1ColorGrid');
-    setupColorPicker(els.selectStat2Color, 'stat2ColorGrid');
     
     // Setup visual icon picker
     setupIconPicker(els.selectFeatIcon, 'featIconGrid');
@@ -1008,11 +1002,11 @@ function applyToCanvas(skipHistory = false) {
     // Img2 title style
     els.img2TextOverlay.className = `img2-text-overlay img2-title-style-${els.selectImg2TitleStyle.value}`;
     
-    // Stat colors and text styles
-    const stat1Style = els.selectStat1Style?.value || 'default';
-    const stat2Style = els.selectStat2Style?.value || 'default';
-    els.boxStat1.className = `bento-box box-stat-1 stat-style-${els.selectStat1Color.value} stat-text-style-${stat1Style}`;
-    els.boxStat2.className = `bento-box box-stat-2 stat-style-${els.selectStat2Color.value} stat-text-style-${stat2Style}`;
+    // Stat styles (unified - solid colors + gradients + effects)
+    const stat1Style = els.selectStat1Style?.value || 'green';
+    const stat2Style = els.selectStat2Style?.value || 'pink';
+    els.boxStat1.className = `bento-box box-stat-1 stat-style-${stat1Style}`;
+    els.boxStat2.className = `bento-box box-stat-2 stat-style-${stat2Style}`;
     
     // Hero zoom + position - use background-size and background-position
     const heroZoom = parseFloat(els.inputHeroZoom.value);
@@ -1179,8 +1173,8 @@ function bindEvents() {
     els.selectHeroImg.addEventListener('change', applyToCanvas);
     els.selectImg2.addEventListener('change', applyToCanvas);
     els.selectTextStyle.addEventListener('change', applyToCanvas);
-    els.selectStat1Color.addEventListener('change', applyToCanvas);
-    els.selectStat2Color.addEventListener('change', applyToCanvas);
+    els.selectStat1Style.addEventListener('change', applyToCanvas);
+    els.selectStat2Style.addEventListener('change', applyToCanvas);
     els.selectImg2TitleStyle.addEventListener('change', applyToCanvas);
     els.selectFeatImg.addEventListener('change', applyToCanvas);
     els.selectFeatIcon.addEventListener('change', applyToCanvas);
