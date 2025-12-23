@@ -1348,7 +1348,7 @@ body.theme-light .export-btn-top {
    FORMAT LAYOUTS
    ============================================= */
 
-/* IG Square (1080×1080) - Balanced Layout */
+/* Square (1080×1080) - Balanced Bento Layout */
 .bento-canvas.format-ig-square {
     width: 1080px;
     height: 1080px;
@@ -1356,13 +1356,13 @@ body.theme-light .export-btn-top {
     grid-template-areas:
         "H H H H H H B B B B B B"
         "H H H H H H B B B B B B"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H S1 S1 S1 S2 S2 S2"
-        "H H H H H H S1 S1 S1 S2 S2 S2"
+        "H H H H H H I2 I2 I2 I2 S1 S1"
+        "H H H H H H I2 I2 I2 I2 S1 S1"
+        "H H H H H H I2 I2 I2 I2 S1 S1"
+        "H H H H H H I2 I2 I2 I2 S2 S2"
+        "H H H H H H I2 I2 I2 I2 S2 S2"
+        "H H H H H H I2 I2 I2 I2 S2 S2"
+        "H H H H H H F F F F F F"
         "H H H H H H F F F F F F"
         "H H H H H H F F F F F F"
         "H H H H H H F F F F F F";
@@ -1415,21 +1415,24 @@ body.theme-light .export-btn-top {
         "F F F F F F F F F F F F";
 }
 
-/* LinkedIn Square (1080×1080) - Dense Multi-Box Layout */
+/* LinkedIn Square - Same as IG Square */
 .bento-canvas.format-li-square {
+    /* Inherits from format-ig-square - both use same layout */
+}
+.bento-canvas.format-li-square { /* Copy of ig-square */
     width: 1080px;
     height: 1080px;
     grid-template-rows: repeat(12, 1fr);
     grid-template-areas:
         "H H H H H H B B B B B B"
         "H H H H H H B B B B B B"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H S1 S1 S1 S2 S2 S2"
-        "H H H H H H S1 S1 S1 S2 S2 S2"
+        "H H H H H H I2 I2 I2 I2 S1 S1"
+        "H H H H H H I2 I2 I2 I2 S1 S1"
+        "H H H H H H I2 I2 I2 I2 S1 S1"
+        "H H H H H H I2 I2 I2 I2 S2 S2"
+        "H H H H H H I2 I2 I2 I2 S2 S2"
+        "H H H H H H I2 I2 I2 I2 S2 S2"
+        "H H H H H H F F F F F F"
         "H H H H H H F F F F F F"
         "H H H H H H F F F F F F"
         "H H H H H H F F F F F F";
