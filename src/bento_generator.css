@@ -386,13 +386,14 @@ body {
 .layout-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
     gap: 3px;
-    height: 80px;
+    height: 100px;
     grid-template-areas:
         "H H H B B B"
         "H H H I2 I2 I2"
-        "H H H S1 S1 S2"
+        "H H H S1 S1 S1"
+        "H H H S2 S2 S2"
         "H H H F F F";
 }
 
@@ -1359,10 +1360,10 @@ body.theme-light .export-btn-top {
         "H H H H H H I2 I2 I2 I2 I2 I2"
         "H H H H H H I2 I2 I2 I2 I2 I2"
         "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H S1 S1 S1 S1 S2 S2"
-        "H H H H H H S1 S1 S1 S1 S2 S2"
-        "H H H H H H S1 S1 S1 S1 S2 S2"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
         "H H H H H H F F F F F F"
         "H H H H H H F F F F F F"
         "H H H H H H F F F F F F";
@@ -1426,10 +1427,10 @@ body.theme-light .export-btn-top {
         "H H H H H H I2 I2 I2 I2 I2 I2"
         "H H H H H H I2 I2 I2 I2 I2 I2"
         "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H I2 I2 I2 I2 I2 I2"
-        "H H H H H H S1 S1 S1 S1 S2 S2"
-        "H H H H H H S1 S1 S1 S1 S2 S2"
-        "H H H H H H S1 S1 S1 S1 S2 S2"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S1 S1 S1 S1 S1 S1"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
+        "H H H H H H S2 S2 S2 S2 S2 S2"
         "H H H H H H F F F F F F"
         "H H H H H H F F F F F F"
         "H H H H H H F F F F F F";
