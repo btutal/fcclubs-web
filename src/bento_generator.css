@@ -1,5 +1,5 @@
 /* =============================================
-   BENTO GENERATOR v5 - Export & UX Improvements
+   BENTO GENERATOR v19 - Nested JSON Schema
    ============================================= */
 
 :root {
@@ -462,10 +462,7 @@ body {
     margin: 12px 0;
 }
 
-/* Box Type Controls Container */
-.box-type-controls {
-    /* Can be used for show/hide based on box type */
-}
+/* Box Type Controls Container - reserved for future use */
 
 /* Control Sub-Groups - Separate Text vs Image controls */
 .control-subgroup {

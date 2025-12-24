@@ -1374,48 +1374,15 @@ function bindEvents() {
     }
     
     els.saveBtn.addEventListener('click', () => {
-        const data = {
-            heroTitle: els.inputHeroTitle.value,
-            textStyle: els.selectTextStyle.value,
-            heroImg: els.selectHeroImg.value,
-            heroZoom: els.inputHeroZoom.value,
-            heroPosX: els.inputHeroPosX.value,
-            heroPosY: els.inputHeroPosY.value,
-            heroOpacity: els.inputHeroOpacity.value,
-            heroOverlay: els.inputHeroOverlay.value,
-            img2: els.selectImg2.value,
-            img2Zoom: els.inputImg2Zoom.value,
-            img2PosX: els.inputImg2PosX.value,
-            img2PosY: els.inputImg2PosY.value,
-            img2Opacity: els.inputImg2Opacity.value,
-            img2Overlay: els.inputImg2Overlay.value,
-            img2Title: els.inputImg2Title.value,
-            img2TitleStyle: els.selectImg2TitleStyle.value,
-            stat1Value: els.inputStat1Value.value,
-            stat1Label: els.inputStat1Label.value,
-            stat1Desc: els.inputStat1Desc.value,
-            stat1Style: els.selectStat1Style.value,
-            stat2Value: els.inputStat2Value.value,
-            stat2Label: els.inputStat2Label.value,
-            stat2Desc: els.inputStat2Desc.value,
-            stat2Style: els.selectStat2Style.value,
-            featTitle: els.inputFeatTitle.value,
-            featDesc: els.inputFeatDesc.value,
-            featImg: els.selectFeatImg.value,
-            featZoom: els.inputFeatZoom.value,
-            featPosX: els.inputFeatPosX.value,
-            featPosY: els.inputFeatPosY.value,
-            featOpacity: els.inputFeatOpacity.value,
-            featOverlay: els.inputFeatOverlay.value,
-            featIcon: els.selectFeatIcon.value,
-            brandName: els.inputBrandName.value,
-            brandTagline: els.inputBrandTagline.value
-        };
+        const data = getCurrentState();
+        const timestamp = new Date().toISOString().slice(0,10);
+        const filename = `bento-preset-${timestamp}.json`;
         const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = `${els.themeSelect.value}.json`;
+        a.download = filename;
         a.click();
+        showToast(`💾 Saved: ${filename}`);
     });
     
     // Load Preset from JSON file
