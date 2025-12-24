@@ -1,0 +1,64 @@
+{
+    "version": "20",
+    "background": "neon-teal",
+    "hero": {
+        "contentType": "hero-shot",
+        "title": {
+            "content": "Stats at\na Glance.\nw/ Widgets.",
+            "style": "neon-green"
+        },
+        "image": {
+            "src": "/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png",
+            "position": { "x": 50, "y": 30 },
+            "zoom": 100,
+            "opacity": 65,
+            "overlay": 60
+        }
+    },
+    "gallery": {
+        "contentType": "gallery",
+        "title": {
+            "content": "",
+            "style": "neon-green"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-scout.png",
+            "position": { "x": 50, "y": 20 },
+            "zoom": 110,
+            "opacity": 90,
+            "overlay": 30
+        }
+    },
+    "stat1": {
+        "contentType": "highlight",
+        "value": "AI",
+        "label": "MATCH FORECAST",
+        "tagline": "Know Your Odds",
+        "style": "green"
+    },
+    "stat2": {
+        "contentType": "highlight",
+        "value": "Scout",
+        "label": "OPPONENTS",
+        "tagline": "Get Ready for the Match",
+        "style": "blue"
+    },
+    "feature": {
+        "contentType": "feature",
+        "title": "Scout Report",
+        "description": "Full tactical breakdown before kickoff",
+        "icon": "🎯",
+        "image": {
+            "src": "/assets/screenshots/iphone-scout.png",
+            "position": { "x": 50, "y": 30 },
+            "zoom": 110,
+            "opacity": 40,
+            "overlay": 70
+        }
+    },
+    "brand": {
+        "contentType": "brand",
+        "name": "FC Clubs Stats",
+        "tagline": "Free on App Store"
+    }
+}

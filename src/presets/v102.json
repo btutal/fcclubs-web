@@ -1,0 +1,64 @@
+{
+    "version": "20",
+    "background": "midnight",
+    "hero": {
+        "contentType": "hero-shot",
+        "title": {
+            "content": "Know Your\nOpponent.",
+            "style": "gradient-blue"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-scout.png",
+            "position": { "x": 50, "y": 20 },
+            "zoom": 115,
+            "opacity": 65,
+            "overlay": 60
+        }
+    },
+    "gallery": {
+        "contentType": "gallery",
+        "title": {
+            "content": "",
+            "style": "gradient-blue"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-club.png",
+            "position": { "x": 50, "y": 15 },
+            "zoom": 110,
+            "opacity": 90,
+            "overlay": 30
+        }
+    },
+    "stat1": {
+        "contentType": "highlight",
+        "value": "Any",
+        "label": "Club",
+        "tagline": "Search millions of players",
+        "style": "blue"
+    },
+    "stat2": {
+        "contentType": "highlight",
+        "value": "H2H",
+        "label": "History",
+        "tagline": "See your past matchups",
+        "style": "gold"
+    },
+    "feature": {
+        "contentType": "feature",
+        "title": "Full Player Stats",
+        "description": "Goals, assists, rating & more",
+        "icon": "📊",
+        "image": {
+            "src": "/assets/screenshots/iphone-dashboard.png",
+            "position": { "x": 50, "y": 50 },
+            "zoom": 100,
+            "opacity": 40,
+            "overlay": 70
+        }
+    },
+    "brand": {
+        "contentType": "brand",
+        "name": "FC Clubs Stats",
+        "tagline": "Free on App Store"
+    }
+}

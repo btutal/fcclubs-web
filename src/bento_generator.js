@@ -193,205 +193,44 @@ const els = {
     boxStat2: document.querySelector('.box-stat-2'),
 };
 
-const PRESETS = {
-    // OVERVIEW: First impression - Show app breadth
-    overview: {
-        version: "20",
-        background: "deep-ocean",
-        hero: {
-            contentType: "hero-shot",
-            title: {
-                content: "Your Club.\nYour Stats.",
-                style: "white"
-            },
-            image: {
-                src: "/assets/screenshots/iphone-dashboard.png",
-                position: { x: 50, y: 25 },
-                zoom: 115,
-                opacity: 65,
-                overlay: 60
-            }
-        },
-        gallery: {
-            contentType: "gallery",
-            title: {
-                content: "",
-                style: "white"
-            },
-            image: {
-                src: "/assets/screenshots/iphone-matches.png",
-                position: { x: 50, y: 20 },
-                zoom: 110,
-                opacity: 90,
-                overlay: 30
-            }
-        },
-        stat1: {
-            contentType: "highlight",
-            value: "∞",
-            label: "Matches",
-            tagline: "Every game saved forever",
-            style: "green"
-        },
-        stat2: {
-            contentType: "highlight",
-            value: "AI",
-            label: "Predictions",
-            tagline: "Win probability before kickoff",
-            style: "blue"
-        },
-        feature: {
-            contentType: "feature",
-            title: "Scout Any Club",
-            description: "Research opponents before you play",
-            icon: "🎯",
-            image: {
-                src: "/assets/screenshots/iphone-scout.png",
-                position: { x: 50, y: 50 },
-                zoom: 100,
-                opacity: 40,
-                overlay: 70
-            }
-        },
-        brand: {
-            contentType: "brand",
-            name: "FC Clubs Stats",
-            tagline: "Free on App Store"
-        }
-    },
-    
-    // V102: Scout Mode Focus
-    v102: {
-        version: "20",
-        background: "midnight",
-        hero: {
-            contentType: "hero-shot",
-            title: {
-                content: "Know Your\nOpponent.",
-                style: "gradient-blue"
-            },
-            image: {
-                src: "/assets/screenshots/iphone-scout.png",
-                position: { x: 50, y: 20 },
-                zoom: 115,
-                opacity: 65,
-                overlay: 60
-            }
-        },
-        gallery: {
-            contentType: "gallery",
-            title: {
-                content: "",
-                style: "gradient-blue"
-            },
-            image: {
-                src: "/assets/screenshots/iphone-club.png",
-                position: { x: 50, y: 15 },
-                zoom: 110,
-                opacity: 90,
-                overlay: 30
-            }
-        },
-        stat1: {
-            contentType: "highlight",
-            value: "Any",
-            label: "Club",
-            tagline: "Search millions of players",
-            style: "blue"
-        },
-        stat2: {
-            contentType: "highlight",
-            value: "H2H",
-            label: "History",
-            tagline: "See your past matchups",
-            style: "gold"
-        },
-        feature: {
-            contentType: "feature",
-            title: "Full Player Stats",
-            description: "Goals, assists, rating & more",
-            icon: "📊",
-            image: {
-                src: "/assets/screenshots/iphone-dashboard.png",
-                position: { x: 50, y: 50 },
-                zoom: 100,
-                opacity: 40,
-                overlay: 70
-            }
-        },
-        brand: {
-            contentType: "brand",
-            name: "FC Clubs Stats",
-            tagline: "Free on App Store"
-        }
-    },
-    
-    // V103: Widgets & AI Focus - v1.0.3 Release
-    v103: {
-        version: "20",
-        background: "neon-teal",
-        hero: {
-            contentType: "hero-shot",
-            title: {
-                content: "Stats at\na Glance.\nw/ Widgets.",
-                style: "neon-green"
-            },
-            image: {
-                src: "/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png",
-                position: { x: 50, y: 30 },
-                zoom: 100,
-                opacity: 65,
-                overlay: 60
-            }
-        },
-        gallery: {
-            contentType: "gallery",
-            title: {
-                content: "",
-                style: "neon-green"
-            },
-            image: {
-                src: "/assets/screenshots/iphone-scout.png",
-                position: { x: 50, y: 20 },
-                zoom: 110,
-                opacity: 90,
-                overlay: 30
-            }
-        },
-        stat1: {
-            contentType: "highlight",
-            value: "AI",
-            label: "MATCH FORECAST",
-            tagline: "Know Your Odds",
-            style: "green"
-        },
-        stat2: {
-            contentType: "highlight",
-            value: "Scout",
-            label: "OPPONENTS",
-            tagline: "Get Ready for the Match",
-            style: "blue"
-        },
-        feature: {
-            contentType: "feature",
-            title: "Scout Report",
-            description: "Full tactical breakdown before kickoff",
-            icon: "🎯",
-            image: {
-                src: "/assets/screenshots/iphone-scout.png",
-                position: { x: 50, y: 30 },
-                zoom: 110,
-                opacity: 40,
-                overlay: 70
-            }
-        },
-        brand: {
-            contentType: "brand",
-            name: "FC Clubs Stats",
-            tagline: "Free on App Store"
-        }
-    }
+// Preset file paths - external JSON files for easier maintenance
+const PRESET_FILES = {
+    overview: '/src/presets/overview.json',
+    v102: '/src/presets/v102.json',
+    v103: '/src/presets/v103.json'
 };
+
+// Presets cache - populated on first load
+let PRESETS = {};
+
+// Load a preset from external JSON file
+async function loadPreset(key) {
+    if (PRESETS[key]) return PRESETS[key];
+    
+    const path = PRESET_FILES[key];
+    if (!path) {
+        console.warn(`Unknown preset: ${key}`);
+        return null;
+    }
+    
+    try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        PRESETS[key] = data;
+        return data;
+    } catch (e) {
+        console.error(`Failed to load preset ${key}:`, e);
+        return null;
+    }
+}
+
+// Preload all presets
+async function loadAllPresets() {
+    const keys = Object.keys(PRESET_FILES);
+    await Promise.all(keys.map(loadPreset));
+    console.log('✓ All presets loaded:', Object.keys(PRESETS));
+}
 
 const DEFAULTS = {
     hero: {
@@ -441,7 +280,10 @@ const DEFAULTS = {
     }
 };
 
-function init() {
+async function init() {
+    // Preload all presets from external files
+    await loadAllPresets();
+    
     // Populate screenshot selects from centralized list
     populateScreenshotSelect(els.selectHeroImg);
     populateScreenshotSelect(els.selectImg2);
@@ -466,7 +308,9 @@ function init() {
     setupFormatPicker();
     
     bindEvents();
-    restoreFromLocalStorage() || setTheme('overview');
+    if (!restoreFromLocalStorage()) {
+        await setTheme('overview');
+    }
     updateScale();
     window.addEventListener('resize', updateScale);
     bindKeyboardShortcuts();
@@ -1155,8 +999,8 @@ function toggleHelpOverlay() {
     help.classList.toggle('show');
 }
 
-function setTheme(key) {
-    const data = PRESETS[key];
+async function setTheme(key) {
+    const data = await loadPreset(key);
     if (!data) return;
     
     // Apply the preset data using v20 applyStateData

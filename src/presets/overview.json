@@ -1,0 +1,64 @@
+{
+    "version": "20",
+    "background": "deep-ocean",
+    "hero": {
+        "contentType": "hero-shot",
+        "title": {
+            "content": "Your Club.\nYour Stats.",
+            "style": "white"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-dashboard.png",
+            "position": { "x": 50, "y": 25 },
+            "zoom": 115,
+            "opacity": 65,
+            "overlay": 60
+        }
+    },
+    "gallery": {
+        "contentType": "gallery",
+        "title": {
+            "content": "",
+            "style": "white"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-matches.png",
+            "position": { "x": 50, "y": 20 },
+            "zoom": 110,
+            "opacity": 90,
+            "overlay": 30
+        }
+    },
+    "stat1": {
+        "contentType": "highlight",
+        "value": "∞",
+        "label": "Matches",
+        "tagline": "Every game saved forever",
+        "style": "green"
+    },
+    "stat2": {
+        "contentType": "highlight",
+        "value": "AI",
+        "label": "Predictions",
+        "tagline": "Win probability before kickoff",
+        "style": "blue"
+    },
+    "feature": {
+        "contentType": "feature",
+        "title": "Scout Any Club",
+        "description": "Research opponents before you play",
+        "icon": "🎯",
+        "image": {
+            "src": "/assets/screenshots/iphone-scout.png",
+            "position": { "x": 50, "y": 50 },
+            "zoom": 100,
+            "opacity": 40,
+            "overlay": 70
+        }
+    },
+    "brand": {
+        "contentType": "brand",
+        "name": "FC Clubs Stats",
+        "tagline": "Free on App Store"
+    }
+}
