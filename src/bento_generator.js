@@ -749,6 +749,7 @@ function migrateToV19(old) {
     return {
         version: "19",
         format: old.format || "ig-square",
+        background: old.background || "deep-ocean",
         hero: {
             contentType: "hero-shot",
             title: old.heroTitle || "",
@@ -809,6 +810,7 @@ function getCurrentState() {
     return {
         version: "19",
         format: els.formatSelect.value,
+        background: els.bgPresetSelect?.value || "deep-ocean",
         hero: {
             contentType: "hero-shot",
             title: els.inputHeroTitle.value,
@@ -872,6 +874,13 @@ function applyStateData(data, skipHistory = false) {
     if (data.format) {
         els.formatSelect.value = data.format;
         els.canvas.className = `bento-canvas format-${data.format}`;
+    }
+    
+    // Background
+    if (data.background && els.bgPresetSelect) {
+        els.bgPresetSelect.value = data.background;
+        els.canvas.classList.remove('bg-deep-ocean', 'bg-midnight', 'bg-electric-blue', 'bg-neon-teal', 'bg-ember', 'bg-solid-dark');
+        els.canvas.classList.add(`bg-${data.background}`);
     }
     
     // Hero (from data.hero)
