@@ -15,6 +15,14 @@ This site is deployed to [https://fcclubs.app](https://fcclubs.app). Updates to 
 The official roadmap and feature status are maintained in the iOS project's Product Requirements Document.
 - **Source**: `../fcclubsapp/PRD.md`
 - **Usage**: Developers updating the website should refer to the "Feature Roadmap" section in the PRD to know what is Shipped (Live) vs Backlog.
+
+## Bento Generator
+A tool for creating social media graphics for the app.
+
+- **URL**: `/bento_generator.html`
+- **Documentation**: [BENTO_GENERATOR.md](./BENTO_GENERATOR.md)
+- **Features**: Multiple formats (square, portrait, landscape), theme presets, export to PNG
+
 ## Development
 To run the website locally:
 1. Open terminal in this folder.
@@ -23,6 +31,7 @@ To run the website locally:
 4. Open the following links in your browser:
     - **Home**: `http://localhost:5173/`
     - **Release Notes**: `http://localhost:5173/src/whats-new.html`
+    - **Bento Generator**: `http://localhost:5173/bento_generator.html`
 
 > [!NOTE]
 > The port `5173` is the default for Vite. If it's occupied, check the terminal output for the correct port.

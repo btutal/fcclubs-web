@@ -18,6 +18,19 @@ This repository ships the marketing website for FC Clubs Companion. Treat every 
 - **Design System**: Follow the design tokens defined in the project (colors, typography).
 - **SEO**: Ensure proper meta tags, Open Graph tags, and semantic structure for search engines.
 
+## Bento Generator
+The Bento Generator (`bento_generator.html`) is a tool for creating social media graphics.
+
+- **Documentation**: See [BENTO_GENERATOR.md](./BENTO_GENERATOR.md) for complete schema reference
+- **Source Files**: `bento_generator.html`, `src/bento_generator.js`, `src/bento_generator.css`
+- **JSON Schema Version**: v19 (nested structure with `contentType` per slot)
+
+When creating presets or modifying the generator:
+1. Follow the JSON schema defined in BENTO_GENERATOR.md
+2. Each slot must have a `contentType` field
+3. Use only documented styles, icons, and screenshots
+4. Test all formats (square, portrait, landscape)
+
 ## Project structure
 - Keep assets organized in `public` or `assets` folders.
 - Separate pages or components logically.
