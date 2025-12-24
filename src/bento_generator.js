@@ -197,6 +197,7 @@ const PRESETS = {
     // OVERVIEW: First impression - Show app breadth
     overview: {
         version: "19",
+        background: "deep-ocean",
         hero: {
             contentType: "hero-shot",
             title: "Your Club.\nYour Stats.",
@@ -255,6 +256,7 @@ const PRESETS = {
     // V102: Scout Mode Focus
     v102: {
         version: "19",
+        background: "midnight",
         hero: {
             contentType: "hero-shot",
             title: "Know Your\nOpponent.",
@@ -313,6 +315,7 @@ const PRESETS = {
     // V103: Widgets & AI Focus - v1.0.3 Release
     v103: {
         version: "19",
+        background: "neon-teal",
         hero: {
             contentType: "hero-shot",
             title: "Stats at\na Glance.\nw/ Widgets.",
