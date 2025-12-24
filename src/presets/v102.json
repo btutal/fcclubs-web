@@ -4,7 +4,7 @@
     "hero": {
         "contentType": "hero-shot",
         "title": {
-            "content": "Scout Mode.\nKnow Your Enemy.",
+            "content": "Scout Mode.\nKnow Your Rival.",
             "style": "gradient-blue"
         },
         "image": {
@@ -31,9 +31,9 @@
     },
     "stat1": {
         "contentType": "highlight",
-        "value": "10M+",
-        "label": "Players",
-        "tagline": "Search any club worldwide",
+        "value": "🔍",
+        "label": "Search",
+        "tagline": "Find any club by name",
         "style": "blue"
     },
     "stat2": {

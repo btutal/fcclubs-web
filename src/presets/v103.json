@@ -4,7 +4,7 @@
     "hero": {
         "contentType": "hero-shot",
         "title": {
-            "content": "Widgets.\nStats at a Glance.",
+            "content": "Home Screen\nWidgets.",
             "style": "neon-green"
         },
         "image": {
@@ -31,23 +31,23 @@
     },
     "stat1": {
         "contentType": "highlight",
-        "value": "4",
-        "label": "Widget Sizes",
-        "tagline": "Small, Medium, Large, XL",
+        "value": "🔮",
+        "label": "Forecasts",
+        "tagline": "AI-powered match predictions",
         "style": "green"
     },
     "stat2": {
         "contentType": "highlight",
-        "value": "Live",
-        "label": "Updates",
-        "tagline": "Always current stats",
+        "value": "📱",
+        "label": "Widgets",
+        "tagline": "Club stats on your home screen",
         "style": "blue"
     },
     "feature": {
         "contentType": "feature",
-        "title": "AI Match Forecast",
-        "description": "Win probability powered by machine learning",
-        "icon": "🤖",
+        "title": "Live Activity",
+        "description": "Track your session from the lock screen",
+        "icon": "🔴",
         "image": {
             "src": "/assets/screenshots/iphone-scout.png",
             "position": { "x": 50, "y": 30 },
