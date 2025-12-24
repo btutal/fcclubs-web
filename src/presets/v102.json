@@ -4,15 +4,15 @@
     "hero": {
         "contentType": "hero-shot",
         "title": {
-            "content": "Know Your\nOpponent.",
+            "content": "Scout Mode.\nKnow Your Enemy.",
             "style": "gradient-blue"
         },
         "image": {
             "src": "/assets/screenshots/iphone-scout.png",
-            "position": { "x": 50, "y": 20 },
-            "zoom": 115,
-            "opacity": 65,
-            "overlay": 60
+            "position": { "x": 50, "y": 15 },
+            "zoom": 120,
+            "opacity": 70,
+            "overlay": 55
         }
     },
     "gallery": {
@@ -23,37 +23,37 @@
         },
         "image": {
             "src": "/assets/screenshots/iphone-club.png",
-            "position": { "x": 50, "y": 15 },
-            "zoom": 110,
-            "opacity": 90,
-            "overlay": 30
+            "position": { "x": 50, "y": 10 },
+            "zoom": 120,
+            "opacity": 95,
+            "overlay": 20
         }
     },
     "stat1": {
         "contentType": "highlight",
-        "value": "Any",
-        "label": "Club",
-        "tagline": "Search millions of players",
+        "value": "10M+",
+        "label": "Players",
+        "tagline": "Search any club worldwide",
         "style": "blue"
     },
     "stat2": {
         "contentType": "highlight",
         "value": "H2H",
         "label": "History",
-        "tagline": "See your past matchups",
+        "tagline": "Your past matchup results",
         "style": "gold"
     },
     "feature": {
         "contentType": "feature",
         "title": "Full Player Stats",
-        "description": "Goals, assists, rating & more",
+        "description": "Goals, assists, ratings & match history",
         "icon": "📊",
         "image": {
             "src": "/assets/screenshots/iphone-dashboard.png",
-            "position": { "x": 50, "y": 50 },
-            "zoom": 100,
-            "opacity": 40,
-            "overlay": 70
+            "position": { "x": 50, "y": 35 },
+            "zoom": 115,
+            "opacity": 45,
+            "overlay": 65
         }
     },
     "brand": {

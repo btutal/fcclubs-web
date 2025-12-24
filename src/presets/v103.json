@@ -4,15 +4,15 @@
     "hero": {
         "contentType": "hero-shot",
         "title": {
-            "content": "Stats at\na Glance.\nw/ Widgets.",
+            "content": "Widgets.\nStats at a Glance.",
             "style": "neon-green"
         },
         "image": {
             "src": "/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png",
-            "position": { "x": 50, "y": 30 },
-            "zoom": 100,
-            "opacity": 65,
-            "overlay": 60
+            "position": { "x": 50, "y": 25 },
+            "zoom": 105,
+            "opacity": 70,
+            "overlay": 55
         }
     },
     "gallery": {
@@ -22,38 +22,38 @@
             "style": "neon-green"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-scout.png",
-            "position": { "x": 50, "y": 20 },
-            "zoom": 110,
-            "opacity": 90,
-            "overlay": 30
+            "src": "/assets/screenshots/iphone-dashboard.png",
+            "position": { "x": 50, "y": 15 },
+            "zoom": 115,
+            "opacity": 95,
+            "overlay": 25
         }
     },
     "stat1": {
         "contentType": "highlight",
-        "value": "AI",
-        "label": "MATCH FORECAST",
-        "tagline": "Know Your Odds",
+        "value": "4",
+        "label": "Widget Sizes",
+        "tagline": "Small, Medium, Large, XL",
         "style": "green"
     },
     "stat2": {
         "contentType": "highlight",
-        "value": "Scout",
-        "label": "OPPONENTS",
-        "tagline": "Get Ready for the Match",
+        "value": "Live",
+        "label": "Updates",
+        "tagline": "Always current stats",
         "style": "blue"
     },
     "feature": {
         "contentType": "feature",
-        "title": "Scout Report",
-        "description": "Full tactical breakdown before kickoff",
-        "icon": "🎯",
+        "title": "AI Match Forecast",
+        "description": "Win probability powered by machine learning",
+        "icon": "🤖",
         "image": {
             "src": "/assets/screenshots/iphone-scout.png",
             "position": { "x": 50, "y": 30 },
-            "zoom": 110,
-            "opacity": 40,
-            "overlay": 70
+            "zoom": 115,
+            "opacity": 45,
+            "overlay": 65
         }
     },
     "brand": {
