@@ -9,10 +9,10 @@
         },
         "image": {
             "src": "/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png",
-            "position": { "x": 50, "y": 25 },
-            "zoom": 105,
-            "opacity": 70,
-            "overlay": 55
+            "position": { "x": 50, "y": 30 },
+            "zoom": 97,
+            "opacity": 75,
+            "overlay": 50
         }
     },
     "gallery": {
@@ -22,11 +22,11 @@
             "style": "neon-green"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-dashboard.png",
-            "position": { "x": 50, "y": 15 },
-            "zoom": 115,
+            "src": "/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png",
+            "position": { "x": 50, "y": 25 },
+            "zoom": 105,
             "opacity": 95,
-            "overlay": 25
+            "overlay": 15
         }
     },
     "stat1": {
@@ -49,11 +49,11 @@
         "description": "Track your session from the lock screen",
         "icon": "🔴",
         "image": {
-            "src": "/assets/screenshots/iphone-scout.png",
-            "position": { "x": 50, "y": 30 },
-            "zoom": 115,
-            "opacity": 45,
-            "overlay": 65
+            "src": "/assets/screenshots/iphone-sessions.png",
+            "position": { "x": 50, "y": 20 },
+            "zoom": 120,
+            "opacity": 55,
+            "overlay": 50
         }
     },
     "brand": {
