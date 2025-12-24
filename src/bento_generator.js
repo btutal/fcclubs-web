@@ -1,5 +1,5 @@
 /**
- * Bento Generator v19 - Nested JSON Schema with contentType per slot
+ * Bento Generator v20 - Nested text/image schema with grouped properties
  * 
  * Features:
  * - Export to PNG with proper image rendering
@@ -196,178 +196,223 @@ const els = {
 const PRESETS = {
     // OVERVIEW: First impression - Show app breadth
     overview: {
-        version: "19",
+        version: "20",
         background: "deep-ocean",
         hero: {
             contentType: "hero-shot",
-            title: "Your Club.\nYour Stats.",
-            titleStyle: "white",
-            image: "/assets/screenshots/iphone-dashboard.png",
-            zoom: 115,
-            posX: 50,
-            posY: 25,
-            opacity: 65,
-            overlay: 60
+            text: {
+                title: "Your Club.\nYour Stats.",
+                style: "white"
+            },
+            image: {
+                src: "/assets/screenshots/iphone-dashboard.png",
+                position: { x: 50, y: 25 },
+                zoom: 115,
+                opacity: 65,
+                overlay: 60
+            }
         },
         gallery: {
             contentType: "gallery",
-            image: "/assets/screenshots/iphone-matches.png",
-            title: "",
-            titleStyle: "white",
-            zoom: 110,
-            posX: 50,
-            posY: 20,
-            opacity: 90,
-            overlay: 30
+            text: {
+                title: "",
+                style: "white"
+            },
+            image: {
+                src: "/assets/screenshots/iphone-matches.png",
+                position: { x: 50, y: 20 },
+                zoom: 110,
+                opacity: 90,
+                overlay: 30
+            }
         },
         stat1: {
             contentType: "highlight",
-            value: "∞",
-            label: "Matches",
-            tagline: "Every game saved forever",
+            text: {
+                value: "∞",
+                label: "Matches",
+                tagline: "Every game saved forever"
+            },
             style: "green"
         },
         stat2: {
             contentType: "highlight",
-            value: "AI",
-            label: "Predictions",
-            tagline: "Win probability before kickoff",
+            text: {
+                value: "AI",
+                label: "Predictions",
+                tagline: "Win probability before kickoff"
+            },
             style: "blue"
         },
         feature: {
             contentType: "feature",
-            title: "Scout Any Club",
-            description: "Research opponents before you play",
+            text: {
+                title: "Scout Any Club",
+                description: "Research opponents before you play"
+            },
             icon: "🎯",
-            image: "/assets/screenshots/iphone-scout.png",
-            zoom: 100,
-            posX: 50,
-            posY: 50,
-            opacity: 40,
-            overlay: 70
+            image: {
+                src: "/assets/screenshots/iphone-scout.png",
+                position: { x: 50, y: 50 },
+                zoom: 100,
+                opacity: 40,
+                overlay: 70
+            }
         },
         brand: {
             contentType: "brand",
-            name: "FC Clubs Stats",
-            tagline: "Free on App Store"
+            text: {
+                name: "FC Clubs Stats",
+                tagline: "Free on App Store"
+            }
         }
     },
     
     // V102: Scout Mode Focus
     v102: {
-        version: "19",
+        version: "20",
         background: "midnight",
         hero: {
             contentType: "hero-shot",
-            title: "Know Your\nOpponent.",
-            titleStyle: "gradient-blue",
-            image: "/assets/screenshots/iphone-scout.png",
-            zoom: 115,
-            posX: 50,
-            posY: 20,
-            opacity: 65,
-            overlay: 60
+            text: {
+                title: "Know Your\nOpponent.",
+                style: "gradient-blue"
+            },
+            image: {
+                src: "/assets/screenshots/iphone-scout.png",
+                position: { x: 50, y: 20 },
+                zoom: 115,
+                opacity: 65,
+                overlay: 60
+            }
         },
         gallery: {
             contentType: "gallery",
-            image: "/assets/screenshots/iphone-club.png",
-            title: "",
-            titleStyle: "gradient-blue",
-            zoom: 110,
-            posX: 50,
-            posY: 15,
-            opacity: 90,
-            overlay: 30
+            text: {
+                title: "",
+                style: "gradient-blue"
+            },
+            image: {
+                src: "/assets/screenshots/iphone-club.png",
+                position: { x: 50, y: 15 },
+                zoom: 110,
+                opacity: 90,
+                overlay: 30
+            }
         },
         stat1: {
             contentType: "highlight",
-            value: "Any",
-            label: "Club",
-            tagline: "Search millions of players",
+            text: {
+                value: "Any",
+                label: "Club",
+                tagline: "Search millions of players"
+            },
             style: "blue"
         },
         stat2: {
             contentType: "highlight",
-            value: "H2H",
-            label: "History",
-            tagline: "See your past matchups",
+            text: {
+                value: "H2H",
+                label: "History",
+                tagline: "See your past matchups"
+            },
             style: "gold"
         },
         feature: {
             contentType: "feature",
-            title: "Full Player Stats",
-            description: "Goals, assists, rating & more",
+            text: {
+                title: "Full Player Stats",
+                description: "Goals, assists, rating & more"
+            },
             icon: "📊",
-            image: "/assets/screenshots/iphone-dashboard.png",
-            zoom: 100,
-            posX: 50,
-            posY: 50,
-            opacity: 40,
-            overlay: 70
+            image: {
+                src: "/assets/screenshots/iphone-dashboard.png",
+                position: { x: 50, y: 50 },
+                zoom: 100,
+                opacity: 40,
+                overlay: 70
+            }
         },
         brand: {
             contentType: "brand",
-            name: "FC Clubs Stats",
-            tagline: "Free on App Store"
+            text: {
+                name: "FC Clubs Stats",
+                tagline: "Free on App Store"
+            }
         }
     },
     
     // V103: Widgets & AI Focus - v1.0.3 Release
     v103: {
-        version: "19",
+        version: "20",
         background: "neon-teal",
         hero: {
             contentType: "hero-shot",
-            title: "Stats at\na Glance.\nw/ Widgets.",
-            titleStyle: "neon-green",
-            image: "/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png",
-            zoom: 100,
-            posX: 50,
-            posY: 30,
-            opacity: 65,
-            overlay: 60
+            text: {
+                title: "Stats at\na Glance.\nw/ Widgets.",
+                style: "neon-green"
+            },
+            image: {
+                src: "/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png",
+                position: { x: 50, y: 30 },
+                zoom: 100,
+                opacity: 65,
+                overlay: 60
+            }
         },
         gallery: {
             contentType: "gallery",
-            image: "/assets/screenshots/iphone-scout.png",
-            title: "",
-            titleStyle: "neon-green",
-            zoom: 110,
-            posX: 50,
-            posY: 20,
-            opacity: 90,
-            overlay: 30
+            text: {
+                title: "",
+                style: "neon-green"
+            },
+            image: {
+                src: "/assets/screenshots/iphone-scout.png",
+                position: { x: 50, y: 20 },
+                zoom: 110,
+                opacity: 90,
+                overlay: 30
+            }
         },
         stat1: {
             contentType: "highlight",
-            value: "AI",
-            label: "MATCH FORECAST",
-            tagline: "Know Your Odds",
+            text: {
+                value: "AI",
+                label: "MATCH FORECAST",
+                tagline: "Know Your Odds"
+            },
             style: "green"
         },
         stat2: {
             contentType: "highlight",
-            value: "Scout",
-            label: "OPPONENTS",
-            tagline: "Get Ready for the Match",
+            text: {
+                value: "Scout",
+                label: "OPPONENTS",
+                tagline: "Get Ready for the Match"
+            },
             style: "blue"
         },
         feature: {
             contentType: "feature",
-            title: "Scout Report",
-            description: "Full tactical breakdown before kickoff",
+            text: {
+                title: "Scout Report",
+                description: "Full tactical breakdown before kickoff"
+            },
             icon: "🎯",
-            image: "/assets/screenshots/iphone-scout.png",
-            zoom: 110,
-            posX: 50,
-            posY: 30,
-            opacity: 40,
-            overlay: 70
+            image: {
+                src: "/assets/screenshots/iphone-scout.png",
+                position: { x: 50, y: 30 },
+                zoom: 110,
+                opacity: 40,
+                overlay: 70
+            }
         },
         brand: {
             contentType: "brand",
-            name: "FC Clubs Stats",
-            tagline: "Free on App Store"
+            text: {
+                name: "FC Clubs Stats",
+                tagline: "Free on App Store"
+            }
         }
     }
 };
@@ -728,13 +773,21 @@ function restoreFromLocalStorage() {
         if (saved) {
             let data = JSON.parse(saved);
             
-            // Migrate old flat format to v19 nested format
-            if (!data.version || data.version !== "19") {
-                console.log('Migrating localStorage from old format to v19...');
+            // Migration chain: old → v19 → v20
+            if (!data.version) {
+                console.log('Migrating localStorage from old format to v20...');
                 data = migrateToV19(data);
-                // Save migrated data
-                localStorage.setItem('bentoGenerator_autosave', JSON.stringify(data));
+                data = migrateV19toV20(data);
+            } else if (data.version === "19") {
+                console.log('Migrating localStorage from v19 to v20...');
+                data = migrateV19toV20(data);
             }
+            
+            // Save migrated data
+            if (data.version !== "20") {
+                data.version = "20";
+            }
+            localStorage.setItem('bentoGenerator_autosave', JSON.stringify(data));
             
             applyStateData(data);
             return true;
@@ -809,63 +862,179 @@ function migrateToV19(old) {
     };
 }
 
+// Migrate v19 to v20 nested structure
+function migrateV19toV20(v19) {
+    const hero = v19.hero || {};
+    const gallery = v19.gallery || {};
+    const stat1 = v19.stat1 || {};
+    const stat2 = v19.stat2 || {};
+    const feature = v19.feature || {};
+    const brand = v19.brand || {};
+    
+    return {
+        version: "20",
+        format: v19.format || "ig-square",
+        background: v19.background || "deep-ocean",
+        hero: {
+            contentType: hero.contentType || "hero-shot",
+            text: {
+                title: hero.title || "",
+                style: hero.titleStyle || "white"
+            },
+            image: {
+                src: hero.image || "",
+                position: {
+                    x: hero.posX || 50,
+                    y: hero.posY || 50
+                },
+                zoom: hero.zoom || 100,
+                opacity: hero.opacity || 65,
+                overlay: hero.overlay || 60
+            }
+        },
+        gallery: {
+            contentType: gallery.contentType || "gallery",
+            text: {
+                title: gallery.title || "",
+                style: gallery.titleStyle || "white"
+            },
+            image: {
+                src: gallery.image || "",
+                position: {
+                    x: gallery.posX || 50,
+                    y: gallery.posY || 50
+                },
+                zoom: gallery.zoom || 100,
+                opacity: gallery.opacity || 90,
+                overlay: gallery.overlay || 30
+            }
+        },
+        stat1: {
+            contentType: stat1.contentType || "highlight",
+            text: {
+                value: stat1.value || "",
+                label: stat1.label || "",
+                tagline: stat1.tagline || ""
+            },
+            style: stat1.style || "green"
+        },
+        stat2: {
+            contentType: stat2.contentType || "highlight",
+            text: {
+                value: stat2.value || "",
+                label: stat2.label || "",
+                tagline: stat2.tagline || ""
+            },
+            style: stat2.style || "pink"
+        },
+        feature: {
+            contentType: feature.contentType || "feature",
+            text: {
+                title: feature.title || "",
+                description: feature.description || ""
+            },
+            icon: feature.icon || "",
+            image: {
+                src: feature.image || "",
+                position: {
+                    x: feature.posX || 50,
+                    y: feature.posY || 50
+                },
+                zoom: feature.zoom || 100,
+                opacity: feature.opacity || 40,
+                overlay: feature.overlay || 70
+            }
+        },
+        brand: {
+            contentType: brand.contentType || "brand",
+            text: {
+                name: brand.name || "FC Clubs Stats",
+                tagline: brand.tagline || "Free on App Store"
+            }
+        }
+    };
+}
 function getCurrentState() {
     return {
-        version: "19",
+        version: "20",
         format: els.formatSelect.value,
         background: els.bgPresetSelect?.value || "deep-ocean",
         hero: {
             contentType: "hero-shot",
-            title: els.inputHeroTitle.value,
-            titleStyle: els.selectTextStyle.value,
-            image: els.selectHeroImg.value,
-            zoom: parseFloat(els.inputHeroZoom.value) || 100,
-            posX: parseFloat(els.inputHeroPosX.value) || 50,
-            posY: parseFloat(els.inputHeroPosY.value) || 50,
-            opacity: parseFloat(els.inputHeroOpacity.value) || 65,
-            overlay: parseFloat(els.inputHeroOverlay.value) || 60
+            text: {
+                title: els.inputHeroTitle.value,
+                style: els.selectTextStyle.value
+            },
+            image: {
+                src: els.selectHeroImg.value,
+                position: {
+                    x: parseFloat(els.inputHeroPosX.value) || 50,
+                    y: parseFloat(els.inputHeroPosY.value) || 50
+                },
+                zoom: parseFloat(els.inputHeroZoom.value) || 100,
+                opacity: parseFloat(els.inputHeroOpacity.value) || 65,
+                overlay: parseFloat(els.inputHeroOverlay.value) || 60
+            }
         },
         gallery: {
             contentType: "gallery",
-            image: els.selectImg2.value,
-            title: els.inputImg2Title.value,
-            titleStyle: els.selectImg2TitleStyle.value,
-            zoom: parseFloat(els.inputImg2Zoom.value) || 100,
-            posX: parseFloat(els.inputImg2PosX.value) || 50,
-            posY: parseFloat(els.inputImg2PosY.value) || 50,
-            opacity: parseFloat(els.inputImg2Opacity.value) || 90,
-            overlay: parseFloat(els.inputImg2Overlay.value) || 30
+            text: {
+                title: els.inputImg2Title.value,
+                style: els.selectImg2TitleStyle.value
+            },
+            image: {
+                src: els.selectImg2.value,
+                position: {
+                    x: parseFloat(els.inputImg2PosX.value) || 50,
+                    y: parseFloat(els.inputImg2PosY.value) || 50
+                },
+                zoom: parseFloat(els.inputImg2Zoom.value) || 100,
+                opacity: parseFloat(els.inputImg2Opacity.value) || 90,
+                overlay: parseFloat(els.inputImg2Overlay.value) || 30
+            }
         },
         stat1: {
             contentType: "highlight",
-            value: els.inputStat1Value.value,
-            label: els.inputStat1Label.value,
-            tagline: els.inputStat1Desc.value,
+            text: {
+                value: els.inputStat1Value.value,
+                label: els.inputStat1Label.value,
+                tagline: els.inputStat1Desc.value
+            },
             style: els.selectStat1Style.value
         },
         stat2: {
             contentType: "highlight",
-            value: els.inputStat2Value.value,
-            label: els.inputStat2Label.value,
-            tagline: els.inputStat2Desc.value,
+            text: {
+                value: els.inputStat2Value.value,
+                label: els.inputStat2Label.value,
+                tagline: els.inputStat2Desc.value
+            },
             style: els.selectStat2Style.value
         },
         feature: {
             contentType: "feature",
-            title: els.inputFeatTitle.value,
-            description: els.inputFeatDesc.value,
+            text: {
+                title: els.inputFeatTitle.value,
+                description: els.inputFeatDesc.value
+            },
             icon: els.selectFeatIcon.value,
-            image: els.selectFeatImg.value,
-            zoom: parseFloat(els.inputFeatZoom.value) || 100,
-            posX: parseFloat(els.inputFeatPosX.value) || 50,
-            posY: parseFloat(els.inputFeatPosY.value) || 50,
-            opacity: parseFloat(els.inputFeatOpacity.value) || 40,
-            overlay: parseFloat(els.inputFeatOverlay.value) || 70
+            image: {
+                src: els.selectFeatImg.value,
+                position: {
+                    x: parseFloat(els.inputFeatPosX.value) || 50,
+                    y: parseFloat(els.inputFeatPosY.value) || 50
+                },
+                zoom: parseFloat(els.inputFeatZoom.value) || 100,
+                opacity: parseFloat(els.inputFeatOpacity.value) || 40,
+                overlay: parseFloat(els.inputFeatOverlay.value) || 70
+            }
         },
         brand: {
             contentType: "brand",
-            name: els.inputBrandName.value,
-            tagline: els.inputBrandTagline.value
+            text: {
+                name: els.inputBrandName.value,
+                tagline: els.inputBrandTagline.value
+            }
         }
     };
 }
@@ -886,62 +1055,74 @@ function applyStateData(data, skipHistory = false) {
         els.canvas.classList.add(`bg-${data.background}`);
     }
     
-    // Hero (from data.hero)
+    // Hero (v20 nested structure)
     const hero = data.hero || {};
-    els.inputHeroTitle.value = hero.title || '';
-    els.selectTextStyle.value = hero.titleStyle || 'white';
+    const heroText = hero.text || {};
+    const heroImage = hero.image || {};
+    const heroPos = heroImage.position || {};
+    els.inputHeroTitle.value = heroText.title || '';
+    els.selectTextStyle.value = heroText.style || 'white';
     syncVisualGrid('heroStyleGrid', els.selectTextStyle.value);
-    els.selectHeroImg.value = hero.image || '';
-    els.inputHeroZoom.value = hero.zoom || 100;
-    els.inputHeroPosX.value = hero.posX || 50;
-    els.inputHeroPosY.value = hero.posY || 50;
-    els.inputHeroOpacity.value = hero.opacity || 65;
-    els.inputHeroOverlay.value = hero.overlay || 60;
+    els.selectHeroImg.value = heroImage.src || '';
+    els.inputHeroZoom.value = heroImage.zoom || 100;
+    els.inputHeroPosX.value = heroPos.x || 50;
+    els.inputHeroPosY.value = heroPos.y || 50;
+    els.inputHeroOpacity.value = heroImage.opacity || 65;
+    els.inputHeroOverlay.value = heroImage.overlay || 60;
     
-    // Gallery (from data.gallery)
+    // Gallery (v20 nested structure)
     const gallery = data.gallery || {};
-    els.selectImg2.value = gallery.image || '';
-    els.inputImg2Zoom.value = gallery.zoom || 100;
-    els.inputImg2PosX.value = gallery.posX || 50;
-    els.inputImg2PosY.value = gallery.posY || 50;
-    els.inputImg2Opacity.value = gallery.opacity || 90;
-    els.inputImg2Overlay.value = gallery.overlay || 30;
-    els.inputImg2Title.value = gallery.title || '';
-    els.selectImg2TitleStyle.value = gallery.titleStyle || 'white';
+    const galleryText = gallery.text || {};
+    const galleryImage = gallery.image || {};
+    const galleryPos = galleryImage.position || {};
+    els.selectImg2.value = galleryImage.src || '';
+    els.inputImg2Zoom.value = galleryImage.zoom || 100;
+    els.inputImg2PosX.value = galleryPos.x || 50;
+    els.inputImg2PosY.value = galleryPos.y || 50;
+    els.inputImg2Opacity.value = galleryImage.opacity || 90;
+    els.inputImg2Overlay.value = galleryImage.overlay || 30;
+    els.inputImg2Title.value = galleryText.title || '';
+    els.selectImg2TitleStyle.value = galleryText.style || 'white';
     syncVisualGrid('img2StyleGrid', els.selectImg2TitleStyle.value);
     
-    // Stats (from data.stat1, data.stat2)
+    // Stats (v20 nested structure)
     const stat1 = data.stat1 || {};
-    els.inputStat1Value.value = stat1.value || '';
-    els.inputStat1Label.value = stat1.label || '';
-    els.inputStat1Desc.value = stat1.tagline || '';
+    const stat1Text = stat1.text || {};
+    els.inputStat1Value.value = stat1Text.value || '';
+    els.inputStat1Label.value = stat1Text.label || '';
+    els.inputStat1Desc.value = stat1Text.tagline || '';
     els.selectStat1Style.value = stat1.style || 'green';
     syncVisualGrid('stat1StyleGrid', els.selectStat1Style.value);
     
     const stat2 = data.stat2 || {};
-    els.inputStat2Value.value = stat2.value || '';
-    els.inputStat2Label.value = stat2.label || '';
-    els.inputStat2Desc.value = stat2.tagline || '';
+    const stat2Text = stat2.text || {};
+    els.inputStat2Value.value = stat2Text.value || '';
+    els.inputStat2Label.value = stat2Text.label || '';
+    els.inputStat2Desc.value = stat2Text.tagline || '';
     els.selectStat2Style.value = stat2.style || 'pink';
     syncVisualGrid('stat2StyleGrid', els.selectStat2Style.value);
     
-    // Feature (from data.feature)
+    // Feature (v20 nested structure)
     const feature = data.feature || {};
-    els.inputFeatTitle.value = feature.title || '';
-    els.inputFeatDesc.value = feature.description || '';
-    els.selectFeatImg.value = feature.image || '';
-    els.inputFeatZoom.value = feature.zoom || 100;
-    els.inputFeatPosX.value = feature.posX || 50;
-    els.inputFeatPosY.value = feature.posY || 50;
-    els.inputFeatOpacity.value = feature.opacity || 40;
-    els.inputFeatOverlay.value = feature.overlay || 70;
+    const featureText = feature.text || {};
+    const featureImage = feature.image || {};
+    const featurePos = featureImage.position || {};
+    els.inputFeatTitle.value = featureText.title || '';
+    els.inputFeatDesc.value = featureText.description || '';
+    els.selectFeatImg.value = featureImage.src || '';
+    els.inputFeatZoom.value = featureImage.zoom || 100;
+    els.inputFeatPosX.value = featurePos.x || 50;
+    els.inputFeatPosY.value = featurePos.y || 50;
+    els.inputFeatOpacity.value = featureImage.opacity || 40;
+    els.inputFeatOverlay.value = featureImage.overlay || 70;
     els.selectFeatIcon.value = feature.icon || '';
     syncVisualGrid('featIconGrid', els.selectFeatIcon.value);
     
-    // Brand (from data.brand)
+    // Brand (v20 nested structure)
     const brand = data.brand || {};
-    els.inputBrandName.value = brand.name || 'FC Clubs Stats';
-    els.inputBrandTagline.value = brand.tagline || 'Free on App Store';
+    const brandText = brand.text || {};
+    els.inputBrandName.value = brandText.name || 'FC Clubs Stats';
+    els.inputBrandTagline.value = brandText.tagline || 'Free on App Store';
     
     applyToCanvas(skipHistory);
 }
@@ -1022,59 +1203,8 @@ function setTheme(key) {
     const data = PRESETS[key];
     if (!data) return;
     
-    // Hero (from data.hero)
-    const hero = data.hero || {};
-    els.inputHeroTitle.value = hero.title || "";
-    els.selectTextStyle.value = hero.titleStyle || "white";
-    els.selectHeroImg.value = hero.image || "";
-    els.inputHeroZoom.value = hero.zoom || 100;
-    els.inputHeroPosX.value = hero.posX || 50;
-    els.inputHeroPosY.value = hero.posY || 50;
-    els.inputHeroOpacity.value = hero.opacity || 65;
-    els.inputHeroOverlay.value = hero.overlay || 60;
-    
-    // Gallery (from data.gallery)
-    const gallery = data.gallery || {};
-    els.selectImg2.value = gallery.image || "";
-    els.inputImg2Zoom.value = gallery.zoom || 100;
-    els.inputImg2PosX.value = gallery.posX || 50;
-    els.inputImg2PosY.value = gallery.posY || 50;
-    els.inputImg2Opacity.value = gallery.opacity || 90;
-    els.inputImg2Overlay.value = gallery.overlay || 30;
-    els.inputImg2Title.value = gallery.title || "";
-    els.selectImg2TitleStyle.value = gallery.titleStyle || "white";
-    
-    // Stats (from data.stat1, data.stat2)
-    const stat1 = data.stat1 || {};
-    els.inputStat1Value.value = stat1.value || "";
-    els.inputStat1Label.value = stat1.label || "";
-    els.inputStat1Desc.value = stat1.tagline || "";
-    els.selectStat1Style.value = stat1.style || "green";
-    
-    const stat2 = data.stat2 || {};
-    els.inputStat2Value.value = stat2.value || "";
-    els.inputStat2Label.value = stat2.label || "";
-    els.inputStat2Desc.value = stat2.tagline || "";
-    els.selectStat2Style.value = stat2.style || "pink";
-    
-    // Feature (from data.feature)
-    const feature = data.feature || {};
-    els.inputFeatTitle.value = feature.title || "";
-    els.inputFeatDesc.value = feature.description || "";
-    els.selectFeatImg.value = feature.image || "";
-    els.inputFeatZoom.value = feature.zoom || 100;
-    els.inputFeatPosX.value = feature.posX || 50;
-    els.inputFeatPosY.value = feature.posY || 50;
-    els.inputFeatOpacity.value = feature.opacity || 40;
-    els.inputFeatOverlay.value = feature.overlay || 70;
-    els.selectFeatIcon.value = feature.icon || "";
-    
-    // Brand (from data.brand)
-    const brand = data.brand || {};
-    els.inputBrandName.value = brand.name || "FC Clubs Stats";
-    els.inputBrandTagline.value = brand.tagline || "Free on App Store";
-    
-    applyToCanvas();
+    // Apply the preset data using v20 applyStateData
+    applyStateData(data);
 }
 
 function applyToCanvas(skipHistory = false) {
