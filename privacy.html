@@ -34,23 +34,60 @@
     <div class="container">
       <a href="/" class="back-btn">&larr; Back to Home</a>
       <h1>Privacy Policy</h1>
-      <p>Last updated: December 10, 2025</p>
+      <p>Last updated: December 31, 2025</p>
 
       <h2>Privacy Commitment</h2>
-      <p>FC Clubs App is designed with a fundamental respect for your privacy. We do not collect, store, or share any personally identifiable information (PII).</p>
+      <p>FC Clubs App is designed to minimize data collection. Some optional features (analytics, crash reporting, and telemetry) only run if you opt in.</p>
 
-      <h2>Data Collection & Usage</h2>
+      <h2>Scope</h2>
       <ul>
-        <li><strong>Local Storage:</strong> All your club data, match history, and squad details are stored locally on your device using SwiftData.</li>
-        <li><strong>Direct Sync:</strong> The app communicates directly with EA Sports servers to retrieve your club's statistics. We do not intercept or store this data.</li>
-        <li><strong>Anonymous Analytics:</strong> We use Google Firebase (Analytics & Crashlytics) to identify crashes and improve app stability. No personally identifiable information is collected.</li>
+        <li><strong>Website:</strong> This website does not use cookies or analytics tracking.</li>
+        <li><strong>iOS App:</strong> The FC Clubs iOS app may process and store data as described below.</li>
       </ul>
 
-      <h2>Third-Party Services</h2>
-      <p>We use Google Firebase for anonymous crash reporting and analytics.</p>
+      <h2>Data Stored for App Functionality</h2>
+      <ul>
+        <li><strong>On device:</strong> Your club data and match history are stored locally on your device.</li>
+        <li><strong>iCloud sync (Apple CloudKit):</strong> If you are signed into iCloud, the app may sync your data across devices using Apple CloudKit. This sync is tied to your Apple ID and governed by Apple’s policies.</li>
+        <li><strong>EA servers:</strong> The app communicates directly with EA Sports servers to retrieve your club statistics.</li>
+      </ul>
+
+      <h2>Optional Analytics &amp; Crash Reporting (Google Firebase)</h2>
+      <ul>
+        <li><strong>Firebase Analytics (opt-in):</strong> Helps us understand app usage and improve features. You can control this via the “Share Analytics” setting in the app.</li>
+        <li><strong>Firebase Crashlytics (opt-in):</strong> Helps us diagnose crashes and stability issues. You can control this via the “Crash Reporting” setting in the app.</li>
+      </ul>
+
+      <h2>Optional App Telemetry (Our Service on Cloudflare Workers + D1)</h2>
+      <p>If you enable “Share Analytics”, the app may also send lightweight telemetry to our own API (hosted on Cloudflare Workers and stored in Cloudflare D1) to help us monitor reliability and understand aggregate usage.</p>
+      <p>This telemetry may include:</p>
+      <ul>
+        <li><strong>App identifiers:</strong> a randomly generated installation ID, game version, app version, and build number.</li>
+        <li><strong>Saved slots snapshot:</strong> platform, club ID, and your in-game player name (if provided).</li>
+        <li><strong>Match references:</strong> match IDs and optional metadata (such as match type, timestamp, and club IDs).</li>
+        <li><strong>Health signals:</strong> sync success/failure and timing, plus a daily “active install” heartbeat.</li>
+      </ul>
+      <p>We do not use this telemetry for advertising, and we do not sell your data.</p>
+
+      <h2>Third-Party Service Providers</h2>
+      <ul>
+        <li><strong>Apple (iCloud/CloudKit):</strong> Used for syncing app data across devices (when iCloud is enabled).</li>
+        <li><strong>Google (Firebase):</strong> Used for optional analytics and crash reporting (when enabled).</li>
+        <li><strong>Cloudflare (Workers + D1):</strong> Hosts our telemetry API and database used to store telemetry (when enabled).</li>
+        <li><strong>Telegram (optional):</strong> We may send operational notifications to a private Telegram channel (e.g., counts and health signals). These notifications are for service monitoring.</li>
+      </ul>
+
+      <h2>Your Choices</h2>
+      <ul>
+        <li>You can enable/disable <strong>Share Analytics</strong> and <strong>Crash Reporting</strong> at any time in the app settings.</li>
+        <li>If you disable “Share Analytics”, the app stops sending Firebase Analytics events and stops sending telemetry to our backend.</li>
+      </ul>
+
+      <h2>Data Retention</h2>
+      <p>We retain analytics, crash reports, and telemetry for as long as needed to operate and improve the app. If you have a deletion request, please contact us.</p>
 
       <h2>Contact Us</h2>
-      <p>If you have questions, please open an issue on our GitHub repository.</p>
+      <p>If you have questions or requests, please open an issue on our GitHub repository.</p>
     </div>
   </body>
 </html>
