@@ -17,113 +17,7 @@
     
     <link rel="stylesheet" href="/src/variables.css">
     <link rel="stylesheet" href="/src/style.css">
-    
-    <style>
-        .updates-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 140px 20px 100px;
-        }
-
-        .updates-title {
-            text-align: left;
-            margin-bottom: 60px;
-        }
-        
-        .version-block {
-            margin-bottom: 80px;
-            position: relative;
-            padding-left: 40px;
-            border-left: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .version-number {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        
-        .version-date {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.4);
-            font-weight: 500;
-            margin-bottom: 24px;
-            display: block;
-        }
-        
-        .latest-badge {
-            background: var(--gradient-aura);
-            font-size: 0.75rem;
-            padding: 4px 12px;
-            border-radius: 99px;
-            color: #000;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .version-marker {
-            position: absolute;
-            left: -6px;
-            top: 12px;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background: var(--color-neon-green);
-            box-shadow: 0 0 10px rgba(66, 254, 194, 0.4);
-        }
-        
-        .version-block.past .version-marker {
-            background: rgba(255,255,255,0.2);
-            box-shadow: none;
-        }
-
-        .release-intro {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 30px;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-item {
-            margin-bottom: 24px;
-        }
-
-        .feature-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #fff;
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .feature-desc {
-            color: rgba(255,255,255,0.6);
-            line-height: 1.5;
-        }
-        
-        .fix-note {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.7);
-        }
-        
-        .fix-note a {
-            color: var(--color-electric-blue);
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="/src/whats-new.css">
   </head>
   <body>
     <div id="app">
@@ -136,7 +30,7 @@
           </a>
           <div class="nav-links">
             <a href="/">Home</a>
-            <a href="/src/whats-new.html">What's New</a>
+            <a href="/src/whats-new.html" aria-current="page">What's New</a>
           </div>
         </div>
       </nav>
@@ -145,12 +39,50 @@
       <main class="updates-container">
         <h1 class="section-title updates-title">What's New</h1>
 
-        <!-- v1.0.4 -->
+        <!-- v1.0.5 -->
         <article class="version-block">
             <div class="version-marker"></div>
             <h2 class="version-number">
-                v1.0.4
+                v1.0.5
                 <span class="latest-badge">Current Version</span>
+            </h2>
+            <span class="version-date">January 2026</span>
+
+            <p class="release-intro">Storage controls, better sharing, premium themes, and in-app release notes after every update.</p>
+
+            <ul class="feature-list">
+                <li class="feature-item">
+                    <span class="feature-title">Device-only mode</span>
+                    <span class="feature-desc">Control iCloud Sync for match history, including a “device-only” option when storage is tight.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Storage estimate</span>
+                    <span class="feature-desc">See an estimated storage footprint for your match history.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Save to Photos</span>
+                    <span class="feature-desc">Save session recap images directly to the Photos app.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Sharing reliability</span>
+                    <span class="feature-desc">Improved sharing reliability for Instagram and other apps.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">Premium dark themes + icons</span>
+                    <span class="feature-desc">New premium dark themes (Electric Blue, Neon Green, Midnight) plus theme‑matched Home Screen icons.</span>
+                </li>
+                <li class="feature-item">
+                    <span class="feature-title">In-app “What’s New”</span>
+                    <span class="feature-desc">See what’s new after each update and browse past versions in Settings.</span>
+                </li>
+            </ul>
+        </article>
+
+        <!-- v1.0.4 -->
+        <article class="version-block past">
+            <div class="version-marker"></div>
+            <h2 class="version-number">
+                v1.0.4
             </h2>
             <span class="version-date">December 2025</span>
             
@@ -281,12 +213,12 @@
           <div class="footer-col links">
             <a href="/privacy.html">Privacy Policy</a>
             <a href="/terms.html">Terms of Service</a>
-            <a href="whats-new.html" style="color: #fff">What's New</a>
+            <a href="/src/whats-new.html" aria-current="page">What's New</a>
              <a href="https://github.com/btutal/fcclubs-web/issues/new?template=bug_report.yml" target="_blank">Report a Bug</a>
           </div>
         </div>
         <div class="footer-bottom text-center">
-          <p>&copy; 2025 FC Clubs App. All rights reserved.</p>
+          <p>&copy; 2026 FC Clubs App. All rights reserved.</p>
         </div>
       </footer>
     </div>

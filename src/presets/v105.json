@@ -1,0 +1,65 @@
+{
+    "version": "20",
+    "background": "midnight",
+    "hero": {
+        "contentType": "hero-shot",
+        "title": {
+            "content": "Storage\n& Sharing",
+            "style": "gradient-blue"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-sessions.png",
+            "position": { "x": 50, "y": 18 },
+            "zoom": 120,
+            "opacity": 75,
+            "overlay": 50
+        }
+    },
+    "gallery": {
+        "contentType": "gallery",
+        "title": {
+            "content": "",
+            "style": "gradient-blue"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-matches.png",
+            "position": { "x": 50, "y": 15 },
+            "zoom": 115,
+            "opacity": 95,
+            "overlay": 20
+        }
+    },
+    "stat1": {
+        "contentType": "highlight",
+        "value": "☁️",
+        "label": "iCloud Sync",
+        "tagline": "Device-only mode",
+        "style": "gradient-blue"
+    },
+    "stat2": {
+        "contentType": "highlight",
+        "value": "📸",
+        "label": "Save to Photos",
+        "tagline": "Recap images, instantly",
+        "style": "neon-green"
+    },
+    "feature": {
+        "contentType": "feature",
+        "title": "Premium Themes + Icons",
+        "description": "Electric Blue, Neon Green, Midnight",
+        "icon": "⭐",
+        "image": {
+            "src": "/assets/screenshots/iphone-dashboard.png",
+            "position": { "x": 50, "y": 30 },
+            "zoom": 120,
+            "opacity": 45,
+            "overlay": 65
+        }
+    },
+    "brand": {
+        "contentType": "brand",
+        "name": "FC Clubs Stats",
+        "tagline": "Update v1.0.5"
+    }
+}
+
