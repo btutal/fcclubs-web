@@ -30,7 +30,7 @@ To run the website locally:
 3. Run `npm run dev` to start the local development server.
 4. Open the following links in your browser:
     - **Home**: `http://localhost:5173/`
-    - **Release Notes**: `http://localhost:5173/src/whats-new.html`
+    - **Release Notes**: `http://localhost:5173/whats-new.html`
     - **Bento Generator**: `http://localhost:5173/bento_generator.html`
 
 > [!NOTE]

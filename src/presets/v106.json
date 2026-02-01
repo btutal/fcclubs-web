@@ -1,0 +1,64 @@
+{
+    "version": "20",
+    "background": "midnight",
+    "hero": {
+        "contentType": "hero-shot",
+        "title": {
+            "content": "My Player\n& Archetypes",
+            "style": "gradient-green"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-dashboard.png",
+            "position": { "x": 50, "y": 18 },
+            "zoom": 120,
+            "opacity": 75,
+            "overlay": 50
+        }
+    },
+    "gallery": {
+        "contentType": "gallery",
+        "title": {
+            "content": "",
+            "style": "gradient-green"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-matches.png",
+            "position": { "x": 50, "y": 15 },
+            "zoom": 115,
+            "opacity": 95,
+            "overlay": 20
+        }
+    },
+    "stat1": {
+        "contentType": "highlight",
+        "value": "👤",
+        "label": "My Player",
+        "tagline": "Your lifetime stats card",
+        "style": "gradient-green"
+    },
+    "stat2": {
+        "contentType": "highlight",
+        "value": "🔄",
+        "label": "Substitutions",
+        "tagline": "Hot Join tracking",
+        "style": "gradient-blue"
+    },
+    "feature": {
+        "contentType": "feature",
+        "title": "Archetype Icons",
+        "description": "See player archetypes on Formation & Rankings",
+        "icon": "⚽",
+        "image": {
+            "src": "/assets/screenshots/iphone-club.png",
+            "position": { "x": 50, "y": 30 },
+            "zoom": 120,
+            "opacity": 45,
+            "overlay": 65
+        }
+    },
+    "brand": {
+        "contentType": "brand",
+        "name": "FC Clubs Stats",
+        "tagline": "Update v1.0.6"
+    }
+}

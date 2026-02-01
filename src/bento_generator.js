@@ -199,7 +199,9 @@ const PRESET_FILES = {
     v102: '/src/presets/v102.json',
     v103: '/src/presets/v103.json',
     v104: '/src/presets/v104.json',
-    v105: '/src/presets/v105.json'
+    v105: '/src/presets/v105.json',
+    v106: '/src/presets/v106.json',
+    v107: '/src/presets/v107.json'
 };
 
 // Presets cache - populated on first load
