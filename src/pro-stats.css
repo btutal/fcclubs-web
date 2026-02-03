@@ -1,0 +1,131 @@
+.prostats-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 140px 20px 100px;
+}
+
+.prostats-hero {
+    margin-bottom: 60px;
+}
+
+.prostats-title {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+}
+
+.prostats-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    max-width: 720px;
+}
+
+.prostats-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 26px;
+}
+
+.prostats-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.prostats-cta {
+    margin-top: 10px;
+}
+
+.prostats-section {
+    margin-top: 44px;
+}
+
+.prostats-section-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+}
+
+.prostats-card {
+    background: rgba(18, 23, 41, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 22px;
+}
+
+.prostats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.prostats-table th {
+    text-align: left;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prostats-table td {
+    padding: 14px 0;
+    vertical-align: top;
+    color: rgba(255, 255, 255, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.prostats-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.prostats-table td:first-child {
+    width: 220px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.prostats-list {
+    margin: 0;
+    padding-left: 18px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+}
+
+.prostats-paragraph {
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.prostats-steps {
+    color: rgba(255, 255, 255, 0.85);
+    padding-left: 20px;
+    line-height: 1.8;
+    margin: 12px 0 18px;
+}
+
+.prostats-footnote {
+    margin-top: 14px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+    .prostats-title {
+        font-size: 2.4rem;
+    }
+}
+

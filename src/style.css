@@ -345,6 +345,44 @@ section {
     font-size: 1rem;
 }
 
+.feature-link {
+    color: var(--color-electric-blue);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.feature-link:hover {
+    color: #fff;
+}
+
+/* Testimonials */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.testimonial-card {
+    background: rgba(18, 23, 41, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 32px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.testimonial-card blockquote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: -0.01em;
+}
+
+.testimonial-card figcaption {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
 /* Footer */
 .footer {
     padding: 80px 0 30px;

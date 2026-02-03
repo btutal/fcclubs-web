@@ -1,0 +1,64 @@
+{
+    "version": "20",
+    "background": "electric-blue",
+    "hero": {
+        "contentType": "hero-shot",
+        "title": {
+            "content": "Pro\nStats",
+            "style": "gradient-gold"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-prostats.png",
+            "position": { "x": 50, "y": 18 },
+            "zoom": 120,
+            "opacity": 80,
+            "overlay": 45
+        }
+    },
+    "gallery": {
+        "contentType": "gallery",
+        "title": {
+            "content": "",
+            "style": "gradient-gold"
+        },
+        "image": {
+            "src": "/assets/screenshots/iphone-sessions.png",
+            "position": { "x": 50, "y": 15 },
+            "zoom": 115,
+            "opacity": 95,
+            "overlay": 20
+        }
+    },
+    "stat1": {
+        "contentType": "highlight",
+        "value": "2A",
+        "label": "Second Assists",
+        "tagline": "See the hidden creators",
+        "style": "gradient-gold"
+    },
+    "stat2": {
+        "contentType": "highlight",
+        "value": "INT",
+        "label": "Interceptions",
+        "tagline": "Ball wins that matter",
+        "style": "gradient-blue"
+    },
+    "feature": {
+        "contentType": "feature",
+        "title": "One-time purchase",
+        "description": "Unlock Pro Stats — no subscription",
+        "icon": "🔓",
+        "image": {
+            "src": "/assets/screenshots/iphone-dashboard.png",
+            "position": { "x": 50, "y": 24 },
+            "zoom": 120,
+            "opacity": 40,
+            "overlay": 70
+        }
+    },
+    "brand": {
+        "contentType": "brand",
+        "name": "FC Clubs Stats",
+        "tagline": "Update v1.1.0"
+    }
+}
