@@ -356,6 +356,14 @@ section {
 }
 
 /* Testimonials */
+.testimonials.section-padding {
+    padding: 80px 0;
+}
+
+.testimonials .section-title {
+    margin-bottom: 44px;
+}
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -368,12 +376,61 @@ section {
     padding: 32px;
     border-radius: 28px;
     border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.testimonial-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.testimonial-stars svg {
+    fill: #FFC254;
+    width: 18px;
+    height: 18px;
+}
+
+.testimonial-store {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.testimonial-review-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 10px;
 }
 
 .testimonial-card blockquote {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 1.12rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.92);
     letter-spacing: -0.01em;
 }
 
@@ -381,6 +438,13 @@ section {
     margin-top: 18px;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.55);
+}
+
+@media (min-width: 1024px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+    }
 }
 
 /* Footer */

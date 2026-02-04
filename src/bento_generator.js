@@ -62,21 +62,31 @@ function redo() {
 
 // Centralized screenshot list - single source of truth
 const SCREENSHOTS = [
-    { group: 'iPhone', items: [
+    { group: 'v1.1.0 (Recommended)', items: [
+        { value: '/assets/screenshots/v1.1.0/01_ai_sessions.png', label: 'AI Sessions' },
+        { value: '/assets/screenshots/v1.1.0/02_squad_stats.png', label: 'Squad Stats' },
+        { value: '/assets/screenshots/v1.1.0/03_second_assists.png', label: 'Second Assists' },
+        { value: '/assets/screenshots/v1.1.0/04_archetypes_formation.png', label: 'Archetypes & Formation' },
+        { value: '/assets/screenshots/v1.1.0/05_scout_mode.png', label: 'Scout Mode' },
+        { value: '/assets/screenshots/v1.1.0/06_share_cards.png', label: 'Share Cards' },
+    ]},
+    { group: 'Legacy iPhone', items: [
         { value: '/assets/screenshots/iphone-dashboard.png', label: 'Dashboard' },
         { value: '/assets/screenshots/iphone-club.png', label: 'Club Details' },
         { value: '/assets/screenshots/iphone-matches.png', label: 'Matches' },
         { value: '/assets/screenshots/iphone-scout.png', label: 'Scout Mode' },
         { value: '/assets/screenshots/iphone-sessions.png', label: 'Sessions' },
-        { value: '/assets/screenshots/iphone-welcome.png', label: 'Welcome' },
     ]},
-    { group: 'Widgets', items: [
+    { group: 'Legacy iPad', items: [
+        { value: '/assets/screenshots/ipad-dashboard.png', label: 'iPad Dashboard' },
+    ]},
+    { group: 'Legacy (Onboarding)', items: [
+        { value: '/assets/screenshots/iphone-welcome.png', label: 'iPhone Welcome' },
+        { value: '/assets/screenshots/ipad-welcome.png', label: 'iPad Welcome' },
+    ]},
+    { group: 'Legacy (Widgets)', items: [
         { value: '/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png', label: 'Widget 1' },
         { value: '/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png', label: 'Widget 2' },
-    ]},
-    { group: 'iPad', items: [
-        { value: '/assets/screenshots/ipad-dashboard.png', label: 'iPad Dashboard' },
-        { value: '/assets/screenshots/ipad-welcome.png', label: 'iPad Welcome' },
     ]},
 ];
 
