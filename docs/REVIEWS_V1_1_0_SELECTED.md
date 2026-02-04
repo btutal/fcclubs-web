@@ -23,7 +23,7 @@ Sources:
 ### “Great!” — 5★
 - Storefront: Germany
 - Username: `ertoy132`
-- Date: 2026-01-28
+- Date: 2026-01-29 (shown as “6 days ago” on 2026-02-04)
 - Text:
   > We started using it with mates. It’s well-structured and easy-to-use
 
@@ -32,7 +32,7 @@ Sources:
 ### “Best Proclubs app” — 5★
 - Storefront: Norway
 - Username: `VPG Balkan`
-- Date: 2026-01-31
+- Date: 2026-02-01 (shown as “3 days ago” on 2026-02-04)
 - Text:
   > The best ProClubs app on the web for your team and stats 🔥🔥🔥
 
@@ -51,4 +51,3 @@ Sources:
 - Date: 2025-12-14
 - Text:
   > Very clean structure and lots of beneficial statistics for Pro Clubs. Well considered for teams that they like to take Pro Clubs experience to professional level.
-

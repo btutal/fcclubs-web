@@ -8,7 +8,7 @@
             "style": "gradient-gold"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-prostats.png",
+            "src": "/assets/screenshots/v1.1.0/03_second_assists.png",
             "position": { "x": 50, "y": 18 },
             "zoom": 120,
             "opacity": 80,
