@@ -46,23 +46,28 @@
     <div class="container">
       <a href="/" class="back-btn">&larr; Back to Home</a>
       <h1>Privacy Policy</h1>
-      <p>Last updated: February 3, 2026</p>
+      <p>Last updated: May 13, 2026</p>
 
       <h2>Privacy Commitment</h2>
       <p>FC Clubs App is designed to minimize data collection. Some optional features (analytics, crash reporting, and telemetry) only run if you opt in.</p>
 
       <h2>Scope</h2>
       <ul>
-        <li><strong>Website:</strong> This website does not use cookies or analytics tracking.</li>
+        <li><strong>Website:</strong> This website may use Google Analytics through Google tag to understand aggregate site traffic and page usage.</li>
         <li><strong>iOS App:</strong> The FC Clubs iOS app may process and store data as described below.</li>
+        <li><strong>Android App:</strong> The FC Clubs Android app may process and store data as described below, including optional Google Drive backup and Google Play Billing features.</li>
       </ul>
 
       <h2>Data Stored for App Functionality</h2>
       <ul>
-        <li><strong>On device:</strong> Your club data and match history are stored locally on your device.</li>
-        <li><strong>iCloud sync (Apple CloudKit):</strong> If you are signed into iCloud, the app may sync your data across devices using Apple CloudKit. This sync is tied to your Apple ID and governed by Apple’s policies.</li>
+        <li><strong>On device:</strong> Your club data, preferences, and match history are stored locally on your device.</li>
+        <li><strong>iCloud sync (Apple CloudKit):</strong> On iOS, if you are signed into iCloud, the app may sync your data across devices using Apple CloudKit. This sync is tied to your Apple ID and governed by Apple’s policies.</li>
+        <li><strong>Google Drive backup:</strong> On Android, if you connect Google Drive, the app may back up preferences and raw app data to your Google Drive appDataFolder so you can restore after reinstalling or moving to a new device. Backup payloads are encrypted and compressed before upload. Google Drive backup is tied to your Google account and governed by Google’s policies.</li>
         <li><strong>EA servers:</strong> The app communicates directly with EA Sports servers to retrieve your club statistics.</li>
       </ul>
+
+      <h2>Purchases (Google Play Billing)</h2>
+      <p>On Android, optional purchases are processed by Google Play Billing. Google handles payment details. The app receives purchase and product status so it can unlock owned features, restore eligible purchases, and keep local entitlement state in sync. Google Play Billing remains the source of truth for Android purchase ownership.</p>
 
       <h2>Optional Analytics &amp; Crash Reporting (Google Firebase)</h2>
       <ul>
@@ -84,7 +89,9 @@
 
       <h2>Third-Party Service Providers</h2>
       <ul>
-        <li><strong>Apple (iCloud/CloudKit):</strong> Used for syncing app data across devices (when iCloud is enabled).</li>
+        <li><strong>Apple (iCloud/CloudKit):</strong> Used for syncing iOS app data across devices (when iCloud is enabled).</li>
+        <li><strong>Google Drive:</strong> Used for optional Android backup and restore (when connected).</li>
+        <li><strong>Google Play Billing:</strong> Used for Android purchases and purchase restoration.</li>
         <li><strong>Google (Firebase):</strong> Used for optional analytics and crash reporting (when enabled).</li>
         <li><strong>Cloudflare (Workers + D1):</strong> Hosts our telemetry API and database used to store telemetry (when enabled).</li>
         <li><strong>Telegram (optional):</strong> We may send operational notifications to a private Telegram channel (e.g., counts and health signals). These notifications are for service monitoring.</li>
@@ -94,6 +101,8 @@
       <ul>
         <li>You can enable/disable <strong>Share Analytics</strong> and <strong>Crash Reporting</strong> at any time in the app settings.</li>
         <li>If you disable “Share Analytics”, the app stops sending Firebase Analytics events and stops sending telemetry to our backend.</li>
+        <li>On Android, Google Drive backup is optional. You can connect or disconnect Google Drive in the app’s cloud/backup settings.</li>
+        <li>On Android, you can restore eligible Google Play purchases from the app’s purchase or settings screens.</li>
       </ul>
 
       <h2>Data Retention</h2>
