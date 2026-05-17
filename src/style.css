@@ -159,6 +159,14 @@ section {
 }
 
 /* Store Badge */
+.store-badge-container,
+.prostats-cta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
 .store-badge {
     display: inline-flex;
     align-items: center;
@@ -169,6 +177,7 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    min-width: 190px;
 }
 
 .store-badge:hover {
