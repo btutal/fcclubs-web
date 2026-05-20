@@ -44,6 +44,18 @@
     letter-spacing: 0.05em;
 }
 
+.platform-badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 99px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    text-transform: uppercase;
+}
+
 .version-marker {
     position: absolute;
     left: -6px;
@@ -69,6 +81,59 @@
 
 .feature-list {
     list-style: none;
+}
+
+.platform-tabs {
+    margin-top: 24px;
+}
+
+.platform-tab-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.platform-tab-list {
+    display: inline-flex;
+    gap: 4px;
+    margin-bottom: 28px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.platform-tab-label {
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.62);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+#v113-ios:checked ~ .platform-tab-list label[for="v113-ios"],
+#v113-android:checked ~ .platform-tab-list label[for="v113-android"] {
+    background: rgba(66, 254, 194, 0.16);
+    color: #fff;
+}
+
+#v113-ios:focus-visible ~ .platform-tab-list label[for="v113-ios"],
+#v113-android:focus-visible ~ .platform-tab-list label[for="v113-android"] {
+    outline: 2px solid var(--color-neon-green);
+    outline-offset: 3px;
+}
+
+.platform-tab-panel {
+    display: none;
+}
+
+#v113-ios:checked ~ .platform-tab-panels .platform-tab-panel-ios,
+#v113-android:checked ~ .platform-tab-panels .platform-tab-panel-android {
+    display: block;
 }
 
 .feature-item {
@@ -130,4 +195,3 @@
     text-decoration: underline;
     color: #fff;
 }
-

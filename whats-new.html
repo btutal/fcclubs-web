@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/app-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Stay updated with the latest FC Clubs App features. Release notes for EA FC 26 Pro Clubs stats, performance updates, scouting reports, and Pro Stats." />
-    <meta name="keywords" content="FC Clubs App Updates, Pro Clubs Release Notes, EA FC 26 App Features, Pro Clubs Performance Update" />
+    <meta name="description" content="Stay updated with the latest FC Clubs App features. Separate iOS and Android release notes for EA FC 26 Pro Clubs stats, performance updates, scouting reports, and Pro Stats." />
+    <meta name="keywords" content="FC Clubs App Updates, iOS Release Notes, Android Release Notes, Pro Clubs Release Notes, EA FC 26 App Features" />
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZG95LHNPW"></script>
@@ -18,13 +18,13 @@
 
     <meta name="theme-color" content="#021230" />
     <meta property="og:title" content="What's New | FC Clubs App Updates & Release Notes" />
-    <meta property="og:description" content="See what's new in the latest version of FC Clubs. Performance updates, refresh improvements, Pro Stats, and scouting tools." />
+    <meta property="og:description" content="See what's new in the latest iOS and Android versions of FC Clubs. Performance updates, Android reliability fixes, Pro Stats, and scouting tools." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fcclubs.app/whats-new.html" />
     <meta property="og:image" content="https://fcclubs.app/assets/screenshots/v1.1.0/03_second_assists.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="What's New | FC Clubs App Updates & Release Notes" />
-    <meta name="twitter:description" content="Latest FC Clubs updates, including performance improvements and release notes." />
+    <meta name="twitter:description" content="Latest FC Clubs iOS and Android updates, including performance improvements and release notes." />
     <meta name="twitter:image" content="https://fcclubs.app/assets/screenshots/v1.1.0/03_second_assists.png" />
     <link rel="canonical" href="https://fcclubs.app/whats-new.html" />
 
@@ -70,24 +70,90 @@
             </h2>
             <span class="version-date">May 2026</span>
 
-            <p class="release-intro">A focused performance release with smoother large histories, pull-to-refresh on main tabs, and less duplicate cached work.</p>
+            <p class="release-intro">Platform-specific updates for iOS performance and Android reliability.</p>
+
+            <div class="platform-tabs">
+                <input class="platform-tab-input" type="radio" name="v113-platform" id="v113-ios" checked>
+                <input class="platform-tab-input" type="radio" name="v113-platform" id="v113-android">
+
+                <div class="platform-tab-list" aria-label="Choose platform release notes">
+                    <label class="platform-tab-label" for="v113-ios">iOS</label>
+                    <label class="platform-tab-label" for="v113-android">Android</label>
+                </div>
+
+                <div class="platform-tab-panels">
+                    <section class="platform-tab-panel platform-tab-panel-ios" aria-label="iOS v1.1.3 release notes">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-title">Smoother large histories</span>
+                                <span class="feature-desc">Startup and tab switching are smoother for clubs with large match histories.</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-title">Pull-to-refresh on main tabs</span>
+                                <span class="feature-desc">Matches and Sessions now refresh with the standard pull gesture on the main tabs.</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-title">Less duplicate background work</span>
+                                <span class="feature-desc">Cached match loading now avoids duplicate derived work when opening your active club.</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-title">Reliability polish</span>
+                                <span class="feature-desc">General performance and reliability improvements across the app.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="platform-tab-panel platform-tab-panel-android" aria-label="Android v1.1.3 release notes">
+                        <ul class="feature-list">
+                            <li class="feature-item">
+                                <span class="feature-title">Feature tips crash fix</span>
+                                <span class="feature-desc">Fixed a crash that could happen when feature tips were positioned near screen edges.</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-title">Session detail navigation</span>
+                                <span class="feature-desc">Session and match drill-ins now open reliably from session detail flows.</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-title">Tablet and resizable layouts</span>
+                                <span class="feature-desc">Improved Android layout behavior on tablets and resizable screens.</span>
+                            </li>
+                            <li class="feature-item">
+                                <span class="feature-title">Android reliability polish</span>
+                                <span class="feature-desc">General Android reliability improvements across the app.</span>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </article>
+
+        <!-- v1.1.2 Android -->
+        <article class="version-block past">
+            <div class="version-marker"></div>
+            <h2 class="version-number">
+                v1.1.2
+                <span class="platform-badge">Android</span>
+            </h2>
+            <span class="version-date">May 2026</span>
+
+            <p class="release-intro">First Android release of FC Clubs.</p>
 
             <ul class="feature-list">
                 <li class="feature-item">
-                    <span class="feature-title">Smoother large histories</span>
-                    <span class="feature-desc">Startup and tab switching are smoother for clubs with large match histories.</span>
+                    <span class="feature-title">First Android release</span>
+                    <span class="feature-desc">FC Clubs is now available on Android.</span>
                 </li>
                 <li class="feature-item">
-                    <span class="feature-title">Pull-to-refresh on main tabs</span>
-                    <span class="feature-desc">Matches and Sessions now refresh with the standard pull gesture on the main tabs.</span>
+                    <span class="feature-title">Core club tracking</span>
+                    <span class="feature-desc">Track FC 26 Clubs matches, sessions, squad stats, and player rankings.</span>
                 </li>
                 <li class="feature-item">
-                    <span class="feature-title">Less duplicate background work</span>
-                    <span class="feature-desc">Cached match loading now avoids duplicate derived work when opening your active club.</span>
+                    <span class="feature-title">Scout, rivalries, and share cards</span>
+                    <span class="feature-desc">Scout opponents, review rivalries, and share match, session, and player cards.</span>
                 </li>
                 <li class="feature-item">
-                    <span class="feature-title">Reliability polish</span>
-                    <span class="feature-desc">General performance and reliability improvements across the app.</span>
+                    <span class="feature-title">Pro Stats and backup</span>
+                    <span class="feature-desc">Includes Pro Stats, Google Drive backup, and Android-native privacy controls.</span>
                 </li>
             </ul>
         </article>
