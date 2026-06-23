@@ -4,7 +4,7 @@ The public status page lives at `/status.html` and is intended for clear user co
 
 ## Wording Rules
 
-- Use **data provider** or **provider-backed updates**.
+- Use **data provider**, **official Clubs data provider**, or **provider-backed updates**.
 - Do not name the upstream provider in incident copy.
 - Be precise about scope: avoid saying the whole app is down when only match-history or session refreshes are affected.
 - Keep reassurance factual: saved data remains available only if it was already saved on the device.
@@ -44,12 +44,12 @@ When the issue is resolved:
 
 ## Current Provider-Incident Template
 
-Use this shape when provider-backed stats are stale but the app is not globally offline:
+Use this shape when club search is failing but the app is not globally offline:
 
 ```text
-Some data provider updates are delayed.
+Club search is currently unavailable.
 
-The data provider is currently responding inconsistently for some club history requests. You may see club stats, matches, or sessions stuck on older data until the provider responses recover.
+The official Clubs data provider is currently having problems with club search. You may be unable to find clubs or add a new club until search starts returning results again.
 
-FC Clubs is keeping saved data visible and will continue to load features that have a healthy response. You do not need to reinstall the app or change your club setup.
+FC Clubs is keeping saved data visible and will continue to load other features that receive a healthy response. You do not need to reinstall the app or change your existing setup.
 ```
