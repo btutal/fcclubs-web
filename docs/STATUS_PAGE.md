@@ -1,6 +1,6 @@
 # Status Page Runbook
 
-The public status page lives at `/status.html` and is intended for clear user communication during provider or app-side incidents. Keep it simple: current status, current event, and previous events.
+The public status page lives at `/status.html` and is intended for clear user communication during provider or app-side incidents. Keep it simple: one current incident/status panel and previous events.
 
 ## Wording Rules
 
@@ -18,22 +18,23 @@ Edit `status.html`:
    - label, for example `Degraded`, `Operational`, `Unavailable`, or `Monitoring`
    - affected areas
    - still-available areas
-2. Update the current-status `<time>` element:
+   - incident summary
+2. Update the current-status `<time>` elements:
+   - first reported, if this is a new incident
+   - last updated every time the page changes
    - the visible text, for example `June 23, 2026 at 18:45 CEST`
    - the `datetime` attribute, for example `2026-06-23T18:45:17+02:00`
-3. Update the `Current Event` card with the newest user-facing note.
-4. If there is no active event, remove the current-event card and make the current status `Operational`.
-5. Run `npm run build`.
+3. If there is no active incident, make current status `Operational` and remove incident-specific guidance.
+4. Run `npm run build`.
 
 ## Resolving An Incident
 
 When the issue is resolved:
 
 1. Change the `Current Status` card to `Operational` or `Monitoring`.
-2. Move the current-event summary into `Previous Events`.
+2. Move the current incident summary into `Previous Events`.
 3. Include the resolved time and one sentence on impact.
-4. Remove the active event card if there is no current issue.
-5. Run `npm run build`.
+4. Run `npm run build`.
 
 ## Suggested Status Labels
 
@@ -48,6 +49,8 @@ Use this shape when club search is failing but the app is not globally offline:
 
 ```text
 Club search is currently unavailable.
+
+First reported: June 19, 2026 at 01:32 UTC.
 
 The official Clubs data provider is currently having problems with club search. You may be unable to find clubs or add a new club until search starts returning results again.
 

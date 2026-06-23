@@ -1,11 +1,11 @@
 .status-page {
     max-width: 880px;
     margin: 0 auto;
-    padding: 120px 20px 100px;
+    padding: 96px 20px 100px;
 }
 
 .status-hero {
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 
 .status-kicker,
@@ -22,7 +22,7 @@
 }
 
 .status-hero h1 {
-    font-size: clamp(3.6rem, 8vw, 6.8rem);
+    font-size: clamp(3.2rem, 7vw, 5.2rem);
     font-weight: 800;
     letter-spacing: -0.07em;
     line-height: 0.92;
@@ -31,7 +31,6 @@
 
 .status-hero-copy,
 .status-lead,
-.event-body p,
 .status-muted,
 .status-facts dd {
     color: rgba(255, 255, 255, 0.7);
@@ -51,7 +50,7 @@
     border-radius: 30px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
     margin-top: 20px;
-    padding: 28px;
+    padding: 24px;
 }
 
 .status-panel--current {
@@ -103,20 +102,20 @@
 
 .status-lead {
     font-size: 1.08rem;
-    margin-bottom: 26px;
+    margin-bottom: 18px;
 }
 
 .status-facts {
     display: grid;
-    gap: 14px;
+    gap: 10px;
 }
 
 .status-facts div {
     border-top: 1px solid rgba(255, 255, 255, 0.09);
     display: grid;
-    gap: 12px;
+    gap: 10px;
     grid-template-columns: 140px 1fr;
-    padding-top: 14px;
+    padding-top: 12px;
 }
 
 .status-facts dt {
@@ -126,33 +125,6 @@
 
 .status-facts dd {
     margin: 0;
-}
-
-.event-body p + p {
-    margin-top: 14px;
-}
-
-.event-footer {
-    align-items: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.09);
-    display: flex;
-    gap: 10px;
-    margin-top: 24px;
-    padding-top: 18px;
-}
-
-.event-footer span {
-    color: rgba(255, 255, 255, 0.52);
-    font-weight: 700;
-}
-
-.event-footer a {
-    color: var(--color-electric-blue);
-    font-weight: 800;
-}
-
-.event-footer a:hover {
-    color: #fff;
 }
 
 @media (max-width: 700px) {
@@ -169,8 +141,7 @@
         padding: 22px;
     }
 
-    .status-panel-header,
-    .event-footer {
+    .status-panel-header {
         align-items: flex-start;
         flex-direction: column;
     }
