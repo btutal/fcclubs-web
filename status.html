@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/app-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Current FC Clubs App status for data provider updates, app availability, downloads, purchases, and known incidents." />
+    <meta name="keywords" content="FC Clubs status, FC Clubs App status, Pro Clubs data provider status, FC Clubs incidents" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZG95LHNPW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YZG95LHNPW');
+    </script>
+
+    <meta name="theme-color" content="#021230" />
+    <meta property="og:title" content="Status | FC Clubs App" />
+    <meta property="og:description" content="Current availability and known incidents for FC Clubs App features and data provider updates." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fcclubs.app/status.html" />
+    <meta property="og:image" content="https://fcclubs.app/assets/screenshots/v1.1.0/02_squad_stats.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Status | FC Clubs App" />
+    <meta name="twitter:description" content="Current FC Clubs App availability and known incidents." />
+    <meta name="twitter:image" content="https://fcclubs.app/assets/screenshots/v1.1.0/02_squad_stats.png" />
+    <link rel="canonical" href="https://fcclubs.app/status.html" />
+
+    <title>Status | FC Clubs App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>body { background-color: #021230; color: white; }</style>
+
+    <link rel="stylesheet" href="/src/variables.css">
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="/src/status.css">
+  </head>
+  <body>
+    <div id="app">
+      <nav class="navbar">
+        <div class="container nav-content">
+          <a href="/" class="logo">
+            <img src="/assets/app-icon.png" alt="FC Clubs Logo" class="nav-logo-img">
+            <span>FC Clubs</span>
+          </a>
+          <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/status.html" aria-current="page">Status</a>
+            <a href="/whats-new.html">What's New</a>
+            <a href="/pro-stats.html">Pro Stats</a>
+          </div>
+        </div>
+      </nav>
+
+      <main class="status-page">
+        <header class="status-hero">
+          <div>
+            <p class="status-kicker">FC Clubs App Status</p>
+            <h1>Some data provider updates are delayed</h1>
+            <p class="status-hero-copy">We are tracking an active provider-side interruption that can delay club stats, sessions, and match-history refreshes for some clubs. Saved data remains available, and healthy features stay usable when their own requests respond.</p>
+          </div>
+
+          <section class="status-summary-card status-summary-card--degraded" aria-label="Current overall status">
+            <div class="status-summary-icon" aria-hidden="true"></div>
+            <div>
+              <span class="status-summary-label">Current status</span>
+              <strong>Degraded updates</strong>
+              <p>Some provider-backed refreshes are returning errors or stale data. This does not mean every FC Clubs feature is offline.</p>
+              <time datetime="2026-06-23T18:45:17+02:00">Last updated: June 23, 2026 at 18:45 CEST</time>
+            </div>
+          </section>
+        </header>
+
+        <section class="status-section" aria-labelledby="systems-heading">
+          <div class="status-section-header">
+            <h2 id="systems-heading">Feature Status</h2>
+            <p>What is affected right now, and what should continue to work.</p>
+          </div>
+
+          <div class="status-grid">
+            <article class="status-card status-card--degraded">
+              <div class="status-card-topline">
+                <span class="status-pill status-pill--degraded">Degraded</span>
+                <span class="status-dot status-dot--degraded" aria-hidden="true"></span>
+              </div>
+              <h3>Club stats, sessions, and match history</h3>
+              <p>New match and session updates may be delayed, incomplete, or temporarily unavailable when the data provider returns an error.</p>
+            </article>
+
+            <article class="status-card status-card--operational">
+              <div class="status-card-topline">
+                <span class="status-pill status-pill--operational">Operational</span>
+                <span class="status-dot status-dot--operational" aria-hidden="true"></span>
+              </div>
+              <h3>Saved club data</h3>
+              <p>Previously saved matches, sessions, squad stats, player cards, and local app history remain available on your device.</p>
+            </article>
+
+            <article class="status-card status-card--operational">
+              <div class="status-card-topline">
+                <span class="status-pill status-pill--operational">Operational</span>
+                <span class="status-dot status-dot--operational" aria-hidden="true"></span>
+              </div>
+              <h3>Leaderboards, club search, and Scout</h3>
+              <p>These features keep making their own requests and can continue to work when the affected match-history endpoints are failing.</p>
+            </article>
+
+            <article class="status-card status-card--operational">
+              <div class="status-card-topline">
+                <span class="status-pill status-pill--operational">Operational</span>
+                <span class="status-dot status-dot--operational" aria-hidden="true"></span>
+              </div>
+              <h3>Downloads and purchases</h3>
+              <p>App Store, Google Play, Pro Stats purchases, and restore flows are not part of the current provider incident.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="status-section status-incident" aria-labelledby="incident-heading">
+          <div class="status-section-header">
+            <h2 id="incident-heading">Latest Update</h2>
+            <p>Public incident note for users who ask why recent stats are not moving.</p>
+          </div>
+
+          <article class="incident-card">
+            <div class="incident-meta">
+              <span class="status-pill status-pill--degraded">Active incident</span>
+              <time datetime="2026-06-23T18:45:17+02:00">June 23, 2026 at 18:45 CEST</time>
+            </div>
+            <h3>Provider-backed club updates are delayed for some users</h3>
+            <p>The data provider is currently responding inconsistently for some club history requests. You may see club stats, matches, or sessions stuck on older data until the provider responses recover.</p>
+            <p>FC Clubs is keeping saved data visible and will continue to load features that have a healthy response. You do not need to reinstall the app or change your club setup.</p>
+          </article>
+        </section>
+
+        <section class="status-section status-guidance" aria-labelledby="guidance-heading">
+          <div class="status-section-header">
+            <h2 id="guidance-heading">What To Do</h2>
+            <p>Short guidance for players and clubs.</p>
+          </div>
+
+          <div class="guidance-grid">
+            <div class="guidance-card">
+              <h3>If your stats look stale</h3>
+              <p>Keep the app installed and check back later. A stuck club profile usually means the provider is returning old or failed responses, not that your local data is lost.</p>
+            </div>
+            <div class="guidance-card">
+              <h3>If another feature still works</h3>
+              <p>Use it normally. Leaderboards, search, and Scout can keep working when a different provider resource is degraded.</p>
+            </div>
+            <div class="guidance-card">
+              <h3>If you need support</h3>
+              <p>Email <a href="mailto:support@fcclubs.app">support@fcclubs.app</a> with your club name, platform, region, and what screen looks stale.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-content">
+          <div class="footer-col">
+            <span class="logo-text">FC Clubs</span>
+            <p class="footer-desc">Unofficial companion app. Not affiliated with EA Sports.</p>
+          </div>
+          <div class="footer-col links">
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Service</a>
+            <a href="/status.html" aria-current="page">Status</a>
+            <a href="/whats-new.html">What's New</a>
+            <a href="/pro-stats.html">Pro Stats</a>
+            <a href="https://github.com/btutal/fcclubs-web/issues/new?template=bug_report.yml" target="_blank">Report a Bug</a>
+          </div>
+        </div>
+        <div class="footer-bottom text-center">
+          <p>&copy; 2026 FC Clubs App. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -30,11 +30,16 @@ To run the website locally:
 3. Run `npm run dev` to start the local development server.
 4. Open the following links in your browser:
     - **Home**: `http://localhost:5173/`
+    - **Status**: `http://localhost:5173/status.html`
     - **Release Notes**: `http://localhost:5173/whats-new.html`
     - **Bento Generator**: `http://localhost:5173/bento_generator.html`
 
 > [!NOTE]
 > The port `5173` is the default for Vite. If it's occupied, check the terminal output for the correct port.
+
+## Status Page
+Operational status and incident copy are managed in `status.html`.
+See [docs/STATUS_PAGE.md](./docs/STATUS_PAGE.md) for wording rules and update steps.
 
 ## Feedback & Support
 This repository is also the central hub for:

@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         terms: resolve(__dirname, 'terms.html'),
+        status: resolve(__dirname, 'status.html'),
         whats_new: resolve(__dirname, 'whats-new.html'),
         pro_stats: resolve(__dirname, 'pro-stats.html'),
       },
