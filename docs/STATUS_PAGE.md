@@ -1,6 +1,6 @@
 # Status Page Runbook
 
-The public status page lives at `/status.html` and is intended for clear user communication during provider or app-side incidents.
+The public status page lives at `/status.html` and is intended for clear user communication during provider or app-side incidents. Keep it simple: current status, current event, and previous events.
 
 ## Wording Rules
 
@@ -14,14 +14,25 @@ The public status page lives at `/status.html` and is intended for clear user co
 
 Edit `status.html`:
 
-1. Update the main headline if the incident scope changed.
-2. Update both `<time>` elements:
+1. Update the `Current Status` card:
+   - label, for example `Degraded`, `Operational`, `Unavailable`, or `Monitoring`
+   - affected areas
+   - still-available areas
+2. Update the current-status `<time>` element:
    - the visible text, for example `June 23, 2026 at 18:45 CEST`
    - the `datetime` attribute, for example `2026-06-23T18:45:17+02:00`
-3. Update the feature cards:
-   - `Degraded` for affected feature groups
-   - `Operational` for feature groups that should continue working
-4. Update the `Latest Update` incident card with the newest user-facing note.
+3. Update the `Current Event` card with the newest user-facing note.
+4. If there is no active event, remove the current-event card and make the current status `Operational`.
+5. Run `npm run build`.
+
+## Resolving An Incident
+
+When the issue is resolved:
+
+1. Change the `Current Status` card to `Operational` or `Monitoring`.
+2. Move the current-event summary into `Previous Events`.
+3. Include the resolved time and one sentence on impact.
+4. Remove the active event card if there is no current issue.
 5. Run `npm run build`.
 
 ## Suggested Status Labels
@@ -42,4 +53,3 @@ The data provider is currently responding inconsistently for some club history r
 
 FC Clubs is keeping saved data visible and will continue to load features that have a healthy response. You do not need to reinstall the app or change your club setup.
 ```
-

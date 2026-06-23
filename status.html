@@ -59,105 +59,66 @@
 
       <main class="status-page">
         <header class="status-hero">
-          <div>
-            <p class="status-kicker">FC Clubs App Status</p>
-            <h1>Some data provider updates are delayed</h1>
-            <p class="status-hero-copy">We are tracking an active provider-side interruption that can delay club stats, sessions, and match-history refreshes for some clubs. Saved data remains available, and healthy features stay usable when their own requests respond.</p>
-          </div>
-
-          <section class="status-summary-card status-summary-card--degraded" aria-label="Current overall status">
-            <div class="status-summary-icon" aria-hidden="true"></div>
-            <div>
-              <span class="status-summary-label">Current status</span>
-              <strong>Degraded updates</strong>
-              <p>Some provider-backed refreshes are returning errors or stale data. This does not mean every FC Clubs feature is offline.</p>
-              <time datetime="2026-06-23T18:45:17+02:00">Last updated: June 23, 2026 at 18:45 CEST</time>
-            </div>
-          </section>
+          <p class="status-kicker">FC Clubs App Status</p>
+          <h1>Status</h1>
+          <p class="status-hero-copy">A short, current view of FC Clubs availability and active incidents.</p>
         </header>
 
-        <section class="status-section" aria-labelledby="systems-heading">
-          <div class="status-section-header">
-            <h2 id="systems-heading">Feature Status</h2>
-            <p>What is affected right now, and what should continue to work.</p>
+        <section class="status-panel status-panel--current" aria-labelledby="current-status-heading">
+          <div class="status-panel-header">
+            <div>
+              <p class="status-eyebrow">Current Status</p>
+              <h2 id="current-status-heading">Degraded updates</h2>
+            </div>
+            <span class="status-pill status-pill--degraded">Degraded</span>
           </div>
 
-          <div class="status-grid">
-            <article class="status-card status-card--degraded">
-              <div class="status-card-topline">
-                <span class="status-pill status-pill--degraded">Degraded</span>
-                <span class="status-dot status-dot--degraded" aria-hidden="true"></span>
-              </div>
-              <h3>Club stats, sessions, and match history</h3>
-              <p>New match and session updates may be delayed, incomplete, or temporarily unavailable when the data provider returns an error.</p>
-            </article>
+          <p class="status-lead">Some provider-backed club updates are delayed. Saved data remains available, and features with healthy responses can still work.</p>
 
-            <article class="status-card status-card--operational">
-              <div class="status-card-topline">
-                <span class="status-pill status-pill--operational">Operational</span>
-                <span class="status-dot status-dot--operational" aria-hidden="true"></span>
-              </div>
-              <h3>Saved club data</h3>
-              <p>Previously saved matches, sessions, squad stats, player cards, and local app history remain available on your device.</p>
-            </article>
-
-            <article class="status-card status-card--operational">
-              <div class="status-card-topline">
-                <span class="status-pill status-pill--operational">Operational</span>
-                <span class="status-dot status-dot--operational" aria-hidden="true"></span>
-              </div>
-              <h3>Leaderboards, club search, and Scout</h3>
-              <p>These features keep making their own requests and can continue to work when the affected match-history endpoints are failing.</p>
-            </article>
-
-            <article class="status-card status-card--operational">
-              <div class="status-card-topline">
-                <span class="status-pill status-pill--operational">Operational</span>
-                <span class="status-dot status-dot--operational" aria-hidden="true"></span>
-              </div>
-              <h3>Downloads and purchases</h3>
-              <p>App Store, Google Play, Pro Stats purchases, and restore flows are not part of the current provider incident.</p>
-            </article>
-          </div>
+          <dl class="status-facts" aria-label="Current status details">
+            <div>
+              <dt>Affected</dt>
+              <dd>Club stats, sessions, and match-history refreshes may be stale or incomplete.</dd>
+            </div>
+            <div>
+              <dt>Still available</dt>
+              <dd>Saved data, leaderboards, club search, Scout, downloads, and purchases.</dd>
+            </div>
+            <div>
+              <dt>Last updated</dt>
+              <dd><time datetime="2026-06-23T19:04:24+02:00">June 23, 2026 at 19:04 CEST</time></dd>
+            </div>
+          </dl>
         </section>
 
-        <section class="status-section status-incident" aria-labelledby="incident-heading">
-          <div class="status-section-header">
-            <h2 id="incident-heading">Latest Update</h2>
-            <p>Public incident note for users who ask why recent stats are not moving.</p>
+        <section class="status-panel" aria-labelledby="current-event-heading">
+          <div class="status-panel-header">
+            <div>
+              <p class="status-eyebrow">Current Event</p>
+              <h2 id="current-event-heading">Provider-backed club updates are delayed</h2>
+            </div>
+            <span class="status-pill status-pill--active">Active</span>
           </div>
 
-          <article class="incident-card">
-            <div class="incident-meta">
-              <span class="status-pill status-pill--degraded">Active incident</span>
-              <time datetime="2026-06-23T18:45:17+02:00">June 23, 2026 at 18:45 CEST</time>
-            </div>
-            <h3>Provider-backed club updates are delayed for some users</h3>
+          <div class="event-body">
             <p>The data provider is currently responding inconsistently for some club history requests. You may see club stats, matches, or sessions stuck on older data until the provider responses recover.</p>
-            <p>FC Clubs is keeping saved data visible and will continue to load features that have a healthy response. You do not need to reinstall the app or change your club setup.</p>
-          </article>
+            <p>FC Clubs will keep saved data visible and continue to load features that receive a healthy response. You do not need to reinstall the app or change your club setup.</p>
+          </div>
+
+          <footer class="event-footer">
+            <span>Need help?</span>
+            <a href="mailto:support@fcclubs.app">support@fcclubs.app</a>
+          </footer>
         </section>
 
-        <section class="status-section status-guidance" aria-labelledby="guidance-heading">
-          <div class="status-section-header">
-            <h2 id="guidance-heading">What To Do</h2>
-            <p>Short guidance for players and clubs.</p>
-          </div>
-
-          <div class="guidance-grid">
-            <div class="guidance-card">
-              <h3>If your stats look stale</h3>
-              <p>Keep the app installed and check back later. A stuck club profile usually means the provider is returning old or failed responses, not that your local data is lost.</p>
-            </div>
-            <div class="guidance-card">
-              <h3>If another feature still works</h3>
-              <p>Use it normally. Leaderboards, search, and Scout can keep working when a different provider resource is degraded.</p>
-            </div>
-            <div class="guidance-card">
-              <h3>If you need support</h3>
-              <p>Email <a href="mailto:support@fcclubs.app">support@fcclubs.app</a> with your club name, platform, region, and what screen looks stale.</p>
+        <section class="status-panel status-panel--quiet" aria-labelledby="previous-events-heading">
+          <div class="status-panel-header">
+            <div>
+              <p class="status-eyebrow">Previous Events</p>
+              <h2 id="previous-events-heading">No previous events listed yet</h2>
             </div>
           </div>
+          <p class="status-muted">When the current event is resolved, move it here with the resolution time and a short summary.</p>
         </section>
       </main>
 
