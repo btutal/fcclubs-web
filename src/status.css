@@ -57,6 +57,10 @@
     border-color: rgba(255, 194, 84, 0.26);
 }
 
+.status-panel--operational {
+    border-color: rgba(31, 232, 161, 0.28);
+}
+
 .status-panel--quiet {
     background: rgba(18, 23, 41, 0.46);
     box-shadow: none;
@@ -98,6 +102,13 @@
     background: rgba(255, 194, 84, 0.12);
     border: 1px solid rgba(255, 194, 84, 0.3);
     color: #ffd992;
+}
+
+.status-pill--operational,
+.status-pill--resolved {
+    background: rgba(31, 232, 161, 0.12);
+    border: 1px solid rgba(31, 232, 161, 0.3);
+    color: var(--color-neon-green);
 }
 
 .status-lead {

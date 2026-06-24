@@ -61,36 +61,28 @@
         <header class="status-hero">
           <p class="status-kicker">FC Clubs App Status</p>
           <h1>Status</h1>
-          <p class="status-hero-copy">A short, current view of FC Clubs availability and active incidents.</p>
+          <p class="status-hero-copy">A short, current view of FC Clubs availability and recent incidents.</p>
         </header>
 
-        <section class="status-panel status-panel--current" aria-labelledby="current-status-heading">
+        <section class="status-panel status-panel--current status-panel--operational" aria-labelledby="current-status-heading">
           <div class="status-panel-header">
             <div>
               <p class="status-eyebrow">Current Status</p>
-              <h2 id="current-status-heading">Club search unavailable</h2>
+              <h2 id="current-status-heading">All systems operational</h2>
             </div>
-            <span class="status-pill status-pill--degraded">Degraded</span>
+            <span class="status-pill status-pill--operational">Operational</span>
           </div>
 
-          <p class="status-lead">Club search is currently unavailable because the official Clubs data provider is not returning search results reliably. The rest of the app remains available where provider responses are healthy. You do not need to reinstall or change your existing setup.</p>
+          <p class="status-lead">Provider-backed updates are currently operating normally. If you still see stale data, refresh the app or try again; you do not need to reinstall or change your existing setup.</p>
 
           <dl class="status-facts" aria-label="Current status details">
             <div>
-              <dt>Affected</dt>
-              <dd>Searching for clubs and setting up a new club from search may fail.</dd>
+              <dt>Available</dt>
+              <dd>Club search, saved data, existing club views, leaderboards, Scout, downloads, and purchases.</dd>
             </div>
             <div>
-              <dt>Still available</dt>
-              <dd>Saved data, existing club views, leaderboards, Scout, downloads, and purchases.</dd>
-            </div>
-            <div>
-              <dt>First reported</dt>
-              <dd><time datetime="2026-06-19T01:32:00Z">June 19, 2026 at 01:32 UTC</time></dd>
-            </div>
-            <div>
-              <dt>Last updated</dt>
-              <dd><time datetime="2026-06-23T19:17:49+02:00">June 23, 2026 at 19:17 CEST</time></dd>
+              <dt>Last checked</dt>
+              <dd><time datetime="2026-06-24T21:27:04+02:00">June 24, 2026 at 21:27 CEST</time></dd>
             </div>
           </dl>
 
@@ -100,10 +92,22 @@
           <div class="status-panel-header">
             <div>
               <p class="status-eyebrow">Previous Events</p>
-              <h2 id="previous-events-heading">No previous events listed yet</h2>
+              <h2 id="previous-events-heading">Club search interruption</h2>
             </div>
+            <span class="status-pill status-pill--resolved">Resolved</span>
           </div>
-          <p class="status-muted">When the current incident is resolved, move it here with the resolution time and a short summary.</p>
+          <p class="status-muted">The official Clubs data provider intermittently failed to return club search results. Search and new-club setup may have failed during the incident, while saved data and other healthy app areas remained available.</p>
+
+          <dl class="status-facts" aria-label="Previous event details">
+            <div>
+              <dt>First reported</dt>
+              <dd><time datetime="2026-06-19T01:32:00Z">June 19, 2026 at 01:32 UTC</time></dd>
+            </div>
+            <div>
+              <dt>Resolved</dt>
+              <dd><time datetime="2026-06-24T19:27:04Z">June 24, 2026 at 19:27 UTC</time></dd>
+            </div>
+          </dl>
         </section>
       </main>
 
