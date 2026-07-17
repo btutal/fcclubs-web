@@ -115,6 +115,8 @@
     transition: color 0.2s ease, background 0.2s ease;
 }
 
+#v117-ios:checked ~ .platform-tab-list label[for="v117-ios"],
+#v117-android:checked ~ .platform-tab-list label[for="v117-android"],
 #v116-ios:checked ~ .platform-tab-list label[for="v116-ios"],
 #v116-android:checked ~ .platform-tab-list label[for="v116-android"],
 #v114-ios:checked ~ .platform-tab-list label[for="v114-ios"],
@@ -125,6 +127,8 @@
     color: #fff;
 }
 
+#v117-ios:focus-visible ~ .platform-tab-list label[for="v117-ios"],
+#v117-android:focus-visible ~ .platform-tab-list label[for="v117-android"],
 #v116-ios:focus-visible ~ .platform-tab-list label[for="v116-ios"],
 #v116-android:focus-visible ~ .platform-tab-list label[for="v116-android"],
 #v114-ios:focus-visible ~ .platform-tab-list label[for="v114-ios"],
@@ -139,6 +143,8 @@
     display: none;
 }
 
+#v117-ios:checked ~ .platform-tab-panels .platform-tab-panel-ios,
+#v117-android:checked ~ .platform-tab-panels .platform-tab-panel-android,
 #v116-ios:checked ~ .platform-tab-panels .platform-tab-panel-ios,
 #v116-android:checked ~ .platform-tab-panels .platform-tab-panel-android,
 #v114-ios:checked ~ .platform-tab-panels .platform-tab-panel-ios,
