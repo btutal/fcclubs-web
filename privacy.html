@@ -3,113 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Privacy Policy for FC Clubs App. Learn how we handle your EA FC 26 Pro Clubs data and our commitment to privacy." />
+    <meta name="description" content="Privacy Policy for FC Clubs App. Learn what the iOS app, Android app, and website process and how to request deletion." />
     <link rel="canonical" href="https://fcclubs.app/privacy.html" />
     <title>Privacy Policy | FC Clubs App</title>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZG95LHNPW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-YZG95LHNPW');
-    </script>
 
     <link rel="icon" type="image/png" href="/assets/app-icon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --bg-midnight: #021230;
-        --color-neon: #42FEC2;
-      }
-      body {
-        background: var(--bg-midnight);
-        color: #ddd;
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        padding: 40px 20px;
-      }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-      h1 { color: #fff; border-bottom: 2px solid var(--color-neon); padding-bottom: 10px; margin-bottom: 30px; }
-      h2 { color: #fff; margin-top: 30px; }
-      ul { padding-left: 20px; }
-      li { margin-bottom: 10px; }
-      a { color: var(--color-neon); text-decoration: none; }
-      .back-btn { display: inline-block; margin-bottom: 20px; color: #fff; opacity: 0.7; }
-    </style>
+    <link rel="stylesheet" href="/src/legal.css">
+    <link rel="stylesheet" href="/src/analytics-consent.css">
+    <script type="module" src="/src/analytics-consent.js"></script>
   </head>
-  <body>
-    <div class="container">
+  <body class="legal-page">
+    <main class="legal-page__content">
       <a href="/" class="back-btn">&larr; Back to Home</a>
       <h1>Privacy Policy</h1>
-      <p>Last updated: May 13, 2026</p>
+      <p>Last updated: July 25, 2026</p>
 
       <h2>Privacy Commitment</h2>
-      <p>FC Clubs App is designed to minimize data collection. Some optional features (analytics, crash reporting, and telemetry) only run if you opt in.</p>
+      <p>FC Clubs is designed to minimize data collection. We do not sell personal data or use it for advertising. Optional app analytics, crash reporting, and backend telemetry run only after you opt in through the app.</p>
+      <p>The latest Android 1.1.7 builds explicitly remove access to the Android Advertising ID (AAID). Older Android builds that remain installed may still include an SDK-contributed AAID permission until they are updated. FC Clubs has never used AAID to serve ads, but Firebase Analytics may have accessed it for measurement in an older build when Share Analytics was enabled. The iOS app does not request Apple’s Identifier for Advertisers (IDFA).</p>
+      <p>Firebase’s installation identifier supports app functionality. Firebase Analytics App Instance IDs are separate, non-advertising identifiers used only for opted-in measurement, and an Analytics ID may change over time or across consent cycles.</p>
 
       <h2>Scope</h2>
       <ul>
-        <li><strong>Website:</strong> This website may use Google Analytics through Google tag to understand aggregate site traffic and page usage.</li>
-        <li><strong>iOS App:</strong> The FC Clubs iOS app may process and store data as described below.</li>
-        <li><strong>Android App:</strong> The FC Clubs Android app may process and store data as described below, including optional Google Drive backup and Google Play Billing features.</li>
+        <li><strong>Website:</strong> This website offers optional Google Analytics, which remains off until you explicitly allow it.</li>
+        <li><strong>iOS app:</strong> The FC Clubs iOS app may store, sync, and process data as described below.</li>
+        <li><strong>Android app:</strong> The FC Clubs Android app may store, back up, and process data as described below, including optional Google Drive backup and Google Play Billing features.</li>
       </ul>
 
-      <h2>Data Stored for App Functionality</h2>
+      <h2 id="website-analytics">Website Analytics</h2>
+      <p>Google Analytics is optional on this website. We do not load the Google Analytics script or send it website-use data until you select <strong>Allow</strong>. If allowed, it may receive page views, session and engagement information, website interactions such as scrolling or outbound-link use, approximate region, browser and device information, and a Google Analytics client identifier so we can understand aggregate site use. Advertising storage, ad-user-data signals, ad personalization, ad-click identifier passthrough, and Google signals are disabled.</p>
+      <p>Your choice is saved in this browser. You can change it below at any time. Selecting <strong>Decline</strong> disables future website analytics and removes FC Clubs Google Analytics cookies that this site can access.</p>
+      <div class="analytics-preference" aria-labelledby="website-analytics-preference-title">
+        <h3 id="website-analytics-preference-title">Website analytics preference</h3>
+        <p class="analytics-preference__status" data-analytics-consent-status aria-live="polite">Checking your saved choice…</p>
+        <div class="analytics-preference__actions" aria-label="Website analytics preference">
+          <button type="button" class="analytics-preference__button" data-analytics-preference="denied" aria-pressed="false">Decline</button>
+          <button type="button" class="analytics-preference__button" data-analytics-preference="granted" aria-pressed="false">Allow</button>
+        </div>
+      </div>
+
+      <h2>Data Used for App Functionality</h2>
       <ul>
-        <li><strong>On device:</strong> Your club data, preferences, and match history are stored locally on your device.</li>
-        <li><strong>iCloud sync (Apple CloudKit):</strong> On iOS, if you are signed into iCloud, the app may sync your data across devices using Apple CloudKit. This sync is tied to your Apple ID and governed by Apple’s policies.</li>
-        <li><strong>Google Drive backup:</strong> On Android, if you connect Google Drive, the app may back up preferences and raw app data to your Google Drive appDataFolder so you can restore after reinstalling or moving to a new device. Backup payloads are encrypted and compressed before upload. Google Drive backup is tied to your Google account and governed by Google’s policies.</li>
-        <li><strong>EA servers:</strong> The app communicates directly with EA Sports servers to retrieve your club statistics.</li>
+        <li><strong>On device:</strong> Your saved clubs, player and club statistics, preferences, and match history are stored locally so the app can provide its core features.</li>
+        <li><strong>iCloud sync (Apple CloudKit):</strong> On iOS, if you are signed in to iCloud, the app may sync app data across your devices. This is tied to your Apple ID and governed by Apple’s policies.</li>
+        <li><strong>Google Drive backup:</strong> On Android, if you connect Google Drive, the app may back up preferences and raw app data to your Google Drive app-data folder so you can restore after reinstalling or moving to a new device. Backup payloads are encrypted and compressed before upload. This is tied to your Google account and governed by Google’s policies.</li>
+        <li><strong>EA servers:</strong> The app communicates with EA Sports services to retrieve public or account-selected club and match statistics.</li>
+        <li><strong>Firebase Installations and Remote Config:</strong> Firebase creates an installation identifier used for app functionality such as configuration delivery and installation-specific support or debug access. This is not an advertising identifier and is separate from the Share Analytics setting.</li>
       </ul>
 
-      <h2>Purchases (Google Play Billing)</h2>
-      <p>On Android, optional purchases are processed by Google Play Billing. Google handles payment details. The app receives purchase and product status so it can unlock owned features, restore eligible purchases, and keep local entitlement state in sync. Google Play Billing remains the source of truth for Android purchase ownership.</p>
+      <h2>Purchases</h2>
+      <p>On Android, optional purchases are processed by Google Play Billing. Google handles payment details. The app receives product, purchase, and entitlement status so it can unlock owned features and restore eligible purchases. Google Play Billing remains the source of truth for Android purchase ownership.</p>
 
-      <h2>Optional Analytics &amp; Crash Reporting (Google Firebase)</h2>
+      <h2>Optional Firebase Analytics and Crash Reporting</h2>
       <ul>
-        <li><strong>Firebase Analytics (opt-in):</strong> Helps us understand app usage and improve features. You can control this via the “Share Analytics” setting in the app.</li>
-        <li><strong>Firebase Crashlytics (opt-in):</strong> Helps us diagnose crashes and stability issues. You can control this via the “Crash Reporting” setting in the app.</li>
-        <li><strong>Firebase Remote Config + Installations:</strong> Used for debug/support feature gating (for example, enabling debug tools for specific installations). This is separate from Analytics/Crashlytics consent.</li>
+        <li><strong>Firebase Analytics (opt-in):</strong> If you enable <strong>Share Analytics</strong>, Firebase may process app interactions, approximate location derived from network information, device and app information, and a Firebase app-instance identifier. The identifier helps associate events from the same app installation; it is not AAID or IDFA. Advertising storage, ad user data, and ad personalization remain disabled.</li>
+        <li><strong>Firebase Crashlytics (opt-in):</strong> If you enable <strong>Crash Reporting</strong>, Firebase may process crash traces, diagnostics, device and operating-system details, app state, and an installation identifier to diagnose stability problems.</li>
       </ul>
 
-      <h2>Optional App Telemetry (Our Service on Cloudflare Workers + D1)</h2>
-      <p>If you enable “Share Analytics”, the app may also send lightweight telemetry to our own API (hosted on Cloudflare Workers and stored in Cloudflare D1) to help us monitor reliability and understand aggregate usage.</p>
-      <p>This telemetry may include:</p>
+      <h2>Optional Backend Telemetry</h2>
+      <p>If you enable <strong>Share Analytics</strong>, the app may also send telemetry to our API, hosted on Cloudflare Workers and stored in Cloudflare D1. This helps us monitor reliability and understand feature use.</p>
+      <p>Depending on the event, this telemetry may include:</p>
       <ul>
-        <li><strong>App identifiers:</strong> a randomly generated installation ID, game version, app version, and build number.</li>
-        <li><strong>Saved slots snapshot:</strong> platform, club ID, and your in-game player name (if provided).</li>
-        <li><strong>Match references:</strong> match IDs and optional metadata (such as match type, timestamp, and club IDs).</li>
-        <li><strong>Health signals:</strong> sync success/failure and timing, plus a daily “active install” heartbeat.</li>
+        <li><strong>Installation and app context:</strong> a randomly generated installation identifier, platform, game version, app version, build number, device model, operating-system version, locale, time zone, and relevant preferences.</li>
+        <li><strong>Saved-slot context:</strong> platform, club ID, and your in-game player name when available.</li>
+        <li><strong>Match context:</strong> match IDs and related metadata such as match type, timestamp, and club IDs.</li>
+        <li><strong>Product and health signals:</strong> feature interactions, purchase or entitlement state, sync success or failure and timing, plus an active-install heartbeat.</li>
       </ul>
-      <p>We do not use this telemetry for advertising, and we do not sell your data.</p>
+      <p>These records are pseudonymous rather than fully anonymous because events from the same installation can be linked and may contain club, match, or in-game player context. We do not use them for advertising.</p>
 
       <h2>Third-Party Service Providers</h2>
       <ul>
-        <li><strong>Apple (iCloud/CloudKit):</strong> Used for syncing iOS app data across devices (when iCloud is enabled).</li>
-        <li><strong>Google Drive:</strong> Used for optional Android backup and restore (when connected).</li>
-        <li><strong>Google Play Billing:</strong> Used for Android purchases and purchase restoration.</li>
-        <li><strong>Google (Firebase):</strong> Used for optional analytics and crash reporting (when enabled).</li>
-        <li><strong>Cloudflare (Workers + D1):</strong> Hosts our telemetry API and database used to store telemetry (when enabled).</li>
-        <li><strong>Telegram (optional):</strong> We may send operational notifications to a private Telegram channel (e.g., counts and health signals). These notifications are for service monitoring.</li>
+        <li><strong>Apple (iCloud/CloudKit):</strong> Syncs iOS app data across devices when iCloud is enabled.</li>
+        <li><strong>Google Drive:</strong> Provides optional Android backup and restore when connected.</li>
+        <li><strong>Google Play Billing:</strong> Processes Android purchases and purchase restoration.</li>
+        <li><strong>Google Firebase:</strong> Provides installation and Remote Config functionality, plus optional analytics and crash reporting when enabled.</li>
+        <li><strong>Cloudflare (Workers + D1):</strong> Hosts our optional telemetry API and stores telemetry when Share Analytics is enabled.</li>
+        <li><strong>Telegram:</strong> Our service may send aggregate counts and operational health notifications to a private channel. These notifications are designed not to include installation identifiers, device details, player names, club IDs, or match IDs.</li>
       </ul>
 
       <h2>Your Choices</h2>
       <ul>
-        <li>You can enable/disable <strong>Share Analytics</strong> and <strong>Crash Reporting</strong> at any time in the app settings.</li>
-        <li>If you disable “Share Analytics”, the app stops sending Firebase Analytics events and stops sending telemetry to our backend.</li>
-        <li>On Android, Google Drive backup is optional. You can connect or disconnect Google Drive in the app’s cloud/backup settings.</li>
-        <li>On Android, you can restore eligible Google Play purchases from the app’s purchase or settings screens.</li>
+        <li>You can enable or disable <strong>Share Analytics</strong> and <strong>Crash Reporting</strong> at any time in app settings.</li>
+        <li>Disabling Share Analytics stops new Firebase Analytics events and new telemetry submissions to our backend.</li>
+        <li>On Android, Google Drive backup is optional and can be connected or disconnected in the app’s cloud and backup settings.</li>
+        <li>You can change this website’s Google Analytics choice in the <a href="#website-analytics">Website Analytics</a> section above.</li>
       </ul>
 
       <h2>Data Retention</h2>
-      <p>We retain analytics, crash reports, and telemetry for as long as needed to operate and improve the app. If you have a deletion request, please contact us.</p>
+      <p>We retain analytics, crash reports, and backend telemetry only for as long as reasonably needed to operate, secure, diagnose, and improve FC Clubs. Platform providers may apply their own retention schedules to data they process.</p>
+      <p>Current app versions keep the Analytics App Instance IDs they capture locally on your device so those identifiers remain available for a later deletion request after Analytics is turned off. Clearing app storage or uninstalling the app removes this local support record, and IDs created before this feature was available may not have been captured.</p>
+
+      <h2 id="data-deletion">Data Deletion Requests</h2>
+      <p>To request deletion of app analytics, crash, or backend telemetry associated with your installation, email <a href="mailto:support@fcclubs.app?subject=FC%20Clubs%20data%20deletion%20request">support@fcclubs.app</a> with the subject <strong>FC Clubs data deletion request</strong>.</p>
+      <p>In a current app version, open <strong>Settings &gt; Privacy</strong> and select <strong>Request Data Deletion</strong>. The prefilled email labels your app platform, Backend Telemetry Installation ID, Firebase Installation ID, and Firebase Analytics App Instance IDs when available. It may contain multiple retained Analytics IDs. These are app-specific identifiers, not advertising IDs. If you compose the email manually, include the same available identifiers from that screen.</p>
+      <p>Send the deletion request before uninstalling the app or clearing its storage whenever possible, because either action removes the locally retained support identifiers.</p>
+      <p>Do not send your club ID, in-game player name, EA, Apple, or Google password, payment details, or identity documents. We will use the app-specific identifiers only to locate relevant records, process the request with the applicable service providers, and respond to you. Provider retention and deletion processing times may vary.</p>
+      <p>Deleting the app or clearing its storage removes local app data. iCloud and Google Drive data can also be managed through the controls provided by Apple and Google. A deletion request does not automatically remove data held in your own iCloud or Google Drive account.</p>
 
       <h2>Contact Us</h2>
-      <p>If you have questions or requests, please open an issue on our GitHub repository.</p>
-    </div>
+      <p>For privacy questions, support requests, or data requests, email <a href="mailto:support@fcclubs.app">support@fcclubs.app</a>.</p>
+    </main>
   </body>
 </html>

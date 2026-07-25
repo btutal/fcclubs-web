@@ -1,0 +1,96 @@
+:root {
+    --bg-midnight: #021230;
+    --color-neon-green: #42fec2;
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.legal-page {
+    margin: 0;
+    padding: 40px 20px 72px;
+    color: #ddd;
+    font-family: var(--font-main);
+    line-height: 1.65;
+    background: var(--bg-midnight);
+    -webkit-font-smoothing: antialiased;
+}
+
+.legal-page__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-page h1 {
+    margin: 0 0 30px;
+    padding-bottom: 10px;
+    color: #fff;
+    border-bottom: 2px solid var(--color-neon-green);
+}
+
+.legal-page h2 {
+    margin: 34px 0 10px;
+    color: #fff;
+    line-height: 1.25;
+    scroll-margin-top: 24px;
+}
+
+.legal-page p {
+    margin: 0 0 16px;
+}
+
+.legal-page ul {
+    margin: 0 0 20px;
+    padding-left: 22px;
+}
+
+.legal-page li {
+    margin-bottom: 10px;
+}
+
+.legal-page a {
+    color: var(--color-neon-green);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.legal-page a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.legal-page a:focus-visible {
+    outline: 3px solid var(--color-neon-green);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.legal-page .back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.78;
+}
+
+.legal-page .back-btn:hover {
+    opacity: 1;
+}
+
+@media (max-width: 640px) {
+    body.legal-page {
+        padding: 24px 18px 56px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
