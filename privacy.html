@@ -20,6 +20,7 @@
 
       <h2>Privacy Commitment</h2>
       <p>FC Clubs is designed to minimize data collection. We do not sell personal data or use it for advertising. Optional app analytics, crash reporting, and backend telemetry run only after you opt in through the app.</p>
+      <p><strong>Collection is not tracking.</strong> Apple and Google require developers to describe certain service and analytics data as “collected” when it leaves the device. “Tracking” is a separate practice: linking FC Clubs data with data from other companies for targeted advertising or advertising measurement, or sharing it with a data broker. FC Clubs does none of those things. Firebase and Cloudflare process data only to provide the services described in this policy.</p>
       <p>The latest Android 1.1.7 builds explicitly remove access to the Android Advertising ID (AAID). Older Android builds that remain installed may still include an SDK-contributed AAID permission until they are updated. FC Clubs has never used AAID to serve ads, but Firebase Analytics may have accessed it for measurement in an older build when Share Analytics was enabled. The iOS app does not request Apple’s Identifier for Advertisers (IDFA).</p>
       <p>Firebase’s installation identifier supports app functionality. Firebase Analytics App Instance IDs are separate, non-advertising identifiers used only for opted-in measurement, and an Analytics ID may change over time or across consent cycles.</p>
 
@@ -52,11 +53,11 @@
       </ul>
 
       <h2>Purchases</h2>
-      <p>On Android, optional purchases are processed by Google Play Billing. Google handles payment details. The app receives product, purchase, and entitlement status so it can unlock owned features and restore eligible purchases. Google Play Billing remains the source of truth for Android purchase ownership.</p>
+      <p>Optional purchases are processed by Apple’s App Store or Google Play Billing. Apple or Google handles payment details. The app receives product, purchase, and entitlement status so it can unlock owned features and restore eligible purchases. FC Clubs does not receive your payment card details.</p>
 
       <h2>Optional Firebase Analytics and Crash Reporting</h2>
       <ul>
-        <li><strong>Firebase Analytics (opt-in):</strong> If you enable <strong>Share Analytics</strong>, Firebase may process app interactions, approximate location derived from network information, device and app information, and a Firebase app-instance identifier. The identifier helps associate events from the same app installation; it is not AAID or IDFA. Advertising storage, ad user data, and ad personalization remain disabled.</li>
+        <li><strong>Firebase Analytics (opt-in):</strong> If you enable <strong>Share Analytics</strong>, Firebase may process app interactions, a broad region derived from a masked IP address, device and app information, App Store or Google Play purchase events such as product identifier, name, and price, and a Firebase app-instance identifier. FC Clubs does not request GPS or precise location for Analytics and does not send payment card details. The identifier helps associate events from the same app installation; it is not AAID or IDFA. Advertising storage, ad user data, and ad personalization remain disabled.</li>
         <li><strong>Firebase Crashlytics (opt-in):</strong> If you enable <strong>Crash Reporting</strong>, Firebase may process crash traces, diagnostics, device and operating-system details, app state, and an installation identifier to diagnose stability problems.</li>
       </ul>
 
@@ -70,6 +71,19 @@
         <li><strong>Product and health signals:</strong> feature interactions, purchase or entitlement state, sync success or failure and timing, plus an active-install heartbeat.</li>
       </ul>
       <p>These records are pseudonymous rather than fully anonymous because events from the same installation can be linked and may contain club, match, or in-game player context. We do not use them for advertising.</p>
+
+      <h2>What the Store Privacy Labels Mean</h2>
+      <p>Apple and Google choose the names of the categories shown on their store forms. For FC Clubs, the less-obvious labels map to the following limited data:</p>
+      <ul>
+        <li><strong>Coarse or approximate location:</strong> only the broad region Firebase Analytics derives from a masked IP address after Share Analytics is enabled—not GPS, precise location, or location history.</li>
+        <li><strong>Purchase history:</strong> an opted-in analytics event containing product information and purchase or entitlement state—not payment card or billing details.</li>
+        <li><strong>User ID:</strong> the in-game player display name that may accompany opted-in backend telemetry. FC Clubs does not create or require an FC Clubs user account.</li>
+        <li><strong>Gameplay content or other actions:</strong> saved-slot and match context, such as the selected club, player, match identifier, match type, timestamp, and participating club identifiers, sent only with opted-in backend telemetry.</li>
+        <li><strong>Product interaction:</strong> opted-in events about screens or features used in the app.</li>
+        <li><strong>Diagnostics and performance:</strong> opted-in crash details, app and device state, and sync outcomes or timing used to diagnose reliability.</li>
+        <li><strong>Device ID:</strong> random, app-specific installation or app-instance identifiers used for Firebase configuration, support, deletion requests, and opted-in measurement—not AAID or IDFA in current builds.</li>
+      </ul>
+      <p>None of these categories is used to track you across other companies’ apps or websites, build an advertising profile, target ads, measure ads, or provide data to a broker.</p>
 
       <h2>Third-Party Service Providers</h2>
       <ul>

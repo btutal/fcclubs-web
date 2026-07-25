@@ -68,5 +68,11 @@ test('privacy policy exposes analytics controls and a usable deletion request ro
     assert.match(privacyPolicy, /keep the Analytics App Instance IDs they capture locally/);
     assert.match(privacyPolicy, /Send the deletion request before uninstalling/);
     assert.match(privacyPolicy, /Older Android builds that remain installed may still include/);
+    assert.match(privacyPolicy, /Collection is not tracking/);
+    assert.match(privacyPolicy, /broad region derived from a masked IP address/);
+    assert.match(privacyPolicy, /does not request GPS or precise location for Analytics/);
+    assert.match(privacyPolicy, /does not receive your payment card details/);
+    assert.match(privacyPolicy, /FC Clubs does not create or require an FC Clubs user account/);
+    assert.match(privacyPolicy, /None of these categories is used to track you across other companies/);
     assert.doesNotMatch(privacyPolicy, /include your platform, club ID, or in-game player name/);
 });
