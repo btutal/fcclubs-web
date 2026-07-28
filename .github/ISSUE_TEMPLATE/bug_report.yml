@@ -14,8 +14,8 @@ body:
   - type: input
     id: device
     attributes:
-      label: Device & iOS Version
-      placeholder: iPhone 15 Pro, iOS 18.2
+      label: Device & OS Version
+      placeholder: iPhone 15 Pro, iOS 18.2 or Pixel 9, Android 16
     validations:
       required: false
 

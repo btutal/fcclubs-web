@@ -20,9 +20,8 @@
 
       <h2>Privacy Commitment</h2>
       <p>FC Clubs is designed to minimize data collection. We do not sell personal data or use it for advertising. Optional app analytics, crash reporting, and backend telemetry run only after you opt in through the app.</p>
-      <p><strong>Collection is not tracking.</strong> Apple and Google require developers to describe certain service and analytics data as “collected” when it leaves the device. “Tracking” is a separate practice: linking FC Clubs data with data from other companies for targeted advertising or advertising measurement, or sharing it with a data broker. FC Clubs does none of those things. Firebase and Cloudflare process data only to provide the services described in this policy.</p>
-      <p>The latest Android 1.1.7 builds explicitly remove access to the Android Advertising ID (AAID). Older Android builds that remain installed may still include an SDK-contributed AAID permission until they are updated. FC Clubs has never used AAID to serve ads, but Firebase Analytics may have accessed it for measurement in an older build when Share Analytics was enabled. The iOS app does not request Apple’s Identifier for Advertisers (IDFA).</p>
-      <p>Firebase’s installation identifier supports app functionality. Firebase Analytics App Instance IDs are separate, non-advertising identifiers used only for opted-in measurement, and an Analytics ID may change over time or across consent cycles.</p>
+      <p><strong>Collection is not tracking.</strong> Apple and Google require developers to describe certain service and analytics data as “collected” when it leaves the device. “Tracking” is a separate practice: linking FC Clubs data with data from other companies for targeted advertising or advertising measurement, or sharing it with a data broker. FC Clubs does none of those things.</p>
+      <p>Current Android builds do not request the Android Advertising ID (AAID). Some older installed builds may still include an SDK-contributed AAID permission until they are updated; when Share Analytics was enabled in an older build, Firebase Analytics may have used it for measurement. FC Clubs has never used AAID to serve ads. The iOS app does not request Apple’s Identifier for Advertisers (IDFA).</p>
 
       <h2>Scope</h2>
       <ul>
@@ -47,9 +46,9 @@
       <ul>
         <li><strong>On device:</strong> Your saved clubs, player and club statistics, preferences, and match history are stored locally so the app can provide its core features.</li>
         <li><strong>iCloud sync (Apple CloudKit):</strong> On iOS, if you are signed in to iCloud, the app may sync app data across your devices. This is tied to your Apple ID and governed by Apple’s policies.</li>
-        <li><strong>Google Drive backup:</strong> On Android, if you connect Google Drive, the app may back up preferences and raw app data to your Google Drive app-data folder so you can restore after reinstalling or moving to a new device. Backup payloads are encrypted and compressed before upload. This is tied to your Google account and governed by Google’s policies.</li>
+        <li><strong>Google Drive backup:</strong> On Android, if you connect Google Drive, the app may back up preferences and app data to your Google Drive app-data folder so you can restore after reinstalling or moving to a new device. Backup data is encrypted before upload. This is tied to your Google account and governed by Google’s policies.</li>
         <li><strong>EA servers:</strong> The app communicates with EA Sports services to retrieve public or account-selected club and match statistics.</li>
-        <li><strong>Firebase Installations and Remote Config:</strong> Firebase creates an installation identifier used for app functionality such as configuration delivery and installation-specific support or debug access. This is not an advertising identifier and is separate from the Share Analytics setting.</li>
+        <li><strong>Firebase Installations and Remote Config:</strong> Firebase may create an app-specific installation identifier to deliver configuration and support core services. This is not an advertising identifier and is separate from the Share Analytics setting.</li>
       </ul>
 
       <h2>Purchases</h2>
@@ -61,27 +60,25 @@
         <li><strong>Firebase Crashlytics (opt-in):</strong> If you enable <strong>Crash Reporting</strong>, Firebase may process crash traces, diagnostics, device and operating-system details, app state, and an installation identifier to diagnose stability problems.</li>
       </ul>
 
-      <h2>Optional Backend Telemetry</h2>
-      <p>If you enable <strong>Share Analytics</strong>, the app may also send telemetry to our API, hosted on Cloudflare Workers and stored in Cloudflare D1. This helps us monitor reliability and understand feature use.</p>
-      <p>Depending on the event, this telemetry may include:</p>
+      <h2>Optional App Telemetry</h2>
+      <p>If you enable <strong>Share Analytics</strong>, the app may also send pseudonymous usage and reliability information to FC Clubs. Depending on the activity, this may include:</p>
       <ul>
-        <li><strong>Installation and app context:</strong> a randomly generated installation identifier, platform, game version, app version, build number, device model, operating-system version, locale, time zone, and relevant preferences.</li>
-        <li><strong>Saved-slot context:</strong> platform, club ID, and your in-game player name when available.</li>
-        <li><strong>Match context:</strong> match IDs and related metadata such as match type, timestamp, and club IDs.</li>
-        <li><strong>Product and health signals:</strong> feature interactions, purchase or entitlement state, sync success or failure and timing, plus an active-install heartbeat.</li>
+        <li><strong>App and device context:</strong> app and device versions, general language or region settings, selected preferences, and a random app-specific installation reference.</li>
+        <li><strong>Club and match context:</strong> the selected club, in-game player name, match identifiers, and basic match information.</li>
+        <li><strong>Usage and reliability:</strong> feature use, purchase or entitlement state, and sync outcomes or timing.</li>
       </ul>
-      <p>These records are pseudonymous rather than fully anonymous because events from the same installation can be linked and may contain club, match, or in-game player context. We do not use them for advertising.</p>
+      <p>This information is pseudonymous rather than fully anonymous because activity from the same installation can be linked. It is not used for advertising.</p>
 
       <h2>What the Store Privacy Labels Mean</h2>
       <p>Apple and Google choose the names of the categories shown on their store forms. For FC Clubs, the less-obvious labels map to the following limited data:</p>
       <ul>
         <li><strong>Coarse or approximate location:</strong> only the broad region Firebase Analytics derives from a masked IP address after Share Analytics is enabled—not GPS, precise location, or location history.</li>
-        <li><strong>Purchase history:</strong> an opted-in analytics event containing product information and purchase or entitlement state—not payment card or billing details.</li>
+        <li><strong>Purchase history:</strong> product and entitlement information used to process purchases and, when analytics is enabled, understand purchase events—not payment card or billing details.</li>
         <li><strong>User ID:</strong> the in-game player display name that may accompany opted-in backend telemetry. FC Clubs does not create or require an FC Clubs user account.</li>
-        <li><strong>Gameplay content or other actions:</strong> saved-slot and match context, such as the selected club, player, match identifier, match type, timestamp, and participating club identifiers, sent only with opted-in backend telemetry.</li>
+        <li><strong>Gameplay content or other actions:</strong> selected club, player, and match context sent only with opted-in backend telemetry.</li>
         <li><strong>Product interaction:</strong> opted-in events about screens or features used in the app.</li>
         <li><strong>Diagnostics and performance:</strong> opted-in crash details, app and device state, and sync outcomes or timing used to diagnose reliability.</li>
-        <li><strong>Device ID:</strong> random, app-specific installation or app-instance identifiers used for Firebase configuration, support, deletion requests, and opted-in measurement—not AAID or IDFA in current builds.</li>
+        <li><strong>Device ID:</strong> random, app-specific installation or app-instance identifiers used for app services and opted-in measurement—not AAID or IDFA in current builds.</li>
       </ul>
       <p>None of these categories is used to track you across other companies’ apps or websites, build an advertising profile, target ads, measure ads, or provide data to a broker.</p>
 
@@ -91,8 +88,8 @@
         <li><strong>Google Drive:</strong> Provides optional Android backup and restore when connected.</li>
         <li><strong>Google Play Billing:</strong> Processes Android purchases and purchase restoration.</li>
         <li><strong>Google Firebase:</strong> Provides installation and Remote Config functionality, plus optional analytics and crash reporting when enabled.</li>
-        <li><strong>Cloudflare (Workers + D1):</strong> Hosts our optional telemetry API and stores telemetry when Share Analytics is enabled.</li>
-        <li><strong>Telegram:</strong> Our service sends operational messages to a private channel controlled by the developer. When Share Analytics is enabled, telemetry messages may include a shortened app-specific backend installation reference, app version/build, sync and heartbeat status, submitted device/app/locale preferences, received slot and match summaries, up to three submitted club ID and player-name slot samples, and aggregate insert counts and totals. IAP messages may include the store event type, product, price and currency, purchase and expiry dates, transaction or order identifiers, an Apple storefront/country code or Google Play billing-region code, an app-account token when supplied by Apple, a shortened Google Play purchase token, lifecycle state, and notification identifier. This private operational processing is not used for advertising, cross-company tracking, or data brokerage.</li>
+        <li><strong>Cloudflare:</strong> Processes optional app telemetry on behalf of FC Clubs when Share Analytics is enabled.</li>
+        <li><strong>Operational service providers:</strong> May process limited purchase and reliability diagnostics solely to operate and support FC Clubs. They may not use this information for their own advertising or tracking.</li>
       </ul>
 
       <h2>Your Choices</h2>
@@ -105,13 +102,10 @@
 
       <h2>Data Retention</h2>
       <p>We retain analytics, crash reports, and backend telemetry only for as long as reasonably needed to operate, secure, diagnose, and improve FC Clubs. Platform providers may apply their own retention schedules to data they process.</p>
-      <p>Current app versions keep the Analytics App Instance IDs they capture locally on your device so those identifiers remain available for a later deletion request after Analytics is turned off. Clearing app storage or uninstalling the app removes this local support record, and IDs created before this feature was available may not have been captured.</p>
 
       <h2 id="data-deletion">Data Deletion Requests</h2>
-      <p>FC Clubs does not create a user account. To request deletion of optional analytics, crash-reporting, or backend telemetry data associated with an installation, email <a href="mailto:support@fcclubs.app?subject=FC%20Clubs%20data%20deletion%20request">support@fcclubs.app</a> with the subject <strong>FC Clubs data deletion request</strong>.</p>
-      <p>In a current app version, open <strong>Settings &gt; Privacy &gt; Privacy &amp; Data</strong> and select <strong>Request Data Deletion</strong>. After confirmation, the app opens a short email containing the app platform and any app-specific support references needed to locate the relevant records. These references are not advertising IDs and are not displayed in the app’s Settings UI.</p>
-      <p>Use the in-app draft and send the request before uninstalling the app or clearing its storage whenever possible, because either action removes the locally retained support references. If you can only compose the email manually, mention whether you use iOS or Android and keep the app installed until support replies with any needed next step.</p>
-      <p>Do not send your club ID, in-game player name, EA, Apple, or Google password, payment details, or identity documents. We will use the app-specific identifiers only to locate relevant records, process the request with the applicable service providers, and respond to you. Provider retention and deletion processing times may vary.</p>
+      <p>FC Clubs does not create a user account. In a current app version, open <strong>Settings &gt; Privacy &gt; Privacy &amp; Data</strong> and select <strong>Request Data Deletion</strong>. The app prepares a short email with the app-specific references needed to locate relevant records; these are not advertising IDs and are not displayed in Settings. You can also email <a href="mailto:support@fcclubs.app?subject=FC%20Clubs%20data%20deletion%20request">support@fcclubs.app</a> with the subject <strong>FC Clubs data deletion request</strong>.</p>
+      <p>Send the in-app request before uninstalling or clearing app storage, because doing so may remove the local references needed for the request. If you email manually, mention whether you use iOS or Android and keep the app installed until support replies. Do not send passwords, payment details, identity documents, club IDs, or in-game player names.</p>
       <p>Deleting the app or clearing its storage removes local app data. iCloud and Google Drive data can also be managed through the controls provided by Apple and Google. A deletion request does not automatically remove data held in your own iCloud or Google Drive account.</p>
 
       <h2>Contact Us</h2>

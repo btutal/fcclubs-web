@@ -31,6 +31,14 @@ test('public pages do not load Google Analytics or Google Fonts before consent',
         );
         assert.match(html, /\/src\/analytics-consent\.css/);
         assert.match(html, /\/src\/analytics-consent\.js/);
+
+        for (const externalTab of html.matchAll(/<a\b[^>]*\btarget="_blank"[^>]*>/g)) {
+            assert.match(
+                externalTab[0],
+                /\brel="[^"]*\bnoopener\b[^"]*"/,
+                `${page} must protect links that open a new tab`,
+            );
+        }
     }
 });
 
@@ -63,24 +71,44 @@ test('privacy policy exposes analytics controls and a usable deletion request ro
     assert.match(privacyPolicy, /mailto:support@fcclubs\.app/);
     assert.match(privacyPolicy, /Android Advertising ID \(AAID\)/);
     assert.match(privacyPolicy, /Identifier for Advertisers \(IDFA\)/);
-    assert.match(privacyPolicy, /keep the Analytics App Instance IDs they capture locally/);
     assert.match(privacyPolicy, /Settings &gt; Privacy &gt; Privacy &amp; Data/);
-    assert.match(privacyPolicy, /app-specific support references needed to locate the relevant records/);
-    assert.match(privacyPolicy, /not displayed in the app’s Settings UI/);
-    assert.match(privacyPolicy, /send the request before uninstalling/i);
+    assert.match(privacyPolicy, /app-specific references needed to locate relevant records/);
+    assert.match(privacyPolicy, /not displayed in Settings/);
+    assert.match(privacyPolicy, /Send the in-app request before uninstalling/i);
     assert.doesNotMatch(privacyPolicy, /include the same available identifiers from that screen/);
-    assert.match(privacyPolicy, /Older Android builds that remain installed may still include/);
+    assert.match(privacyPolicy, /Some older installed builds may still include/);
     assert.match(privacyPolicy, /Collection is not tracking/);
     assert.match(privacyPolicy, /broad region derived from a masked IP address/);
     assert.match(privacyPolicy, /does not request GPS or precise location for Analytics/);
     assert.match(privacyPolicy, /does not receive your payment card details/);
     assert.match(privacyPolicy, /FC Clubs does not create or require an FC Clubs user account/);
     assert.match(privacyPolicy, /None of these categories is used to track you across other companies/);
-    assert.match(privacyPolicy, /private channel controlled by the developer/);
-    assert.match(privacyPolicy, /shortened app-specific backend installation reference/);
-    assert.match(privacyPolicy, /up to three submitted club ID and player-name slot samples/);
-    assert.match(privacyPolicy, /Apple storefront\/country code/);
-    assert.match(privacyPolicy, /Google Play billing-region code/);
-    assert.match(privacyPolicy, /shortened Google Play purchase token/);
-    assert.match(privacyPolicy, /not used for advertising, cross-company tracking, or data brokerage/);
+    assert.match(privacyPolicy, /Operational service providers/);
+    assert.match(privacyPolicy, /solely to operate and support FC Clubs/);
+    assert.match(privacyPolicy, /may not use this information for their own advertising or tracking/);
+});
+
+test('public website omits private operational details and credential material', async () => {
+    const publicSources = [
+        ...websitePages,
+        'src/analytics-consent.js',
+        'src/main.js',
+    ];
+    const forbiddenDetails = [
+        ['operational delivery detail', /\b(?:channel|bot|webhook)\b/i],
+        ['backend storage implementation', /\b(?:Cloudflare\s+)?Workers?\s*\+\s*D1\b/i],
+        ['backend database implementation', /\bCloudflare\s+(?:Workers?|D1)\b/i],
+        ['token detail', /\btoken\b/i],
+        ['runtime environment reference', /\b(?:process\.env|import\.meta\.env)\b/],
+        ['service-account credential', /\bservice[ _-]?account(?:[ _-]?(?:key|json))?\b/i],
+        ['private key material', /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/],
+    ];
+
+    for (const sourcePath of publicSources) {
+        const source = await read(sourcePath);
+
+        for (const [label, pattern] of forbiddenDetails) {
+            assert.doesNotMatch(source, pattern, `${sourcePath} exposes ${label}`);
+        }
+    }
 });
