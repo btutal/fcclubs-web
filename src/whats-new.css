@@ -44,6 +44,18 @@
     letter-spacing: 0.05em;
 }
 
+.upcoming-badge {
+    background: rgba(255, 194, 84, 0.12);
+    border: 1px solid rgba(255, 194, 84, 0.3);
+    border-radius: 99px;
+    color: #ffd992;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    text-transform: uppercase;
+}
+
 .platform-badge {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.14);
@@ -70,6 +82,11 @@
 .version-block.past .version-marker {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: none;
+}
+
+.version-block.upcoming .version-marker {
+    background: var(--color-amber);
+    box-shadow: 0 0 10px rgba(255, 194, 84, 0.4);
 }
 
 .release-intro {

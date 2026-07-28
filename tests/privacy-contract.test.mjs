@@ -138,6 +138,14 @@ test('structured data is valid and does not claim an unsupported rating', async 
     assert.doesNotMatch(match[1], /aggregateRating|reviewCount|ratingValue/);
 });
 
+test('release notes distinguish the upcoming build from the live version', async () => {
+    const releaseNotes = await read('whats-new.html');
+
+    assert.match(releaseNotes, /v1\.1\.7[\s\S]*Coming Soon[\s\S]*Upcoming/);
+    assert.match(releaseNotes, /v1\.1\.6[\s\S]*Current Version/);
+    assert.doesNotMatch(releaseNotes, /v1\.1\.7[\s\S]{0,200}Current Version/);
+});
+
 test('production pages and assets do not expose internal tooling or stale screenshots', async () => {
     const publicSources = [
         ...websitePages,
