@@ -77,9 +77,10 @@ test('privacy policy exposes analytics controls and a usable deletion request ro
     assert.match(privacyPolicy, /FC Clubs does not create or require an FC Clubs user account/);
     assert.match(privacyPolicy, /None of these categories is used to track you across other companies/);
     assert.match(privacyPolicy, /private channel controlled by the developer/);
+    assert.match(privacyPolicy, /shortened app-specific backend installation reference/);
+    assert.match(privacyPolicy, /up to three submitted club ID and player-name slot samples/);
     assert.match(privacyPolicy, /Apple storefront\/country code/);
     assert.match(privacyPolicy, /Google Play billing-region code/);
     assert.match(privacyPolicy, /shortened Google Play purchase token/);
     assert.match(privacyPolicy, /not used for advertising, cross-company tracking, or data brokerage/);
-    assert.doesNotMatch(privacyPolicy, /include your platform, club ID, or in-game player name/);
 });
