@@ -63,10 +63,12 @@ test('privacy policy exposes analytics controls and a usable deletion request ro
     assert.match(privacyPolicy, /mailto:support@fcclubs\.app/);
     assert.match(privacyPolicy, /Android Advertising ID \(AAID\)/);
     assert.match(privacyPolicy, /Identifier for Advertisers \(IDFA\)/);
-    assert.match(privacyPolicy, /Backend Telemetry Installation ID/);
-    assert.match(privacyPolicy, /Firebase Analytics App Instance IDs when available/);
     assert.match(privacyPolicy, /keep the Analytics App Instance IDs they capture locally/);
-    assert.match(privacyPolicy, /Send the deletion request before uninstalling/);
+    assert.match(privacyPolicy, /Settings &gt; Privacy &gt; Privacy &amp; Data/);
+    assert.match(privacyPolicy, /app-specific support references needed to locate the relevant records/);
+    assert.match(privacyPolicy, /not displayed in the app’s Settings UI/);
+    assert.match(privacyPolicy, /send the request before uninstalling/i);
+    assert.doesNotMatch(privacyPolicy, /include the same available identifiers from that screen/);
     assert.match(privacyPolicy, /Older Android builds that remain installed may still include/);
     assert.match(privacyPolicy, /Collection is not tracking/);
     assert.match(privacyPolicy, /broad region derived from a masked IP address/);
