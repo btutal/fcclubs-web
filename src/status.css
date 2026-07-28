@@ -31,7 +31,6 @@
 
 .status-hero-copy,
 .status-lead,
-.status-muted,
 .status-facts dd {
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.65;
@@ -57,15 +56,6 @@
     border-color: rgba(255, 194, 84, 0.26);
 }
 
-.status-panel--operational {
-    border-color: rgba(31, 232, 161, 0.28);
-}
-
-.status-panel--quiet {
-    background: rgba(18, 23, 41, 0.46);
-    box-shadow: none;
-}
-
 .status-panel-header {
     align-items: flex-start;
     display: flex;
@@ -84,31 +74,6 @@
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1.05;
-}
-
-.status-pill {
-    border-radius: 999px;
-    display: inline-flex;
-    flex: 0 0 auto;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.07em;
-    padding: 8px 12px;
-    text-transform: uppercase;
-}
-
-.status-pill--degraded,
-.status-pill--active {
-    background: rgba(255, 194, 84, 0.12);
-    border: 1px solid rgba(255, 194, 84, 0.3);
-    color: #ffd992;
-}
-
-.status-pill--operational,
-.status-pill--resolved {
-    background: rgba(31, 232, 161, 0.12);
-    border: 1px solid rgba(31, 232, 161, 0.3);
-    color: var(--color-neon-green);
 }
 
 .status-lead {
@@ -136,6 +101,11 @@
 
 .status-facts dd {
     margin: 0;
+}
+
+.status-facts a {
+    color: var(--color-electric-blue);
+    text-decoration: underline;
 }
 
 @media (max-width: 700px) {

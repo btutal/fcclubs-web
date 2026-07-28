@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Privacy Policy for FC Clubs App. Learn what the iOS app, Android app, and website process and how to request deletion." />
+    <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="https://fcclubs.app/privacy.html" />
     <title>Privacy Policy | FC Clubs App</title>
 
@@ -18,21 +19,31 @@
       <h1>Privacy Policy</h1>
       <p>Last updated: July 28, 2026</p>
 
-      <h2>Privacy Commitment</h2>
-      <p>FC Clubs is designed to minimize data collection. We do not sell personal data or use it for advertising. Optional app analytics, crash reporting, and backend telemetry run only after you opt in through the app.</p>
-      <p><strong>Collection is not tracking.</strong> Apple and Google require developers to describe certain service and analytics data as “collected” when it leaves the device. “Tracking” is a separate practice: linking FC Clubs data with data from other companies for targeted advertising or advertising measurement, or sharing it with a data broker. FC Clubs does none of those things.</p>
-      <p>Current Android builds do not request the Android Advertising ID (AAID). Some older installed builds may still include an SDK-contributed AAID permission until they are updated; when Share Analytics was enabled in an older build, Firebase Analytics may have used it for measurement. FC Clubs has never used AAID to serve ads. The iOS app does not request Apple’s Identifier for Advertisers (IDFA).</p>
+      <p>FC Clubs Stats is provided by Berkay Ogulcan Tutal (“FC Clubs”). We minimize data collection, do not sell personal data, and do not use personal data for advertising or tracking across other companies’ apps or websites. Privacy questions can be sent to <a href="mailto:support@fcclubs.app">support@fcclubs.app</a>.</p>
 
-      <h2>Scope</h2>
+      <h2>App Functionality</h2>
       <ul>
-        <li><strong>Website:</strong> This website offers optional Google Analytics, which remains off until you explicitly allow it.</li>
-        <li><strong>iOS app:</strong> The FC Clubs iOS app may store, sync, and process data as described below.</li>
-        <li><strong>Android app:</strong> The FC Clubs Android app may store, back up, and process data as described below, including optional Google Drive backup and Google Play Billing features.</li>
+        <li>Your saved clubs, statistics, preferences, and match history are stored on your device.</li>
+        <li>iOS may sync app data through your iCloud account. Android may back up encrypted app data to your Google Drive app-data folder when you connect it. These features are optional and governed by Apple’s or Google’s policies.</li>
+        <li>The app requests club and match information from EA Sports services to provide its core features.</li>
+        <li>Firebase may create a random app-specific installation identifier to deliver configuration. It is not an advertising identifier.</li>
       </ul>
 
+      <h2>Purchases</h2>
+      <p>Optional purchases are processed by Apple’s App Store or Google Play. FC Clubs receives the product, purchase, and entitlement information needed to unlock features, restore purchases, and provide support. Apple or Google handles payment details; FC Clubs does not receive your payment card information.</p>
+
+      <h2>Optional Analytics, Telemetry, and Crash Reports</h2>
+      <p>These features are off until you enable <strong>Share Analytics</strong> or <strong>Crash Reporting</strong> in the app.</p>
+      <ul>
+        <li><strong>Share Analytics:</strong> Firebase Analytics and FC Clubs telemetry may process app and device versions, language or region settings, selected preferences, random app-specific identifiers, feature use, purchase or entitlement state, selected club, in-game player name, match context, and sync outcomes or timing.</li>
+        <li><strong>Crash Reporting:</strong> Firebase Crashlytics may process crash traces, diagnostics, device and operating-system details, app state, and a random installation identifier.</li>
+      </ul>
+      <p>Firebase Analytics may derive a broad region from a masked IP address. FC Clubs does not request GPS or precise location for analytics.</p>
+      <p>Current Android builds do not request the Android Advertising ID (AAID), and the iOS app does not request Apple’s Identifier for Advertisers (IDFA). Some older Android builds may still contain an SDK-contributed AAID permission; when Share Analytics was enabled, Firebase Analytics may have used it for measurement. FC Clubs has never used AAID or IDFA to serve ads.</p>
+
       <h2 id="website-analytics">Website Analytics</h2>
-      <p>Google Analytics is optional on this website. We do not load the Google Analytics script or send it website-use data until you select <strong>Allow</strong>. If allowed, it may receive page views, session and engagement information, website interactions such as scrolling or outbound-link use, approximate region, browser and device information, and a Google Analytics client identifier so we can understand aggregate site use. Advertising storage, ad-user-data signals, ad personalization, ad-click identifier passthrough, and Google signals are disabled.</p>
-      <p>Your choice is saved in this browser. You can change it below at any time. Selecting <strong>Decline</strong> disables future website analytics and removes FC Clubs Google Analytics cookies that this site can access.</p>
+      <p>Google Analytics remains off on this website until you select <strong>Allow</strong>. If allowed, it may receive page views, interactions, approximate region, browser and device information, and a random client identifier to measure aggregate site use. Advertising and personalization features are disabled.</p>
+      <p>Your choice is saved in this browser. Selecting <strong>Decline</strong> stops future website analytics and removes FC Clubs analytics cookies that this site can access.</p>
       <div class="analytics-preference" aria-labelledby="website-analytics-preference-title">
         <h3 id="website-analytics-preference-title">Website analytics preference</h3>
         <p class="analytics-preference__status" data-analytics-consent-status aria-live="polite">Checking your saved choice…</p>
@@ -42,74 +53,17 @@
         </div>
       </div>
 
-      <h2>Data Used for App Functionality</h2>
-      <ul>
-        <li><strong>On device:</strong> Your saved clubs, player and club statistics, preferences, and match history are stored locally so the app can provide its core features.</li>
-        <li><strong>iCloud sync (Apple CloudKit):</strong> On iOS, if you are signed in to iCloud, the app may sync app data across your devices. This is tied to your Apple ID and governed by Apple’s policies.</li>
-        <li><strong>Google Drive backup:</strong> On Android, if you connect Google Drive, the app may back up preferences and app data to your Google Drive app-data folder so you can restore after reinstalling or moving to a new device. Backup data is encrypted before upload. This is tied to your Google account and governed by Google’s policies.</li>
-        <li><strong>EA servers:</strong> The app communicates with EA Sports services to retrieve public or account-selected club and match statistics.</li>
-        <li><strong>Firebase Installations and Remote Config:</strong> Firebase may create an app-specific installation identifier to deliver configuration and support core services. This is not an advertising identifier and is separate from the Share Analytics setting.</li>
-      </ul>
+      <h2>Service Providers and Security</h2>
+      <p>FC Clubs uses Apple and Google for platform services and purchases, EA Sports services for club and match information, Firebase for configuration and optional analytics or crash reporting, and Cloudflare and other operational providers for optional telemetry and reliability support. They may process only the information needed to provide those services and may not use FC Clubs data for their own advertising or tracking. Data sent by the app is encrypted in transit.</p>
 
-      <h2>Purchases</h2>
-      <p>Optional purchases are processed by Apple’s App Store or Google Play Billing. Apple or Google handles payment details. The app receives product, purchase, and entitlement status so it can unlock owned features and restore eligible purchases. FC Clubs does not receive your payment card details.</p>
-
-      <h2>Optional Firebase Analytics and Crash Reporting</h2>
-      <ul>
-        <li><strong>Firebase Analytics (opt-in):</strong> If you enable <strong>Share Analytics</strong>, Firebase may process app interactions, a broad region derived from a masked IP address, device and app information, App Store or Google Play purchase events such as product identifier, name, and price, and a Firebase app-instance identifier. FC Clubs does not request GPS or precise location for Analytics and does not send payment card details. The identifier helps associate events from the same app installation; it is not AAID or IDFA. Advertising storage, ad user data, and ad personalization remain disabled.</li>
-        <li><strong>Firebase Crashlytics (opt-in):</strong> If you enable <strong>Crash Reporting</strong>, Firebase may process crash traces, diagnostics, device and operating-system details, app state, and an installation identifier to diagnose stability problems.</li>
-      </ul>
-
-      <h2>Optional App Telemetry</h2>
-      <p>If you enable <strong>Share Analytics</strong>, the app may also send pseudonymous usage and reliability information to FC Clubs. Depending on the activity, this may include:</p>
-      <ul>
-        <li><strong>App and device context:</strong> app and device versions, general language or region settings, selected preferences, and a random app-specific installation reference.</li>
-        <li><strong>Club and match context:</strong> the selected club, in-game player name, match identifiers, and basic match information.</li>
-        <li><strong>Usage and reliability:</strong> feature use, purchase or entitlement state, and sync outcomes or timing.</li>
-      </ul>
-      <p>This information is pseudonymous rather than fully anonymous because activity from the same installation can be linked. It is not used for advertising.</p>
-
-      <h2>What the Store Privacy Labels Mean</h2>
-      <p>Apple and Google choose the names of the categories shown on their store forms. For FC Clubs, the less-obvious labels map to the following limited data:</p>
-      <ul>
-        <li><strong>Coarse or approximate location:</strong> only the broad region Firebase Analytics derives from a masked IP address after Share Analytics is enabled—not GPS, precise location, or location history.</li>
-        <li><strong>Purchase history:</strong> product and entitlement information used to process purchases and, when analytics is enabled, understand purchase events—not payment card or billing details.</li>
-        <li><strong>User ID:</strong> the in-game player display name that may accompany opted-in backend telemetry. FC Clubs does not create or require an FC Clubs user account.</li>
-        <li><strong>Gameplay content or other actions:</strong> selected club, player, and match context sent only with opted-in backend telemetry.</li>
-        <li><strong>Product interaction:</strong> opted-in events about screens or features used in the app.</li>
-        <li><strong>Diagnostics and performance:</strong> opted-in crash details, app and device state, and sync outcomes or timing used to diagnose reliability.</li>
-        <li><strong>Device ID:</strong> random, app-specific installation or app-instance identifiers used for app services and opted-in measurement—not AAID or IDFA in current builds.</li>
-      </ul>
-      <p>None of these categories is used to track you across other companies’ apps or websites, build an advertising profile, target ads, measure ads, or provide data to a broker.</p>
-
-      <h2>Third-Party Service Providers</h2>
-      <ul>
-        <li><strong>Apple (iCloud/CloudKit):</strong> Syncs iOS app data across devices when iCloud is enabled.</li>
-        <li><strong>Google Drive:</strong> Provides optional Android backup and restore when connected.</li>
-        <li><strong>Google Play Billing:</strong> Processes Android purchases and purchase restoration.</li>
-        <li><strong>Google Firebase:</strong> Provides installation and Remote Config functionality, plus optional analytics and crash reporting when enabled.</li>
-        <li><strong>Cloudflare:</strong> Processes optional app telemetry on behalf of FC Clubs when Share Analytics is enabled.</li>
-        <li><strong>Operational service providers:</strong> May process limited purchase and reliability diagnostics solely to operate and support FC Clubs. They may not use this information for their own advertising or tracking.</li>
-      </ul>
-
-      <h2>Your Choices</h2>
-      <ul>
-        <li>You can enable or disable <strong>Share Analytics</strong> and <strong>Crash Reporting</strong> at any time in app settings.</li>
-        <li>Disabling Share Analytics stops new Firebase Analytics events and new telemetry submissions to our backend.</li>
-        <li>On Android, Google Drive backup is optional and can be connected or disconnected in the app’s cloud and backup settings.</li>
-        <li>You can change this website’s Google Analytics choice in the <a href="#website-analytics">Website Analytics</a> section above.</li>
-      </ul>
-
-      <h2>Data Retention</h2>
-      <p>We retain analytics, crash reports, and backend telemetry only for as long as reasonably needed to operate, secure, diagnose, and improve FC Clubs. Platform providers may apply their own retention schedules to data they process.</p>
+      <h2>Your Choices and Retention</h2>
+      <p>You can disable Share Analytics or Crash Reporting at any time in app settings, disconnect optional Google Drive backup on Android, and change the website analytics choice above. Disabling a feature stops new related submissions.</p>
+      <p>FC Clubs retains analytics, crash reports, purchase records, and telemetry only for as long as reasonably needed to operate, secure, support, and improve the app or meet applicable obligations. Service providers may apply their own retention schedules.</p>
 
       <h2 id="data-deletion">Data Deletion Requests</h2>
       <p>FC Clubs does not create a user account. In a current app version, open <strong>Settings &gt; Privacy &gt; Privacy &amp; Data</strong> and select <strong>Request Data Deletion</strong>. The app prepares a short email with the app-specific references needed to locate relevant records; these are not advertising IDs and are not displayed in Settings. You can also email <a href="mailto:support@fcclubs.app?subject=FC%20Clubs%20data%20deletion%20request">support@fcclubs.app</a> with the subject <strong>FC Clubs data deletion request</strong>.</p>
       <p>Send the in-app request before uninstalling or clearing app storage, because doing so may remove the local references needed for the request. If you email manually, mention whether you use iOS or Android and keep the app installed until support replies. Do not send passwords, payment details, identity documents, club IDs, or in-game player names.</p>
       <p>Deleting the app or clearing its storage removes local app data. iCloud and Google Drive data can also be managed through the controls provided by Apple and Google. A deletion request does not automatically remove data held in your own iCloud or Google Drive account.</p>
-
-      <h2>Contact Us</h2>
-      <p>For privacy questions, support requests, or data requests, email <a href="mailto:support@fcclubs.app">support@fcclubs.app</a>.</p>
     </main>
   </body>
 </html>

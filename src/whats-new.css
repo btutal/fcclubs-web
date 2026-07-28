@@ -27,7 +27,7 @@
 
 .version-date {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.58);
     font-weight: 500;
     margin-bottom: 24px;
     display: block;
@@ -181,11 +181,6 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
-.fix-note a {
-    color: var(--color-electric-blue);
-    text-decoration: underline;
-}
-
 .nav-links a[aria-current="page"],
 .footer-col.links a[aria-current="page"] {
     color: #fff;
@@ -195,21 +190,13 @@
     width: 100%;
 }
 
-/* Credits */
-.credit-link {
-    display: block;
-    margin-top: 4px;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.credit-link a {
+.feature-desc a {
     color: var(--color-electric-blue);
     text-decoration: none;
     font-weight: 500;
 }
 
-.credit-link a:hover {
+.feature-desc a:hover {
     text-decoration: underline;
     color: #fff;
 }

@@ -8,7 +8,7 @@
             "style": "gradient-blue"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-scout.png",
+            "src": "/internal-assets/screenshots/iphone-scout.png",
             "position": { "x": 50, "y": 20 },
             "zoom": 115,
             "opacity": 75,
@@ -22,7 +22,7 @@
             "style": "gradient-blue"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-club.png",
+            "src": "/internal-assets/screenshots/iphone-club.png",
             "position": { "x": 50, "y": 15 },
             "zoom": 115,
             "opacity": 95,
@@ -49,7 +49,7 @@
         "description": "Goals, assists, ratings & match history",
         "icon": "📊",
         "image": {
-            "src": "/assets/screenshots/iphone-matches.png",
+            "src": "/internal-assets/screenshots/iphone-matches.png",
             "position": { "x": 50, "y": 25 },
             "zoom": 115,
             "opacity": 55,

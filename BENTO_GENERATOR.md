@@ -97,7 +97,7 @@ Each slot can display different **content types** (hero-shot, gallery, highlight
   "contentType": "hero-shot",
   "title": "Your Club.\\nYour Stats.",
   "titleStyle": "white",
-  "image": "/assets/screenshots/iphone-dashboard.png",
+  "image": "/internal-assets/screenshots/iphone-dashboard.png",
   "zoom": 100,
   "posX": 50,
   "posY": 50,
@@ -125,7 +125,7 @@ Each slot can display different **content types** (hero-shot, gallery, highlight
 ```json
 {
   "contentType": "gallery",
-  "image": "/assets/screenshots/iphone-sessions.png",
+  "image": "/internal-assets/screenshots/iphone-sessions.png",
   "title": "Sessions",
   "titleStyle": "white",
   "zoom": 100,
@@ -322,20 +322,20 @@ For `style` field in `highlight`:
 
 ### Screenshots
 **iPhone:**
-- `/assets/screenshots/iphone-dashboard.png`
-- `/assets/screenshots/iphone-club.png`
-- `/assets/screenshots/iphone-matches.png`
-- `/assets/screenshots/iphone-scout.png`
-- `/assets/screenshots/iphone-sessions.png`
-- `/assets/screenshots/iphone-welcome.png`
+- `/internal-assets/screenshots/iphone-dashboard.png`
+- `/internal-assets/screenshots/iphone-club.png`
+- `/internal-assets/screenshots/iphone-matches.png`
+- `/internal-assets/screenshots/iphone-scout.png`
+- `/internal-assets/screenshots/iphone-sessions.png`
+- `/internal-assets/screenshots/iphone-welcome.png`
 
 **Widgets:**
-- `/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png`
-- `/assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png`
+- `/internal-assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png`
+- `/internal-assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png`
 
 **iPad:**
-- `/assets/screenshots/ipad-dashboard.png`
-- `/assets/screenshots/ipad-welcome.png`
+- `/internal-assets/screenshots/ipad-dashboard.png`
+- `/internal-assets/screenshots/ipad-welcome.png`
 
 ---
 
@@ -350,7 +350,7 @@ For `style` field in `highlight`:
     "contentType": "hero-shot",
     "title": "Your Club.\\nYour Stats.",
     "titleStyle": "white",
-    "image": "/assets/screenshots/iphone-dashboard.png",
+    "image": "/internal-assets/screenshots/iphone-dashboard.png",
     "zoom": 115,
     "posX": 50,
     "posY": 25,
@@ -359,7 +359,7 @@ For `style` field in `highlight`:
   },
   "gallery": {
     "contentType": "gallery",
-    "image": "/assets/screenshots/iphone-matches.png",
+    "image": "/internal-assets/screenshots/iphone-matches.png",
     "title": "",
     "titleStyle": "white",
     "zoom": 110,
@@ -387,7 +387,7 @@ For `style` field in `highlight`:
     "title": "Scout Any Club",
     "description": "Research opponents before you play",
     "icon": "🎯",
-    "image": "/assets/screenshots/iphone-scout.png",
+    "image": "/internal-assets/screenshots/iphone-scout.png",
     "zoom": 100,
     "posX": 50,
     "posY": 50,

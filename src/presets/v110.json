@@ -8,7 +8,7 @@
             "style": "gradient-gold"
         },
         "image": {
-            "src": "/assets/screenshots/v1.1.0/03_second_assists.png",
+            "src": "/internal-assets/screenshots/v1.1.0/03_second_assists.png",
             "position": { "x": 50, "y": 18 },
             "zoom": 120,
             "opacity": 80,
@@ -22,7 +22,7 @@
             "style": "gradient-gold"
         },
         "image": {
-            "src": "/assets/screenshots/v1.1.0/01_ai_sessions.png",
+            "src": "/internal-assets/screenshots/v1.1.0/01_ai_sessions.png",
             "position": { "x": 50, "y": 15 },
             "zoom": 115,
             "opacity": 95,
@@ -49,7 +49,7 @@
         "description": "Optional Pro Stats upgrade — no subscription",
         "icon": "🔓",
         "image": {
-            "src": "/assets/screenshots/v1.1.0/04_archetypes_formation.png",
+            "src": "/internal-assets/screenshots/v1.1.0/04_archetypes_formation.png",
             "position": { "x": 50, "y": 24 },
             "zoom": 120,
             "opacity": 40,

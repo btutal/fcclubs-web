@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/app-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Current FC Clubs App status for data provider updates, app availability, downloads, purchases, and known incidents." />
-    <meta name="keywords" content="FC Clubs status, FC Clubs App status, Pro Clubs data provider status, FC Clubs incidents" />
+    <meta name="description" content="FC Clubs Stats service information and simple troubleshooting for iOS and Android users." />
+    <meta name="robots" content="noindex, follow" />
 
     <meta name="theme-color" content="#021230" />
+    <meta property="og:site_name" content="FC Clubs Stats" />
     <meta property="og:title" content="Status | FC Clubs App" />
-    <meta property="og:description" content="Current availability and known incidents for FC Clubs App features and data provider updates." />
+    <meta property="og:description" content="Service information and simple troubleshooting for FC Clubs Stats." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fcclubs.app/status.html" />
-    <meta property="og:image" content="https://fcclubs.app/assets/screenshots/v1.1.0/02_squad_stats.png" />
+    <meta property="og:image" content="https://fcclubs.app/assets/social/marketing.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="FC Clubs Stats EA FC 26 companion app on iOS and Android" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Status | FC Clubs App" />
-    <meta name="twitter:description" content="Current FC Clubs App availability and known incidents." />
-    <meta name="twitter:image" content="https://fcclubs.app/assets/screenshots/v1.1.0/02_squad_stats.png" />
+    <meta name="twitter:description" content="Service information and simple troubleshooting for FC Clubs Stats." />
+    <meta name="twitter:image" content="https://fcclubs.app/assets/social/marketing.jpg" />
     <link rel="canonical" href="https://fcclubs.app/status.html" />
 
     <title>Status | FC Clubs App</title>
@@ -34,12 +38,11 @@
       <nav class="navbar">
         <div class="container nav-content">
           <a href="/" class="logo">
-            <img src="/assets/app-icon.png" alt="FC Clubs Logo" class="nav-logo-img">
+            <img src="/assets/app-icon.png" alt="FC Clubs Logo" class="nav-logo-img" width="36" height="36">
             <span>FC Clubs</span>
           </a>
           <div class="nav-links">
             <a href="/">Home</a>
-            <a href="/status.html" aria-current="page">Status</a>
             <a href="/whats-new.html">What's New</a>
             <a href="/pro-stats.html">Pro Stats</a>
           </div>
@@ -48,53 +51,29 @@
 
       <main class="status-page">
         <header class="status-hero">
-          <p class="status-kicker">FC Clubs App Status</p>
-          <h1>Status</h1>
-          <p class="status-hero-copy">A short, current view of FC Clubs availability and recent incidents.</p>
+          <p class="status-kicker">FC Clubs Support</p>
+          <h1>Service information</h1>
+          <p class="status-hero-copy">FC Clubs relies on third-party EA Sports services for club and match information.</p>
         </header>
 
-        <section class="status-panel status-panel--current status-panel--operational" aria-labelledby="current-status-heading">
+        <section class="status-panel status-panel--current" aria-labelledby="troubleshooting-heading">
           <div class="status-panel-header">
             <div>
-              <p class="status-eyebrow">Current Status</p>
-              <h2 id="current-status-heading">All systems operational</h2>
+              <p class="status-eyebrow">Troubleshooting</p>
+              <h2 id="troubleshooting-heading">If new data stops appearing</h2>
             </div>
-            <span class="status-pill status-pill--operational">Operational</span>
           </div>
 
-          <p class="status-lead">Provider-backed updates are currently operating normally. If you still see stale data, refresh the app or try again; you do not need to reinstall or change your existing setup.</p>
+          <p class="status-lead">Refresh the app and try again later. Temporary provider interruptions can affect search and updates while your saved app data remains on your device.</p>
 
-          <dl class="status-facts" aria-label="Current status details">
+          <dl class="status-facts" aria-label="Troubleshooting steps">
             <div>
-              <dt>Available</dt>
-              <dd>Club search, saved data, existing club views, leaderboards, Scout, downloads, and purchases.</dd>
+              <dt>Before reinstalling</dt>
+              <dd>Check that you have a recent backup and confirm the issue is not temporary.</dd>
             </div>
             <div>
-              <dt>Last checked</dt>
-              <dd><time datetime="2026-06-24T21:27:04+02:00">June 24, 2026 at 21:27 CEST</time></dd>
-            </div>
-          </dl>
-
-        </section>
-
-        <section class="status-panel status-panel--quiet" aria-labelledby="previous-events-heading">
-          <div class="status-panel-header">
-            <div>
-              <p class="status-eyebrow">Previous Events</p>
-              <h2 id="previous-events-heading">Club search interruption</h2>
-            </div>
-            <span class="status-pill status-pill--resolved">Resolved</span>
-          </div>
-          <p class="status-muted">The official Clubs data provider intermittently failed to return club search results. Search and new-club setup may have failed during the incident, while saved data and other healthy app areas remained available.</p>
-
-          <dl class="status-facts" aria-label="Previous event details">
-            <div>
-              <dt>First reported</dt>
-              <dd><time datetime="2026-06-19T01:32:00Z">June 19, 2026 at 01:32 UTC</time></dd>
-            </div>
-            <div>
-              <dt>Resolved</dt>
-              <dd><time datetime="2026-06-24T19:27:04Z">June 24, 2026 at 19:27 UTC</time></dd>
+              <dt>Need help?</dt>
+              <dd><a href="https://github.com/btutal/fcclubs-web/issues/new?template=bug_report.yml" target="_blank" rel="noopener">Report a bug</a> with the app platform and a short description.</dd>
             </div>
           </dl>
         </section>

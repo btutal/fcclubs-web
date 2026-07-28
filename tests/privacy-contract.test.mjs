@@ -1,15 +1,20 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-const websitePages = [
+const marketingPages = [
     'index.html',
+    'pro-stats.html',
+    'whats-new.html',
+];
+
+const utilityPages = [
     'privacy.html',
     'terms.html',
     'status.html',
-    'whats-new.html',
-    'pro-stats.html',
 ];
+
+const websitePages = [...marketingPages, ...utilityPages];
 
 async function read(relativePath) {
     return readFile(new URL(`../${relativePath}`, import.meta.url), 'utf8');
@@ -61,47 +66,95 @@ test('analytics loader keeps advertising signals denied', async () => {
     assert.match(source, /document\.body\.prepend\(banner\)/);
 });
 
-test('privacy policy exposes analytics controls and a usable deletion request route', async () => {
+test('privacy policy states the real data scope without operational internals', async () => {
     const privacyPolicy = await read('privacy.html');
+
+    assert.match(privacyPolicy, /Berkay Ogulcan Tutal/);
+    assert.match(privacyPolicy, /do not sell personal data/);
+    assert.match(privacyPolicy, /do not use personal data for advertising or tracking/);
+    assert.match(privacyPolicy, /These features are off until you enable/);
+    assert.match(privacyPolicy, /selected club, in-game player name, match context/);
+    assert.match(privacyPolicy, /broad region from a masked IP address/);
+    assert.match(privacyPolicy, /does not request GPS or precise location/);
+    assert.match(privacyPolicy, /does not receive your payment card information/);
+    assert.match(privacyPolicy, /Current Android builds do not request the Android Advertising ID/);
+    assert.match(privacyPolicy, /iOS app does not request Apple’s Identifier for Advertisers/);
+    assert.match(privacyPolicy, /does not create a user account/);
+    assert.match(privacyPolicy, /Data sent by the app is encrypted in transit/);
 
     assert.match(privacyPolicy, /id="website-analytics"/);
     assert.match(privacyPolicy, /data-analytics-preference="denied"/);
     assert.match(privacyPolicy, /data-analytics-preference="granted"/);
     assert.match(privacyPolicy, /id="data-deletion"/);
-    assert.match(privacyPolicy, /mailto:support@fcclubs\.app/);
-    assert.match(privacyPolicy, /Android Advertising ID \(AAID\)/);
-    assert.match(privacyPolicy, /Identifier for Advertisers \(IDFA\)/);
     assert.match(privacyPolicy, /Settings &gt; Privacy &gt; Privacy &amp; Data/);
-    assert.match(privacyPolicy, /app-specific references needed to locate relevant records/);
+    assert.match(privacyPolicy, /mailto:support@fcclubs\.app/);
     assert.match(privacyPolicy, /not displayed in Settings/);
     assert.match(privacyPolicy, /Send the in-app request before uninstalling/i);
-    assert.doesNotMatch(privacyPolicy, /include the same available identifiers from that screen/);
-    assert.match(privacyPolicy, /Some older installed builds may still include/);
-    assert.match(privacyPolicy, /Collection is not tracking/);
-    assert.match(privacyPolicy, /broad region derived from a masked IP address/);
-    assert.match(privacyPolicy, /does not request GPS or precise location for Analytics/);
-    assert.match(privacyPolicy, /does not receive your payment card details/);
-    assert.match(privacyPolicy, /FC Clubs does not create or require an FC Clubs user account/);
-    assert.match(privacyPolicy, /None of these categories is used to track you across other companies/);
-    assert.match(privacyPolicy, /Operational service providers/);
-    assert.match(privacyPolicy, /solely to operate and support FC Clubs/);
-    assert.match(privacyPolicy, /may not use this information for their own advertising or tracking/);
 });
 
-test('public website omits private operational details and credential material', async () => {
+test('marketing pages carry focused search and social metadata', async () => {
+    for (const page of marketingPages) {
+        const html = await read(page);
+
+        assert.match(html, /<title>[^<]{15,70}<\/title>/, `${page} needs a useful title`);
+        assert.match(html, /<meta name="description" content="[^"]{50,170}" \/>/);
+        assert.match(html, /<link rel="canonical" href="https:\/\/fcclubs\.app\/[^"]*" \/>/);
+        assert.match(html, /<meta property="og:site_name" content="FC Clubs Stats" \/>/);
+        assert.match(html, /<meta property="og:title" content="[^"]+" \/>/);
+        assert.match(html, /<meta property="og:description" content="[^"]+" \/>/);
+        assert.match(html, /<meta property="og:image" content="https:\/\/fcclubs\.app\/assets\/social\/marketing\.jpg" \/>/);
+        assert.match(html, /<meta property="og:image:width" content="1200" \/>/);
+        assert.match(html, /<meta property="og:image:height" content="630" \/>/);
+        assert.match(html, /<meta name="twitter:card" content="summary_large_image" \/>/);
+        assert.doesNotMatch(html, /name="robots"[^>]*noindex/);
+    }
+});
+
+test('utility and legal pages stay available without competing in search', async () => {
+    for (const page of utilityPages) {
+        const html = await read(page);
+        assert.match(html, /<meta name="robots" content="noindex, follow" \/>/);
+    }
+
+    const sitemap = await read('public/sitemap.xml');
+    assert.match(sitemap, /<loc>https:\/\/fcclubs\.app\/<\/loc>/);
+    assert.match(sitemap, /<loc>https:\/\/fcclubs\.app\/pro-stats\.html<\/loc>/);
+    assert.match(sitemap, /<loc>https:\/\/fcclubs\.app\/whats-new\.html<\/loc>/);
+    assert.doesNotMatch(sitemap, /privacy|terms|status/);
+    assert.equal((sitemap.match(/<url>/g) ?? []).length, marketingPages.length);
+});
+
+test('structured data is valid and does not claim an unsupported rating', async () => {
+    const homepage = await read('index.html');
+    const match = homepage.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    assert.ok(match, 'homepage must include JSON-LD');
+
+    const structuredData = JSON.parse(match[1]);
+    const graphTypes = structuredData['@graph'].map((entry) => entry['@type']);
+
+    assert.deepEqual(graphTypes, ['WebSite', 'MobileApplication']);
+    assert.equal(structuredData['@graph'][1].name, 'FC Clubs Stats');
+    assert.equal(structuredData['@graph'][1].offers.price, '0');
+    assert.doesNotMatch(match[1], /aggregateRating|reviewCount|ratingValue/);
+});
+
+test('production pages and assets do not expose internal tooling or stale screenshots', async () => {
     const publicSources = [
         ...websitePages,
         'src/analytics-consent.js',
-        'src/main.js',
     ];
     const forbiddenDetails = [
-        ['operational delivery detail', /\b(?:channel|bot|webhook)\b/i],
+        ['notification delivery detail', /\b(?:Telegram|channel|bot|webhook)\b/i],
         ['backend storage implementation', /\b(?:Cloudflare\s+)?Workers?\s*\+\s*D1\b/i],
         ['backend database implementation', /\bCloudflare\s+(?:Workers?|D1)\b/i],
-        ['token detail', /\btoken\b/i],
-        ['runtime environment reference', /\b(?:process\.env|import\.meta\.env)\b/],
-        ['service-account credential', /\bservice[ _-]?account(?:[ _-]?(?:key|json))?\b/i],
+        ['credential detail', /\b(?:token|process\.env|import\.meta\.env|service[ _-]?account)\b/i],
         ['private key material', /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/],
+        ['internal asset path', /\/internal-assets\//],
+        ['stale public screenshot path', /\/assets\/screenshots\/v1\.1\.0\//],
+        ['obsolete keyword metadata', /<meta name="keywords"/],
+        ['generic link text', />\s*Learn more\s*</i],
+        ['release-note contributor handle', /\b(?:Requested|Suggested|Thanks) by\b/i],
+        ['release-note issue reference', />\s*Issue #\d+\s*</i],
     ];
 
     for (const sourcePath of publicSources) {
@@ -110,5 +163,15 @@ test('public website omits private operational details and credential material',
         for (const [label, pattern] of forbiddenDetails) {
             assert.doesNotMatch(source, pattern, `${sourcePath} exposes ${label}`);
         }
+    }
+
+    const expectedAssets = [
+        'public/assets/app-icon.png',
+        'public/assets/screenshots/hero-ai-sessions.webp',
+        'public/assets/screenshots/pro-stats.webp',
+        'public/assets/social/marketing.jpg',
+    ];
+    for (const asset of expectedAssets) {
+        await assert.doesNotReject(access(new URL(`../${asset}`, import.meta.url)));
     }
 });

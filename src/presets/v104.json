@@ -8,7 +8,7 @@
             "style": "gradient-pink"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-sessions.png",
+            "src": "/internal-assets/screenshots/iphone-sessions.png",
             "position": { "x": 50, "y": 18 },
             "zoom": 120,
             "opacity": 75,
@@ -22,7 +22,7 @@
             "style": "gradient-pink"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-matches.png",
+            "src": "/internal-assets/screenshots/iphone-matches.png",
             "position": { "x": 50, "y": 15 },
             "zoom": 115,
             "opacity": 95,
@@ -49,7 +49,7 @@
         "description": "Square + Story exports for your session recap",
         "icon": "📱",
         "image": {
-            "src": "/assets/screenshots/iphone-dashboard.png",
+            "src": "/internal-assets/screenshots/iphone-dashboard.png",
             "position": { "x": 50, "y": 30 },
             "zoom": 120,
             "opacity": 45,

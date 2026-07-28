@@ -8,7 +8,7 @@
             "style": "white"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-dashboard.png",
+            "src": "/internal-assets/screenshots/iphone-dashboard.png",
             "position": { "x": 50, "y": 20 },
             "zoom": 120,
             "opacity": 70,
@@ -22,7 +22,7 @@
             "style": "white"
         },
         "image": {
-            "src": "/assets/screenshots/iphone-matches.png",
+            "src": "/internal-assets/screenshots/iphone-matches.png",
             "position": { "x": 50, "y": 15 },
             "zoom": 115,
             "opacity": 95,
@@ -49,7 +49,7 @@
         "description": "Research opponents before you play",
         "icon": "🎯",
         "image": {
-            "src": "/assets/screenshots/iphone-scout.png",
+            "src": "/internal-assets/screenshots/iphone-scout.png",
             "position": { "x": 50, "y": 35 },
             "zoom": 110,
             "opacity": 45,

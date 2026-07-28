@@ -199,7 +199,7 @@ function showConsentBanner() {
             <h2 id="analytics-consent-title">Optional website analytics</h2>
             <p>
                 Allow Google Analytics to help us understand aggregate page use.
-                It stays off unless you allow it. <a href="/privacy.html#website-analytics">Learn more</a>.
+                It stays off unless you allow it. <a href="/privacy.html#website-analytics">Website analytics details</a>.
             </p>
         </div>
         <div class="analytics-consent__actions" aria-label="Website analytics preference">
