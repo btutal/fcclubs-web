@@ -76,5 +76,7 @@ test('privacy policy exposes analytics controls and a usable deletion request ro
     assert.match(privacyPolicy, /does not receive your payment card details/);
     assert.match(privacyPolicy, /FC Clubs does not create or require an FC Clubs user account/);
     assert.match(privacyPolicy, /None of these categories is used to track you across other companies/);
+    assert.match(privacyPolicy, /identifier-free IAP or operational health notices/);
+    assert.match(privacyPolicy, /purchase tokens, storefronts, payloads, or event timestamps/);
     assert.doesNotMatch(privacyPolicy, /include your platform, club ID, or in-game player name/);
 });
