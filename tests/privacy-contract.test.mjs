@@ -138,12 +138,19 @@ test('structured data is valid and does not claim an unsupported rating', async 
     assert.doesNotMatch(match[1], /aggregateRating|reviewCount|ratingValue/);
 });
 
-test('release notes identify v1.1.8 as the live version', async () => {
+test('release notes identify v1.1.9 as the live version', async () => {
     const releaseNotes = await read('whats-new.html');
+    const releaseStyles = await read('src/whats-new.css');
 
-    assert.match(releaseNotes, /v1\.1\.8[\s\S]{0,200}Current Version/);
-    assert.doesNotMatch(releaseNotes, /Coming Soon|upcoming FC Clubs v1\.1\.8/);
-    assert.doesNotMatch(releaseNotes, /v1\.1\.7[\s\S]{0,200}Current Version/);
+    assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Current Version/);
+    assert.doesNotMatch(releaseNotes, /Coming Soon|upcoming FC Clubs v1\.1\.9/);
+    assert.doesNotMatch(releaseNotes, /v1\.1\.8[\s\S]{0,200}Current Version/);
+    assert.match(releaseNotes, /iOS v1\.1\.9 release notes/);
+    assert.match(releaseNotes, /Android v1\.1\.9 release notes/);
+    assert.match(releaseNotes, /Sharper, smoother sharing/);
+    assert.match(releaseNotes, /Reliable backups and widgets/);
+    assert.match(releaseStyles, /#v119-ios:checked[\s\S]*\.platform-tab-panel-ios/);
+    assert.match(releaseStyles, /#v119-android:checked[\s\S]*\.platform-tab-panel-android/);
 });
 
 test('production pages and assets do not expose internal tooling or stale screenshots', async () => {
