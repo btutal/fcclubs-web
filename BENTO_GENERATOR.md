@@ -1,378 +1,97 @@
-# Bento Generator v19 - Developer Documentation
+# Bento Generator v20 — preset and state reference
 
-> **For AI Agents & Developers**: This document defines the complete schema for Bento Generator presets and state management.
+This guide describes the current state exported by `getCurrentState()` and read
+by `applyStateData()` in [src/bento_generator.js](src/bento_generator.js).
+The generator is available at `/bento_generator.html` during local Vite
+development; it is not an input in the current [production build](vite.config.js).
 
-## Table of Contents
-1. [Overview](#overview)
-2. [JSON Schema](#json-schema)
-3. [Slot Reference](#slot-reference)
-4. [Content Types](#content-types)
-5. [Style Reference](#style-reference)
-6. [Asset Reference](#asset-reference)
-7. [Preset Examples](#preset-examples)
+## Authoring contract
 
----
+Use the string `"20"` for `version`, a supported `format`, a `background`, and
+all six slot objects. Saving a preset or browser autosave exports this shape.
+Missing fields can reset controls to defaults; the importer is not a strict
+schema validator.
 
-## Overview
+| Slot | `contentType` | Fields |
+| --- | --- | --- |
+| `hero` | `hero-shot` | `title` object and `image` object |
+| `gallery` | `gallery` | `title` object and `image` object |
+| `stat1`, `stat2` | `highlight` | String `value`, `label`, `tagline`, `style` |
+| `feature` | `feature` | String `title`, `description`, `icon`; `image` object |
+| `brand` | `brand` | String `name`, `tagline` |
 
-The Bento Generator creates social media graphics using a **6-slot grid layout**:
+The editor has these fixed slots. `contentType` records their type; changing it
+alone does not turn a slot into another renderer. The old guide's `callout` and
+`spacer` examples are not supported authoring options in the current editor.
 
-```
-┌─────────────┬─────────────┐
-│             │      B      │  B = Brand
-│      H      ├─────────────┤
-│             │     I2      │  I2 = Gallery
-│   (Hero)    ├──────┬──────┤
-│             │  S1  │  S2  │  S1/S2 = Stats
-├─────────────┴──────┴──────┤
-│             F             │  F = Feature
-└───────────────────────────┘
-```
+### Titles and images
 
-Each slot can display different **content types** (hero-shot, gallery, highlight, etc.).
+Hero/gallery titles use `title.content` and `title.style`. The feature title
+remains a string. Use a JSON newline escape (`\n`) inside text for a line break.
 
----
-
-## JSON Schema
-
-### Root Structure
-```json
-{
-  "version": "19",
-  "format": "ig-square",
-  "hero": { ... },
-  "gallery": { ... },
-  "stat1": { ... },
-  "stat2": { ... },
-  "feature": { ... },
-  "brand": { ... }
-}
-```
-
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `version` | string | ✅ | Schema version (`"19"`) |
-| `format` | string | ✅ | Canvas format (see [Formats](#formats)) |
-| `hero` | object | ✅ | H slot configuration |
-| `gallery` | object | ✅ | I2 slot configuration |
-| `stat1` | object | ✅ | S1 slot configuration |
-| `stat2` | object | ✅ | S2 slot configuration |
-| `feature` | object | ✅ | F slot configuration |
-| `brand` | object | ✅ | B slot configuration |
-
----
-
-## Slot Reference
-
-### Slots & Default Content Types
-| Slot | Key | Default Content Type | Purpose |
-|------|-----|---------------------|---------|
-| H | `hero` | `hero-shot` | Main visual, headline |
-| I2 | `gallery` | `gallery` | Secondary screenshot |
-| S1 | `stat1` | `highlight` | Key metric/number |
-| S2 | `stat2` | `highlight` | Key metric/number |
-| F | `feature` | `feature` | Feature callout |
-| B | `brand` | `brand` | App branding |
-
----
-
-## Content Types
-
-### 1. `hero-shot` - Screenshot with Headline
-
-| Field | Type | Required | Default | Values |
-|-------|------|----------|---------|--------|
-| `contentType` | string | ✅ | - | `"hero-shot"` |
-| `title` | string | ✅ | `""` | Text, use `\\n` for line breaks |
-| `titleStyle` | string | ❌ | `"white"` | See [Text Styles](#text-styles) |
-| `image` | string | ✅ | `""` | Path to screenshot |
-| `zoom` | number | ❌ | `100` | `50-200` |
-| `posX` | number | ❌ | `50` | `0-100` |
-| `posY` | number | ❌ | `50` | `0-100` |
-| `opacity` | number | ❌ | `65` | `0-100` |
-| `overlay` | number | ❌ | `60` | `0-100` |
+All three image slots use this structure:
 
 ```json
 {
-  "contentType": "hero-shot",
-  "title": "Your Club.\\nYour Stats.",
-  "titleStyle": "white",
-  "image": "/internal-assets/screenshots/iphone-dashboard.png",
+  "src": "/internal-assets/screenshots/iphone-dashboard.png",
+  "position": { "x": 50, "y": 50 },
   "zoom": 100,
-  "posX": 50,
-  "posY": 50,
   "opacity": 65,
   "overlay": 60
 }
 ```
 
----
+`src` is a screenshot path or a custom image value provided by the editor.
+The feature image can be empty. Position, zoom, opacity, and overlay are numeric
+control values, not pixel coordinates. The current implementation uses `||`
+fallbacks for numeric fields, so zero may become a default when state is loaded
+or saved; do not assume a zero-valued preset round-trips unchanged.
 
-### 2. `gallery` - Screenshot with Optional Title
+| Default | Hero | Gallery | Feature |
+| --- | --- | --- | --- |
+| Position x/y | 50/50 | 50/50 | 50/50 |
+| Zoom | 100 | 100 | 100 |
+| Opacity | 65 | 90 | 40 |
+| Overlay | 60 | 30 | 70 |
 
-| Field | Type | Required | Default | Values |
-|-------|------|----------|---------|--------|
-| `contentType` | string | ✅ | - | `"gallery"` |
-| `image` | string | ✅ | `""` | Path to screenshot |
-| `title` | string | ❌ | `""` | Short label |
-| `titleStyle` | string | ❌ | `"white"` | See [Text Styles](#text-styles) |
-| `zoom` | number | ❌ | `100` | `50-200` |
-| `posX` | number | ❌ | `50` | `0-100` |
-| `posY` | number | ❌ | `50` | `0-100` |
-| `opacity` | number | ❌ | `90` | `0-100` |
-| `overlay` | number | ❌ | `30` | `0-100` |
+Stat styles default to `green` for stat1 and `pink` for stat2. Hero/gallery title
+styles default to `white`. Brand defaults are `FC Clubs Stats` and
+`Free on App Store`; use campaign-appropriate approved copy when authoring.
 
-```json
-{
-  "contentType": "gallery",
-  "image": "/internal-assets/screenshots/iphone-sessions.png",
-  "title": "Sessions",
-  "titleStyle": "white",
-  "zoom": 100,
-  "posX": 50,
-  "posY": 50,
-  "opacity": 90,
-  "overlay": 30
-}
-```
-
----
-
-### 3. `highlight` - Stat/Number Display
-
-| Field | Type | Required | Default | Values |
-|-------|------|----------|---------|--------|
-| `contentType` | string | ✅ | - | `"highlight"` |
-| `value` | string | ✅ | `""` | Large text (e.g., "100", "∞", "AI") |
-| `label` | string | ✅ | `""` | UPPERCASE label |
-| `tagline` | string | ❌ | `""` | Description |
-| `style` | string | ❌ | `"green"` | See [Stat Styles](#stat-styles) |
+## Complete v20 example
 
 ```json
 {
-  "contentType": "highlight",
-  "value": "∞",
-  "label": "MATCHES SAVED",
-  "tagline": "Never lose your history",
-  "style": "green"
-}
-```
-
----
-
-### 4. `feature` - Feature Callout with Icon
-
-| Field | Type | Required | Default | Values |
-|-------|------|----------|---------|--------|
-| `contentType` | string | ✅ | - | `"feature"` |
-| `title` | string | ✅ | `""` | Feature name |
-| `description` | string | ❌ | `""` | Short description |
-| `icon` | string | ❌ | `""` | See [Icons](#icons) |
-| `image` | string | ❌ | `""` | Optional background |
-| `zoom` | number | ❌ | `100` | `50-200` |
-| `posX` | number | ❌ | `50` | `0-100` |
-| `posY` | number | ❌ | `50` | `0-100` |
-| `opacity` | number | ❌ | `40` | `0-100` |
-| `overlay` | number | ❌ | `70` | `0-100` |
-
-```json
-{
-  "contentType": "feature",
-  "title": "Real-Time Sync",
-  "description": "Automatic updates as you play",
-  "icon": "⚡",
-  "image": "",
-  "zoom": 100,
-  "posX": 50,
-  "posY": 50,
-  "opacity": 40,
-  "overlay": 70
-}
-```
-
----
-
-### 5. `brand` - App Branding
-
-| Field | Type | Required | Default | Values |
-|-------|------|----------|---------|--------|
-| `contentType` | string | ✅ | - | `"brand"` |
-| `name` | string | ✅ | `"FC Clubs Stats"` | App name |
-| `tagline` | string | ❌ | `"Free on App Store"` | CTA text |
-
-```json
-{
-  "contentType": "brand",
-  "name": "FC Clubs Stats",
-  "tagline": "Free on App Store"
-}
-```
-
----
-
-### 6. `callout` - Large Text
-
-| Field | Type | Required | Default | Values |
-|-------|------|----------|---------|--------|
-| `contentType` | string | ✅ | - | `"callout"` |
-| `title` | string | ✅ | `""` | Large text |
-| `titleStyle` | string | ❌ | `"white"` | See [Text Styles](#text-styles) |
-
-```json
-{
-  "contentType": "callout",
-  "title": "Every Match.\\nEvery Stat.",
-  "titleStyle": "gradient-blue"
-}
-```
-
----
-
-### 7. `spacer` - Empty Box
-
-| Field | Type | Required | Default |
-|-------|------|----------|---------|
-| `contentType` | string | ✅ | - |
-
-```json
-{
-  "contentType": "spacer"
-}
-```
-
----
-
-## Style Reference
-
-### Text Styles
-For `titleStyle` field:
-
-| Value | Description |
-|-------|-------------|
-| `white` | White text (default) |
-| `gradient-blue` | Blue→Green gradient |
-| `gradient-green` | Green→Lime gradient |
-| `gradient-pink` | Pink→Red gradient |
-| `gradient-gold` | Gold→Orange gradient |
-| `neon-blue` | Blue with glow |
-| `neon-green` | Green with glow |
-| `outline` | White stroke, transparent fill |
-| `heavy-shadow` | Strong drop shadow |
-| `3d` | 3D depth effect |
-| `retro` | Retro pop style |
-
-### Stat Styles
-For `style` field in `highlight`:
-
-**Solid Colors:**
-| Value | Hex |
-|-------|-----|
-| `green` | #42FEC2 |
-| `blue` | #3BADF7 |
-| `pink` | #F73B97 |
-| `gold` | #FEC242 |
-| `white` | #FFFFFF |
-
-**Gradients:**
-| Value | Colors |
-|-------|--------|
-| `gradient-blue` | #3BADF7 → #42FEC2 |
-| `gradient-green` | #42FEC2 → #A8FF78 |
-| `gradient-pink` | #E36BD9 → #FF6B6B |
-| `gradient-gold` | #FFC254 → #FF8C00 |
-
-**Effects:**
-| Value | Effect |
-|-------|--------|
-| `neon-blue` | Blue with glow |
-| `neon-green` | Green with glow |
-| `outline` | White stroke |
-| `heavy-shadow` | Strong shadow |
-| `3d` | 3D depth |
-
-### Formats
-| Value | Dimensions | Best For |
-|-------|------------|----------|
-| `ig-square` | 1080×1080 | Instagram, LinkedIn, X |
-| `ig-portrait` | 1080×1350 | Instagram Feed |
-| `ig-story` | 1080×1920 | Stories, TikTok |
-| `li-landscape` | 1200×626 | LinkedIn Articles |
-| `x-landscape` | 1600×900 | X (Twitter), YouTube |
-
----
-
-## Asset Reference
-
-### Icons
-| Value | Name |
-|-------|------|
-| `""` | None |
-| `⚡` | Lightning |
-| `🎯` | Target |
-| `🔥` | Fire |
-| `⭐` | Star |
-| `🏆` | Trophy |
-| `📊` | Chart |
-| `🤖` | AI |
-| `📱` | Phone |
-| `🎮` | Gaming |
-| `⚽` | Football |
-| `🛡️` | Shield |
-| `👁️` | Eye |
-
-### Screenshots
-**iPhone:**
-- `/internal-assets/screenshots/iphone-dashboard.png`
-- `/internal-assets/screenshots/iphone-club.png`
-- `/internal-assets/screenshots/iphone-matches.png`
-- `/internal-assets/screenshots/iphone-scout.png`
-- `/internal-assets/screenshots/iphone-sessions.png`
-- `/internal-assets/screenshots/iphone-welcome.png`
-
-**Widgets:**
-- `/internal-assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.12.png`
-- `/internal-assets/screenshots/Widgets - Simulator Screenshot - iPhone 17 Pro Max - 2025-12-22 at 01.25.28.png`
-
-**iPad:**
-- `/internal-assets/screenshots/ipad-dashboard.png`
-- `/internal-assets/screenshots/ipad-welcome.png`
-
----
-
-## Preset Examples
-
-### App Overview Preset
-```json
-{
-  "version": "19",
+  "version": "20",
   "format": "ig-square",
+  "background": "deep-ocean",
   "hero": {
     "contentType": "hero-shot",
-    "title": "Your Club.\\nYour Stats.",
-    "titleStyle": "white",
-    "image": "/internal-assets/screenshots/iphone-dashboard.png",
-    "zoom": 115,
-    "posX": 50,
-    "posY": 25,
-    "opacity": 65,
-    "overlay": 60
+    "title": { "content": "Your Club.\nYour Stats.", "style": "white" },
+    "image": {
+      "src": "/internal-assets/screenshots/iphone-dashboard.png",
+      "position": { "x": 50, "y": 25 },
+      "zoom": 115,
+      "opacity": 65,
+      "overlay": 60
+    }
   },
   "gallery": {
     "contentType": "gallery",
-    "image": "/internal-assets/screenshots/iphone-matches.png",
-    "title": "",
-    "titleStyle": "white",
-    "zoom": 110,
-    "posX": 50,
-    "posY": 20,
-    "opacity": 90,
-    "overlay": 30
+    "title": { "content": "Match history", "style": "white" },
+    "image": {
+      "src": "/internal-assets/screenshots/iphone-matches.png",
+      "position": { "x": 50, "y": 20 },
+      "zoom": 110,
+      "opacity": 90,
+      "overlay": 30
+    }
   },
   "stat1": {
     "contentType": "highlight",
     "value": "∞",
     "label": "Matches",
-    "tagline": "Every game saved forever",
+    "tagline": "Your saved match history",
     "style": "green"
   },
   "stat2": {
@@ -387,12 +106,13 @@ For `style` field in `highlight`:
     "title": "Scout Any Club",
     "description": "Research opponents before you play",
     "icon": "🎯",
-    "image": "/internal-assets/screenshots/iphone-scout.png",
-    "zoom": 100,
-    "posX": 50,
-    "posY": 50,
-    "opacity": 40,
-    "overlay": 70
+    "image": {
+      "src": "/internal-assets/screenshots/iphone-scout.png",
+      "position": { "x": 50, "y": 50 },
+      "zoom": 100,
+      "opacity": 40,
+      "overlay": 70
+    }
   },
   "brand": {
     "contentType": "brand",
@@ -401,3 +121,63 @@ For `style` field in `highlight`:
   }
 }
 ```
+
+## Formats and styles
+
+Use the options exposed by [bento_generator.html](bento_generator.html) and
+[src/bento_generator.css](src/bento_generator.css); keep those controls and this
+reference aligned when adding an option.
+
+| Format | Dimensions |
+| --- | --- |
+| `ig-square` | 1080 × 1080 |
+| `ig-portrait` | 1080 × 1350 |
+| `ig-story` | 1080 × 1920 |
+| `li-landscape` | 1200 × 626 |
+| `x-landscape` | 1600 × 900 |
+
+- Backgrounds: `deep-ocean`, `midnight`, `electric-blue`, `neon-teal`, `ember`, `solid-dark`.
+- Hero/gallery title styles: `white`, `gradient-blue`, `gradient-green`, `gradient-pink`, `gradient-gold`, `neon-blue`, `neon-green`, `outline`, `heavy-shadow`, `3d`, `retro`.
+- Stat styles: solid `green`, `blue`, `pink`, `gold`, `white`; the four gradients above; `neon-blue`, `neon-green`, `outline`, `heavy-shadow`, `3d`.
+- Feature icons: the editor's emoji choices or empty string for none. Use the current picker rather than inventing an icon identifier.
+
+Layout selection changes canvas classes but is not included in the v20 JSON
+returned by `getCurrentState()`. A saved preset does not preserve that selection.
+
+## Assets and preset files
+
+`SCREENSHOTS` in [the generator source](src/bento_generator.js) owns the selectable
+asset list. It includes the v1.1.0 screenshot set and legacy iPhone, iPad, and
+widget images under `/internal-assets/screenshots/`. Confirm local asset
+availability when preparing exports; these development assets are not proof of
+current shipped app behavior.
+
+`PRESET_FILES` in the same source owns the built-in preset paths under
+`src/presets/`. Adding a preset requires registering its path and an appropriate
+selector option. Author new files as v20; use the complete example above or a
+fresh editor export as the starting point.
+
+## Legacy autosave compatibility
+
+Browser autosave restoration (`restoreFromLocalStorage`) migrates unversioned
+flat state to v19 and then to v20, or v19 directly to v20.
+
+| v19 field | v20 field |
+| --- | --- |
+| `hero.title`, `gallery.title` | respective `title.content` |
+| `hero.titleStyle`, `gallery.titleStyle` | respective `title.style` |
+| `hero.image`, `gallery.image`, `feature.image` strings | respective `image.src` |
+| Top-level slot `posX`, `posY` | respective `image.position.x`, `image.position.y` |
+| Top-level slot `zoom`, `opacity`, `overlay` | respective `image.zoom`, `image.opacity`, `image.overlay` |
+| Feature text, stat fields, brand fields | remain flat within their slots |
+
+The JSON file-import handler and built-in preset loader do **not** run that
+migration chain. Convert legacy files to the documented v20 shape before import;
+changing only the version string is insufficient. Keep migration behavior when
+changing the editor, but do not use the legacy shape for new presets.
+
+## Verification by change
+
+- Documentation edits: validate JSON examples and compare their fields with the serializer/importer; no renderer change is implied.
+- Preset edits: load the file in the local editor, inspect its six slots, save/reload it, and check the intended export.
+- Generator layout/export changes: check all five formats, image loading, text clipping, PNG output, save/import, and autosave compatibility. Run relevant website tests/build; the public build alone does not exercise this excluded development tool.

@@ -1,41 +1,23 @@
-# Agent guide for Web Development
+# Website agent guide
 
-This repository ships the marketing website for FC Clubs Companion. Treat every change as if you were a Senior Frontend Engineer building a high-quality, responsive web experience.
+This repository owns the FC Clubs marketing/support website and the local Bento graphics tool. Work from this checkout's Git root and read the relevant page or runbook for the task.
 
-## Role
-- You are a **Senior Frontend Engineer** focused on creating performant, accessible, and visually appealing web pages.
-- Focus on clean HTML, CSS, and modern JavaScript.
+## Local work and verification
 
-## Core instructions
-- Ensure all pages are fully responsive across mobile, tablet, and desktop.
-- semantic HTML5 elements are required (`<nav>`, `<header>`, `<main>`, `<footer>`, `<section>`).
-- Use separate CSS files for styling; avoid inline styles.
-- Optimize images and assets for fast loading.
+- Carry requested local changes through relevant checks; fix failures caused by the change and report remaining gaps.
+- Use semantic HTML, separate CSS, and the existing design tokens. Preserve responsive layouts, keyboard navigation, meaningful labels, contrast, and SEO metadata.
+- For site behavior/content changes, run `npm test` and `npm run build`; inspect changed layouts on desktop and mobile. Documentation-only changes need link/command verification and `git diff --check`, without unrelated browser/build work.
+- Keep secrets and large generated intermediate files out of Git.
 
-## Web guidance
-- **Browser Compatibility**: Support modern browsers (Chrome, Safari, Firefox, Edge).
-- **Accessibility**: Ensure high contrast, proper ARIA labels where necessary, and keyboard navigability.
-- **Design System**: Follow the design tokens defined in the project (colors, typography).
-- **SEO**: Ensure proper meta tags, Open Graph tags, and semantic structure for search engines.
+## Task-specific references
 
-## Bento Generator
-The Bento Generator (`bento_generator.html`) is a tool for creating social media graphics.
+- [README.md](README.md): local development, supported pages, and deployment.
+- [docs/STATUS_PAGE.md](docs/STATUS_PAGE.md): public status copy and update rules.
+- [BENTO_GENERATOR.md](BENTO_GENERATOR.md): current v20 preset schema, legacy autosave migration, and assets. Read it for generator/preset changes; each exported slot has its documented `contentType`. Check all supported formats when generator layout/export behavior changes.
+- The sibling app's [PRD](../fcclubsapp/PRD.md) owns product scope; its [release process](../fcclubsapp/docs/RELEASE_PROCESS.md) owns platform-specific release-note and store-approval gates.
 
-- **Documentation**: See [BENTO_GENERATOR.md](./BENTO_GENERATOR.md) for complete schema reference
-- **Source Files**: `bento_generator.html`, `src/bento_generator.js`, `src/bento_generator.css`
-- **JSON Schema Version**: v19 (nested structure with `contentType` per slot)
+## Publication
 
-When creating presets or modifying the generator:
-1. Follow the JSON schema defined in BENTO_GENERATOR.md
-2. Each slot must have a `contentType` field
-3. Use only documented styles, icons, and screenshots
-4. Test all formats (square, portrait, landscape)
-
-## Project structure
-- Keep assets organized in `public` or `assets` folders.
-- Separate pages or components logically.
-- Do not commit large binary files or secrets.
-
-## Deployment
-- The site is deployed via GitHub Pages / Vercel / Netlify (adjust based on actual setup).
-- Ensure build scripts (if any) pass before committing.
+- [.github/workflows/deploy.yml](.github/workflows/deploy.yml) publishes GitHub Pages when `main` is pushed, or on manual dispatch. It installs/builds the site; it does not currently run `npm test`.
+- Follow the user's existing authorization for pushes and publication. Prepare release notes locally and retain the app release process's store-approval gate before pushing the website deploy branch.
+- Preserve platform-specific release copy. For an authorized deployment, verify the intended revision and read back the live page with cache disabled.
