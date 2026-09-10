@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/app-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="FC Clubs Stats service information and simple troubleshooting for iOS and Android users." />
+    <meta name="description" content="FC26 live updates are paused following incomplete and failing EA Clubs API responses. Read the current impact and guidance for your saved matches." />
     <meta name="robots" content="noindex, follow" />
 
     <meta name="theme-color" content="#021230" />
     <meta property="og:site_name" content="FC Clubs Stats" />
     <meta property="og:title" content="Status | FC Clubs App" />
-    <meta property="og:description" content="Service information and simple troubleshooting for FC Clubs Stats." />
+    <meta property="og:description" content="FC26 live updates are paused following incomplete and failing EA Clubs API responses. Saved matches on your device remain available." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://fcclubs.app/status.html" />
     <meta property="og:image" content="https://fcclubs.app/assets/social/marketing.jpg" />
@@ -19,7 +19,7 @@
     <meta property="og:image:alt" content="FC Clubs Stats EA FC 26 companion app on iOS and Android" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Status | FC Clubs App" />
-    <meta name="twitter:description" content="Service information and simple troubleshooting for FC Clubs Stats." />
+    <meta name="twitter:description" content="FC26 live updates are paused following incomplete and failing EA Clubs API responses. Saved matches on your device remain available." />
     <meta name="twitter:image" content="https://fcclubs.app/assets/social/marketing.jpg" />
     <link rel="canonical" href="https://fcclubs.app/status.html" />
 
@@ -52,24 +52,49 @@
       <main class="status-page">
         <header class="status-hero">
           <p class="status-kicker">FC Clubs Support</p>
-          <h1>Service information</h1>
-          <p class="status-hero-copy">FC Clubs relies on third-party EA Sports services for club and match information.</p>
+          <h1>FC26 service status</h1>
+          <p class="status-hero-copy">Current information about FC26 club data, live updates, and access to saved history.</p>
         </header>
 
-        <section class="status-panel status-panel--current" aria-labelledby="troubleshooting-heading">
+        <section class="status-panel status-panel--current" aria-labelledby="incident-heading">
           <div class="status-panel-header">
             <div>
-              <p class="status-eyebrow">Troubleshooting</p>
-              <h2 id="troubleshooting-heading">If new data stops appearing</h2>
+              <p class="status-eyebrow">Current incident · Live updates paused</p>
+              <h2 id="incident-heading">FC26 live updates are paused</h2>
             </div>
           </div>
 
-          <p class="status-lead">Refresh the app and try again later. Temporary provider interruptions can affect search and updates while your saved app data remains on your device.</p>
+          <p class="status-lead">EA's FC26 Clubs API is returning incomplete data for some requests, while other requests are failing. We have paused live FC26 updates in app versions that support this control.</p>
+          <p class="status-lead">We have not confirmed whether this is a temporary issue or a permanent change to FC26 services. There is no confirmed recovery time.</p>
 
-          <dl class="status-facts" aria-label="Troubleshooting steps">
+          <dl class="status-facts" aria-label="Incident details and guidance">
             <div>
-              <dt>Before reinstalling</dt>
-              <dd>Check that you have a recent backup and confirm the issue is not temporary.</dd>
+              <dt>First confirmed</dt>
+              <dd><time datetime="2026-09-10T20:48:11Z">September 10, 2026 at 20:48 UTC</time></dd>
+            </div>
+            <div>
+              <dt>Last updated</dt>
+              <dd><time datetime="2026-09-10T21:08:44Z">September 10, 2026 at 21:08 UTC</time></dd>
+            </div>
+            <div>
+              <dt>Affected</dt>
+              <dd>New club statistics, match downloads, and some club searches. On current supported releases, live search, Scout, and new club setup are paused too.</dd>
+            </div>
+            <div>
+              <dt>Still available</dt>
+              <dd>Matches and history already saved on your device, switching between saved clubs with history, and Restore Purchases.</dd>
+            </div>
+            <div>
+              <dt>Missing summaries</dt>
+              <dd>Some iOS club names, crests, or summary stats may be missing even when saved matches remain. We are investigating this separately; a missing summary does not by itself mean your match history was deleted.</dd>
+            </div>
+            <div>
+              <dt>What to do</dt>
+              <dd>Keep FC Clubs installed and keep your existing club setup. Reinstalling or removing a saved club will not repair the provider's responses and may put locally saved data at risk. Check this page for updates.</dd>
+            </div>
+            <div>
+              <dt>Older app versions</dt>
+              <dd>Some older releases can only pause club synchronization, and the oldest releases cannot receive a remote pause or notice. Live features may continue to fail on those versions.</dd>
             </div>
             <div>
               <dt>Need help?</dt>
