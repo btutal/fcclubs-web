@@ -1,0 +1,36 @@
+.service-notice {
+  margin-bottom: 24px;
+  padding: 18px 20px;
+  border: 1px solid var(--color-amber);
+  border-radius: 16px;
+  background: rgba(255, 194, 84, 0.08);
+  text-align: left;
+}
+
+.service-notice p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.service-notice p:first-child {
+  margin-bottom: 6px;
+  color: var(--color-amber);
+  font-weight: 700;
+}
+
+.service-notice a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--color-amber);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.service-notice a:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
