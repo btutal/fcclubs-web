@@ -5,7 +5,7 @@ The public status page lives at `/status.html` and is intended for clear user co
 ## Wording Rules
 
 - Use **data provider**, **official Clubs data provider**, or **provider-backed updates**.
-- Do not name the upstream provider in incident copy.
+- The published September 2026 FC26 notice names EA and describes observed incomplete/failing responses. Preserve that approved wording; the older generic-provider template below is an example, not a rule to rewrite the current incident.
 - Be precise about scope: avoid saying the whole app is down when only match-history or session refreshes are affected.
 - Keep reassurance factual: saved data remains available only if it was already saved on the device.
 - Tell users when no action is needed. Do not ask users to reinstall unless there is a confirmed app-side reason.
@@ -25,7 +25,7 @@ Edit `status.html`:
    - the visible text, for example `June 23, 2026 at 18:45 CEST`
    - the `datetime` attribute, for example `2026-06-23T18:45:17+02:00`
 3. If there is no active incident, make current status `Operational` and remove incident-specific guidance.
-4. Run `npm run build`.
+4. Run `npm test` and `npm run build`, then inspect the changed page at desktop and mobile widths.
 
 ## Resolving An Incident
 
@@ -34,7 +34,7 @@ When the issue is resolved:
 1. Change the `Current Status` card to `Operational` or `Monitoring`.
 2. Move the current incident summary into `Previous Events`.
 3. Include the resolved time and one sentence on impact.
-4. Run `npm run build`.
+4. Run `npm test` and `npm run build`, then inspect the changed page at desktop and mobile widths.
 
 ## Suggested Status Labels
 
@@ -43,9 +43,9 @@ When the issue is resolved:
 - `Unavailable`: feature is expected to fail until a provider or app-side issue is resolved.
 - `Monitoring`: issue appears recovered, but keep watching telemetry and support messages.
 
-## Current Provider-Incident Template
+## Historical Club-Search Incident Template
 
-Use this shape when club search is failing but the app is not globally offline:
+This June 2026 example applies to a club-search-only incident. The September FC26 live-update pause has broader impact and its own saved-data guidance in `status.html`:
 
 ```text
 Club search is currently unavailable.

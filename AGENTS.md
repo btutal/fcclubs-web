@@ -18,6 +18,6 @@ This repository owns the FC Clubs marketing/support website and the local Bento 
 
 ## Publication
 
-- [.github/workflows/deploy.yml](.github/workflows/deploy.yml) publishes GitHub Pages when `main` is pushed, or on manual dispatch. It installs/builds the site; it does not currently run `npm test`.
+- [.github/workflows/deploy.yml](.github/workflows/deploy.yml) publishes GitHub Pages when `main` is pushed, or on manual dispatch. It installs dependencies and runs the build, whose `prebuild` hook runs `npm test` before publication.
 - Follow the user's existing authorization for pushes and publication. Prepare release notes locally and retain the app release process's store-approval gate before pushing the website deploy branch.
 - Preserve platform-specific release copy. For an authorized deployment, verify the intended revision and read back the live page with cache disabled.

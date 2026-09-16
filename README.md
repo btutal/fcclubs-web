@@ -1,5 +1,20 @@
 # FC Clubs Companion - Marketing Website
 
+## Release baseline — September 16, 2026
+
+Website source `d6b3176` records **1.1.9 available on iOS and Android**. Its
+FC26 live-update pause notice remains separate from app-release availability.
+The preparation notice announces **27.0.0** for FC27 while clearly stating
+that support is not available and has no confirmed release date. Publish
+availability claims only after app/provider verification and store approval. Do not resolve the FC26 incident just because a
+new app version or FC27 edition ships.
+
+Local validation passes: nine tests and production build. Vite 7.3.6 and
+refreshed transitive dependencies clear the audit. Use Node 22.12+ for local work. The existing Pages workflow uses Node 20;
+Vite supports 20.19+. The `prebuild` hook runs tests before every build,
+including CI. See the app's
+[implementation status](../fcclubsapp/docs/READINESS_27_0_0_IMPLEMENTATION.md).
+
 The official marketing website for the FC Clubs Companion iOS and Android apps.
 
 ## Overview
@@ -13,8 +28,8 @@ This project contains the source code for the landing page and support pages of 
 ## Deployment
 This site is deployed to [fcclubs.app](https://fcclubs.app) through
 [GitHub Pages](.github/workflows/deploy.yml). Pushes to `main` automatically
-publish; the workflow also supports manual dispatch. It runs `npm ci` and the
-build, but does not currently run `npm test`.
+publish; the workflow also supports manual dispatch. It runs `npm ci`,
+the production build, and its automatic `prebuild` test hook.
 
 For an authorized publication, run the relevant tests/build and verify the live
 page after deployment. Prepare release notes locally and follow the sibling
