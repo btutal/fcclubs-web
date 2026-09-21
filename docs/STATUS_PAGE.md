@@ -5,7 +5,8 @@ The public status page lives at `/status.html` and is intended for clear user co
 ## Wording Rules
 
 - Use **data provider**, **official Clubs data provider**, or **provider-backed updates**.
-- The published September 2026 FC26 notice names EA and describes observed incomplete/failing responses. Preserve that approved wording; the older generic-provider template below is an example, not a rule to rewrite the current incident.
+- The September 2026 notice now describes the confirmed shared-provider transition to FC27. FC26 remains frozen; do not promise FC26 recovery or describe this as an ongoing unconfirmed outage.
+- The FC27 panel is a preview of the upcoming iOS 27.0.0 release. Keep iOS and Android public availability at 1.1.9 until each store release is confirmed; an iOS candidate does not announce Android availability.
 - Be precise about scope: avoid saying the whole app is down when only match-history or session refreshes are affected.
 - Keep reassurance factual: saved data remains available only if it was already saved on the device.
 - Tell users when no action is needed. Do not ask users to reinstall unless there is a confirmed app-side reason.
