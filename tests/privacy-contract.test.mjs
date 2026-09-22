@@ -138,11 +138,13 @@ test('structured data is valid and does not claim an unsupported rating', async 
     assert.doesNotMatch(match[1], /aggregateRating|reviewCount|ratingValue/);
 });
 
-test('release notes identify v1.1.9 as the live version', async () => {
+test('release notes distinguish live iOS 27.0.0 from Android 1.1.9', async () => {
     const releaseNotes = await read('whats-new.html');
     const releaseStyles = await read('src/whats-new.css');
 
-    assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Current Version/);
+    assert.match(releaseNotes, /Available now on iOS · Version 27\.0\.0/);
+    assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Current Android Version/);
+    assert.doesNotMatch(releaseNotes, /Coming to iOS|not yet available on the App Store/);
     assert.doesNotMatch(releaseNotes, /Coming Soon|upcoming FC Clubs v1\.1\.9/);
     assert.doesNotMatch(releaseNotes, /v1\.1\.8[\s\S]{0,200}Current Version/);
     assert.match(releaseNotes, /iOS v1\.1\.9 release notes/);
@@ -188,5 +190,18 @@ test('production pages and assets do not expose internal tooling or stale screen
     ];
     for (const asset of expectedAssets) {
         await assert.doesNotReject(access(new URL(`../${asset}`, import.meta.url)));
+    }
+});
+
+
+test('FC27 availability agrees across public surfaces', async () => {
+    const home = await read('index.html');
+    assert.match(home, /iOS 27\.0\.0 available now/);
+    for (const page of ['whats-new.html', 'status.html']) {
+        const html = await read(page);
+        assert.match(html, /Available now on iOS · Version 27\.0\.0/);
+        assert.match(html, /Android remains on version 1\.1\.9/);
+        assert.match(html, /https:\/\/apps\.apple\.com\/app\/id6756238638/);
+        assert.doesNotMatch(html, /Coming to iOS|upcoming FC27-compatible|not yet available on the App Store/);
     }
 });
