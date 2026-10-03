@@ -138,12 +138,15 @@ test('structured data is valid and does not claim an unsupported rating', async 
     assert.doesNotMatch(match[1], /aggregateRating|reviewCount|ratingValue/);
 });
 
-test('release notes distinguish live iOS 27.0.0 from Android 1.1.9', async () => {
+test('release notes identify 27.0.0 on iOS and Android', async () => {
     const releaseNotes = await read('whats-new.html');
     const releaseStyles = await read('src/whats-new.css');
 
-    assert.match(releaseNotes, /Available now on iOS · Version 27\.0\.0/);
-    assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Current Android Version/);
+    assert.match(releaseNotes, /Available now on iOS and Android · Version 27\.0\.0/);
+    assert.match(releaseNotes, /v27\.0\.0[\s\S]{0,200}Current iOS and Android version/);
+    assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Previous Android Version/);
+    assert.match(releaseNotes, /Android v27\.0\.0 release notes/);
+    assert.match(releaseNotes, /FC26 History stays accessible/);
     assert.doesNotMatch(releaseNotes, /Coming to iOS|not yet available on the App Store/);
     assert.doesNotMatch(releaseNotes, /Coming Soon|upcoming FC Clubs v1\.1\.9/);
     assert.doesNotMatch(releaseNotes, /v1\.1\.8[\s\S]{0,200}Current Version/);
@@ -153,6 +156,7 @@ test('release notes distinguish live iOS 27.0.0 from Android 1.1.9', async () =>
     assert.match(releaseNotes, /Reliable backups and widgets/);
     assert.match(releaseStyles, /#v119-ios:checked[\s\S]*\.platform-tab-panel-ios/);
     assert.match(releaseStyles, /#v119-android:checked[\s\S]*\.platform-tab-panel-android/);
+    assert.match(releaseStyles, /#v270-android:checked[\s\S]*\.platform-tab-panel-android/);
 });
 
 test('production pages and assets do not expose internal tooling or stale screenshots', async () => {
@@ -196,12 +200,13 @@ test('production pages and assets do not expose internal tooling or stale screen
 
 test('FC27 availability agrees across public surfaces', async () => {
     const home = await read('index.html');
-    assert.match(home, /iOS 27\.0\.0 available now/);
+    assert.match(home, /iOS and Android 27\.0\.0 available now/);
     for (const page of ['whats-new.html', 'status.html']) {
         const html = await read(page);
-        assert.match(html, /Available now on iOS · Version 27\.0\.0/);
-        assert.match(html, /Android remains on version 1\.1\.9/);
+        assert.match(html, /Available now on iOS and Android · Version 27\.0\.0/);
+        assert.doesNotMatch(html, /Android remains on version 1\.1\.9/);
         assert.match(html, /https:\/\/apps\.apple\.com\/app\/id6756238638/);
+        assert.match(html, /https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.berkaytutal\.fcclubsapp/);
         assert.doesNotMatch(html, /Coming to iOS|upcoming FC27-compatible|not yet available on the App Store/);
     }
 });
