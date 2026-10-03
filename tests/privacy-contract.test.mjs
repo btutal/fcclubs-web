@@ -201,6 +201,7 @@ test('production pages and assets do not expose internal tooling or stale screen
 test('FC27 availability agrees across public surfaces', async () => {
     const home = await read('index.html');
     assert.match(home, /iOS and Android 27\.0\.0 available now/);
+    assert.doesNotMatch(home, /FC26 live updates are paused|class="service-notice"/);
     for (const page of ['whats-new.html', 'status.html']) {
         const html = await read(page);
         assert.match(html, /Available now on iOS and Android · Version 27\.0\.0/);
