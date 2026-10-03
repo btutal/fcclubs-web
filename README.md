@@ -1,19 +1,18 @@
 # FC Clubs Companion - Marketing Website
 
-## Release baseline — September 16, 2026
+## Current release — October 4, 2026
 
-Website source `d6b3176` records **1.1.9 available on iOS and Android**. Its
-FC26 live-update pause notice remains separate from app-release availability.
-The preparation notice announces **27.0.0** for FC27 while clearly stating
-that support is not available and has no confirmed release date. Publish
-availability claims only after app/provider verification and store approval. Do not resolve the FC26 incident just because a
-new app version or FC27 edition ships.
+The website announces **FC Clubs 27.0.0 available on iOS and Android**. iOS
+build 311 and Android build 131 are public; the [app release record](../fcclubsapp/docs/releases/v27.0.0/RELEASE_STATUS.md)
+contains exact source tags and store evidence. The homepage focuses on FC27.
+The [status page](https://fcclubs.app/status.html) retains the separate FC26
+service-transition details and guidance for saved history.
 
-Local validation passes: nine tests and production build. Vite 7.3.6 and
-refreshed transitive dependencies clear the audit. Use Node 22.12+ for local work. The existing Pages workflow uses Node 20;
-Vite supports 20.19+. The `prebuild` hook runs tests before every build,
-including CI. See the app's
-[implementation status](../fcclubsapp/docs/READINESS_27_0_0_IMPLEMENTATION.md).
+The release site passed ten local tests, a production build and GitHub Pages
+deployment. Cache-disabled homepage, What's New and Status readbacks matched
+the published copy; the homepage had no horizontal overflow at 390px and
+1280px. Use Node 22.12+ for local work. The `prebuild` hook runs tests before
+every build, including CI.
 
 The official marketing website for the FC Clubs Companion iOS and Android apps.
 

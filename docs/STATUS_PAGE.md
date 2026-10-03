@@ -6,7 +6,8 @@ The public status page lives at `/status.html` and is intended for clear user co
 
 - Use **data provider**, **official Clubs data provider**, or **provider-backed updates**.
 - The September 2026 notice now describes the confirmed shared-provider transition to FC27. FC26 remains frozen; do not promise FC26 recovery or describe this as an ongoing unconfirmed outage.
-- The owner confirmed iOS 27.0.0 live on September 22, 2026 and directed publication of Android 27.0.0 availability copy on October 4, 2026 after submitting Android build 131 for Google Play Production review. Keep the two platform release records distinct and verify the Play approval state before reporting store availability in release operations.
+- iOS 27.0.0 build 311 and Android 27.0.0 build 131 are public. Google Play Production listed build 131 as available on October 4, 2026. Keep the two platform release records distinct and verify store state before future availability changes.
+- The homepage no longer carries the FC26 pause notice. Keep FC26 service-transition details and saved-history guidance on this status page until its service state actually changes.
 - Be precise about scope: avoid saying the whole app is down when only match-history or session refreshes are affected.
 - Keep reassurance factual: saved data remains available only if it was already saved on the device.
 - Tell users when no action is needed. Do not ask users to reinstall unless there is a confirmed app-side reason.
