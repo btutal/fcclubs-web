@@ -16,6 +16,15 @@ every build, including CI.
 
 The official marketing website for the FC Clubs Companion iOS and Android apps.
 
+## Discovery copy update — October 6, 2026
+
+Homepage and Pro Stats copy now clarify FC27 compatibility, setup,
+the free starting experience, optional purchases and saved-history limits.
+The [copy review](docs/DISCOVERY_COPY_REVIEW.md) records the changes and validation.
+Website publication was authorized on October 6; the related store metadata
+remains a local proposal pending separate approval. The release record above
+describes the preceding app-availability publication.
+
 ## Overview
 This project contains the source code for the landing page and support pages of the FC Clubs Companion app. It serves to showcase the app's features, provide download links, and offer support resources.
 
