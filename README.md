@@ -30,6 +30,14 @@ records that earlier publication. The user approved the subsequent store copy
 and premium assets; they were submitted on October 8. Google has published its
 changes; Apple approval for the patch remains pending.
 
+## Studio 149
+
+FC Clubs Stats is developed and published by Berkay Ogulcan Tutal under the
+name [Studio 149](https://studio149.dev/) (**Ideas. Apps. Games.**). The FC Clubs
+website links to the studio and its [legal notice](https://studio149.dev/impressum.html),
+while keeping FC Clubs support and privacy contacts at `support@fcclubs.app`.
+This publisher-information update is independent of platform app releases.
+
 ## Overview
 This project contains the source code for the landing page and support pages of the FC Clubs Companion app. It serves to showcase the app's features, provide download links, and offer support resources.
 

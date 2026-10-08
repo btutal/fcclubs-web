@@ -510,9 +510,29 @@ section, h2[id], article[id] {
     font-size: 0.95rem;
 }
 
+.footer-publisher {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-publisher a {
+    color: var(--color-electric-blue);
+    text-decoration: underline;
+    text-decoration-color: rgba(109, 185, 235, 0.5);
+    text-underline-offset: 4px;
+}
+
+.footer-publisher a:hover {
+    color: #fff;
+}
+
 .footer-col.links {
     display: flex;
-    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 16px 24px;
+    max-width: 760px;
 }
 
 .footer-col.links a {
@@ -599,6 +619,7 @@ section, h2[id], article[id] {
         flex-direction: column;
         gap: 16px;
         align-items: center;
+        justify-content: center;
     }
 }
 

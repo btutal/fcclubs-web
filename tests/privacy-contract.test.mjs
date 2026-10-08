@@ -47,6 +47,32 @@ test('public pages do not load Google Analytics or Google Fonts before consent',
     }
 });
 
+test('Studio 149 attribution is consistent and keeps FC Clubs support separate', async () => {
+    for (const page of [...marketingPages, 'status.html']) {
+        const html = await read(page);
+        assert.equal((html.match(/class="footer-publisher"/g) ?? []).length, 1, `${page}: publisher attribution`);
+        assert.match(html, /Made by <a href="https:\/\/studio149\.dev\/" target="_blank" rel="noopener noreferrer">Studio 149/);
+        assert.match(html, /href="https:\/\/studio149\.dev\/impressum\.html" target="_blank" rel="noopener noreferrer">Publisher &amp; Legal<\/a>/);
+        assert.match(html, /Unofficial companion app\. Not affiliated with EA Sports\./);
+    }
+
+    for (const page of ['privacy.html', 'terms.html']) {
+        const html = await read(page);
+        assert.match(html, /Berkay Ogulcan Tutal, operating as/);
+        assert.match(html, /href="https:\/\/studio149\.dev\/impressum\.html"/);
+        assert.match(html, /mailto:support@fcclubs\.app/);
+    }
+
+    const homepage = await read('index.html');
+    const json = JSON.parse(homepage.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assert.equal(json['@graph'][0].publisher.alternateName, 'Studio 149');
+    assert.equal(json['@graph'][1].author.url, 'https://studio149.dev/');
+
+    const productFacts = await read('public/llms.txt');
+    assert.match(productFacts, /## Publisher/);
+    assert.match(productFacts, /https:\/\/studio149\.dev\/impressum\.html/);
+});
+
 test('analytics loader keeps advertising signals denied', async () => {
     const source = await read('src/analytics-consent.js');
 
