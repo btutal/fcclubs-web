@@ -2,6 +2,13 @@
 
 > FC Clubs is an independent FC27 Pro Clubs stats tracker for iOS and Android. It saves available match history, groups matches into session recaps, compares squad performance and helps scout opponents. It is not affiliated with EA Sports.
 
+## Publisher
+
+- FC Clubs Stats is an app by Studio 149 (Ideas. Apps. Games.), operated by Berkay Ogulcan Tutal.
+- [Studio 149](https://studio149.dev/): Official studio website and other projects.
+- [Studio 149 legal information](https://studio149.dev/impressum.html): Publisher details.
+- For FC Clubs app support, use support@fcclubs.app.
+
 ## Product facts
 
 - Supported game platforms: PlayStation 5, Xbox Series X|S and PC for FC27 Pro Clubs.
