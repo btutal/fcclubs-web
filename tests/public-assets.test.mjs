@@ -25,9 +25,10 @@ test('public directory contains only production runtime files', async () => {
 
     assert.deepEqual(files, [
         'assets/app-icon.png',
-        'assets/screenshots/hero-ai-sessions.webp',
         'assets/screenshots/pro-stats.webp',
+        'assets/screenshots/session-recap.webp',
         'assets/social/marketing.jpg',
+        'llms.txt',
         'robots.txt',
         'sitemap.xml',
     ]);

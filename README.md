@@ -1,29 +1,34 @@
 # FC Clubs Companion - Marketing Website
 
-## Current release — October 4, 2026
+## Current release — October 8, 2026
 
-The website announces **FC Clubs 27.0.0 available on iOS and Android**. iOS
-build 311 and Android build 131 are public; the [app release record](../fcclubsapp/docs/releases/v27.0.0/RELEASE_STATUS.md)
-contains exact source tags and store evidence. The homepage focuses on FC27.
-The [status page](https://fcclubs.app/status.html) retains the separate FC26
-service-transition details and guidance for saved history.
+The app is available on the App Store and Google Play. **Android 27.0.1 / 133
+is live in Production**, verified in Play Console on October 8. **iOS 27.0.1 /
+321 is Waiting for Review** in App Store Connect; 27.0.0 remains the current
+public iOS release. Website copy and structured data preserve this distinction.
+The [app candidate record](../fcclubsapp/docs/releases/v27.0.1/RELEASE_CANDIDATE.md)
+records immutable build identities; older submission snapshots retain their
+original review states.
 
-The release site passed ten local tests, a production build and GitHub Pages
-deployment. Cache-disabled homepage, What's New and Status readbacks matched
-the published copy; the homepage had no horizontal overflow at 390px and
-1280px. Use Node 22.12+ for local work. The `prebuild` hook runs tests before
-every build, including CI.
+The homepage uses the exact Electric Blue app icon and fresh FC27 Session Detail
+and Pro Stats screenshots. Session recaps and player contributions lead the
+presentation, with compatibility, free-slot and purchase limits beside downloads.
+The [website update record](docs/WEBSITE_27_0_1.md) explains the release evidence,
+visual direction and search/AI-discovery checks. The [status page](https://fcclubs.app/status.html)
+retains the separate FC26 provider transition and saved-history guidance.
+
+Use Node 22.12+ locally. The `prebuild` hook runs tests before every build,
+including GitHub Pages CI.
 
 The official marketing website for the FC Clubs Companion iOS and Android apps.
 
 ## Discovery copy update — October 6, 2026
 
-Homepage and Pro Stats copy now clarify FC27 compatibility, setup,
-the free starting experience, optional purchases and saved-history limits.
-The [copy review](docs/DISCOVERY_COPY_REVIEW.md) records the changes and validation.
-Website publication was authorized on October 6; the related store metadata
-remains a local proposal pending separate approval. The release record above
-describes the preceding app-availability publication.
+Homepage and Pro Stats copy clarify FC27 compatibility, setup, free starting
+features, optional purchases and saved-history limits. The [copy review](docs/DISCOVERY_COPY_REVIEW.md)
+records that earlier publication. The user approved the subsequent store copy
+and premium assets; they were submitted on October 8. Google has published its
+changes; Apple approval for the patch remains pending.
 
 ## Overview
 This project contains the source code for the landing page and support pages of the FC Clubs Companion app. It serves to showcase the app's features, provide download links, and offer support resources.

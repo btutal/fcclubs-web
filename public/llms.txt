@@ -1,0 +1,27 @@
+# FC Clubs
+
+> FC Clubs is an independent FC27 Pro Clubs stats tracker for iOS and Android. It saves available match history, groups matches into session recaps, compares squad performance and helps scout opponents. It is not affiliated with EA Sports.
+
+## Product facts
+
+- Supported game platforms: PlayStation 5, Xbox Series X|S and PC for FC27 Pro Clubs.
+- Mobile requirements: iOS/iPadOS 26.1 or later; Android 13 or later.
+- Free to download with one club slot and standard tracking. No FC Clubs account is required.
+- Extra club slots and Pro Stats are separate optional one-time purchases. Pro Stats for all three slots does not unlock extra slots.
+- Pro Stats adds Second Assists, Interceptions, Through Passes, Dribbles Completed and Beats (take-ons) in match and session views when the provider supplies those metrics. They are not lifetime totals.
+- Session grouping is automatic and time-based. Forecasts are estimates from available club statistics.
+- Data coverage is limited by the official Clubs data provider. Open and refresh regularly to save available matches. Background updates are best effort.
+- Previously saved FC26 history stays separate and readable. New FC26 live tracking is paused.
+- Apple iCloud and Android Google Drive backup are platform-specific; cross-platform history transfer is not supported.
+- The app is available on the App Store and Google Play. Consult the current release notes for platform-specific version availability.
+
+## Official pages
+
+- [Product, downloads and getting started](https://fcclubs.app/): Features, supported platforms, pricing boundaries and setup answers.
+- [Pro Stats](https://fcclubs.app/pro-stats.html): Advanced metrics and purchase coverage.
+- [Release notes](https://fcclubs.app/whats-new.html): Current platform releases and update history.
+- [Service status](https://fcclubs.app/status.html): FC26 provider transition and saved-history guidance.
+- [Privacy](https://fcclubs.app/privacy.html): Data use and privacy controls.
+- [Terms](https://fcclubs.app/terms.html): Terms of use.
+- [App Store](https://apps.apple.com/us/app/fc-clubs/id6756238638): Official iOS and iPadOS listing.
+- [Google Play](https://play.google.com/store/apps/details?id=com.berkaytutal.fcclubsapp): Official Android listing.

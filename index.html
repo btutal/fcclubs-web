@@ -27,6 +27,7 @@
     <meta name="twitter:description" content="Save match stats, compare your squad and recap your FC27 Pro Clubs sessions. Available on iOS and Android." />
     <meta name="twitter:image" content="https://fcclubs.app/assets/social/marketing.jpg" />
     <link rel="canonical" href="https://fcclubs.app/" />
+    <link rel="alternate" type="text/markdown" href="https://fcclubs.app/llms.txt" title="FC Clubs product facts" />
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -54,6 +55,9 @@
             "https://apps.apple.com/us/app/fc-clubs/id6756238638",
             "https://play.google.com/store/apps/details?id=com.berkaytutal.fcclubsapp"
           ],
+          "softwareVersion": "iOS 27.0.0; Android 27.0.1",
+          "featureList": ["Automatic session recaps", "Saved match history", "Squad comparisons", "Optional Pro Stats", "Opponent scouting"],
+          "isAccessibleForFree": true,
           "offers": {
             "@type": "Offer",
             "price": "0",
@@ -77,7 +81,8 @@
   <body>
     <div id="app">
       <!-- Nav -->
-      <nav class="navbar">
+      <a class="skip-link" href="#main-content">Skip to content</a>
+      <nav class="navbar" aria-label="Main navigation">
         <div class="container nav-content">
           <a href="/" class="logo">
             <img src="/assets/app-icon.png" alt="FC Clubs Logo" class="nav-logo-img" width="36" height="36">
@@ -92,16 +97,17 @@
         </div>
       </nav>
 
-      <main>
+      <main id="main-content">
       <!-- Hero -->
       <header class="hero">
         <div class="container hero-grid">
           <div class="hero-text">
-            <p class="fc27-link"><a href="/whats-new.html#fc27">FC27 is here · iOS and Android 27.0.0 available now</a></p>
-            <h1 class="hero-title">EA FC 27 <span class="text-gradient">Pro Clubs Stats</span> Tracker</h1>
-            <p class="hero-subtitle">Save match stats, compare your squad, and recap your Clubs sessions. Track your form over time and scout your next opponent.</p>
+            <p class="fc27-link"><a href="/whats-new.html#v2701">27.0.1 is live on Google Play · See what’s new</a></p>
+            <div class="hero-brand"><img src="/assets/app-icon.png" alt="" width="80" height="80"><div><span class="hero-brand-name">FC CLUBS</span><p class="hero-kicker">FC27 PRO CLUBS TRACKER</p></div></div>
+            <h1 class="hero-title">Your FC27 club.<br><span class="hero-title-accent">Beyond the scoreline.</span></h1>
+            <p class="hero-subtitle">Turn your match nights into session recaps. Compare your squad, track your form and see the creators and ball winners behind every goal with optional Pro Stats.</p>
             <p class="hero-compatibility">For FC27 clubs on PS5, Xbox Series X|S and PC.</p>
-            <div class="store-badge-container">
+            <div class="store-badge-container" id="download">
               <a href="https://apps.apple.com/us/app/fc-clubs/id6756238638" target="_blank" rel="noopener" class="store-badge">
                 <svg viewBox="0 0 384 512" width="24" height="24" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/></svg>
                 <div class="badge-text">
@@ -124,14 +130,92 @@
             <div class="device-mockup">
               <div class="device-bezel">
                   <div class="device-screen">
-                    <img src="/assets/screenshots/hero-ai-sessions.webp" alt="FC Clubs session history showing match results and squad performance" class="hero-screenshot" width="660" height="1434" fetchpriority="high" decoding="async">
+                    <img src="/assets/screenshots/session-recap.webp" alt="FC27 session detail with 10 matches, a 6–3–1 record and a squad performance radar" class="hero-screenshot" width="660" height="1428" fetchpriority="high" decoding="async">
                   </div>
                 </div>
-              <div class="glow-effect"></div>
+              <p class="hero-screen-caption">A whole match night. One clear recap.</p>
             </div>
           </div>
         </div>
       </header>
+
+      <section class="product-story section-padding" aria-labelledby="story-title">
+        <div class="container product-story-grid">
+          <div class="story-copy">
+            <p class="section-kicker">THE CONTRIBUTIONS THAT COUNT</p>
+            <h2 id="story-title">Give your playmakers<br>their moment.</h2>
+            <p>Goals tell part of the story. Optional Pro Stats shows the pass before the assist, the interception that wins possession and the take-on that opens space.</p>
+            <dl class="story-metrics">
+              <div><dt>Second Assists</dt><dd>See who starts the move.</dd></div>
+              <div><dt>Interceptions</dt><dd>Recognize your ball winners.</dd></div>
+            </dl>
+            <a class="story-link" href="/pro-stats.html">Explore Pro Stats <span aria-hidden="true">↗</span></a>
+            <p class="story-note">One-time upgrade. Match and session metrics depend on available data.</p>
+          </div>
+          <figure class="story-visual">
+            <img src="/assets/screenshots/pro-stats.webp" alt="FC27 Squad Stats showing player contributions sorted by Second Assists" width="660" height="1428" loading="lazy" decoding="async">
+            <figcaption>Real squad stats. More of your team’s story.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section id="features" class="features section-padding">
+        <div class="container">
+          <h2 class="section-title">Know your club beyond the scoreline</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="icon-box amber">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/></svg>
+              </div>
+              <h3>Pro Stats</h3>
+              <p>Second Assists, Interceptions, and more — an optional one‑time upgrade in Settings. <a class="feature-link" href="/pro-stats.html">Explore Pro Stats →</a></p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-box neon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <h3>Widgets + Live Activity</h3>
+              <p>Check your club from Home Screen widgets on iOS and Android. On iPhone, follow your session from the Lock Screen and, on supported models, the Dynamic Island with Live Activity.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-box blue">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/></svg>
+              </div>
+              <h3>Automatic Session Recaps</h3>
+              <p>Matches played close together become a session. Review your record, goals and squad form, then share a recap with your teammates.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-box amber">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <h3>Player Cards & Profiles</h3>
+              <p>See your player profile, compare squad performance and share player cards with your teammates.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-box magenta">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h3>Tactics & Archetypes</h3>
+              <p>Visualize team formations with Archetype icons and player positions for detailed tactical analysis.</p>
+            </div>
+             <div class="feature-card">
+              <div class="icon-box neon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><polygon points="12 6 13.5 10.5 18 10.5 14.5 13.5 16 18 12 15 8 18 9.5 13.5 6 10.5 10.5 10.5 12 6"/></svg>
+              </div>
+              <h3>Match Intelligence</h3>
+              <p>Review match stats and formations, plus detected substitutions, red cards and disconnects when the match data supports them.</p>
+            </div>
+            <div class="feature-card">
+              <div class="icon-box blue">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+              </div>
+              <h3>Scout Mode + Forecast</h3>
+              <p>Look up supported FC27 clubs, compare opponent form and revisit recurring rivals. Match forecasts estimate outcomes from available club stats.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Testimonials -->
       <section class="testimonials section-padding bg-alt" id="reviews">
@@ -198,64 +282,6 @@
         </div>
       </section>
 
-      <!-- Features -->
-      <section id="features" class="features section-padding">
-        <div class="container">
-          <h2 class="section-title">Know your club beyond the scoreline</h2>
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="icon-box amber">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z"/></svg>
-              </div>
-              <h3>Pro Stats</h3>
-              <p>Second Assists, Interceptions, and more — an optional one‑time upgrade in Settings. <a class="feature-link" href="/pro-stats.html">Explore Pro Stats →</a></p>
-            </div>
-            <div class="feature-card">
-              <div class="icon-box neon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              </div>
-              <h3>Widgets + Live Activity</h3>
-              <p>Check your club from Home Screen widgets on iOS and Android. On iPhone, follow your session from the Lock Screen and, on supported models, the Dynamic Island with Live Activity.</p>
-            </div>
-            <div class="feature-card">
-              <div class="icon-box blue">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 6l-9.5 9.5-5-5L1 18"/></svg>
-              </div>
-              <h3>Automatic Session Recaps</h3>
-              <p>Matches played close together become a session. Review your record, goals and squad form, then share a recap with your teammates.</p>
-            </div>
-            <div class="feature-card">
-              <div class="icon-box amber">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </div>
-              <h3>Player Cards & Profiles</h3>
-              <p>See your player profile, compare squad performance and share player cards with your teammates.</p>
-            </div>
-            <div class="feature-card">
-              <div class="icon-box magenta">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
-              </div>
-              <h3>Tactics & Archetypes</h3>
-              <p>Visualize team formations with Archetype icons and player positions for detailed tactical analysis.</p>
-            </div>
-             <div class="feature-card">
-              <div class="icon-box neon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><polygon points="12 6 13.5 10.5 18 10.5 14.5 13.5 16 18 12 15 8 18 9.5 13.5 6 10.5 10.5 10.5 12 6"/></svg>
-              </div>
-              <h3>Match Intelligence</h3>
-              <p>Review match stats and formations, plus detected substitutions, red cards and disconnects when the match data supports them.</p>
-            </div>
-            <div class="feature-card">
-              <div class="icon-box blue">
-               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
-              </div>
-              <h3>Scout Mode + Forecast</h3>
-              <p>Look up supported FC27 clubs, compare opponent form and revisit recurring rivals. Match forecasts estimate outcomes from available club stats.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="questions" class="questions section-padding bg-alt" aria-labelledby="questions-title">
         <div class="container">
           <h2 class="section-title" id="questions-title">Before your next Clubs session</h2>
@@ -292,6 +318,15 @@
         </div>
       </section>
       </main>
+
+      <section class="download-finale section-padding" aria-labelledby="download-title">
+        <div class="container">
+          <img src="/assets/app-icon.png" alt="" width="72" height="72">
+          <h2 id="download-title">Make your next match night count.</h2>
+          <p>Available on the App Store and Google Play. Start with one free club slot.</p>
+          <a class="download-link" href="#download">Get FC Clubs <span aria-hidden="true">↑</span></a>
+        </div>
+      </section>
 
       <!-- Footer -->
       <footer class="footer">

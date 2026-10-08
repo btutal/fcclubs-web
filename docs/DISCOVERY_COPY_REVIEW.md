@@ -1,6 +1,6 @@
 # Discovery copy review — 6 October 2026
 
-Status: **website publication approved on 6 October 2026; store proposal pending review**. After reviewing the local preparation, the user authorized publishing the website changes and asked to see the planned store changes. This approval covers the website commit, push and deployment; store publication remains pending separate approval.
+Status: **website publication approved on 6 October 2026; historical store proposal, subsequently approved and submitted on October 8**. After reviewing the local preparation, the user authorized publishing the website changes and asked to see the planned store changes. This approval covers the website commit, push and deployment; store publication remains pending separate approval.
 
 ## Website changes
 
@@ -35,3 +35,10 @@ Preview evidence is temporarily saved in `/private/tmp/fcclubs-discovery-preview
 The website diff has publication approval. Publish through the main-branch GitHub Pages workflow, then record the deployed commit, workflow result and cache-disabled live readback in the publication handoff. Store publication has its own authenticated-field and locale checks, detailed in the store review.
 
 After an approved publication, verify live metadata, content, links and mobile rendering. Recheck organic queries and store conversion over comparable post-release windows. The discovery audit already found Google AI visibility and ChatGPT referrals, but clearer copy cannot guarantee inclusion or recommendations from ChatGPT, Claude or Grok. Named store-click measurement, localization and store experiments remain separate proposals.
+
+## Subsequent publication
+
+The user approved the store metadata and premium assets and submitted them on
+October 8. Google’s production release and listing are now published; Apple’s
+27.0.1 / 321 remains Waiting for Review. The [October 8 website update](WEBSITE_27_0_1.md)
+supersedes the old asset and availability details above.

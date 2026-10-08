@@ -58,3 +58,12 @@ The official Clubs data provider is currently having problems with club search. 
 
 FC Clubs is keeping saved data visible and will continue to load other features that receive a healthy response. You do not need to reinstall the app or change your existing setup.
 ```
+
+## 27.0.1 availability — October 8, 2026
+
+Play Console Production is active with latest release 27.0.1 / 133, and
+Publishing overview reports publication on October 8. Apple’s version endpoint
+still reports 27.0.1 / 321 as WAITING_FOR_REVIEW. Public copy therefore says the
+app is available on both stores, identifies Android 27.0.1 as live and keeps
+iOS 27.0.0 current until approval. The FC26 incident itself is unchanged.
+Use the current status copy rather than the older release snapshots above.
