@@ -1,5 +1,9 @@
 # Website 27.0.1 update — October 8, 2026
 
+This is the historical publication record. Apple subsequently approved build 321;
+see [the October 10 release update](WEBSITE_RELEASES_2026_10_10.md) for current
+availability. The original evidence below retains its October 8 review state.
+
 The user authorized updating and publishing the website for the new release,
 with stronger presentation and search/LLM compatibility.
 

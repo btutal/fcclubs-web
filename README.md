@@ -1,11 +1,13 @@
 # FC Clubs Companion - Marketing Website
 
-## Current release — October 8, 2026
+## Current releases — October 10, 2026
 
-The app is available on the App Store and Google Play. **Android 27.0.1 / 133
-is live in Production**, verified in Play Console on October 8. **iOS 27.0.1 /
-321 is Waiting for Review** in App Store Connect; 27.0.0 remains the current
-public iOS release. Website copy and structured data preserve this distinction.
+The app is available on the App Store and Google Play. **iOS 27.0.1 / 321 is
+Ready for Distribution**, verified through App Store Connect and the public
+Apple lookup on October 10. **Android 27.0.2 / 134 is public**, verified through
+Google Play's public English/US listing on October 10. Its incomplete-opponent
+match-import fix is the only new feature claim. Website copy and structured data
+show these current platform versions; 27.0.1 remains in both platforms' history.
 The [app candidate record](../fcclubsapp/docs/releases/v27.0.1/RELEASE_CANDIDATE.md)
 records immutable build identities; older submission snapshots retain their
 original review states.
@@ -13,8 +15,9 @@ original review states.
 The homepage uses the exact Electric Blue app icon and fresh FC27 Session Detail
 and Pro Stats screenshots. Session recaps and player contributions lead the
 presentation, with compatibility, free-slot and purchase limits beside downloads.
-The [website update record](docs/WEBSITE_27_0_1.md) explains the release evidence,
-visual direction and search/AI-discovery checks. The [status page](https://fcclubs.app/status.html)
+The [current release update](docs/WEBSITE_RELEASES_2026_10_10.md) records approval
+and availability. The [October 8 website update](docs/WEBSITE_27_0_1.md) explains
+the visual direction and search/AI-discovery checks. The [status page](https://fcclubs.app/status.html)
 retains the separate FC26 provider transition and saved-history guidance.
 
 Use Node 22.12+ locally. The `prebuild` hook runs tests before every build,
@@ -28,7 +31,7 @@ Homepage and Pro Stats copy clarify FC27 compatibility, setup, free starting
 features, optional purchases and saved-history limits. The [copy review](docs/DISCOVERY_COPY_REVIEW.md)
 records that earlier publication. The user approved the subsequent store copy
 and premium assets; they were submitted on October 8. Google has published its
-changes; Apple approval for the patch remains pending.
+changes, and Apple 27.0.1 / 321 is now approved and ready for distribution.
 
 ## Studio 149
 

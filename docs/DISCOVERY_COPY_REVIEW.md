@@ -39,6 +39,6 @@ After an approved publication, verify live metadata, content, links and mobile r
 ## Subsequent publication
 
 The user approved the store metadata and premium assets and submitted them on
-October 8. Google’s production release and listing are now published; Apple’s
-27.0.1 / 321 remains Waiting for Review. The [October 8 website update](WEBSITE_27_0_1.md)
+October 8. At that time Google’s production release and listing were published;
+Apple’s 27.0.1 / 321 was Waiting for Review. The [October 8 website update](WEBSITE_27_0_1.md)
 supersedes the old asset and availability details above.

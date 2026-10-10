@@ -6,7 +6,7 @@ The public status page lives at `/status.html` and is intended for clear user co
 
 - Use **data provider**, **official Clubs data provider**, or **provider-backed updates**.
 - The September 2026 notice now describes the confirmed shared-provider transition to FC27. FC26 remains frozen; do not promise FC26 recovery or describe this as an ongoing unconfirmed outage.
-- iOS 27.0.0 build 311 and Android 27.0.0 build 131 are public. Google Play Production listed build 131 as available on October 4, 2026. Keep the two platform release records distinct and verify store state before future availability changes.
+- iOS 27.0.1 build 321 is Ready for Distribution as of October 10, and Android 27.0.2 build 134 is public. Fresh Apple lookup and public Google Play listing checks confirmed both on October 10. Keep platform release records distinct and verify store state before future availability changes.
 - The homepage no longer carries the FC26 pause notice. Keep FC26 service-transition details and saved-history guidance on this status page until its service state actually changes.
 - Be precise about scope: avoid saying the whole app is down when only match-history or session refreshes are affected.
 - Keep reassurance factual: saved data remains available only if it was already saved on the device.
@@ -59,11 +59,22 @@ The official Clubs data provider is currently having problems with club search. 
 FC Clubs is keeping saved data visible and will continue to load other features that receive a healthy response. You do not need to reinstall the app or change your existing setup.
 ```
 
-## 27.0.1 availability — October 8, 2026
+## Historical 27.0.1 availability — October 8, 2026
 
 Play Console Production is active with latest release 27.0.1 / 133, and
 Publishing overview reports publication on October 8. Apple’s version endpoint
 still reports 27.0.1 / 321 as WAITING_FOR_REVIEW. Public copy therefore says the
 app is available on both stores, identifies Android 27.0.1 as live and keeps
 iOS 27.0.0 current until approval. The FC26 incident itself is unchanged.
-Use the current status copy rather than the older release snapshots above.
+This is the October 8 snapshot; use the current status copy and the update below.
+
+## Current availability — October 10, 2026
+
+App Store Connect now reports version 27.0.1 / 321 as READY_FOR_DISTRIBUTION
+(legacy appStoreState READY_FOR_SALE), and the public Apple lookup identifies
+27.0.1 as current. Google Play's public English/US listing now shows 27.0.2
+and its exact incomplete-opponent match-import fix. The status page therefore
+presents iOS 27.0.1 and Android 27.0.2 as available now. The prior committed
+`completed` track entry alone was not treated as availability evidence.
+The FC26 provider transition remains unchanged.
+See [the website update record](WEBSITE_RELEASES_2026_10_10.md).

@@ -161,19 +161,21 @@ test('structured data is valid and does not claim an unsupported rating', async 
     assert.deepEqual(graphTypes, ['WebSite', 'MobileApplication']);
     assert.equal(structuredData['@graph'][1].name, 'FC Clubs Stats');
     assert.equal(structuredData['@graph'][1].offers.price, '0');
-    assert.equal(structuredData['@graph'][1].softwareVersion, 'iOS 27.0.0; Android 27.0.1');
+    assert.equal(structuredData['@graph'][1].softwareVersion, 'iOS 27.0.1; Android 27.0.2');
     assert.doesNotMatch(match[1], /aggregateRating|reviewCount|ratingValue/);
 });
 
-test('release notes distinguish live Android patch from pending Apple approval', async () => {
+test('release notes distinguish the current iOS and Android patches', async () => {
     const releaseNotes = await read('whats-new.html');
     const releaseStyles = await read('src/whats-new.css');
 
     assert.match(releaseNotes, /Available on the App Store and Google Play/);
-    assert.match(releaseNotes, /v27\.0\.1[\s\S]{0,200}Live on Google Play/);
+    assert.match(releaseNotes, /v27\.0\.1[\s\S]{0,200}Current iOS · Previous Android release/);
+    assert.match(releaseNotes, /v27\.0\.2[\s\S]{0,200}Android · Available now/);
     assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Previous iOS and Android release/);
-    assert.match(releaseNotes, /iOS · Submitted for review/);
-    assert.match(releaseNotes, /current App Store release is 27\.0\.0/);
+    assert.match(releaseNotes, /iOS · Available now/);
+    assert.match(releaseNotes, /The update is available on the App Store/);
+    assert.doesNotMatch(releaseNotes, /Submitted for review|current App Store release is 27\.0\.0/);
     assert.match(releaseNotes, /Android v27\.0\.0 release notes/);
     assert.match(releaseNotes, /FC26 History stays accessible/);
     assert.doesNotMatch(releaseNotes, /Coming to iOS|not yet available on the App Store/);
@@ -229,7 +231,7 @@ test('production pages and assets do not expose internal tooling or stale screen
 
 test('FC27 availability agrees across public surfaces', async () => {
     const home = await read('index.html');
-    assert.match(home, /27\.0\.1 is live on Google Play/);
+    assert.match(home, /iOS 27\.0\.1 · Android 27\.0\.2/);
     const hero = home.match(/<header class="hero">[\s\S]*?<\/header>/)?.[0];
     assert.ok(hero, 'homepage has a release hero');
     assert.doesNotMatch(hero, /FC26 live updates are paused/);
@@ -237,8 +239,8 @@ test('FC27 availability agrees across public surfaces', async () => {
     for (const page of ['whats-new.html', 'status.html']) {
         const html = await read(page);
         assert.match(html, /Available on the App Store and Google Play/);
-        assert.match(html, /Android 27\.0\.1 is live/);
-        assert.match(html, /iOS 27\.0\.1 is submitted for review/);
+        assert.match(html, /iOS 27\.0\.1 and Android 27\.0\.2 are available now/);
+        assert.doesNotMatch(html, /submitted for review/i);
         assert.doesNotMatch(html, /Android remains on version 1\.1\.9/);
         assert.match(html, /https:\/\/apps\.apple\.com\/app\/id6756238638/);
         assert.match(html, /https:\/\/play\.google\.com\/store\/apps\/details\?id=com\.berkaytutal\.fcclubsapp/);
