@@ -1,22 +1,20 @@
 # FC Clubs Companion - Marketing Website
 
-## Current releases — October 10, 2026
+## Current releases — October 11, 2026
 
-The app is available on the App Store and Google Play. **iOS 27.0.1 / 321 is
-Ready for Distribution**, verified through App Store Connect and the public
-Apple lookup on October 10. **Android 27.0.2 / 134 is public**, verified through
-Google Play's public English/US listing on October 10. Its incomplete-opponent
-match-import fix is the only new feature claim. Website copy and structured data
-show these current platform versions; 27.0.1 remains in both platforms' history.
-The [app candidate record](../fcclubsapp/docs/releases/v27.0.1/RELEASE_CANDIDATE.md)
-records immutable build identities; older submission snapshots retain their
-original review states.
+**27.0.3 is the latest version on iOS and Android.** The owner submitted iOS
+build 323 and Android build 137 for store review and explicitly requested that
+the website show both as available immediately, ahead of store approval.
+App Store Connect confirms 323 is `VALID` and selected in `WAITING_FOR_REVIEW`.
+This website announcement does not claim independently verified store approval.
+The [publication record](docs/WEBSITE_27_0_3.md) identifies the exact platform
+tags and source commits, availability instruction and validation procedure.
 
 The homepage uses the exact Electric Blue app icon and fresh FC27 Session Detail
 and Pro Stats screenshots. Session recaps and player contributions lead the
 presentation, with compatibility, free-slot and purchase limits beside downloads.
-The [current release update](docs/WEBSITE_RELEASES_2026_10_10.md) records approval
-and availability. The [October 8 website update](docs/WEBSITE_27_0_1.md) explains
+The [October 10 release update](docs/WEBSITE_RELEASES_2026_10_10.md) records the
+previous versions’ verified approval and availability. The [October 8 website update](docs/WEBSITE_27_0_1.md) explains
 the visual direction and search/AI-discovery checks. The [status page](https://fcclubs.app/status.html)
 retains the separate FC26 provider transition and saved-history guidance.
 

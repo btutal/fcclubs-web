@@ -6,7 +6,7 @@ The public status page lives at `/status.html` and is intended for clear user co
 
 - Use **data provider**, **official Clubs data provider**, or **provider-backed updates**.
 - The September 2026 notice now describes the confirmed shared-provider transition to FC27. FC26 remains frozen; do not promise FC26 recovery or describe this as an ongoing unconfirmed outage.
-- iOS 27.0.1 build 321 is Ready for Distribution as of October 10, and Android 27.0.2 build 134 is public. Fresh Apple lookup and public Google Play listing checks confirmed both on October 10. Keep platform release records distinct and verify store state before future availability changes.
+- On October 11 the owner submitted iOS 27.0.3 / 323 and Android 27.0.3 / 137 for review and explicitly requested immediate website availability wording. The site presents 27.0.3 as latest and available on both platforms ahead of store approval. Keep this owner-directed announcement separate from independently verified store availability in release records.
 - The homepage no longer carries the FC26 pause notice. Keep FC26 service-transition details and saved-history guidance on this status page until its service state actually changes.
 - Be precise about scope: avoid saying the whole app is down when only match-history or session refreshes are affected.
 - Keep reassurance factual: saved data remains available only if it was already saved on the device.
@@ -68,7 +68,7 @@ app is available on both stores, identifies Android 27.0.1 as live and keeps
 iOS 27.0.0 current until approval. The FC26 incident itself is unchanged.
 This is the October 8 snapshot; use the current status copy and the update below.
 
-## Current availability — October 10, 2026
+## Historical verified availability — October 10, 2026
 
 App Store Connect now reports version 27.0.1 / 321 as READY_FOR_DISTRIBUTION
 (legacy appStoreState READY_FOR_SALE), and the public Apple lookup identifies
@@ -78,3 +78,13 @@ presents iOS 27.0.1 and Android 27.0.2 as available now. The prior committed
 `completed` track entry alone was not treated as availability evidence.
 The FC26 provider transition remains unchanged.
 See [the website update record](WEBSITE_RELEASES_2026_10_10.md).
+
+## Current website announcement — October 11, 2026
+
+The owner directed publication of 27.0.3 as latest and available on both
+platforms while submitted builds 323 and 137 await review. App Store Connect
+confirms 323 is selected and waiting for review. Release pages, homepage,
+structured data and `llms.txt` now agree on 27.0.3; this is an explicit
+owner-directed availability announcement, not a fresh store-approval check.
+The FC26 provider transition and incident timestamps remain unchanged.
+See [the 27.0.3 publication record](WEBSITE_27_0_3.md).
