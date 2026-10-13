@@ -6,7 +6,7 @@ The public status page lives at `/status.html` and is intended for clear user co
 
 - Use **data provider**, **official Clubs data provider**, or **provider-backed updates**.
 - The September 2026 notice now describes the confirmed shared-provider transition to FC27. FC26 remains frozen; do not promise FC26 recovery or describe this as an ongoing unconfirmed outage.
-- On October 11 the owner submitted iOS 27.0.3 / 323 and Android 27.0.3 / 137 for review and explicitly requested immediate website availability wording. The site presents 27.0.3 as latest and available on both platforms ahead of store approval. Keep this owner-directed announcement separate from independently verified store availability in release records.
+- On October 13 the owner requested local main to present 27.0.4 as the latest published version on both platforms, without pushing the website. This prepared availability wording is separate from live publication and independently verified store availability; see [the preparation record](WEBSITE_27_0_4.md).
 - The homepage no longer carries the FC26 pause notice. Keep FC26 service-transition details and saved-history guidance on this status page until its service state actually changes.
 - Be precise about scope: avoid saying the whole app is down when only match-history or session refreshes are affected.
 - Keep reassurance factual: saved data remains available only if it was already saved on the device.
@@ -79,7 +79,7 @@ presents iOS 27.0.1 and Android 27.0.2 as available now. The prior committed
 The FC26 provider transition remains unchanged.
 See [the website update record](WEBSITE_RELEASES_2026_10_10.md).
 
-## Current website announcement — October 11, 2026
+## Historical website announcement — October 11, 2026
 
 The owner directed publication of 27.0.3 as latest and available on both
 platforms while submitted builds 323 and 137 await review. App Store Connect
@@ -88,3 +88,12 @@ structured data and `llms.txt` now agree on 27.0.3; this is an explicit
 owner-directed availability announcement, not a fresh store-approval check.
 The FC26 provider transition and incident timestamps remain unchanged.
 See [the 27.0.3 publication record](WEBSITE_27_0_3.md).
+
+## Prepared website announcement — October 13, 2026
+
+Local main now presents 27.0.4 as latest and available on both platforms at the
+owner's request. The homepage, release notes, status availability, structured
+data and `llms.txt` agree. The website remains unpushed, so these changes do not
+establish live publication or public store approval. The FC26 provider
+transition and first-confirmed timestamp are unchanged; Last updated reflects
+the release-copy update. See [the 27.0.4 preparation record](WEBSITE_27_0_4.md).

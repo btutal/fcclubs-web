@@ -161,7 +161,7 @@ test('structured data is valid and does not claim an unsupported rating', async 
     assert.deepEqual(graphTypes, ['WebSite', 'MobileApplication']);
     assert.equal(structuredData['@graph'][1].name, 'FC Clubs Stats');
     assert.equal(structuredData['@graph'][1].offers.price, '0');
-    assert.equal(structuredData['@graph'][1].softwareVersion, 'iOS 27.0.3; Android 27.0.3');
+    assert.equal(structuredData['@graph'][1].softwareVersion, 'iOS 27.0.4; Android 27.0.4');
     assert.doesNotMatch(match[1], /aggregateRating|reviewCount|ratingValue/);
 });
 
@@ -173,17 +173,28 @@ test('release notes show the paired current release and preserve platform histor
     assert.match(releaseNotes, /v27\.0\.1[\s\S]{0,200}Previous iOS and Android release/);
     assert.match(releaseNotes, /v27\.0\.2[\s\S]{0,200}Previous Android release/);
     assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Previous iOS and Android release/);
-    assert.match(releaseNotes, /v27\.0\.3[\s\S]{0,200}Latest iOS and Android · Available now/);
-    const current = releaseNotes.match(/<article class="version-block" id="v2703">[\s\S]*?<\/article>/)?.[0];
-    assert.ok(current, '27.0.3 must lead release history');
+    assert.match(releaseNotes, /v27\.0\.4[\s\S]{0,200}Latest iOS and Android · Available now/);
+    const current = releaseNotes.match(/<article class="version-block" id="v2704">[\s\S]*?<\/article>/)?.[0];
+    assert.ok(current, '27.0.4 must lead release history');
+    assert.ok(releaseNotes.indexOf('id="v2704"') < releaseNotes.indexOf('id="v2703"'));
+    assert.match(current, /datetime="2026-10-13"/);
+    assert.match(current, /iOS · More reliable club setup/);
+    assert.match(current, /keeping your current club selected/);
+    assert.match(current, /retry without choosing your club and player again/);
+    assert.match(current, /Return to an available saved club/);
+    assert.match(current, /Android · Purchased Extra Slot setup/);
+    assert.match(current, /Fix setup of purchased Extra Slots when adding a club for the first time in FC27/);
+    assert.doesNotMatch(current, /In preparation|being prepared|27\.0\.[123]/);
+    const previous = releaseNotes.match(/<article class="version-block past" id="v2703">[\s\S]*?<\/article>/)?.[0];
+    assert.ok(previous, '27.0.3 remains in release history');
     assert.ok(releaseNotes.indexOf('id="v2703"') < releaseNotes.indexOf('id="v2702"'));
-    assert.match(current, /datetime="2026-10-11"/);
-    assert.match(current, /iOS · Reliable match history/);
-    assert.match(current, /Opponent links in saved matches/);
-    assert.match(current, /Android · Optional diagnostics/);
-    assert.match(current, /Quieter Dashboard feedback/);
-    assert.match(current, /Stable telemetry inspector/);
-    assert.doesNotMatch(current, /In preparation|being prepared|27\.0\.[12]/);
+    assert.match(previous, /Previous iOS and Android release/);
+    assert.match(previous, /datetime="2026-10-11"/);
+    assert.match(previous, /iOS · Reliable match history/);
+    assert.match(previous, /Opponent links in saved matches/);
+    assert.match(previous, /Android · Optional diagnostics/);
+    assert.match(previous, /Quieter Dashboard feedback/);
+    assert.match(previous, /Stable telemetry inspector/);
     assert.doesNotMatch(releaseNotes, /Submitted for review|current App Store release is 27\.0\.0/);
     assert.match(releaseNotes, /Android v27\.0\.0 release notes/);
     assert.match(releaseNotes, /FC26 History stays accessible/);
@@ -241,8 +252,10 @@ test('production pages and assets do not expose internal tooling or stale screen
 test('FC27 availability agrees across public surfaces', async () => {
     const home = await read('index.html');
     const facts = await read('public/llms.txt');
-    assert.match(facts, /Current version: 27\.0\.3 on iOS and Android, available/);
-    assert.match(home, /27\.0\.3 · Available on iOS and Android/);
+    assert.match(facts, /Current version: 27\.0\.4 on iOS and Android, available/);
+    assert.match(home, /27\.0\.4 · Available on iOS and Android/);
+    assert.match(home, /href="\/whats-new\.html#v2704"/);
+    assert.match(facts, /https:\/\/fcclubs\.app\/whats-new\.html#v2704/);
     const hero = home.match(/<header class="hero">[\s\S]*?<\/header>/)?.[0];
     assert.ok(hero, 'homepage has a release hero');
     assert.doesNotMatch(hero, /FC26 live updates are paused/);
@@ -250,7 +263,7 @@ test('FC27 availability agrees across public surfaces', async () => {
     for (const page of ['whats-new.html', 'status.html']) {
         const html = await read(page);
         assert.match(html, /Available on the App Store and Google Play/);
-        assert.match(html, /27\.0\.3 is available now on iOS and Android/);
+        assert.match(html, /27\.0\.4 is available now on iOS and Android/);
         assert.doesNotMatch(html, /submitted for review/i);
         assert.doesNotMatch(html, /Android remains on version 1\.1\.9/);
         assert.match(html, /https:\/\/apps\.apple\.com\/app\/id6756238638/);

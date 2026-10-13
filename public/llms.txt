@@ -20,14 +20,14 @@
 - Data coverage is limited by the official Clubs data provider. Open and refresh regularly to save available matches. Background updates are best effort.
 - Previously saved FC26 history stays separate and readable. New FC26 live tracking is paused.
 - Apple iCloud and Android Google Drive backup are platform-specific; cross-platform history transfer is not supported.
-- Current version: 27.0.3 on iOS and Android, available on the App Store and Google Play.
-- iOS 27.0.3 improves match loading with incomplete opponent details and restores opponent links in saved FC27 matches and rivalries. Android 27.0.3 restores optional diagnostic uploads, keeps Dashboard refresh confirmations brief and fixes a crash when opening Backend telemetry in Debug Tools.
+- Current version: 27.0.4 on iOS and Android, available on the App Store and Google Play.
+- iOS 27.0.4 lets you set up empty Extra Slots while keeping your current club selected, retry failed setup with clear feedback and return to an available saved club when an earlier slot selection is empty. Android 27.0.4 fixes setup of purchased Extra Slots when adding a club for the first time in FC27.
 
 ## Official pages
 
 - [Product, downloads and getting started](https://fcclubs.app/): Features, supported platforms, pricing boundaries and setup answers.
 - [Pro Stats](https://fcclubs.app/pro-stats.html): Advanced metrics and purchase coverage.
-- [Release notes](https://fcclubs.app/whats-new.html#v2703): Current platform releases and update history.
+- [Release notes](https://fcclubs.app/whats-new.html#v2704): Current platform releases and update history.
 - [Service status](https://fcclubs.app/status.html): FC26 provider transition and saved-history guidance.
 - [Privacy](https://fcclubs.app/privacy.html): Data use and privacy controls.
 - [Terms](https://fcclubs.app/terms.html): Terms of use.

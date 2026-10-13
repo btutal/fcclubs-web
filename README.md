@@ -1,14 +1,18 @@
 # FC Clubs Companion - Marketing Website
 
-## Current releases — October 11, 2026
+## Prepared release announcement — October 13, 2026
 
-**27.0.3 is the latest version on iOS and Android.** The owner submitted iOS
-build 323 and Android build 137 for store review and explicitly requested that
-the website show both as available immediately, ahead of store approval.
-App Store Connect confirms 323 is `VALID` and selected in `WAITING_FOR_REVIEW`.
-This website announcement does not claim independently verified store approval.
-The [publication record](docs/WEBSITE_27_0_3.md) identifies the exact platform
-tags and source commits, availability instruction and validation procedure.
+**Local main presents 27.0.4 as the latest published version on iOS and Android.**
+The owner requested this announcement and release notes locally, without pushing
+the website. It is prepared copy for a later deployment; the live site remains
+on 27.0.3. Android 27.0.4 / 138 was uploaded to Internal and Closed Testing.
+iOS 27.0.4 / 324 completed its Xcode Cloud archive and Internal TestFlight
+distribution; App Store Connect confirms a valid build in internal beta testing.
+Testing the installed builds and public release gates remain separate.
+The [27.0.4 preparation record](docs/WEBSITE_27_0_4.md) separates source and
+artifact validation, tester availability, remaining release gates and local
+website checks. The [27.0.3 publication record](docs/WEBSITE_27_0_3.md) retains
+the earlier live announcement and its immutable platform identities.
 
 The homepage uses the exact Electric Blue app icon and fresh FC27 Session Detail
 and Pro Stats screenshots. Session recaps and player contributions lead the
