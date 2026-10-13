@@ -27,8 +27,11 @@ Archive and TestFlight Internal Testing actions both succeeded. Build
 `v27.0.4-b324` resolves to the exact source above; local build floor 300 does
 not identify the uploaded archive.
 App Store Connect has a 27.0.4 version in `PREPARE_FOR_SUBMISSION`, with an empty
-en-US What's New field at this review. Apply the canonical local iOS copy before
-public submission. This task makes no store metadata or submission changes.
+en-US What's New field at the initial review. The owner's follow-up request
+populated that field and TestFlight build 324's notes with the canonical iOS
+copy. Authenticated readback confirmed both exact texts and preserved unrelated
+metadata. This note update did not submit a version for review or change
+distribution. Public build selection and device acceptance remain separate.
 
 The detailed platform records remain in the sibling app repository:
 [Android receipt](../../fcclubsapp/docs/releases/v27.0.4/V27_0_4_RELEASE_NOTES_DRAFT.md)
@@ -60,6 +63,12 @@ entry uses October 13, 2026; 27.0.3 and all older release notes remain historica
 Homepage release text and JSON-LD, release-page search/social summaries, status
 availability, `llms.txt` and edited sitemap dates agree on 27.0.4. Provider
 incident state and first-confirmed time remain unchanged.
+
+The follow-up user-facing copy review confirmed both in-app entries and their
+generated store text contain only relevant club-setup changes. Live Play
+Internal and Alpha notes for 138 match Android's copy. The website's historical
+27.0.3 entry now omits the internal Debug Tools/telemetry inspector item while
+retaining the user-facing match-history, diagnostics and Dashboard changes.
 
 ## Local validation and publication boundary
 

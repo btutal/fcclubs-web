@@ -194,7 +194,7 @@ test('release notes show the paired current release and preserve platform histor
     assert.match(previous, /Opponent links in saved matches/);
     assert.match(previous, /Android · Optional diagnostics/);
     assert.match(previous, /Quieter Dashboard feedback/);
-    assert.match(previous, /Stable telemetry inspector/);
+    assert.doesNotMatch(releaseNotes, /Debug Tools|Backend telemetry|Stable telemetry inspector/);
     assert.doesNotMatch(releaseNotes, /Submitted for review|current App Store release is 27\.0\.0/);
     assert.match(releaseNotes, /Android v27\.0\.0 release notes/);
     assert.match(releaseNotes, /FC26 History stays accessible/);
