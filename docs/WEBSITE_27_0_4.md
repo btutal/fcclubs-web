@@ -88,3 +88,38 @@ local `main` and independently re-read remote `main` to prove it is unchanged.
 Do not push or dispatch Pages for this task. A later authorized deployment must
 verify the exact Pages revision and cache-disabled live readbacks before
 claiming publication.
+
+## October 14 readiness refresh
+
+The original snapshot above is retained as dated evidence. Authenticated app
+readback now confirms public iOS 27.0.3 / 323 and valid App Store-eligible
+merged-main builds 327/328 from `19ccdd101a0a5112e90a13889608142bc88591e6`.
+At October 14 18:16 UTC, run 328, Archive and both existing TestFlight actions
+had completed successfully. Build 328 is in Internal and External beta testing,
+with membership read back in the existing groups. Run 327's Archive and Internal
+actions also succeeded; its External action was still running. Both new binaries
+include the shortened template and are in Internal testing. The 27.0.4 App Store
+version remains Prepare for Submission with no selected build. No public
+submission or workflow change was performed.
+
+Android Internal 27.0.4 / 140 is now committed from clean merged app main
+`19ccdd101a0a5112e90a13889608142bc88591e6`. The signed bundle's production key
+and endpoint authenticated with zero data writes. Independent readback confirms
+the completed Internal track and exact notes. Alpha 138, Production 137, other
+tracks, listings, contact details and artwork are unchanged. The app's
+`docs/releases/v27.0.4/ANDROID_B140_INTERNAL_RELEASE.md` retains the immutable
+source/tag, hashes and publication receipt.
+
+The local `In preparation` notice retains the England/Scotland/Wales correction
+and adds saved club/slot details in an editable support email. Eleven tests,
+the production build, whitespace and previews at 1440, 390 and 320 pixels
+passed, with no overflow or browser errors. The live homepage, release notes,
+status, sitemap and `llms.txt` returned 200 with cache disabled and still lead
+with 27.0.3. Successful Pages run `38097464582` deployed exact remote revision
+`cb1d40f9e682624f505c8db8b01640fe8c305023`.
+
+Prepared copy is ready locally. Existing owner-authorized `available now`
+wording remains unpublished and does not establish current public store
+availability. No website push, deployment or workflow dispatch is part of the
+October 14 readiness/Internal-release operation. Exact binary/device and public
+store acceptance remain separate.

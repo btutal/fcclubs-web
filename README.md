@@ -9,6 +9,13 @@ on 27.0.3. Android 27.0.4 / 138 was uploaded to Internal and Closed Testing.
 iOS 27.0.4 / 324 completed its Xcode Cloud archive and Internal TestFlight
 distribution; App Store Connect confirms a valid build in internal beta testing.
 Testing the installed builds and public release gates remain separate.
+The October 14 readiness refresh verified public iOS 27.0.3 / 323 and Internal
+27.0.4 / 328. The merged-source archive and TestFlight distribution completed
+successfully. Android Internal 140 is published with verified
+production configuration; Alpha 138 and Production 137 remain unchanged. The upcoming website
+notice includes the saved-club/slot support draft and nationality flags. The
+local website passed its tests, build and desktop/mobile checks; the live
+site remains 27.0.3 until a separate authorized deployment.
 The [27.0.4 preparation record](docs/WEBSITE_27_0_4.md) separates source and
 artifact validation, tester availability, remaining release gates and local
 website checks. The [27.0.3 publication record](docs/WEBSITE_27_0_3.md) retains
