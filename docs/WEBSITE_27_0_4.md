@@ -1,4 +1,26 @@
-# 27.0.4 website preparation and readiness — October 13, 2026
+# 27.0.4 website release record
+
+## Publication — October 15, 2026
+
+The owner confirmed both apps are live and explicitly requested website
+publication. This supersedes the earlier local-only boundary below. Current
+copy presents 27.0.4 as available on iOS and Android, dated October 15.
+The former `In preparation` notice is incorporated into the release's shared
+flags/support section. Platform-specific paid-slot fixes remain separate.
+Search/social descriptions and `llms.txt` include the shipped improvements;
+homepage version metadata, status availability and relevant sitemap dates agree.
+The FC26 provider transition and first-confirmed timestamp are unchanged.
+
+Publication requires passing tests/build and desktop/mobile checks, a push of
+the intended website commit to `main`, successful completion of its exact
+[GitHub Pages workflow](https://github.com/btutal/fcclubs-web/actions/workflows/deploy.yml),
+then cache-disabled readbacks of homepage, release notes, status, sitemap and
+`llms.txt`. Deployment receipts are retained locally under
+`fcclubsapp/artifacts/archives/website-27.0.4-publication-2026-10-15/` in the
+sibling app checkout. These distinguish the deployed source from earlier
+preparation, app-store state and installed-device acceptance.
+
+## Historical preparation and readiness — October 13, 2026
 
 The owner requested a review of both platform releases and their notes, plus
 27.0.4 release notes and latest-published-version wording on local website

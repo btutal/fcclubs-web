@@ -22,6 +22,7 @@
 - Apple iCloud and Android Google Drive backup are platform-specific; cross-platform history transfer is not supported.
 - Current version: 27.0.4 on iOS and Android, available on the App Store and Google Play.
 - iOS 27.0.4 lets you set up empty Extra Slots while keeping your current club selected, retry failed setup with clear feedback and return to an available saved club when an earlier slot selection is empty. Android 27.0.4 fixes setup of purchased Extra Slots when adding a club for the first time in FC27.
+- Both platforms also correct England, Scotland and Wales player flags and include saved club and slot details in editable support email drafts, ready to review or remove before sending.
 
 ## Official pages
 

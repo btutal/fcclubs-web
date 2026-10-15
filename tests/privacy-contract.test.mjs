@@ -177,13 +177,15 @@ test('release notes show the paired current release and preserve platform histor
     const current = releaseNotes.match(/<article class="version-block" id="v2704">[\s\S]*?<\/article>/)?.[0];
     assert.ok(current, '27.0.4 must lead release history');
     assert.ok(releaseNotes.indexOf('id="v2704"') < releaseNotes.indexOf('id="v2703"'));
-    assert.match(current, /datetime="2026-10-13"/);
+    assert.match(current, /datetime="2026-10-15"/);
     assert.match(current, /iOS · More reliable club setup/);
     assert.match(current, /keeping your current club selected/);
     assert.match(current, /retry without choosing your club and player again/);
     assert.match(current, /Return to an available saved club/);
     assert.match(current, /Android · Purchased Extra Slot setup/);
     assert.match(current, /Fix setup of purchased Extra Slots when adding a club for the first time in FC27/);
+    assert.match(current, /England, Scotland and Wales now show their national flags/);
+    assert.match(current, /review or remove these details before sending/);
     assert.doesNotMatch(current, /In preparation|being prepared|27\.0\.[123]/);
     const previous = releaseNotes.match(/<article class="version-block past" id="v2703">[\s\S]*?<\/article>/)?.[0];
     assert.ok(previous, '27.0.3 remains in release history');
@@ -195,7 +197,7 @@ test('release notes show the paired current release and preserve platform histor
     assert.match(previous, /Android · Optional diagnostics/);
     assert.match(previous, /Quieter Dashboard feedback/);
     assert.doesNotMatch(releaseNotes, /Debug Tools|Backend telemetry|Stable telemetry inspector/);
-    assert.doesNotMatch(releaseNotes, /Submitted for review|current App Store release is 27\.0\.0/);
+    assert.doesNotMatch(releaseNotes, /Submitted for review|current App Store release is 27\.0\.0|In preparation|Next 27\.0\.4 build/);
     assert.match(releaseNotes, /Android v27\.0\.0 release notes/);
     assert.match(releaseNotes, /FC26 History stays accessible/);
     assert.doesNotMatch(releaseNotes, /Coming to iOS|not yet available on the App Store/);

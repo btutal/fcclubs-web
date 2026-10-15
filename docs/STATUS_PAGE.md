@@ -7,6 +7,7 @@ The public status page lives at `/status.html` and is intended for clear user co
 - Use **data provider**, **official Clubs data provider**, or **provider-backed updates**.
 - The September 2026 notice now describes the confirmed shared-provider transition to FC27. FC26 remains frozen; do not promise FC26 recovery or describe this as an ongoing unconfirmed outage.
 - On October 13 the owner requested local main to present 27.0.4 as the latest published version on both platforms, without pushing the website. This prepared availability wording is separate from live publication and independently verified store availability; see [the preparation record](WEBSITE_27_0_4.md).
+- On October 15 the owner confirmed both apps are live and authorized website publication. Current copy presents 27.0.4 as available on both platforms; the earlier unpushed state is historical.
 - The homepage no longer carries the FC26 pause notice. Keep FC26 service-transition details and saved-history guidance on this status page until its service state actually changes.
 - Be precise about scope: avoid saying the whole app is down when only match-history or session refreshes are affected.
 - Keep reassurance factual: saved data remains available only if it was already saved on the device.
@@ -97,3 +98,11 @@ data and `llms.txt` agree. The website remains unpushed, so these changes do not
 establish live publication or public store approval. The FC26 provider
 transition and first-confirmed timestamp are unchanged; Last updated reflects
 the release-copy update. See [the 27.0.4 preparation record](WEBSITE_27_0_4.md).
+
+## 27.0.4 publication — October 15, 2026
+
+The owner confirmed both apps are live and authorized publication of the
+prepared website. Current availability is 27.0.4 on iOS and Android. The FC26
+provider transition, affected scope and first-confirmed timestamp are unchanged;
+Last updated now reflects October 15's release-copy update. Verify the exact
+Pages revision and cache-disabled production pages after the deploy completes.
