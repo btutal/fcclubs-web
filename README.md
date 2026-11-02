@@ -1,5 +1,17 @@
 # FC Clubs Companion - Marketing Website
 
+## Local 27.0.5 preparation — 3 November 2026
+
+The owner requested matching app/website release notes and explicitly instructed
+that the website must not be pushed yet. Local copy adds an upcoming 27.0.5
+preview with community icons, the new Android icon choices and platform-specific
+fixes. The verified public version remains 27.0.4 in availability copy, status
+and structured data; no release date or store approval is invented.
+
+See [the preparation record](docs/WEBSITE_27_0_5_PREPARATION.md) for validation and
+the remaining publication switches. Do not push `main` or dispatch Pages as part
+of preparation. The site’s push-to-main workflow would publish immediately.
+
 ## Current release announcement — October 15, 2026
 
 **27.0.4 is available on iOS and Android.** The owner confirmed both apps are
