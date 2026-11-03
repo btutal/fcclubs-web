@@ -14,8 +14,10 @@ both stores. Purchased icons can be restored through the same app store.
 Android’s six free icons/Automatic are new; existing iOS free icons are not
 presented as a new iOS feature.
 
-The copy describes what a customer gains over public 27.0.4: community icons,
-Android icon choices, and all-time totals counting playoff matches once. Three
+The copy describes what a customer gains over public 27.0.4: Community Icons
+with the free Founder's Icon credited to Mature Play FC, optional paid designs
+and Submit Yours for artwork review; Android icon choices; and all-time totals
+counting playoff matches once. Three
 website benefit cards mirror the two iOS cards and three Android cards. Internal development iterations, icon-control regrouping,
 diagnostic plumbing, private build flags and Debug Tools are omitted from
 user-facing release copy.
@@ -28,7 +30,7 @@ matched it before editing. The verified public version remains 27.0.4:
 
 - Homepage/current release links, `softwareVersion`, status availability and
   the current product-facts entry remain 27.0.4.
-- The 27.0.5 block says upcoming/store approval pending, with no release date.
+- The 27.0.5 block says upcoming/not yet released, with no release date.
 - The sitemap’s homepage/release-page dates reflect this local content edit,
   not an app release date.
 

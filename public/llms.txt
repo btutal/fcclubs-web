@@ -27,7 +27,7 @@
 ## Upcoming update
 
 - Version 27.0.5 is in preparation for iOS and Android. It is not announced as publicly available.
-- Personalize FC Clubs with community app icons, starting with AC Gravitas by Osman Berk. Purchased icons can be restored through the same app store.
+- Explore Community Icons in Preferences → App Icon: the free Founder's Icon by Mature Play FC and paid designs starting with AC Gravitas by Osman Berk. Submit Yours opens the artwork submission site for review; submitting does not guarantee publication. Purchased icons can be restored through the same app store.
 - Android adds six free app icons and Automatic theme matching. Both platforms correct all-time match totals to count playoff matches once.
 - Community icon designs are separate optional purchases; availability and pricing depend on the app store and region.
 - [27.0.5 preview](https://fcclubs.app/whats-new.html#v2705): Prepared update notes. Version 27.0.4 remains the current public release.
