@@ -1,5 +1,28 @@
 # 27.0.5 website preparation
 
+## Authorized announcement — 4 November 2026
+
+The owner confirmed Google Play 27.0.5 is live and explicitly authorized website
+publication now, accepting the timing risk before separate Apple availability
+verification. The public headline is **27.0.5 is live**. It does not claim that
+Apple approval was independently verified. The homepage/current links,
+structured version, release-page marker/date, status copy, sitemap and product
+facts now identify 27.0.5; 27.0.4 remains in the release history.
+
+The feature copy remains customer-facing: Community Icons and Submit Yours,
+six free Android icon choices with Automatic, and playoff matches counted once.
+Availability and pricing still depend on each store and region. No cross-store
+purchase or restore entitlement is promised. The owner removed the personal
+credit from store release copy; the website release summary likewise names
+AC Gravitas without that credit.
+
+This local validation checkpoint does not itself establish a completed Pages
+deployment. The publishing operator must verify the exact revision and live
+readback after the authorized push. Private validation evidence is in sibling
+`audit-reports/2026-11-04-public-release/website/`.
+
+## Historical local preparation — 3 November 2026
+
 Prepared locally on 3 November 2026. The owner explicitly requested release
 notes for both apps and the website, with **no website push yet**. This work
 makes no remote publication, deployment or store-approval claim.
@@ -15,7 +38,7 @@ Android’s six free icons/Automatic are new; existing iOS free icons are not
 presented as a new iOS feature.
 
 The copy describes what a customer gains over public 27.0.4: Community Icons
-with the free Founder's Icon credited to Mature Play FC, optional paid designs
+with the free Mature Play FC icon, optional paid designs
 and Submit Yours for artwork review; Android icon choices; and all-time totals
 counting playoff matches once. Three
 website benefit cards mirror the two iOS cards and three Android cards. Internal development iterations, icon-control regrouping,

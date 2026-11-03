@@ -20,23 +20,21 @@
 - Data coverage is limited by the official Clubs data provider. Open and refresh regularly to save available matches. Background updates are best effort.
 - Previously saved FC26 history stays separate and readable. New FC26 live tracking is paused.
 - Apple iCloud and Android Google Drive backup are platform-specific; cross-platform history transfer is not supported.
-- Current version: 27.0.4 on iOS and Android, available on the App Store and Google Play.
-- iOS 27.0.4 lets you set up empty Extra Slots while keeping your current club selected, retry failed setup with clear feedback and return to an available saved club when an earlier slot selection is empty. Android 27.0.4 fixes setup of purchased Extra Slots when adding a club for the first time in FC27.
-- Both platforms also correct England, Scotland and Wales player flags and include saved club and slot details in editable support email drafts, ready to review or remove before sending.
+- Latest release: 27.0.5, announced November 4, 2026. Download FC Clubs through the App Store or Google Play; availability depends on your store and region.
 
-## Upcoming update
+## Latest update — 27.0.5
 
-- Version 27.0.5 is in preparation for iOS and Android. It is not announced as publicly available.
-- Explore Community Icons in Preferences → App Icon: the free Founder's Icon by Mature Play FC and paid designs starting with AC Gravitas by Osman Berk. Submit Yours opens the artwork submission site for review; submitting does not guarantee publication. Purchased icons can be restored through the same app store.
+- Explore Community Icons in Preferences → App Icon: the free Mature Play FC icon and paid designs starting with AC Gravitas. Submit Yours opens the artwork submission site for review; submitting does not guarantee publication. Purchased icons can be restored through the same app store.
 - Android adds six free app icons and Automatic theme matching. Both platforms correct all-time match totals to count playoff matches once.
 - Community icon designs are separate optional purchases; availability and pricing depend on the app store and region.
-- [27.0.5 preview](https://fcclubs.app/whats-new.html#v2705): Prepared update notes. Version 27.0.4 remains the current public release.
+- [27.0.5 release notes](https://fcclubs.app/whats-new.html#v2705): Community app icons, six free Android designs and corrected all-time match totals.
+- [Submit Yours](https://contribute.fcclubs.app/): Send artwork for community icon review.
 
 ## Official pages
 
 - [Product, downloads and getting started](https://fcclubs.app/): Features, supported platforms, pricing boundaries and setup answers.
 - [Pro Stats](https://fcclubs.app/pro-stats.html): Advanced metrics and purchase coverage.
-- [Release notes](https://fcclubs.app/whats-new.html#v2704): Current platform releases and update history.
+- [Release notes](https://fcclubs.app/whats-new.html#v2705): Current platform releases and update history.
 - [Service status](https://fcclubs.app/status.html): FC26 provider transition and saved-history guidance.
 - [Privacy](https://fcclubs.app/privacy.html): Data use and privacy controls.
 - [Terms](https://fcclubs.app/terms.html): Terms of use.

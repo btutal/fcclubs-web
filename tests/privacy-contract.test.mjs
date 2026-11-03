@@ -161,11 +161,11 @@ test('structured data is valid and does not claim an unsupported rating', async 
     assert.deepEqual(graphTypes, ['WebSite', 'MobileApplication']);
     assert.equal(structuredData['@graph'][1].name, 'FC Clubs Stats');
     assert.equal(structuredData['@graph'][1].offers.price, '0');
-    assert.equal(structuredData['@graph'][1].softwareVersion, 'iOS 27.0.4; Android 27.0.4');
+    assert.equal(structuredData['@graph'][1].softwareVersion, '27.0.5');
     assert.doesNotMatch(match[1], /aggregateRating|reviewCount|ratingValue/);
 });
 
-test('release notes show the paired current release and preserve platform history', async () => {
+test('release notes show the current announcement and preserve platform history', async () => {
     const releaseNotes = await read('whats-new.html');
     const releaseStyles = await read('src/whats-new.css');
 
@@ -173,20 +173,32 @@ test('release notes show the paired current release and preserve platform histor
     assert.match(releaseNotes, /v27\.0\.1[\s\S]{0,200}Previous iOS and Android release/);
     assert.match(releaseNotes, /v27\.0\.2[\s\S]{0,200}Previous Android release/);
     assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Previous iOS and Android release/);
-    assert.match(releaseNotes, /v27\.0\.4[\s\S]{0,200}Latest iOS and Android · Available now/);
-    const current = releaseNotes.match(/<article class="version-block" id="v2704">[\s\S]*?<\/article>/)?.[0];
-    assert.ok(current, '27.0.4 must lead release history');
-    assert.ok(releaseNotes.indexOf('id="v2704"') < releaseNotes.indexOf('id="v2703"'));
-    assert.match(current, /datetime="2026-10-15"/);
-    assert.match(current, /iOS · More reliable club setup/);
-    assert.match(current, /keeping your current club selected/);
-    assert.match(current, /retry without choosing your club and player again/);
-    assert.match(current, /Return to an available saved club/);
-    assert.match(current, /Android · Purchased Extra Slot setup/);
-    assert.match(current, /Fix setup of purchased Extra Slots when adding a club for the first time in FC27/);
-    assert.match(current, /England, Scotland and Wales now show their national flags/);
-    assert.match(current, /review or remove these details before sending/);
-    assert.doesNotMatch(current, /In preparation|being prepared|27\.0\.[123]/);
+    assert.match(releaseNotes, /v27\.0\.5[\s\S]{0,200}Latest release · Available now/);
+    const current = releaseNotes.match(/<article class="version-block" id="v2705">[\s\S]*?<\/article>/)?.[0];
+    assert.ok(current, '27.0.5 must lead release history');
+    assert.ok(releaseNotes.indexOf('id="v2705"') < releaseNotes.indexOf('id="v2704"'));
+    assert.match(current, /datetime="2026-11-04"/);
+    assert.match(current, /27\.0\.5 is live/);
+    assert.match(current, /iOS and Android · Community app icons/);
+    assert.match(current, /Mature Play FC/);
+    assert.match(current, /AC Gravitas \(sold separately\)/);
+    assert.match(current, /href="https:\/\/contribute\.fcclubs\.app\/"/);
+    assert.match(current, /same app store; availability and pricing depend on your store and region/);
+    assert.match(current, /Android · Six free icons and Automatic/);
+    assert.match(current, /Playoff matches counted once/);
+    assert.doesNotMatch(current, /Preview|Upcoming|Not yet released|27\.0\.[1234]/);
+    const previous2704 = releaseNotes.match(/<article class="version-block past" id="v2704">[\s\S]*?<\/article>/)?.[0];
+    assert.ok(previous2704, '27.0.4 remains in release history');
+    assert.match(previous2704, /Previous iOS and Android release/);
+    assert.match(previous2704, /datetime="2026-10-15"/);
+    assert.match(previous2704, /iOS · More reliable club setup/);
+    assert.match(previous2704, /keeping your current club selected/);
+    assert.match(previous2704, /retry without choosing your club and player again/);
+    assert.match(previous2704, /Return to an available saved club/);
+    assert.match(previous2704, /Android · Purchased Extra Slot setup/);
+    assert.match(previous2704, /Fix setup of purchased Extra Slots when adding a club for the first time in FC27/);
+    assert.match(previous2704, /England, Scotland and Wales now show their national flags/);
+    assert.match(previous2704, /review or remove these details before sending/);
     const previous = releaseNotes.match(/<article class="version-block past" id="v2703">[\s\S]*?<\/article>/)?.[0];
     assert.ok(previous, '27.0.3 remains in release history');
     assert.ok(releaseNotes.indexOf('id="v2703"') < releaseNotes.indexOf('id="v2702"'));
@@ -254,10 +266,10 @@ test('production pages and assets do not expose internal tooling or stale screen
 test('FC27 availability agrees across public surfaces', async () => {
     const home = await read('index.html');
     const facts = await read('public/llms.txt');
-    assert.match(facts, /Current version: 27\.0\.4 on iOS and Android, available/);
-    assert.match(home, /27\.0\.4 · Available on iOS and Android/);
-    assert.match(home, /href="\/whats-new\.html#v2704"/);
-    assert.match(facts, /https:\/\/fcclubs\.app\/whats-new\.html#v2704/);
+    assert.match(facts, /Latest release: 27\.0\.5, announced November 4, 2026/);
+    assert.match(home, /27\.0\.5 is live/);
+    assert.match(home, /href="\/whats-new\.html#v2705"/);
+    assert.match(facts, /https:\/\/fcclubs\.app\/whats-new\.html#v2705/);
     const hero = home.match(/<header class="hero">[\s\S]*?<\/header>/)?.[0];
     assert.ok(hero, 'homepage has a release hero');
     assert.doesNotMatch(hero, /FC26 live updates are paused/);
@@ -265,7 +277,7 @@ test('FC27 availability agrees across public surfaces', async () => {
     for (const page of ['whats-new.html', 'status.html']) {
         const html = await read(page);
         assert.match(html, /Available on the App Store and Google Play/);
-        assert.match(html, /27\.0\.4 is available now on iOS and Android/);
+        assert.match(html, /27\.0\.5 is live/);
         assert.doesNotMatch(html, /submitted for review/i);
         assert.doesNotMatch(html, /Android remains on version 1\.1\.9/);
         assert.match(html, /https:\/\/apps\.apple\.com\/app\/id6756238638/);

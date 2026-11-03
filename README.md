@@ -1,18 +1,18 @@
 # FC Clubs Companion - Marketing Website
 
-## Local 27.0.5 preparation — 3 November 2026
+## 27.0.5 announcement — 4 November 2026
 
-The owner requested matching app/website release notes and explicitly instructed
-that the website must not be pushed yet. Local copy adds an upcoming 27.0.5
-preview with community icons, the new Android icon choices and platform-specific
-fixes. The verified public version remains 27.0.4 in availability copy, status
-and structured data; no release date or store approval is invented.
+The owner confirmed Google Play 27.0.5 is live and explicitly authorized the
+website announcement and publication now. Current release links, structured data,
+release notes, status availability copy and `llms.txt` identify 27.0.5. The public
+copy says “27.0.5 is live” without presenting Apple approval as independently
+verified. Store-specific publication evidence remains in the app release record.
 
 See [the preparation record](docs/WEBSITE_27_0_5_PREPARATION.md) for validation and
-the remaining publication switches. Do not push `main` or dispatch Pages as part
-of preparation. The site’s push-to-main workflow would publish immediately.
+the earlier local-only boundary. Publication is now authorized; verify the exact
+Pages revision, cache-disabled live content and responsive pages after pushing.
 
-## Current release announcement — October 15, 2026
+## Previous release announcement — October 15, 2026
 
 **27.0.4 is available on iOS and Android.** The owner confirmed both apps are
 live and authorized website publication on October 15. Homepage availability,
