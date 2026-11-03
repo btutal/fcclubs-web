@@ -27,8 +27,8 @@
 ## Upcoming update
 
 - Version 27.0.5 is in preparation for iOS and Android. It is not announced as publicly available.
-- Planned changes include community app icons such as AC Gravitas by Osman Berk, purchased-icon restore after new sales stop, corrected all-time playoff match totals and more reliable optional diagnostic uploads.
-- Android adds six free app icons and Automatic theme matching. iOS improves the details included in support email drafts from storage recovery.
+- Personalize FC Clubs with community app icons, starting with AC Gravitas by Osman Berk. Purchased icons can be restored through the same app store.
+- Android adds six free app icons and Automatic theme matching. Both platforms correct all-time match totals to count playoff matches once.
 - Community icon designs are separate optional purchases; availability and pricing depend on the app store and region.
 - [27.0.5 preview](https://fcclubs.app/whats-new.html#v2705): Prepared update notes. Version 27.0.4 remains the current public release.
 

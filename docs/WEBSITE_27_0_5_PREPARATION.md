@@ -10,14 +10,15 @@ The release page adds an upcoming 27.0.5 preview with separate Android, iOS and
 shared sections. The homepage and product-facts file link to that preview.
 Community icons are optional purchases with app-store/region-dependent
 availability; the copy does not promise every design or one purchase across
-both stores. Existing purchased icons remain available to select and restore
-when new sales stop. Android’s six free icons/Automatic are new; existing iOS
-free icons are not presented as a new iOS feature.
+both stores. Purchased icons can be restored through the same app store.
+Android’s six free icons/Automatic are new; existing iOS free icons are not
+presented as a new iOS feature.
 
-The shared fixes cover all-time totals counting playoff matches once and more
-reliable optional diagnostic uploads. iOS recovery-support drafts have their
-own note. Internal test wording, private build flags and Debug Tools are omitted
-from user-facing release copy.
+The copy describes what a customer gains over public 27.0.4: community icons,
+Android icon choices, and all-time totals counting playoff matches once. Three
+website benefit cards mirror the two iOS cards and three Android cards. Internal development iterations, icon-control regrouping,
+diagnostic plumbing, private build flags and Debug Tools are omitted from
+user-facing release copy.
 
 ## Publication boundary
 
