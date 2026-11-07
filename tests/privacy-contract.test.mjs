@@ -175,7 +175,7 @@ test('release notes show the current announcement and preserve platform history'
     assert.match(releaseNotes, /v1\.1\.9[\s\S]{0,200}Previous iOS and Android release/);
     assert.match(releaseNotes, /v27\.0\.5[\s\S]{0,200}Latest release · Available now/);
     const current = releaseNotes.match(/<article class="version-block" id="v2705">[\s\S]*?<\/article>/)?.[0];
-    assert.ok(current, '27.0.5 must lead release history');
+    assert.ok(current, '27.0.5 remains the current public release');
     assert.ok(releaseNotes.indexOf('id="v2705"') < releaseNotes.indexOf('id="v2704"'));
     assert.match(current, /datetime="2026-11-04"/);
     assert.match(current, /27\.0\.5 is live/);

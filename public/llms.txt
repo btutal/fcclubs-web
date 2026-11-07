@@ -30,6 +30,13 @@
 - [27.0.5 release notes](https://fcclubs.app/whats-new.html#v2705): Community app icons, six free Android designs and corrected all-time match totals.
 - [Submit Yours](https://contribute.fcclubs.app/): Send artwork for community icon review.
 
+## Upcoming update — 27.0.6 (not yet released)
+
+- Preview only; store availability is pending. The latest public release remains 27.0.5.
+- Both platforms add any combination of League, Playoffs and Friendly filters inside FC27 Session Detail, selective two-decimal scoring averages, a missing-Pro-Stats notice and Studio 149 links in Settings and Credits.
+- iOS also adds clearer recovery guidance when saved data cannot open.
+- [27.0.6 preview](https://fcclubs.app/whats-new.html#v2706): Upcoming platform-specific release notes.
+
 ## Official pages
 
 - [Product, downloads and getting started](https://fcclubs.app/): Features, supported platforms, pricing boundaries and setup answers.

@@ -1,5 +1,14 @@
 # FC Clubs Companion - Marketing Website
 
+## 27.0.6 local preparation — 7 November 2026
+
+The upcoming release notes match the final iOS 355 / Android 154 candidates.
+They are prepared on a local branch only, with an explicit preview label and no
+release date. Public availability, structured data and the current release stay
+at 27.0.5. See [the preparation record](docs/WEBSITE_27_0_6_PREPARATION.md).
+Do not push or deploy this preparation until store availability and publication
+are authorized; the owner is handling both store submissions.
+
 ## 27.0.5 announcement — 4 November 2026
 
 The owner confirmed Google Play 27.0.5 is live and explicitly authorized the
