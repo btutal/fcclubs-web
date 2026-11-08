@@ -2,6 +2,13 @@
 
 This repository owns the FC Clubs marketing/support website and the local Bento graphics tool. Work from this checkout's Git root and read the relevant page or runbook for the task.
 
+## Browser use
+
+- Use the in-app browser by default for browser work.
+- Do not open, select, inspect, navigate, screenshot or automate Google Chrome, or attach to it through CDP, browser extensions or screen sharing, unless the user explicitly asks to use Chrome. A generic request to test a website or collect screenshots is not Chrome authorization.
+- If the in-app browser is unavailable, use a non-browser connector or CLI where possible, or report the blocker. Do not automatically fall back to Chrome or use a browser-launching CLI as a substitute.
+- Leave the user's personal windows, tabs, profiles and browser sessions untouched unless explicitly asked to operate that browser or session.
+
 ## Local work and verification
 
 - Carry requested local changes through relevant checks; fix failures caused by the change and report remaining gaps.
