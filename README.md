@@ -1,43 +1,41 @@
 # FC Clubs Companion - Marketing Website
 
-## 27.0.6 local preparation — 8 November 2026, 09:45 CET
+## 27.0.6 announcement — 8 November 2026
 
-The latest provider readback confirms **Android 27.0.6 (154) is published** in
-Production and Internal. **iOS 27.0.6 (358) is waiting for review**; public iOS
-remains 27.0.5. The owner has submitted both store releases. The combined
+The owner authorized the **27.0.6 is live** announcement and website publication,
+confirmed Google Play is live, and is managing Apple publication. This task does
+not query either store or claim a fresh Apple approval check. The earlier
+09:45 CET provider snapshot is preserved in the preparation record. The combined
 [GitHub release](https://github.com/btutal/fcclubsapp/releases/tag/v27.0.6-b358)
 is published with the separate immutable iOS and Android build identities.
 
-The upcoming release notes match the current iOS 358 / Android 154 candidates,
+The release notes match the selected iOS 358 / Android 154 builds,
 both version 27.0.6. iOS 358 was built from `main` source `c073b9ae`; Android
 154 retains source `400f8609`. Their runtime source and r3 notes are equivalent.
 The earlier actual-device checks remain recorded against iOS 355 / Android 154.
-The website notes are prepared locally, with an explicit preview label and no
-release date. The website's public copy, structured data and current-release
-marker stay at 27.0.5 until website publication is authorized. This website
-state is separate from Android's confirmed store availability. See
-[the preparation record](docs/WEBSITE_27_0_6_PREPARATION.md) and the app's
-[current release record](../fcclubsapp/docs/releases/v27.0.6/RELEASE_358_154_2026_11_08.md).
-Keep this preparation local: the housekeeping update does not authorize a
-website push or deployment.
+The homepage, release notes, status availability, structured data and product
+facts now identify 27.0.6, dated November 8. The prior 27.0.5 notes stay in
+history. Publication is authorized; the exact Pages revision and cache-disabled
+live readback remain required after publishing. See [the website record](docs/WEBSITE_27_0_6_PREPARATION.md),
+the app's [release record](../fcclubsapp/docs/releases/v27.0.6/RELEASE_358_154_2026_11_08.md)
+and [owner-authorized announcement](https://github.com/btutal/fcclubsapp/blob/main/docs/releases/v27.0.6/PUBLIC_ANNOUNCEMENT_2026_11_08.md).
 
-## 27.0.5 announcement — 4 November 2026
+## Historical 27.0.5 announcement — 4 November 2026
 
-The owner confirmed Google Play 27.0.5 is live and explicitly authorized the
-website announcement and publication now. Current release links, structured data,
-release notes, status availability copy and `llms.txt` identify 27.0.5. The public
-copy says “27.0.5 is live” without presenting Apple approval as independently
-verified. Store-specific publication evidence remains in the app release record.
+The owner confirmed Google Play 27.0.5 was live and explicitly authorized that
+website announcement and publication. Release links, structured data, release
+notes, status availability copy and `llms.txt` then identified 27.0.5. That
+public copy said “27.0.5 is live” without presenting Apple approval as
+independently verified. Store-specific evidence remains in the app release record.
 
 See [the preparation record](docs/WEBSITE_27_0_5_PREPARATION.md) for validation and
-the earlier local-only boundary. Publication is now authorized; verify the exact
-Pages revision, cache-disabled live content and responsive pages after pushing.
+the earlier local-only boundary and completed publication checks.
 
 ## Previous release announcement — October 15, 2026
 
-**27.0.4 is available on iOS and Android.** The owner confirmed both apps are
-live and authorized website publication on October 15. Homepage availability,
-structured data, release notes, status and `llms.txt` agree on that version.
+The owner confirmed **27.0.4 was available on iOS and Android** and authorized
+website publication on October 15. Homepage availability, structured data,
+release notes, status and `llms.txt` then agreed on that version.
 The release notes include the platform-specific Extra Slot setup fixes and the
 shared nationality-flag and editable support-email improvements.
 
@@ -92,8 +90,10 @@ the production build, and its automatic `prebuild` test hook.
 
 For an authorized publication, run the relevant tests/build and verify the live
 page after deployment. Prepare release notes locally and follow the sibling
-app's [release process](../fcclubsapp/docs/RELEASE_PROCESS.md): keep the website
-deploy branch unpushed until store approval. Local edits do not request a deploy.
+app's [release process](../fcclubsapp/docs/RELEASE_PROCESS.md), retaining its
+store-approval gate unless the owner explicitly authorizes an earlier
+announcement. Keep platform evidence distinct from that authorization. Local
+edits do not request a deploy.
 
 ## Feature Roadmap
 The official roadmap and feature status are maintained in the iOS project's Product Requirements Document.
