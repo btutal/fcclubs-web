@@ -20,9 +20,17 @@
 - Data coverage is limited by the official Clubs data provider. Open and refresh regularly to save available matches. Background updates are best effort.
 - Previously saved FC26 history stays separate and readable. New FC26 live tracking is paused.
 - Apple iCloud and Android Google Drive backup are platform-specific; cross-platform history transfer is not supported.
-- Latest release: 27.0.5, announced November 4, 2026. Download FC Clubs through the App Store or Google Play; availability depends on your store and region.
+- Latest release: 27.0.6, announced November 8, 2026. Download FC Clubs through the App Store or Google Play; availability depends on your store and region.
 
-## Latest update — 27.0.5
+## Latest update — 27.0.6
+
+- Combine League, Playoffs and Friendly match types inside FC27 Session Detail. The match list and session statistics follow your selection; All restores the full session.
+- Compare FC27 player rankings with two-decimal goals, assists and goals + assists per match. Ratings and total counts keep their existing formats.
+- Match Detail explains when the provider did not supply Pro Stats for a match. Studio 149 links are in Settings and Credits.
+- iOS also adds clearer recovery guidance and diagnostics when saved data cannot open.
+- [27.0.6 release notes](https://fcclubs.app/whats-new.html#v2706): Current platform-specific release notes.
+
+## Previous update — 27.0.5
 
 - Explore Community Icons in Preferences → App Icon: the free Mature Play FC icon and paid designs starting with AC Gravitas. Submit Yours opens the artwork submission site for review; submitting does not guarantee publication. Purchased icons can be restored through the same app store.
 - Android adds six free app icons and Automatic theme matching. Both platforms correct all-time match totals to count playoff matches once.
@@ -34,7 +42,7 @@
 
 - [Product, downloads and getting started](https://fcclubs.app/): Features, supported platforms, pricing boundaries and setup answers.
 - [Pro Stats](https://fcclubs.app/pro-stats.html): Advanced metrics and purchase coverage.
-- [Release notes](https://fcclubs.app/whats-new.html#v2705): Current platform releases and update history.
+- [Release notes](https://fcclubs.app/whats-new.html#v2706): Current platform releases and update history.
 - [Service status](https://fcclubs.app/status.html): FC26 provider transition and saved-history guidance.
 - [Privacy](https://fcclubs.app/privacy.html): Data use and privacy controls.
 - [Terms](https://fcclubs.app/terms.html): Terms of use.
