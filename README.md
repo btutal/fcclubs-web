@@ -15,8 +15,13 @@ both version 27.0.6. iOS 358 was built from `main` source `c073b9ae`; Android
 The earlier actual-device checks remain recorded against iOS 355 / Android 154.
 The homepage, release notes, status availability, structured data and product
 facts now identify 27.0.6, dated November 8. The prior 27.0.5 notes stay in
-history. Publication is authorized; the exact Pages revision and cache-disabled
-live readback remain required after publishing. See [the website record](docs/WEBSITE_27_0_6_PREPARATION.md),
+history. [GitHub Pages run 42472799735](https://github.com/btutal/fcclubs-web/actions/runs/42472799735)
+successfully published source `dc851d69c44df069394355404fc15474bb288cd0`.
+Local validation passed all 11 tests, the production build and nine responsive
+views; cache-disabled production browser checks also pass all nine views.
+All 18 cache-disabled live paths match the validated production build byte for
+byte. The documentation closeout preserves that deployed customer source. See
+[the website record](docs/WEBSITE_27_0_6_PREPARATION.md),
 the app's [release record](../fcclubsapp/docs/releases/v27.0.6/RELEASE_358_154_2026_11_08.md)
 and [owner-authorized announcement](https://github.com/btutal/fcclubsapp/blob/main/docs/releases/v27.0.6/PUBLIC_ANNOUNCEMENT_2026_11_08.md).
 
