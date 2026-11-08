@@ -1,16 +1,25 @@
 # FC Clubs Companion - Marketing Website
 
-## 27.0.6 local preparation — updated 8 November 2026
+## 27.0.6 local preparation — 8 November 2026, 09:45 CET
+
+The latest provider readback confirms **Android 27.0.6 (154) is published** in
+Production and Internal. **iOS 27.0.6 (358) is waiting for review**; public iOS
+remains 27.0.5. The owner has submitted both store releases. The combined
+[GitHub release](https://github.com/btutal/fcclubsapp/releases/tag/v27.0.6-b358)
+is published with the separate immutable iOS and Android build identities.
 
 The upcoming release notes match the current iOS 358 / Android 154 candidates,
 both version 27.0.6. iOS 358 was built from `main` source `c073b9ae`; Android
 154 retains source `400f8609`. Their runtime source and r3 notes are equivalent.
 The earlier actual-device checks remain recorded against iOS 355 / Android 154.
 The website notes are prepared locally, with an explicit preview label and no
-release date. Public availability, structured data and the current release stay
-at 27.0.5. See [the preparation record](docs/WEBSITE_27_0_6_PREPARATION.md).
-Do not push or deploy this preparation until store availability and publication
-are authorized; the owner is handling both store submissions.
+release date. The website's public copy, structured data and current-release
+marker stay at 27.0.5 until website publication is authorized. This website
+state is separate from Android's confirmed store availability. See
+[the preparation record](docs/WEBSITE_27_0_6_PREPARATION.md) and the app's
+[current release record](../fcclubsapp/docs/releases/v27.0.6/RELEASE_358_154_2026_11_08.md).
+Keep this preparation local: the housekeeping update does not authorize a
+website push or deployment.
 
 ## 27.0.5 announcement — 4 November 2026
 

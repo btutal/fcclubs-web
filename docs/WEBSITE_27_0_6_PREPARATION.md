@@ -1,5 +1,27 @@
 # 27.0.6 website preparation
 
+## Latest provider checkpoint — 8 November 2026, 09:45 CET
+
+- Google Play confirms **27.0.6 / 154 is `PUBLISHED`** in Production and
+  Internal. The current non-obsolete Production inventory no longer lists 150
+  as the published candidate.
+- App Store Connect confirms **27.0.6 / 358 is `WAITING_FOR_REVIEW`**, with the
+  owner's submitted review intact. The latest publicly released iOS version is
+  27.0.5.
+- The owner submitted both store releases. The combined
+  [GitHub release](https://github.com/btutal/fcclubsapp/releases/tag/v27.0.6-b358)
+  is published using iOS tag `v27.0.6-b358` and Android tag
+  `v27.0.6-android-b154`, with their separate source commits.
+- Website publication remains unperformed and separately gated. Customer pages
+  still use the local Upcoming preview and public website version 27.0.5. This
+  documentation-only checkpoint does not push a branch, dispatch Pages or
+  establish a website deployment.
+
+These timestamped provider observations supersede the earlier pending-store
+wording in this preparation. The app's
+[current release record](../../fcclubsapp/docs/releases/v27.0.6/RELEASE_358_154_2026_11_08.md)
+owns the detailed store, artifact and submission evidence.
+
 ## Current candidates — updated 8 November 2026
 
 Marketing version remains 27.0.6 on both platforms. iOS 358 supersedes 355 as
@@ -11,17 +33,16 @@ the selected candidate; Android remains 154.
 | Android | 27.0.6 / 154 | `400f86097b6082658738079512bb116a3d4233cc` | [v27.0.6-android-b154](https://github.com/btutal/fcclubsapp/tree/v27.0.6-android-b154) |
 
 The runtime app, store-note and shared build-script source is unchanged between
-those commits. Both candidates retain their platform-specific r3 notes. Store
-review and public-availability gates remain pending in this website record;
-current provider states belong to the app release record. The owner controls
-store submission and promotion. This record establishes neither store approval
-nor public availability nor a Pages deployment.
+those commits. Both candidates retain their platform-specific r3 notes. The
+checkpoint above records Android publication and pending Apple review;
+website publication remains a separate gate. Later documentation commits do
+not change these binary identities or authorize another store operation.
 
-The 358 archive/export review is separate from the actual TestFlight 355 device
-acceptance. Source equivalence does not turn the earlier screenshots or
-production telemetry receipt into direct installed-358 evidence. Final owner
-device checks and the exact 358 archive/provider checkpoint remain separate
-release gates; this website preparation does not assert their completion.
+The exact 358 archive/export, signing, symbols, production configuration and
+packaged notes were verified in the app release record. That review is separate
+from actual TestFlight 355 device acceptance. Source and unsigned-executable
+equivalence do not turn the earlier screenshots or production telemetry receipt
+into direct installed-358 evidence; no exact 358 device pass is claimed here.
 
 ### Original preparation — 7 November 2026
 
@@ -51,12 +72,12 @@ workflow is dispatched. Website `main` publishes automatically when pushed.
 
 ## Validation
 
-All 11 existing site tests pass. `npm run build` passes, including its required
-prebuild test hook. `git diff --check` is clean.
+At the 7 November customer-page checkpoint, all 11 existing site tests and
+`npm run build` passed, including the required prebuild test hook.
 
 Those tests and responsive checks describe the unchanged customer-facing
-website source prepared on 7 November. The 8 November candidate-record update
-only changes this document and the README; its Markdown links and
+website source prepared on 7 November. The 8 November candidate/status updates
+only change this document and the README; their Markdown links and
 `git diff --check` are verified without rerunning app or website builds.
 
 An isolated Playwright session inspected the production preview on desktop
