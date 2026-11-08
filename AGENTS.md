@@ -9,6 +9,14 @@ This repository owns the FC Clubs marketing/support website and the local Bento 
 - For site behavior/content changes, run `npm test` and `npm run build`; inspect changed layouts on desktop and mobile. Documentation-only changes need link/command verification and `git diff --check`, without unrelated browser/build work.
 - Keep secrets and large generated intermediate files out of Git.
 
+## Generated output and storage
+
+- Use one shared main-project `artifacts/` root. Honor `FC_CLUBS_ARTIFACTS_ROOT`; otherwise resolve the primary checkout from `git rev-parse --path-format=absolute --git-common-dir` and use its project parent's `artifacts/`. Worktrees share this output root while source edits remain in the current checkout. Do not create new top-level `audit-reports/`, `release-artifacts/` or worktree-local artifact trees.
+- Use `cache/fcclubs-web/<stable-checkout-id>/<tool>/` for reusable caches, `scratch/fcclubs-web/<task>/` for disposable files, `evidence/fcclubs-web/<task>/` for concise logs/selected screenshots and `releases/fcclubs-web/<version-build>/` for required release material. Derive the stable checkout ID from the current Git root instead of accumulating per-build timestamps. Use explicit tool output options and temporary directories with cleanup traps.
+- Keep Vite's normal production `dist/` and the Pages workflow contract intact. For one-off browser checks, put screenshots, snapshots and request logs in central scratch/evidence, then retain only useful proof. Do not copy whole browser profiles or secret-bearing network captures into reports; private evidence parents must be mode `0700`.
+- At completion, close task-owned browser/preview processes and remove only scratch, generated duplicate captures and rebuildable temporary output created by the task. Report retained large output with its path and size. Reuse existing test simulators; delete only clones created for the task, without erasing personal/default or active devices.
+- Preserve canonical assets, fixtures, required release/symbol/recovery material and tracked evidence. Historical artifact paths remain provenance; record relocations rather than silently rewriting old receipts. Storage cleanup does not authorize a Pages deployment or remote data deletion.
+
 ## Task-specific references
 
 - [README.md](README.md): local development, supported pages, and deployment.
