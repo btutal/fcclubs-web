@@ -34,7 +34,7 @@ artifact packet's `browser/live-responsive-report.json`, nine `live-*.png`
 screenshots and request logs retain the evidence. No store query is performed.
 
 All 18 cache-disabled live paths match the validated production build byte for
-byte, including root/home, all production HTML, JavaScript/CSS, SVG, `llms.txt`
+byte, including root/home, all production HTML, JavaScript/CSS, `llms.txt`
 and sitemap. The ignored app artifact
 `artifacts/archives/2706-publication-20261108/live-byte-readback.json` records
 the source, successful run, timestamp and each comparison.
