@@ -11,8 +11,38 @@ not turn the historical Apple snapshot below into a new approval observation.
 Customer copy now identifies 27.0.6 as the latest release, announced November 8,
 with iOS 358 and Android 154 retaining their separate immutable identities.
 The app's [announcement record](https://github.com/btutal/fcclubsapp/blob/main/docs/releases/v27.0.6/PUBLIC_ANNOUNCEMENT_2026_11_08.md)
-owns the cross-repository publication scope. Pages publication and live readback
-are separate acceptance steps, to be recorded after the final checks and push.
+owns the cross-repository publication scope. Pages successfully published the
+announcement source; the receipt below keeps deployment and live readback
+separate from platform store evidence.
+
+## Publication receipt — 8 November 2026
+
+[GitHub Pages run 42472799735](https://github.com/btutal/fcclubs-web/actions/runs/42472799735)
+successfully published source
+`dc851d69c44df069394355404fc15474bb288cd0` after website branch integration.
+Website local and remote `main` and `develop` matched this source at the
+deployment checkpoint. Its customer pages had passed all 11 tests, the
+production build and nine local responsive views, as recorded below.
+
+Cache-disabled production browser checks pass all nine views: home, release
+notes and status at 320px, 390px and 1440px. CDP HTTP-cache disabling, no-cache
+headers and a source-specific query identify the fresh readback. All release
+dates, the 27.0.6 current release and homepage JSON-LD are correct. There are
+no overflowing elements, broken images, console errors/warnings or failed
+requests; 25 observed requests succeed. Visual review passes. The ignored app
+artifact packet's `browser/live-responsive-report.json`, nine `live-*.png`
+screenshots and request logs retain the evidence. No store query is performed.
+
+All 18 cache-disabled live paths match the validated production build byte for
+byte, including root/home, all production HTML, JavaScript/CSS, SVG, `llms.txt`
+and sitemap. The ignored app artifact
+`artifacts/archives/2706-publication-20261108/live-byte-readback.json` records
+the source, successful run, timestamp and each comparison.
+
+This closeout changes only the README and this record. The deployed customer
+bytes remain tied to the source above; a documentation commit does not identify
+a new app build or a new customer-page deployment. Documentation receipt
+commits use `[ci skip]` to avoid another Pages build for prose alone.
 
 ## Earlier provider checkpoint — 8 November 2026, 09:45 CET
 
@@ -92,8 +122,8 @@ fresh `origin/main` at `97ab96289a6714b773d7fc47c69f044d997c83b1`, on local
 `627fb09e774ee606e85f5cf37e9b80a18f38d6fa`. Local `main` and `develop` both began
 at `97ab96289a6714b773d7fc47c69f044d997c83b1`; `origin/main` matched, and no
 remote `develop` existed at this preparation checkpoint. Website `main`
-publishes automatically when pushed. Commit, branch integration and publication
-will follow successful checks under the owner's current authorization.
+publishes automatically when pushed. Branch integration and publication then
+completed at the source and Pages run recorded above.
 
 ## Announcement validation — 8 November 2026
 
@@ -113,8 +143,9 @@ packet contains `local-responsive-report.json`, nine screenshots and network
 logs. No store endpoint is used in this validation.
 
 All 20 local Markdown targets in the three changed documents resolve, and
-`git diff --check` passes. The deployed Pages revision and cache-disabled live
-readback remain publication acceptance steps below.
+`git diff --check` passes. The deployed Pages revision, cache-disabled
+production browser readback and 18-path live-byte comparison are recorded
+above as separate acceptance results.
 
 ## Historical preparation validation — 7 November 2026
 
@@ -140,16 +171,14 @@ Private screenshots and CLI snapshots are retained in the app checkout's ignored
 authenticated store-browser sessions were not used. No push, Pages dispatch or
 deployment was performed.
 
-## Authorized publication checklist
+## Completed publication checks
 
-- Preserve the owner's announcement scope and distinct platform evidence above;
-  do not query stores as part of this task.
-- Run the site tests/build and inspect release, home and status at 320px, 390px
-  and 1440px, including anchors, text fit and browser errors.
-- Integrate and synchronize the intended website branches, preserving the
-  prepared commits and immutable app tags. Run `git diff --check` and local
-  Markdown link checks.
-- After publishing, record the exact Pages workflow revision and successful
-  run. Read back homepage, `whats-new.html`, `status.html`, `llms.txt`, sitemap
-  and linked production assets with cache disabled, comparing published bytes
-  to the built output. Do not infer deployment from a push alone.
+- The owner's announcement scope and distinct platform evidence are preserved;
+  no store query is performed in this task.
+- All site tests and the production build pass. Release, home and status pass
+  local and live 320px, 390px and 1440px browser checks.
+- Website `main` and `develop` integrate the prepared commits at the published
+  source above. App build tags are unchanged. Markdown links and whitespace
+  checks pass.
+- The exact Pages revision/run succeeds; all 18 cache-disabled live paths match
+  the validated built output, with nine live responsive views accepted.
